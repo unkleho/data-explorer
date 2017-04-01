@@ -16,53 +16,6 @@ class Page extends Component {
       dataSetKey: 'BIRTHS_SUMMARY',
       dataSet: null, // Current dataSet
       dataSets: buildDataSets(dataSetsRaw),
-      // dataSets: [
-      //   {
-      //     key: 'BIRTHS_SUMMARY',
-      //     name: 'Births, summary, by state',
-      //   },
-      //   {
-      //     key: 'CPI',
-      //     name: 'Consumer Price Index (CPI) 16th Series',
-      //   },
-      // ],
-      // dimensions: [
-      //   {
-      //     name: 'Measure',
-      //     options: [
-      //       { id: 1, name: 'Births' },
-      //       { id: 2, name: 'Poplulation' },
-      //       { id: 3, name: 'Crude birth rate' },
-      //       { id: 4, name: 'Male births' },
-      //       { id: 5, name: 'Female births' },
-      //       { id: 6, name: 'Sex ratio' },
-      //       { id: 7, name: 'Nuptial births' },
-      //       { id: 8, name: 'Ex-nuptial births' },
-      //       { id: 9, name: 'Ex-nuptial, paternity acknowledged births' },
-      //       { id: 10, name: 'Ex-nuptial, paternity not acknowledged births' },
-      //     ],
-      //   },
-      //   {
-      //     name: 'Region',
-      //     options: [
-      //       { id: 0, name: 'Australia' },
-      //       { id: 1, name: 'New South Wales' },
-      //       { id: 2, name: 'Victoria' },
-      //       { id: 3, name: 'Queensland' },
-      //       { id: 4, name: 'South Australia' },
-      //       { id: 5, name: 'Western Australia' },
-      //       { id: 6, name: 'Tasmania' },
-      //       { id: 7, name: 'Northern Territory' },
-      //       { id: 8, name: 'Australian Capital Territory' },
-      //     ],
-      //   },
-      //   {
-      //     name: 'Frequency',
-      //     options: [
-      //       { id: 'A', name: 'Annual' },
-      //     ],
-      //   },
-      // ],
     };
   }
 
@@ -188,9 +141,13 @@ class Page extends Component {
     return (
       <div style={{
         fontFamily: 'Arial',
+        display: 'flex',
       }}>
-        <h1>{this.state.dataSet && this.state.dataSet.name}</h1>
-        <p>{this.state.dataSetKey}</p>
+        <aside className="sidebar" style={{
+          width: '20em',
+          overflow: 'hidden',
+        }}>
+          <h1>Data Set</h1>
           <select value={this.state.dataSetKey} onChange={(event) => this.handleDataSetSelect(event)}>
             {dataSets.map((dataSet) => {
               return (
@@ -200,7 +157,7 @@ class Page extends Component {
           </select>
 
           <div style={{
-            display: 'flex',
+            // display: 'flex',
           }}>
             {dimensions && dimensions.map((dimension, i) => {
               const options = dimension.values;
@@ -222,17 +179,11 @@ class Page extends Component {
               );
             })}
           </div>
+        </aside>
 
-          {/* <select onChange={this.handleDimensionSelect}>
-            <option value={1}>Births</option>
-            <option value={2}>Population</option>
-            <option value={3}>Crude Birth Rate</option>
-            <option value={4}>Male Births</option>
-            <option value={5}>Female Births</option>
-            <option value={6}>Sex Ratio</option>
-            <option value={7}>Nuptial Births</option>
-            <option value={8}>Ex-nuptial Births</option>
-          </select> */}
+        <main className="content">
+          <h1>{this.state.dataSet && this.state.dataSet.name}</h1>
+          <p>{this.state.dataSetKey}</p>
           <VictoryChart width={600} height={400} scale={{x: "time"}} style={chartStyle}
             containerComponent={
               <VictoryZoomContainer responsive={false}
@@ -262,20 +213,6 @@ class Page extends Component {
               />
             }
           >
-            {/* <VictoryAxis
-              tickValues={[
-                new Date(1975, 1, 1),
-                new Date(1980, 1, 1),
-                new Date(1985, 1, 1),
-                new Date(1990, 1, 1),
-                new Date(1995, 1, 1),
-                new Date(2000, 1, 1),
-                new Date(2005, 1, 1),
-                new Date(2010, 1, 1),
-                new Date(2015, 1, 1)
-              ]}
-              tickFormat={(x) => new Date(x).getFullYear()}
-            /> */}
             <VictoryLine
               style={{
                 data: {stroke: "tomato"}
@@ -283,6 +220,7 @@ class Page extends Component {
               data={victoryData}
             />
           </VictoryChart>
+        </main>
 
       </div>
     );
