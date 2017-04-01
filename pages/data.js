@@ -2,6 +2,7 @@ import { Component } from 'react';
 import { VictoryZoomContainer, VictoryBrushContainer, VictoryAxis, VictoryChart, VictoryLine } from 'victory';
 import axios from 'axios';
 import Router from 'next/router';
+import Head from 'next/head'
 
 import { buildVictoryData, getName, buildApiUrl, buildMetaApiUrl, buildDataSets, getDefaultDimensionIds } from '../utils';
 import data from '../data/data';
@@ -69,32 +70,33 @@ class Page extends Component {
   handleDataSetSelect = (event) => {
     const dataSetKey = event.target.value;
 
-    Router.push(`/data/${dataSetKey}`);
+    // Router.push(`/data/${dataSetKey}`);
+    window.history.pushState(null, null,`/data/${dataSetKey}`);
 
     // Get new dataSet meta data
-    // axios.get(buildMetaApiUrl(dataSetKey))
-    //   .then(data => {
-    //     console.log('buildMetaApiUrl');
-    //     // console.log(data);
-    //     const dimensions = data.data.structure.dimensions.observation;
-    //     // Workout default dimensionIds
-    //     const dimensionIds = getDefaultDimensionIds(dimensions);
-    //     console.log(dimensionIds);
-    //     // const dimensionIds = this.state.dimensionIds;
-    //
-    //     // Get data
-    //     axios.get(buildApiUrl({ dimensionIds: dimensionIds, dataSetKey }))
-    //       .then(data => {
-    //         this.setState({ data: data.data });
-    //       })
-    //
-    //     this.setState({
-    //       dataSet: data.data.structure,
-    //       dimensions: data.data.structure.dimensions.observation,
-    //       dataSetKey,
-    //       dimensionIds,
-    //     });
-    //   })
+    axios.get(buildMetaApiUrl(dataSetKey))
+      .then(data => {
+        console.log('buildMetaApiUrl');
+        // console.log(data);
+        const dimensions = data.data.structure.dimensions.observation;
+        // Workout default dimensionIds
+        const dimensionIds = getDefaultDimensionIds(dimensions);
+        console.log(dimensionIds);
+        // const dimensionIds = this.state.dimensionIds;
+
+        // Get data
+        axios.get(buildApiUrl({ dimensionIds: dimensionIds, dataSetKey }))
+          .then(data => {
+            this.setState({ data: data.data });
+          })
+
+        this.setState({
+          dataSet: data.data.structure,
+          dimensions: data.data.structure.dimensions.observation,
+          dataSetKey,
+          dimensionIds,
+        });
+      })
   }
 
   handleDimensionSelect = (event, dimensionIndex) => {
@@ -137,17 +139,47 @@ class Page extends Component {
     // console.log(this.state.dataSet.dimensions);
     const dataSets = this.state.dataSets;
     const dimensions = this.state.dataSet && this.state.dataSet.dimensions.observation;
+    console.log('dimensions');
+    console.log(dimensions);
     // console.log(this.state.dataSet && this.state.dataSet.dimensions.observation);
     return (
       <div style={{
-        fontFamily: 'Arial',
+        // fontFamily: 'Libre Baskerville, serif',
+        // fontFamily: 'Libre Franklin, sans-serif',
         display: 'flex',
       }}>
+        <style jsx global>{`
+          body {
+            background: white;
+            font-family: 'Lato', sans-serif;
+            // letter-spacing: -0.03em;
+          }
+
+          h1 {
+            font-family: 'Libre Baskerville', serif;
+            font-size: 1.2em;
+          }
+
+          h2 {
+            font-family: 'Lato', sans-serif;
+            font-weight: 700;
+            font-size: 0.8em;
+            text-transform: uppercase;
+          }
+        `}</style>
+
+        <Head>
+          <title>My page title</title>
+          <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+          <link href="https://fonts.googleapis.com/css?family=Lato:400,700,900|Libre+Baskerville:400,400i,700" rel="stylesheet" />
+        </Head>
+
         <aside className="sidebar" style={{
           width: '20em',
           overflow: 'hidden',
+          paddingRight: '2em',
         }}>
-          <h1>Data Set</h1>
+          <h2>Data Set</h2>
           <select value={this.state.dataSetKey} onChange={(event) => this.handleDataSetSelect(event)}>
             {dataSets.map((dataSet) => {
               return (
@@ -163,7 +195,11 @@ class Page extends Component {
               const options = dimension.values;
               const currentDimensionId = this.state.dimensionIds[i];
               return (
-                <div>
+                <div style={{
+                  // marginBottom: '1em',
+                  paddingBottom: '1em',
+                  borderTop: '1px solid #EEE',
+                }}>
                   <h2>{dimension.name}</h2>
                   <select
                     value={currentDimensionId}
@@ -181,9 +217,11 @@ class Page extends Component {
           </div>
         </aside>
 
-        <main className="content">
+        <main className="content" style={{
+          paddingLeft: '2em',
+        }}>
           <h1>{this.state.dataSet && this.state.dataSet.name}</h1>
-          <p>{this.state.dataSetKey}</p>
+
           <VictoryChart width={600} height={400} scale={{x: "time"}} style={chartStyle}
             containerComponent={
               <VictoryZoomContainer responsive={false}

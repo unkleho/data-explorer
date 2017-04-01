@@ -1,306 +1,1526 @@
-{"tag":"select","name":"Datasets","id":"Datasets","children":[
-    {"tag":"option","value":"ATSI_BIRTHS_SUMM","html":"Aboriginal and Torres Strait Islander births and confinements, summary, by state"},
-    {"tag":"option","value":"ATSI_FERTILITY","html":"Aboriginal and Torres Strait Islander fertility, by age, by state"},
-    {"tag":"option","value":"ABS_ABORIGINAL_POPPROJ_INDREGION","html":"Aboriginal and Torres Strait Islander Population Projections by Indigenous  Regions"},
-    {"tag":"option","value":"ABORIGINAL_POP_PROJ_REMOTE","html":"Aboriginal and Torres Strait Islander Population Projections, Remoteness Area"},
-    {"tag":"option","value":"ABORIGINAL_POP_PROJ","html":"Aboriginal and Torres Strait Islander Population Projections, State/Territory"},
-    {"tag":"option","value":"ALC","html":"Apparent Consumption of Alcohol, Australia"},
-    {"tag":"option","value":"ABS_ACLD_LFSTATUS","html":"Australian Census Longitudinal Dataset (ACLD): Labour force status, 2006-2011"},
-    {"tag":"option","value":"ABS_ACLD_TENURE","html":"Australian Census Longitudinal Dataset (ACLD): Tenure and landlord type, 2006-2011"},
-    {"tag":"option","value":"ABS_ACLD_UNPAIDASST","html":"Australian Census Longitudinal Dataset (ACLD): Unpaid assistance to a person with disability, 2006-2011"},
-    {"tag":"option","value":"ABS_ACLD_VOLWORK","html":"Australian Census Longitudinal Dataset (ACLD): Voluntary work for an organisation or group, 2006-2011"},
-    {"tag":"option","value":"ABS_CENSUS2011_B01","html":"B01 Selected Person Characteristics"},
-    {"tag":"option","value":"ABS_CENSUS2011_B01_LGA","html":"B01 Selected Person Characteristics (LGA)"},
-    {"tag":"option","value":"ABS_CENSUS2011_B01_SA1_SA","html":"B01 Selected Person Characteristics(SA1 SA)"},
-    {"tag":"option","value":"ABS_CENSUS2011_B02","html":"B02 Selected Medians and Averages"},
-    {"tag":"option","value":"ABS_CENSUS2011_B02_LGA","html":"B02 Selected Medians and Averages (LGA)"},
-    {"tag":"option","value":"ABS_CENSUS2011_B02_SA1_SA","html":"B02 Selected Medians and Averages(SA1 SA)"},
-    {"tag":"option","value":"ABS_CENSUS2011_B03_LGA","html":"B03 Place of Usual Residence on Census Night by Age (LGA)"},
-    {"tag":"option","value":"ABS_CENSUS2011_B03","html":"B03 Place of Usual Residence on Census Night by Age (SA2+)"},
-    {"tag":"option","value":"ABS_CENSUS2011_B03_SA1_SA","html":"B03 Place of Usual Residence on Census Night by Sex(SA1 SA)"},
-    {"tag":"option","value":"ABS_CENSUS2011_B04","html":"B04 Age by Sex"},
-    {"tag":"option","value":"ABS_CENSUS2011_B04_LGA","html":"B04 Age by Sex (LGA)"},
-    {"tag":"option","value":"ABS_CENSUS2011_B04_SA1_SA","html":"B04 Age by Sex(SA1 SA)"},
-    {"tag":"option","value":"ABS_CENSUS2011_B05","html":"B05 Registered Marital Status by Age by Sex"},
-    {"tag":"option","value":"ABS_CENSUS2011_B05_LGA","html":"B05 Registered Marital Status by Age by Sex (LGA)"},
-    {"tag":"option","value":"ABS_CENSUS2011_B05_SA1_SA","html":"B05 Registered Marital Status by Age by Sex(SA1 SA)"},
-    {"tag":"option","value":"ABS_CENSUS2011_B06","html":"B06 Social Marital Status by Age by Sex"},
-    {"tag":"option","value":"ABS_CENSUS2011_B06_LGA","html":"B06 Social Marital Status by Age by Sex (LGA)"},
-    {"tag":"option","value":"ABS_CENSUS2011_B06_SA1_SA","html":"B06 Social Marital Status by Age by Sex(SA1 SA)"},
-    {"tag":"option","value":"ABS_CENSUS2011_B07","html":"B07 Indigenous Status by Age by Sex"},
-    {"tag":"option","value":"ABS_CENSUS2011_B07_LGA","html":"B07 Indigenous Status by Age by Sex (LGA)"},
-    {"tag":"option","value":"ABS_CENSUS2011_B07_SA1_SA","html":"B07 Indigenous Status by Age by Sex(SA1 SA)"},
-    {"tag":"option","value":"ABS_CENSUS2011_B08","html":"B08 Ancestry by Birthplace of Parents"},
-    {"tag":"option","value":"ABS_CENSUS2011_B08_LGA","html":"B08 Ancestry by Birthplace of Parents(LGA)"},
-    {"tag":"option","value":"ABS_CENSUS2011_B08_SA1_SA","html":"B08 Ancestry by Birthplace of Parents(SA1 SA)"},
-    {"tag":"option","value":"ABS_CENSUS2011_B09","html":"B09 Country of Birth of Person by Sex"},
-    {"tag":"option","value":"ABS_CENSUS2011_B09_LGA","html":"B09 Country of Birth of Person by Sex (LGA)"},
-    {"tag":"option","value":"ABS_CENSUS2011_B09_SA1_SA","html":"B09 Country of Birth of Person by Sex(SA1 SA)"},
-    {"tag":"option","value":"ABS_CENSUS2011_B10","html":"B10 Country of Birth of Person by Year of Arrival in Australia"},
-    {"tag":"option","value":"ABS_CENSUS2011_B10_LGA","html":"B10 Country of Birth of Person by Year of Arrival in Australia (LGA)"},
-    {"tag":"option","value":"ABS_CENSUS2011_B10_SA1_SA","html":"B10 Country of Birth of Person by Year of Arrival in Australia(SA1 SA)"},
-    {"tag":"option","value":"ABS_CENSUS2011_B11","html":"B11 Proficiency in Spoken English/Language by Year of Arrival in Australia by Sex"},
-    {"tag":"option","value":"ABS_CENSUS2011_B11_LGA","html":"B11 Proficiency in Spoken English/Language by Year of Arrival in Australia by Sex (LGA)"},
-    {"tag":"option","value":"ABS_CENSUS2011_B11_SA1_SA","html":"B11 Proficiency in Spoken English/Language by Year of Arrival in Australia by Sex(SA1 SA)"},
-    {"tag":"option","value":"ABS_CENSUS2011_B12","html":"B12 Proficiency in Spoken English/Language of Parents by Age of Dependent Children"},
-    {"tag":"option","value":"ABS_CENSUS2011_B12_LGA","html":"B12 Proficiency in Spoken English/Language of Parents by Age of Dependent Children (LGA)"},
-    {"tag":"option","value":"ABS_CENSUS2011_B12_SA1_SA","html":"B12 Proficiency in Spoken English/Language of Parents by Age of Dependent Children(SA1 SA)"},
-    {"tag":"option","value":"ABS_CENSUS2011_B13","html":"B13 Language Spoken at Home by Sex"},
-    {"tag":"option","value":"ABS_CENSUS2011_B13_LGA","html":"B13 Language Spoken at Home by Sex (LGA)"},
-    {"tag":"option","value":"ABS_CENSUS2011_B13_SA1_SA","html":"B13 Language Spoken at Home by Sex(SA1 SA)"},
-    {"tag":"option","value":"ABS_CENSUS2011_B14","html":"B14 Religious Affiliation by Sex"},
-    {"tag":"option","value":"ABS_CENSUS2011_B14_LGA","html":"B14 Religious Affiliation by Sex (LGA)"},
-    {"tag":"option","value":"ABS_CENSUS2011_B14_SA1_SA","html":"B14 Religious Affiliation by Sex(SA1 SA)"},
-    {"tag":"option","value":"ABS_CENSUS2011_B15","html":"B15 Type of Educational Institution Attending (Full/Part-Time Student Status by Age) by Sex"},
-    {"tag":"option","value":"ABS_CENSUS2011_B15_LGA","html":"B15 Type of Educational Institution Attending (Full/Part-Time Student Status by Age) by Sex (LGA)"},
-    {"tag":"option","value":"ABS_CENSUS2011_B15_SA1_SA","html":"B15 Type of Educational Institution Attending (Full/Part-Time Student Status by Age) by Sex(SA1 SA)"},
-    {"tag":"option","value":"ABS_CENSUS2011_B16","html":"B16 Highest Year of School Completed by Age by Sex"},
-    {"tag":"option","value":"ABS_CENSUS2011_B16_LGA","html":"B16 Highest Year of School Completed by Age by Sex (LGA)"},
-    {"tag":"option","value":"ABS_CENSUS2011_B16_SA1_SA","html":"B16 Highest Year of School Completed by Age by Sex(SA1 SA)"},
-    {"tag":"option","value":"ABS_CENSUS2011_B17","html":"B17 Total Personal Income (weekly) by Age by Sex"},
-    {"tag":"option","value":"ABS_CENSUS2011_B17_LGA","html":"B17 Total Personal Income (weekly) by Age by Sex (LGA)"},
-    {"tag":"option","value":"ABS_CENSUS2011_B17_SA1_SA","html":"B17 Total Personal Income (weekly) by Age by Sex(SA1 SA)"},
-    {"tag":"option","value":"ABS_CENSUS2011_B18","html":"B18 Core Activity Need for Assistance by Age by Sex"},
-    {"tag":"option","value":"ABS_CENSUS2011_B18_LGA","html":"B18 Core Activity Need for Assistance by Age by Sex (LGA)"},
-    {"tag":"option","value":"ABS_CENSUS2011_B18_SA1_SA","html":"B18 Core Activity Need for Assistance by Age by Sex(SA1 SA)"},
-    {"tag":"option","value":"ABS_CENSUS2011_B19","html":"B19 Voluntary Work for an Organisation or Group by Age by Sex"},
-    {"tag":"option","value":"ABS_CENSUS2011_B19_LGA","html":"B19 Voluntary Work for an Organisation or Group by Age by Sex (LGA)"},
-    {"tag":"option","value":"ABS_CENSUS2011_B19_SA1_SA","html":"B19 Voluntary Work for an Organisation or Group by Age by Sex(SA1 SA)"},
-    {"tag":"option","value":"ABS_CENSUS2011_B20","html":"B20 Unpaid Domestic Work: Number of Hour by Age by Sex"},
-    {"tag":"option","value":"ABS_CENSUS2011_B20_LGA","html":"B20 Unpaid Domestic Work: Number of Hour by Age by Sex (LGA)"},
-    {"tag":"option","value":"ABS_CENSUS2011_B20_SA1_SA","html":"B20 Unpaid Domestic Work: Number of Hour by Age by Sex(SA1 SA)"},
-    {"tag":"option","value":"ABS_CENSUS2011_B21","html":"B21 Unpaid Assistance to a Person with a Disability by Age by Sex"},
-    {"tag":"option","value":"ABS_CENSUS2011_B21_LGA","html":"B21 Unpaid Assistance to a Person with a Disability by Age by Sex (LGA)"},
-    {"tag":"option","value":"ABS_CENSUS2011_B21_SA1_SA","html":"B21 Unpaid Assistance to a Person with a Disability by Age by Sex(SA1 SA)"},
-    {"tag":"option","value":"ABS_CENSUS2011_B22","html":"B22 Unpaid Child Care by Age by Sex"},
-    {"tag":"option","value":"ABS_CENSUS2011_B22_LGA","html":"B22 Unpaid Child Care by Age by Sex (LGA)"},
-    {"tag":"option","value":"ABS_CENSUS2011_B22_SA1_SA","html":"B22 Unpaid Child Care by Age by Sex(SA1 SA)"},
-    {"tag":"option","value":"ABS_CENSUS2011_B23","html":"B23 Relationship in Household by Age by Sex"},
-    {"tag":"option","value":"ABS_CENSUS2011_B23_LGA","html":"B23 Relationship in Household by Age by Sex (LGA)"},
-    {"tag":"option","value":"ABS_CENSUS2011_B23_SA1_SA","html":"B23 Relationship in Household by Age by Sex(SA1 SA)"},
-    {"tag":"option","value":"ABS_CENSUS2011_B24","html":"B24 Number of Children Ever Born by Age of Parent"},
-    {"tag":"option","value":"ABS_CENSUS2011_B24_LGA","html":"B24 Number of Children Ever Born by Age of Parent (LGA)"},
-    {"tag":"option","value":"ABS_CENSUS2011_B24_SA1_SA","html":"B24 Number of Children Ever Born Night by Sex(SA1 SA)"},
-    {"tag":"option","value":"ABS_CENSUS2011_B25","html":"B25 Family Composition"},
-    {"tag":"option","value":"ABS_CENSUS2011_B25_LGA","html":"B25 Family Composition (LGA)"},
-    {"tag":"option","value":"ABS_CENSUS2011_B25_SA1_SA","html":"B25 Family Composition(SA1 SA)"},
-    {"tag":"option","value":"ABS_CENSUS2011_B26","html":"B26 Total Family Income (weekly) by Family Composition"},
-    {"tag":"option","value":"ABS_CENSUS2011_B26_LGA","html":"B26 Total Family Income (weekly) by Family Composition (LGA)"},
-    {"tag":"option","value":"ABS_CENSUS2011_B26_SA1_SA","html":"B26 Total Family Income (weekly) by Family Composition(SA1 SA)"},
-    {"tag":"option","value":"ABS_CENSUS2011_B27","html":"B27 Family Blending"},
-    {"tag":"option","value":"ABS_CENSUS2011_B27_LGA","html":"B27 Family Blending (LGA)"},
-    {"tag":"option","value":"ABS_CENSUS2011_B27_SA1_SA","html":"B27 Family Blending(SA1 SA)"},
-    {"tag":"option","value":"ABS_CENSUS2011_B28","html":"B28 Total Household Income (weekly) by Household Composition"},
-    {"tag":"option","value":"ABS_CENSUS2011_B28_LGA","html":"B28 Total Household Income (weekly) by Household Composition (LGA)"},
-    {"tag":"option","value":"ABS_CENSUS2011_B28_SA1_SA","html":"B28 Total Household Income (weekly) by Household Composition(SA1 SA)"},
-    {"tag":"option","value":"ABS_CENSUS2011_B29","html":"B29 Number of Motor Vehicles by Dwellings"},
-    {"tag":"option","value":"ABS_CENSUS2011_B29_LGA","html":"B29 Number of Motor Vehicles by Dwellings (LGA)"},
-    {"tag":"option","value":"ABS_CENSUS2011_B29_SA1_SA","html":"B29 Number of Motor Vehicles by Dwellings(SA1 SA)"},
-    {"tag":"option","value":"ABS_CENSUS2011_B30","html":"B30 Household Composition by Number of Persons Usually Resident"},
-    {"tag":"option","value":"ABS_CENSUS2011_B30_LGA","html":"B30 Household Composition by Number of Persons Usually Resident (LGA)"},
-    {"tag":"option","value":"ABS_CENSUS2011_B30_SA1_SA","html":"B30 Household Composition by Number of Persons Usually Resident(SA1 SA)"},
-    {"tag":"option","value":"ABS_CENSUS2011_B31","html":"B31 Dwelling Structure"},
-    {"tag":"option","value":"ABS_CENSUS2011_B31_LGA","html":"B31 Dwelling Structure (LGA)"},
-    {"tag":"option","value":"ABS_CENSUS2011_B31_SA1_SA","html":"B31 Dwelling Structure(SA1 SA)"},
-    {"tag":"option","value":"ABS_CENSUS2011_B32","html":"B32 Tenure Type and Landlord Type by Dwelling Structure"},
-    {"tag":"option","value":"ABS_CENSUS2011_B32_LGA","html":"B32 Tenure Type and Landlord Type by Dwelling Structure (LGA)"},
-    {"tag":"option","value":"ABS_CENSUS2011_B32_SA1_SA","html":"B32 Tenure Type and Landlord Type by Dwelling Structure(SA1 SA)"},
-    {"tag":"option","value":"ABS_CENSUS2011_B33","html":"B33 Mortgage Repayment (monthly) by Dwelling Structure"},
-    {"tag":"option","value":"ABS_CENSUS2011_B33_LGA","html":"B33 Mortgage Repayment (monthly) by Dwelling Structure (LGA)"},
-    {"tag":"option","value":"ABS_CENSUS2011_B33_SA1_SA","html":"B33 Mortgage Repayment (monthly) by Dwelling Structure(SA1 SA)"},
-    {"tag":"option","value":"ABS_CENSUS2011_B34","html":"B34 Rent (weekly) by Landlord Type"},
-    {"tag":"option","value":"ABS_CENSUS2011_B34_LGA","html":"B34 Rent (weekly) by Landlord Type (LGA)"},
-    {"tag":"option","value":"ABS_CENSUS2011_B34_SA1_SA","html":"B34 Rent (weekly) by Landlord Type(SA1 SA)"},
-    {"tag":"option","value":"ABS_CENSUS2011_B35","html":"B35 Type of Internet Connection by Dwelling Structure"},
-    {"tag":"option","value":"ABS_CENSUS2011_B35_LGA","html":"B35 Type of Internet Connection by Dwelling Structure (LGA)"},
-    {"tag":"option","value":"ABS_CENSUS2011_B35_SA1_SA","html":"B35 Type of Internet Connection by Dwelling Structure(SA1 SA)"},
-    {"tag":"option","value":"ABS_CENSUS2011_B36","html":"B36 Dwelling Structure by Number of Bedrooms"},
-    {"tag":"option","value":"ABS_CENSUS2011_B36_LGA","html":"B36 Dwelling Structure by Number of Bedrooms (LGA)"},
-    {"tag":"option","value":"ABS_CENSUS2011_B36_SA1_SA","html":"B36 Dwelling Structure by Number of Bedrooms(SA1 SA)"},
-    {"tag":"option","value":"ABS_CENSUS2011_B37","html":"B37 Selected Labour Force, Education and Migration Characteristics by Sex"},
-    {"tag":"option","value":"ABS_CENSUS2011_B37_LGA","html":"B37 Selected Labour Force, Education and Migration Characteristics by Sex (LGA)"},
-    {"tag":"option","value":"ABS_CENSUS2011_B37_SA1_SA","html":"B37 Selected Labour Force, Education and Migration Characteristics by Sex(SA1 SA)"},
-    {"tag":"option","value":"ABS_CENSUS2011_B38","html":"B38 Place of Usual Residence 1 Year Ago by Sex"},
-    {"tag":"option","value":"ABS_CENSUS2011_B38_LGA","html":"B38 Place of Usual Residence 1 Year Ago by Sex (LGA)"},
-    {"tag":"option","value":"ABS_CENSUS2011_B38_SA1_SA","html":"B38 Place of Usual Residence 1 Year Ago by Sex(SA1 SA)"},
-    {"tag":"option","value":"ABS_CENSUS2011_B39","html":"B39 Place of Usual Residence 5 Years Ago by Sex"},
-    {"tag":"option","value":"ABS_CENSUS2011_B39_LGA","html":"B39 Place of Usual Residence 5 Years Ago by Sex (LGA)"},
-    {"tag":"option","value":"ABS_CENSUS2011_B39_SA1_SA","html":"B39 Place of Usual Residence 5 Years Ago by Sex(SA1 SA)"},
-    {"tag":"option","value":"ABS_CENSUS2011_B40","html":"B40 Non-School Qualification: Level of Education by Age by Sex"},
-    {"tag":"option","value":"ABS_CENSUS2011_B40_LGA","html":"B40 Non-School Qualification: Level of Education by Age by Sex (LGA)"},
-    {"tag":"option","value":"ABS_CENSUS2011_B40_SA1_SA","html":"B40 Non-School Qualification: Level of Education by Age by Sex(SA1 SA)"},
-    {"tag":"option","value":"ABS_CENSUS2011_B41","html":"B41 Non-School Qualification: Field of Study by Age by Sex"},
-    {"tag":"option","value":"ABS_CENSUS2011_B41_LGA","html":"B41 Non-School Qualification: Field of Study by Age by Sex (LGA)"},
-    {"tag":"option","value":"ABS_CENSUS2011_B41_SA1_SA","html":"B41 Non-School Qualification: Field of Study by Age by Sex(SA1 SA)"},
-    {"tag":"option","value":"ABS_CENSUS2011_B42","html":"B42 Labour Force Status by Age by Sex"},
-    {"tag":"option","value":"ABS_CENSUS2011_B42_LGA","html":"B42 Labour Force Status by Age by Sex (LGA)"},
-    {"tag":"option","value":"ABS_CENSUS2011_B42_SA1_SA","html":"B42 Labour Force Status by Age by Sex(SA1 SA)"},
-    {"tag":"option","value":"ABS_CENSUS2011_B43","html":"B43 Industry of Employment by Age by Sex"},
-    {"tag":"option","value":"ABS_CENSUS2011_B43_LGA","html":"B43 Industry of Employment by Age by Sex (LGA)"},
-    {"tag":"option","value":"ABS_CENSUS2011_B43_SA1_SA","html":"B43 Industry of Employment by Age by Sex(SA1 SA)"},
-    {"tag":"option","value":"ABS_CENSUS2011_B44","html":"B44 Industry of Employment by Occupation"},
-    {"tag":"option","value":"ABS_CENSUS2011_B44_LGA","html":"B44 Industry of Employment by Occupation (LGA)"},
-    {"tag":"option","value":"ABS_CENSUS2011_B44_SA1_SA","html":"B44 Industry of Employment by Occupation(SA1 SA)"},
-    {"tag":"option","value":"ABS_CENSUS2011_B45","html":"B45 Occupation by Age by Sex"},
-    {"tag":"option","value":"ABS_CENSUS2011_B45_LGA","html":"B45 Occupation by Age by Sex (LGA)"},
-    {"tag":"option","value":"ABS_CENSUS2011_B45_SA1_SA","html":"B45 Occupation by Age by Sex (SA1 SA)"},
-    {"tag":"option","value":"ABS_CENSUS2011_B46","html":"B46 Method of Travel to Work by Sex"},
-    {"tag":"option","value":"ABS_CENSUS2011_B46_LGA","html":"B46 Method of Travel to Work by Sex (LGA)"},
-    {"tag":"option","value":"ABS_CENSUS2011_B46_SA1_SA","html":"B46 Method of Travel to Work by Sex (SA1 SA)"},
-    {"tag":"option","value":"BOP","html":"Balance of Payments"},
-    {"tag":"option","value":"BIRTHS_AGE_FATHER","html":"Births, by nuptiality, by age of father"},
-    {"tag":"option","value":"BIRTHS_AGE_MOTHER","html":"Births, by nuptiality, by age of mother"},
-    {"tag":"option","value":"BIRTHS_MONTH_OCCURRENCE","html":"Births, by year and month of occurrence, by state"},
-    {"tag":"option","value":"BIRTHS_SUMMARY","html":"Births, summary, by state"},
-    {"tag":"option","value":"BA_GCCSA","html":"Building Approvals by Greater Capital Cities Statistical Area (GCCSA) and above"},
-    {"tag":"option","value":"ABS_BA_SA2_ASGS2016","html":"Building Approvals by Statistical Area (SA2 and above)"},
-    {"tag":"option","value":"QBIS","html":"Business Indicators"},
-    {"tag":"option","value":"CONFINEMENTS_NUPTIALITY","html":"Confinements, by nuptiality, by state"},
-    {"tag":"option","value":"CONFINEMENTS_PLURALITY","html":"Confinements, by plurality, by state"},
-    {"tag":"option","value":"CPI","html":"Consumer Price Index (CPI) 16th Series"},
-    {"tag":"option","value":"DEATHS_MONTHOCCURENCE","html":"Deaths and Infant deaths, Year and month of occurrence, Sex, States, Territories and Australia"},
-    {"tag":"option","value":"DEATHS_AGESPECIFIC_OCCURENCEYEAR","html":"Deaths, Year of occurrence, Age at death, Age-specific death rates, Sex, States, Territories and Australia"},
-    {"tag":"option","value":"DEATHS_AGESPECIFIC_REGISTRATIONYEAR","html":"Deaths, Year of registration, Age at death, Age-specific death rates, Sex, States, Territories and Australia"},
-    {"tag":"option","value":"DEATHS_INDIGENOUS","html":"Deaths, Year of registration, Indigenous status, Age at death, Sex, Five State/Territory"},
-    {"tag":"option","value":"DEATHS_INDIGENOUS_SUMMARY","html":"Deaths, Year of registration, Indigenous status, Summary data, Sex, States, Territories and Australia"},
-    {"tag":"option","value":"DEATHS_MARITAL_STATUS","html":"Deaths, Year of registration, Marital status, Age at death, Sex, Australia"},
-    {"tag":"option","value":"DEATHS_SUMMARY","html":"Deaths, Year of registration, Summary data, Sex, States, Territories and Australia"},
-    {"tag":"option","value":"ABS_ANNUAL_ERP_LGA","html":"ERP by LGA (ASGS 2013), 1991 to 2013"},
-    {"tag":"option","value":"ABS_ERP_LGA","html":"ERP by LGA (ASGS 2013), Age and Sex, 2001 to 2013"},
-    {"tag":"option","value":"ABS_ANNUAL_ERP_LGA2014","html":"ERP by LGA (ASGS 2014), 2001 to 2014"},
-    {"tag":"option","value":"ABS_ERP_LGA2014","html":"ERP by LGA (ASGS 2014), Age and Sex, 2001 to 2014"},
-    {"tag":"option","value":"ABS_ERP_LGA2015","html":"ERP by LGA (ASGS 2015), 2001 to 2015"},
-    {"tag":"option","value":"ABS_ANNUAL_ERP_LGA2015","html":"ERP by LGA (ASGS 2015), Age and Sex, 2001 to 2015"},
-    {"tag":"option","value":"ABS_ERP_LGA2016","html":"ERP by LGA (ASGS 2016), 2001 to 2016"},
-    {"tag":"option","value":"ABS_ERP_ASGS","html":"ERP by SA2 (ASGS 2011), Age and Sex, 2001 to 2015"},
-    {"tag":"option","value":"ABS_ANNUAL_ERP_ASGS","html":"ERP by SA2 and above (ASGS 2011), 1991 to 2016"},
-    {"tag":"option","value":"ERP_COB","html":"Estimated resident population, Country of birth, Age and sex - as at 30 June 1992 onwards"},
-    {"tag":"option","value":"ABS_ERP_COB_MAG_SEXRATIO","html":"Estimated resident population, Country of birth, Median age and Sex ratio - as at 30 June 1992 onwards"},
-    {"tag":"option","value":"ABS_ERP_COB_STATE","html":"Estimated resident population, Country of birth, State/territory, Age and sex - as at 30 June 1996 onwards, Census estimates"},
-    {"tag":"option","value":"ITPI_EXPORT","html":"Export Price Index"},
-    {"tag":"option","value":"ABS_FAMILY_PROJ","html":"Family Projections, Australia, 2011 to 2036"},
-    {"tag":"option","value":"FERTILITY_AGE_STATE","html":"Fertility, by age, by state"},
-    {"tag":"option","value":"ABS_HH_PROV","html":"Household Projections, Australia, 2011 to 2036"},
-    {"tag":"option","value":"HF","html":"Housing Finance"},
-    {"tag":"option","value":"ITPI_IMPORT","html":"Import Price Index"},
-    {"tag":"option","value":"INFANTDEATHS_REGISTRATIONYEAR","html":"Infant deaths and Infant mortality rates, Year of registration, Age at death, Sex, States, Territories and Australia"},
-    {"tag":"option","value":"INFANTDEATHS_YEAROCCURENCE","html":"Infant deaths, Year of occurrence, Age at death, Sex, Australia"},
-    {"tag":"option","value":"IIP_DSID5671","html":"International Investment Position"},
-    {"tag":"option","value":"ABS_DEM_QIM","html":"Interstate Migration by States and Territories of Arrival and Departure by Sex"},
-    {"tag":"option","value":"INTERSTATEMIGRATION_CY","html":"Interstate migration: Arrivals, departures and net, State/territory, Age and sex - Calendar years, 1997 onwards"},
-    {"tag":"option","value":"INTERSTATEMIGRATION_FY","html":"Interstate migration: Arrivals, departures and net, State/territory, Age and sex - Financial years, 1996-97 onwards"},
-    {"tag":"option","value":"LF","html":"Labour Force"},
-    {"tag":"option","value":"ABS_LAND_COVER","html":"Land cover net change matrix 2005-06 to 2010-11 (Hectares)"},
-    {"tag":"option","value":"ABS_LAMPS","html":"Land Management Practices Survey, 2011-12"},
-    {"tag":"option","value":"ABS_LAMPS2014","html":"Land Management Practices Survey, 2013-14"},
-    {"tag":"option","value":"ABS_LAND_USE","html":"Land use net change matrix 2006 to 2011"},
-    {"tag":"option","value":"LENDING_INDUSTRY","html":"Lending Finance by Industry"},
-    {"tag":"option","value":"LENDING_BY_PURPOSE","html":"Lending Finance by Purpose"},
-    {"tag":"option","value":"LENDING_FINANCE_SUMMARY","html":"Lending Finance Commitments"},
-    {"tag":"option","value":"MERCH_EXP","html":"Merchandise Exports - ($ Thousands)"},
-    {"tag":"option","value":"MERCH_IMP","html":"Merchandise Imports - ($ Thousands)"},
-    {"tag":"option","value":"MINING_EXPLORATION","html":"Mineral Exploration"},
-    {"tag":"option","value":"ABS_MONETARY_ACCOUNT","html":"Monetary account for land use 2006 to 2011 ($'000)"},
-    {"tag":"option","value":"NETOVERSEASMIGRATION_CY","html":"Net overseas migration, Arrivals, departures and net, State/territory, Age and sex - Calendar years, 2004 onwards"},
-    {"tag":"option","value":"ABS_NOM_VISA_CY","html":"Net overseas migration, Arrivals, departures and net, State/territory, Major groupings and visas - Calendar years, 2004 onwards"},
-    {"tag":"option","value":"ABS_NOM_VISA_FY","html":"Net overseas migration, Arrivals, departures and net, State/territory, Major groupings and visas - Financial years, 2004-05 onwards"},
-    {"tag":"option","value":"NETOVERSEASMIGRATION_FY","html":"Net overseas migration: Arrivals, departures and net, State/territory, Age and sex - Financial years, 2004-05 onwards"},
-    {"tag":"option","value":"PATERNITY_AGE_STATE","html":"Paternity, by age, by state"},
-    {"tag":"option","value":"ABS_PERSONS_PROJ","html":"Persons Projections, Australia, 2011 to 2036"},
-    {"tag":"option","value":"PETROLEUM_EXPLORATION","html":"Petroleum Exploration"},
-    {"tag":"option","value":"ABS_PHYSICAL_ACCOUNT_LC","html":"Physical account for land cover 2006 to 2011 (Hectares)"},
-    {"tag":"option","value":"ABS_PHYSICAL_ACCOUNT_LU","html":"Physical account for land use 2006 to 2011 (Hectares)"},
-    {"tag":"option","value":"POPULATION_CLOCK_FY","html":"Population clock component data"},
-    {"tag":"option","value":"POP_PROJ_REGION_2012_2061","html":"Population Projections by Region, 2012-2061"},
-    {"tag":"option","value":"POP_PROJ_2011","html":"Population Projections, Australia, 2012-2101"},
-    {"tag":"option","value":"CAPEX","html":"Private New Capital Expenditure and Expected Expenditure"},
-    {"tag":"option","value":"PPI_SOP","html":"Producer Price Index - Stage of Production"},
-    {"tag":"option","value":"PPI_1","html":"Producer Price Indexes by Industry"},
-    {"tag":"option","value":"ERP_QUARTERLY","html":"Quarterly Population Estimates (ERP), by State/Territory, Sex and Age"},
-    {"tag":"option","value":"RIME_LGA2011","html":"Regional Internal Migration Estimates by LGA2011, 2006-07 to 2014-15 "},
-    {"tag":"option","value":"RIME_REGION","html":"Regional Internal Migration Estimates by Region (SA2 and above), 2006-07 to 2014-15"},
-    {"tag":"option","value":"RIN_SA34_GCCSA_STE","html":"Regional Internal Migration Estimates by Region (SA3 and above), Age and Sex, 2006-07 to 2014-15"},
-    {"tag":"option","value":"RIM_SA4_GCCSA_STE_H","html":"Regional Internal Migration Estimates by Region of Arrival and Departure (SA4 and above), 2006-07 to 2014-15"},
-    {"tag":"option","value":"ABS_REGIONAL_ASGS","html":"Regional Statistics by ASGS, 2011-2016"},
-    {"tag":"option","value":"ABS_REGIONAL_LGA","html":"Regional Statistics by LGA, 2011-2016"},
-    {"tag":"option","value":"RES_DWELL","html":"Residential Dwellings: Unstratified Medians and Counts by Dwelling Type by GCCSA"},
-    {"tag":"option","value":"RES_DWEL_ST","html":"Residential Dwellings: Values, Mean Price and Number by State and Territories"},
-    {"tag":"option","value":"RES_PROP_INDEX","html":"Residential Property Price Indexes, All Series by GCCSA"},
-    {"tag":"option","value":"RT","html":"Retail Trade"},
-    {"tag":"option","value":"NEWMVSALES","html":"Sales of New Motor Vehicles"},
-    {"tag":"option","value":"ABS_SEIFA_LGA","html":"SEIFA by Local Government Area (LGA)"},
-    {"tag":"option","value":"SEIFA_POA","html":"SEIFA by Postal Area Code (POA)"},
-    {"tag":"option","value":"SEIFA_SSC","html":"SEIFA by State Suburb Code (SSC)"},
-    {"tag":"option","value":"SEIFA_SA1","html":"SEIFA by Statistical Area 1 (SA1)"},
-    {"tag":"option","value":"ABS_SEIFA_SA2","html":"SEIFA by Statistical Area 2 (SA2)"},
-    {"tag":"option","value":"ABS_SEIFA_SLA","html":"SEIFA by Statistical Local Area (SLA)"},
-    {"tag":"option","value":"ABS_CENSUS2011_T01","html":"T01 Selected Person Characteristics"},
-    {"tag":"option","value":"ABS_CENSUS2011_T01_LGA","html":"T01 Selected Person Characteristics (LGA)"},
-    {"tag":"option","value":"ABS_CENSUS2011_T02","html":"T02 Selected Medians and Averages"},
-    {"tag":"option","value":"ABS_CENSUS2011_T02_LGA","html":"T02 Selected Medians and Averages (LGA)"},
-    {"tag":"option","value":"ABS_CENSUS2011_T03","html":"T03 Age by Sex"},
-    {"tag":"option","value":"ABS_CENSUS2011_T03_LGA","html":"T03 Age by Sex (LGA)"},
-    {"tag":"option","value":"ABS_CENSUS2011_T04","html":"T04 Registered Marital Status by Age by Sex"},
-    {"tag":"option","value":"ABS_CENSUS2011_T04_LGA","html":"T04 Registered Marital Status by Age by Sex (LGA)"},
-    {"tag":"option","value":"ABS_CENSUS2011_T05","html":"T05 Social Marital Status by Age by Sex"},
-    {"tag":"option","value":"ABS_CENSUS2011_T05_LGA","html":"T05 Social Marital Status by Age by Sex (LGA)"},
-    {"tag":"option","value":"ABS_CENSUS2011_T06","html":"T06 Indigenous Status by Age by Sex"},
-    {"tag":"option","value":"ABS_CENSUS2011_T06_LGA","html":"T06 Indigenous Status by Age by Sex (LGA)"},
-    {"tag":"option","value":"ABS_CENSUS2011_T07","html":"T07 Number of Children Ever Born by Age of Parent"},
-    {"tag":"option","value":"ABS_CENSUS2011_T07_LGA","html":"T07 Number of Children Ever Born by Age of Parent (LGA)"},
-    {"tag":"option","value":"ABS_CENSUS2011_T08","html":"T08 Country of Birth of Person by Sex"},
-    {"tag":"option","value":"ABS_CENSUS2011_T08_LGA","html":"T08 Country of Birth of Person by Sex (LGA)"},
-    {"tag":"option","value":"ABS_CENSUS2011_T09","html":"T09 Ancestry by Birthplace of Parents"},
-    {"tag":"option","value":"ABS_CENSUS2011_T09_LGA","html":"T09 Ancestry by Birthplace of Parents (LGA)"},
-    {"tag":"option","value":"ABS_CENSUS2011_T10","html":"T10 Language Spoken at Home by Sex"},
-    {"tag":"option","value":"ABS_CENSUS2011_T10_LGA","html":"T10 Language Spoken at Home by Sex (LGA)"},
-    {"tag":"option","value":"ABS_CENSUS2011_T11","html":"T11 Proficiency in Spoken English/Language by Age"},
-    {"tag":"option","value":"ABS_CENSUS2011_T11_LGA","html":"T11 Proficiency in Spoken English/Language by Age (LGA)"},
-    {"tag":"option","value":"ABS_CENSUS2011_T12","html":"T12 Religious Affiliation by Age"},
-    {"tag":"option","value":"ABS_CENSUS2011_T12_LGA","html":"T12 Religious Affiliation by Age (LGA)"},
-    {"tag":"option","value":"ABS_CENSUS2011_T13","html":"T13 Type of Educational Institution Attending by Sex"},
-    {"tag":"option","value":"ABS_CENSUS2011_T13_LGA","html":"T13 Type of Educational Institution Attending by Sex (LGA)"},
-    {"tag":"option","value":"ABS_CENSUS2011_T14","html":"T14 Dwelling Structure by Household Composition and Family Composition"},
-    {"tag":"option","value":"ABS_CENSUS2011_T14_LGA","html":"T14 Dwelling Structure by Household Composition and Family Composition (LGA)"},
-    {"tag":"option","value":"ABS_CENSUS2011_T15","html":"T15 Dwelling Structure by Number of Persons Usually Resident"},
-    {"tag":"option","value":"ABS_CENSUS2011_T15_LGA","html":"T15 Dwelling Structure by Number of Persons Usually Resident (LGA)"},
-    {"tag":"option","value":"ABS_CENSUS2011_T16","html":"T16 Dwelling Structure and Number of Bedrooms by Number of Persons Usually Resident for Family Households"},
-    {"tag":"option","value":"ABS_CENSUS2011_T16_LGA","html":"T16 Dwelling Structure and Number of Bedrooms by Number of Persons Usually Resident for Family Households (LGA)"},
-    {"tag":"option","value":"ABS_CENSUS2011_T17","html":"T17 Dwelling Structure and Number of Bedrooms by Number of Persons Usually Resident for Group Households"},
-    {"tag":"option","value":"ABS_CENSUS2011_T17_LGA","html":"T17 Dwelling Structure and Number of Bedrooms by Number of Persons Usually Resident for Group Households (LGA)"},
-    {"tag":"option","value":"ABS_CENSUS2011_T18","html":"T18 Tenure Type and Landlord Type by Dwelling Structure"},
-    {"tag":"option","value":"ABS_CENSUS2011_T18_LGA","html":"T18 Tenure Type and Landlord Type by Dwelling Structure (LGA)"},
-    {"tag":"option","value":"ABS_CENSUS2011_T19","html":"T19 Rent (weekly) by Landlord Type"},
-    {"tag":"option","value":"ABS_CENSUS2011_T19_LGA","html":"T19 Rent (weekly) by Landlord Type (LGA)"},
-    {"tag":"option","value":"ABS_CENSUS2011_T20","html":"T20 Rent (weekly) by Family Composition for Couple Families"},
-    {"tag":"option","value":"ABS_CENSUS2011_T20_LGA","html":"T20 Rent (weekly) by Family Composition for Couple Families (LGA)"},
-    {"tag":"option","value":"ABS_CENSUS2011_T21","html":"T21 Rent (weekly) by Family Composition for One Parent Families"},
-    {"tag":"option","value":"ABS_CENSUS2011_T21_LGA","html":"T21 Rent (weekly) by Family Composition for One Parent Families (LGA)"},
-    {"tag":"option","value":"ABS_CENSUS2011_T22","html":"T22 Total Family Income (weekly) by Number of Children for Couple Families"},
-    {"tag":"option","value":"ABS_CENSUS2011_T22_LGA","html":"T22 Total Family Income (weekly) by Number of Children for Couple Families (LGA)"},
-    {"tag":"option","value":"ABS_CENSUS2011_T23","html":"T23 Total Family Income (weekly) by Number of Children for One Parent Families"},
-    {"tag":"option","value":"ABS_CENSUS2011_T23_LGA","html":"T23 Total Family Income (weekly) by Number of Children for One Parent Families (LGA)"},
-    {"tag":"option","value":"ABS_CENSUS2011_T24","html":"T24 Total Household Income (weekly) by Rent (weekly)"},
-    {"tag":"option","value":"ABS_CENSUS2011_T24_LGA","html":"T24 Total Household Income (weekly) by Rent (weekly) (LGA)"},
-    {"tag":"option","value":"ABS_CENSUS2011_T25","html":"T25 Family Composition by Mortgage Repayment"},
-    {"tag":"option","value":"ABS_CENSUS2011_T25_LGA","html":"T25 Family Composition by Mortgage Repayment (LGA)"},
-    {"tag":"option","value":"ABS_CENSUS2011_T26","html":"T26 Family Composition by Income Comparison for Parents/Partners"},
-    {"tag":"option","value":"ABS_CENSUS2011_T26_LGA","html":"T26 Family Composition by Income Comparison for Parents/Partners (LGA)"},
-    {"tag":"option","value":"ABS_CENSUS2011_T27","html":"T27 Family Composition and Social Marital Status by Number of Dependent Children"},
-    {"tag":"option","value":"ABS_CENSUS2011_T27_LGA","html":"T27 Family Composition and Social Marital Status by Number of Dependent Children (LGA)"},
-    {"tag":"option","value":"ABS_CENSUS2011_T28","html":"T28 Selected Labour Force, Education and Migration Characteristics"},
-    {"tag":"option","value":"ABS_CENSUS2011_T28_LGA","html":"T28 Selected Labour Force, Education and Migration Characteristics (LGA)"},
-    {"tag":"option","value":"ABS_CENSUS2011_T29","html":"T29 Family Composition and Labour Force Status of Parent(s)/Partners by Total Family Income (weekly)"},
-    {"tag":"option","value":"ABS_CENSUS2011_T29_LGA","html":"T29 Family Composition and Labour Force Status of Parent(s)/Partners by Total Family Income (weekly) (LGA)"},
-    {"tag":"option","value":"ABS_CENSUS2011_T30","html":"T30 Non-School Qualification: Level of Education by Age by Sex"},
-    {"tag":"option","value":"ABS_CENSUS2011_T30_LGA","html":"T30 Non-School Qualification: Level of Education by Age by Sex (LGA)"},
-    {"tag":"option","value":"ABS_CENSUS2011_T31","html":"T31 Non-School Qualification: Field of Study by Age by Sex"},
-    {"tag":"option","value":"ABS_CENSUS2011_T31_LGA","html":"T31 Non-School Qualification: Field of Study by Age by Sex (LGA)"},
-    {"tag":"option","value":"ABS_CENSUS2011_T32","html":"T32 Labour Force Status by Age by Sex"},
-    {"tag":"option","value":"ABS_CENSUS2011_T32_LGA","html":"T32 Labour Force Status by Age by Sex (LGA)"},
-    {"tag":"option","value":"ABS_CENSUS2011_T33","html":"T33 Industry of Employment by Sex"},
-    {"tag":"option","value":"ABS_CENSUS2011_T33_LGA","html":"T33 Industry of Employment by Sex (LGA)"},
-    {"tag":"option","value":"ABS_CENSUS2011_T34","html":"T34 Occupation by Sex"},
-    {"tag":"option","value":"ABS_CENSUS2011_T34_LGA","html":"T34 Occupation by Sex (LGA)"},
-    {"tag":"option","value":"LABOUR_PRICE_INDEX","html":"Wage Price Index"}
-  ]}
+{
+	"tag": "select",
+	"name": "Datasets",
+	"id": "Datasets",
+	"children": [{
+			"tag": "option",
+			"value": "ATSI_BIRTHS_SUMM",
+			"html": "Aboriginal and Torres Strait Islander births and confinements, summary, by state"
+		},
+		{
+			"tag": "option",
+			"value": "ATSI_FERTILITY",
+			"html": "Aboriginal and Torres Strait Islander fertility, by age, by state"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_ABORIGINAL_POPPROJ_INDREGION",
+			"html": "Aboriginal and Torres Strait Islander Population Projections by Indigenous  Regions"
+		},
+		{
+			"tag": "option",
+			"value": "ABORIGINAL_POP_PROJ_REMOTE",
+			"html": "Aboriginal and Torres Strait Islander Population Projections, Remoteness Area"
+		},
+		{
+			"tag": "option",
+			"value": "ABORIGINAL_POP_PROJ",
+			"html": "Aboriginal and Torres Strait Islander Population Projections, State/Territory"
+		},
+		{
+			"tag": "option",
+			"value": "ALC",
+			"html": "Apparent Consumption of Alcohol, Australia"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_ACLD_LFSTATUS",
+			"html": "Australian Census Longitudinal Dataset (ACLD): Labour force status, 2006-2011"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_ACLD_TENURE",
+			"html": "Australian Census Longitudinal Dataset (ACLD): Tenure and landlord type, 2006-2011"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_ACLD_UNPAIDASST",
+			"html": "Australian Census Longitudinal Dataset (ACLD): Unpaid assistance to a person with disability, 2006-2011"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_ACLD_VOLWORK",
+			"html": "Australian Census Longitudinal Dataset (ACLD): Voluntary work for an organisation or group, 2006-2011"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_B01",
+			"html": "B01 Selected Person Characteristics"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_B01_LGA",
+			"html": "B01 Selected Person Characteristics (LGA)"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_B01_SA1_SA",
+			"html": "B01 Selected Person Characteristics(SA1 SA)"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_B02",
+			"html": "B02 Selected Medians and Averages"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_B02_LGA",
+			"html": "B02 Selected Medians and Averages (LGA)"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_B02_SA1_SA",
+			"html": "B02 Selected Medians and Averages(SA1 SA)"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_B03_LGA",
+			"html": "B03 Place of Usual Residence on Census Night by Age (LGA)"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_B03",
+			"html": "B03 Place of Usual Residence on Census Night by Age (SA2+)"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_B03_SA1_SA",
+			"html": "B03 Place of Usual Residence on Census Night by Sex(SA1 SA)"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_B04",
+			"html": "B04 Age by Sex"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_B04_LGA",
+			"html": "B04 Age by Sex (LGA)"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_B04_SA1_SA",
+			"html": "B04 Age by Sex(SA1 SA)"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_B05",
+			"html": "B05 Registered Marital Status by Age by Sex"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_B05_LGA",
+			"html": "B05 Registered Marital Status by Age by Sex (LGA)"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_B05_SA1_SA",
+			"html": "B05 Registered Marital Status by Age by Sex(SA1 SA)"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_B06",
+			"html": "B06 Social Marital Status by Age by Sex"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_B06_LGA",
+			"html": "B06 Social Marital Status by Age by Sex (LGA)"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_B06_SA1_SA",
+			"html": "B06 Social Marital Status by Age by Sex(SA1 SA)"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_B07",
+			"html": "B07 Indigenous Status by Age by Sex"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_B07_LGA",
+			"html": "B07 Indigenous Status by Age by Sex (LGA)"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_B07_SA1_SA",
+			"html": "B07 Indigenous Status by Age by Sex(SA1 SA)"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_B08",
+			"html": "B08 Ancestry by Birthplace of Parents"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_B08_LGA",
+			"html": "B08 Ancestry by Birthplace of Parents(LGA)"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_B08_SA1_SA",
+			"html": "B08 Ancestry by Birthplace of Parents(SA1 SA)"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_B09",
+			"html": "B09 Country of Birth of Person by Sex"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_B09_LGA",
+			"html": "B09 Country of Birth of Person by Sex (LGA)"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_B09_SA1_SA",
+			"html": "B09 Country of Birth of Person by Sex(SA1 SA)"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_B10",
+			"html": "B10 Country of Birth of Person by Year of Arrival in Australia"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_B10_LGA",
+			"html": "B10 Country of Birth of Person by Year of Arrival in Australia (LGA)"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_B10_SA1_SA",
+			"html": "B10 Country of Birth of Person by Year of Arrival in Australia(SA1 SA)"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_B11",
+			"html": "B11 Proficiency in Spoken English/Language by Year of Arrival in Australia by Sex"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_B11_LGA",
+			"html": "B11 Proficiency in Spoken English/Language by Year of Arrival in Australia by Sex (LGA)"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_B11_SA1_SA",
+			"html": "B11 Proficiency in Spoken English/Language by Year of Arrival in Australia by Sex(SA1 SA)"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_B12",
+			"html": "B12 Proficiency in Spoken English/Language of Parents by Age of Dependent Children"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_B12_LGA",
+			"html": "B12 Proficiency in Spoken English/Language of Parents by Age of Dependent Children (LGA)"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_B12_SA1_SA",
+			"html": "B12 Proficiency in Spoken English/Language of Parents by Age of Dependent Children(SA1 SA)"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_B13",
+			"html": "B13 Language Spoken at Home by Sex"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_B13_LGA",
+			"html": "B13 Language Spoken at Home by Sex (LGA)"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_B13_SA1_SA",
+			"html": "B13 Language Spoken at Home by Sex(SA1 SA)"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_B14",
+			"html": "B14 Religious Affiliation by Sex"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_B14_LGA",
+			"html": "B14 Religious Affiliation by Sex (LGA)"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_B14_SA1_SA",
+			"html": "B14 Religious Affiliation by Sex(SA1 SA)"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_B15",
+			"html": "B15 Type of Educational Institution Attending (Full/Part-Time Student Status by Age) by Sex"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_B15_LGA",
+			"html": "B15 Type of Educational Institution Attending (Full/Part-Time Student Status by Age) by Sex (LGA)"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_B15_SA1_SA",
+			"html": "B15 Type of Educational Institution Attending (Full/Part-Time Student Status by Age) by Sex(SA1 SA)"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_B16",
+			"html": "B16 Highest Year of School Completed by Age by Sex"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_B16_LGA",
+			"html": "B16 Highest Year of School Completed by Age by Sex (LGA)"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_B16_SA1_SA",
+			"html": "B16 Highest Year of School Completed by Age by Sex(SA1 SA)"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_B17",
+			"html": "B17 Total Personal Income (weekly) by Age by Sex"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_B17_LGA",
+			"html": "B17 Total Personal Income (weekly) by Age by Sex (LGA)"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_B17_SA1_SA",
+			"html": "B17 Total Personal Income (weekly) by Age by Sex(SA1 SA)"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_B18",
+			"html": "B18 Core Activity Need for Assistance by Age by Sex"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_B18_LGA",
+			"html": "B18 Core Activity Need for Assistance by Age by Sex (LGA)"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_B18_SA1_SA",
+			"html": "B18 Core Activity Need for Assistance by Age by Sex(SA1 SA)"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_B19",
+			"html": "B19 Voluntary Work for an Organisation or Group by Age by Sex"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_B19_LGA",
+			"html": "B19 Voluntary Work for an Organisation or Group by Age by Sex (LGA)"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_B19_SA1_SA",
+			"html": "B19 Voluntary Work for an Organisation or Group by Age by Sex(SA1 SA)"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_B20",
+			"html": "B20 Unpaid Domestic Work: Number of Hour by Age by Sex"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_B20_LGA",
+			"html": "B20 Unpaid Domestic Work: Number of Hour by Age by Sex (LGA)"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_B20_SA1_SA",
+			"html": "B20 Unpaid Domestic Work: Number of Hour by Age by Sex(SA1 SA)"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_B21",
+			"html": "B21 Unpaid Assistance to a Person with a Disability by Age by Sex"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_B21_LGA",
+			"html": "B21 Unpaid Assistance to a Person with a Disability by Age by Sex (LGA)"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_B21_SA1_SA",
+			"html": "B21 Unpaid Assistance to a Person with a Disability by Age by Sex(SA1 SA)"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_B22",
+			"html": "B22 Unpaid Child Care by Age by Sex"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_B22_LGA",
+			"html": "B22 Unpaid Child Care by Age by Sex (LGA)"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_B22_SA1_SA",
+			"html": "B22 Unpaid Child Care by Age by Sex(SA1 SA)"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_B23",
+			"html": "B23 Relationship in Household by Age by Sex"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_B23_LGA",
+			"html": "B23 Relationship in Household by Age by Sex (LGA)"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_B23_SA1_SA",
+			"html": "B23 Relationship in Household by Age by Sex(SA1 SA)"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_B24",
+			"html": "B24 Number of Children Ever Born by Age of Parent"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_B24_LGA",
+			"html": "B24 Number of Children Ever Born by Age of Parent (LGA)"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_B24_SA1_SA",
+			"html": "B24 Number of Children Ever Born Night by Sex(SA1 SA)"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_B25",
+			"html": "B25 Family Composition"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_B25_LGA",
+			"html": "B25 Family Composition (LGA)"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_B25_SA1_SA",
+			"html": "B25 Family Composition(SA1 SA)"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_B26",
+			"html": "B26 Total Family Income (weekly) by Family Composition"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_B26_LGA",
+			"html": "B26 Total Family Income (weekly) by Family Composition (LGA)"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_B26_SA1_SA",
+			"html": "B26 Total Family Income (weekly) by Family Composition(SA1 SA)"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_B27",
+			"html": "B27 Family Blending"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_B27_LGA",
+			"html": "B27 Family Blending (LGA)"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_B27_SA1_SA",
+			"html": "B27 Family Blending(SA1 SA)"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_B28",
+			"html": "B28 Total Household Income (weekly) by Household Composition"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_B28_LGA",
+			"html": "B28 Total Household Income (weekly) by Household Composition (LGA)"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_B28_SA1_SA",
+			"html": "B28 Total Household Income (weekly) by Household Composition(SA1 SA)"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_B29",
+			"html": "B29 Number of Motor Vehicles by Dwellings"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_B29_LGA",
+			"html": "B29 Number of Motor Vehicles by Dwellings (LGA)"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_B29_SA1_SA",
+			"html": "B29 Number of Motor Vehicles by Dwellings(SA1 SA)"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_B30",
+			"html": "B30 Household Composition by Number of Persons Usually Resident"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_B30_LGA",
+			"html": "B30 Household Composition by Number of Persons Usually Resident (LGA)"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_B30_SA1_SA",
+			"html": "B30 Household Composition by Number of Persons Usually Resident(SA1 SA)"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_B31",
+			"html": "B31 Dwelling Structure"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_B31_LGA",
+			"html": "B31 Dwelling Structure (LGA)"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_B31_SA1_SA",
+			"html": "B31 Dwelling Structure(SA1 SA)"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_B32",
+			"html": "B32 Tenure Type and Landlord Type by Dwelling Structure"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_B32_LGA",
+			"html": "B32 Tenure Type and Landlord Type by Dwelling Structure (LGA)"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_B32_SA1_SA",
+			"html": "B32 Tenure Type and Landlord Type by Dwelling Structure(SA1 SA)"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_B33",
+			"html": "B33 Mortgage Repayment (monthly) by Dwelling Structure"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_B33_LGA",
+			"html": "B33 Mortgage Repayment (monthly) by Dwelling Structure (LGA)"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_B33_SA1_SA",
+			"html": "B33 Mortgage Repayment (monthly) by Dwelling Structure(SA1 SA)"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_B34",
+			"html": "B34 Rent (weekly) by Landlord Type"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_B34_LGA",
+			"html": "B34 Rent (weekly) by Landlord Type (LGA)"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_B34_SA1_SA",
+			"html": "B34 Rent (weekly) by Landlord Type(SA1 SA)"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_B35",
+			"html": "B35 Type of Internet Connection by Dwelling Structure"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_B35_LGA",
+			"html": "B35 Type of Internet Connection by Dwelling Structure (LGA)"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_B35_SA1_SA",
+			"html": "B35 Type of Internet Connection by Dwelling Structure(SA1 SA)"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_B36",
+			"html": "B36 Dwelling Structure by Number of Bedrooms"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_B36_LGA",
+			"html": "B36 Dwelling Structure by Number of Bedrooms (LGA)"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_B36_SA1_SA",
+			"html": "B36 Dwelling Structure by Number of Bedrooms(SA1 SA)"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_B37",
+			"html": "B37 Selected Labour Force, Education and Migration Characteristics by Sex"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_B37_LGA",
+			"html": "B37 Selected Labour Force, Education and Migration Characteristics by Sex (LGA)"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_B37_SA1_SA",
+			"html": "B37 Selected Labour Force, Education and Migration Characteristics by Sex(SA1 SA)"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_B38",
+			"html": "B38 Place of Usual Residence 1 Year Ago by Sex"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_B38_LGA",
+			"html": "B38 Place of Usual Residence 1 Year Ago by Sex (LGA)"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_B38_SA1_SA",
+			"html": "B38 Place of Usual Residence 1 Year Ago by Sex(SA1 SA)"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_B39",
+			"html": "B39 Place of Usual Residence 5 Years Ago by Sex"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_B39_LGA",
+			"html": "B39 Place of Usual Residence 5 Years Ago by Sex (LGA)"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_B39_SA1_SA",
+			"html": "B39 Place of Usual Residence 5 Years Ago by Sex(SA1 SA)"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_B40",
+			"html": "B40 Non-School Qualification: Level of Education by Age by Sex"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_B40_LGA",
+			"html": "B40 Non-School Qualification: Level of Education by Age by Sex (LGA)"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_B40_SA1_SA",
+			"html": "B40 Non-School Qualification: Level of Education by Age by Sex(SA1 SA)"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_B41",
+			"html": "B41 Non-School Qualification: Field of Study by Age by Sex"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_B41_LGA",
+			"html": "B41 Non-School Qualification: Field of Study by Age by Sex (LGA)"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_B41_SA1_SA",
+			"html": "B41 Non-School Qualification: Field of Study by Age by Sex(SA1 SA)"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_B42",
+			"html": "B42 Labour Force Status by Age by Sex"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_B42_LGA",
+			"html": "B42 Labour Force Status by Age by Sex (LGA)"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_B42_SA1_SA",
+			"html": "B42 Labour Force Status by Age by Sex(SA1 SA)"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_B43",
+			"html": "B43 Industry of Employment by Age by Sex"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_B43_LGA",
+			"html": "B43 Industry of Employment by Age by Sex (LGA)"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_B43_SA1_SA",
+			"html": "B43 Industry of Employment by Age by Sex(SA1 SA)"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_B44",
+			"html": "B44 Industry of Employment by Occupation"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_B44_LGA",
+			"html": "B44 Industry of Employment by Occupation (LGA)"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_B44_SA1_SA",
+			"html": "B44 Industry of Employment by Occupation(SA1 SA)"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_B45",
+			"html": "B45 Occupation by Age by Sex"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_B45_LGA",
+			"html": "B45 Occupation by Age by Sex (LGA)"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_B45_SA1_SA",
+			"html": "B45 Occupation by Age by Sex (SA1 SA)"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_B46",
+			"html": "B46 Method of Travel to Work by Sex"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_B46_LGA",
+			"html": "B46 Method of Travel to Work by Sex (LGA)"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_B46_SA1_SA",
+			"html": "B46 Method of Travel to Work by Sex (SA1 SA)"
+		},
+		{
+			"tag": "option",
+			"value": "BOP",
+			"html": "Balance of Payments"
+		},
+		{
+			"tag": "option",
+			"value": "BIRTHS_AGE_FATHER",
+			"html": "Births, by nuptiality, by age of father"
+		},
+		{
+			"tag": "option",
+			"value": "BIRTHS_AGE_MOTHER",
+			"html": "Births, by nuptiality, by age of mother"
+		},
+		{
+			"tag": "option",
+			"value": "BIRTHS_MONTH_OCCURRENCE",
+			"html": "Births, by year and month of occurrence, by state"
+		},
+		{
+			"tag": "option",
+			"value": "BIRTHS_SUMMARY",
+			"html": "Births, summary, by state"
+		},
+		{
+			"tag": "option",
+			"value": "BA_GCCSA",
+			"html": "Building Approvals by Greater Capital Cities Statistical Area (GCCSA) and above"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_BA_SA2_ASGS2016",
+			"html": "Building Approvals by Statistical Area (SA2 and above)"
+		},
+		{
+			"tag": "option",
+			"value": "QBIS",
+			"html": "Business Indicators"
+		},
+		{
+			"tag": "option",
+			"value": "CONFINEMENTS_NUPTIALITY",
+			"html": "Confinements, by nuptiality, by state"
+		},
+		{
+			"tag": "option",
+			"value": "CONFINEMENTS_PLURALITY",
+			"html": "Confinements, by plurality, by state"
+		},
+		{
+			"tag": "option",
+			"value": "CPI",
+			"html": "Consumer Price Index (CPI) 16th Series"
+		},
+		{
+			"tag": "option",
+			"value": "DEATHS_MONTHOCCURENCE",
+			"html": "Deaths and Infant deaths, Year and month of occurrence, Sex, States, Territories and Australia"
+		},
+		{
+			"tag": "option",
+			"value": "DEATHS_AGESPECIFIC_OCCURENCEYEAR",
+			"html": "Deaths, Year of occurrence, Age at death, Age-specific death rates, Sex, States, Territories and Australia"
+		},
+		{
+			"tag": "option",
+			"value": "DEATHS_AGESPECIFIC_REGISTRATIONYEAR",
+			"html": "Deaths, Year of registration, Age at death, Age-specific death rates, Sex, States, Territories and Australia"
+		},
+		{
+			"tag": "option",
+			"value": "DEATHS_INDIGENOUS",
+			"html": "Deaths, Year of registration, Indigenous status, Age at death, Sex, Five State/Territory"
+		},
+		{
+			"tag": "option",
+			"value": "DEATHS_INDIGENOUS_SUMMARY",
+			"html": "Deaths, Year of registration, Indigenous status, Summary data, Sex, States, Territories and Australia"
+		},
+		{
+			"tag": "option",
+			"value": "DEATHS_MARITAL_STATUS",
+			"html": "Deaths, Year of registration, Marital status, Age at death, Sex, Australia"
+		},
+		{
+			"tag": "option",
+			"value": "DEATHS_SUMMARY",
+			"html": "Deaths, Year of registration, Summary data, Sex, States, Territories and Australia"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_ANNUAL_ERP_LGA",
+			"html": "ERP by LGA (ASGS 2013), 1991 to 2013"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_ERP_LGA",
+			"html": "ERP by LGA (ASGS 2013), Age and Sex, 2001 to 2013"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_ANNUAL_ERP_LGA2014",
+			"html": "ERP by LGA (ASGS 2014), 2001 to 2014"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_ERP_LGA2014",
+			"html": "ERP by LGA (ASGS 2014), Age and Sex, 2001 to 2014"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_ERP_LGA2015",
+			"html": "ERP by LGA (ASGS 2015), 2001 to 2015"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_ANNUAL_ERP_LGA2015",
+			"html": "ERP by LGA (ASGS 2015), Age and Sex, 2001 to 2015"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_ERP_LGA2016",
+			"html": "ERP by LGA (ASGS 2016), 2001 to 2016"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_ERP_ASGS",
+			"html": "ERP by SA2 (ASGS 2011), Age and Sex, 2001 to 2015"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_ANNUAL_ERP_ASGS",
+			"html": "ERP by SA2 and above (ASGS 2011), 1991 to 2016"
+		},
+		{
+			"tag": "option",
+			"value": "ERP_COB",
+			"html": "Estimated resident population, Country of birth, Age and sex - as at 30 June 1992 onwards"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_ERP_COB_MAG_SEXRATIO",
+			"html": "Estimated resident population, Country of birth, Median age and Sex ratio - as at 30 June 1992 onwards"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_ERP_COB_STATE",
+			"html": "Estimated resident population, Country of birth, State/territory, Age and sex - as at 30 June 1996 onwards, Census estimates"
+		},
+		{
+			"tag": "option",
+			"value": "ITPI_EXPORT",
+			"html": "Export Price Index"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_FAMILY_PROJ",
+			"html": "Family Projections, Australia, 2011 to 2036"
+		},
+		{
+			"tag": "option",
+			"value": "FERTILITY_AGE_STATE",
+			"html": "Fertility, by age, by state"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_HH_PROV",
+			"html": "Household Projections, Australia, 2011 to 2036"
+		},
+		{
+			"tag": "option",
+			"value": "HF",
+			"html": "Housing Finance"
+		},
+		{
+			"tag": "option",
+			"value": "ITPI_IMPORT",
+			"html": "Import Price Index"
+		},
+		{
+			"tag": "option",
+			"value": "INFANTDEATHS_REGISTRATIONYEAR",
+			"html": "Infant deaths and Infant mortality rates, Year of registration, Age at death, Sex, States, Territories and Australia"
+		},
+		{
+			"tag": "option",
+			"value": "INFANTDEATHS_YEAROCCURENCE",
+			"html": "Infant deaths, Year of occurrence, Age at death, Sex, Australia"
+		},
+		{
+			"tag": "option",
+			"value": "IIP_DSID5671",
+			"html": "International Investment Position"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_DEM_QIM",
+			"html": "Interstate Migration by States and Territories of Arrival and Departure by Sex"
+		},
+		{
+			"tag": "option",
+			"value": "INTERSTATEMIGRATION_CY",
+			"html": "Interstate migration: Arrivals, departures and net, State/territory, Age and sex - Calendar years, 1997 onwards"
+		},
+		{
+			"tag": "option",
+			"value": "INTERSTATEMIGRATION_FY",
+			"html": "Interstate migration: Arrivals, departures and net, State/territory, Age and sex - Financial years, 1996-97 onwards"
+		},
+		{
+			"tag": "option",
+			"value": "LF",
+			"html": "Labour Force"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_LAND_COVER",
+			"html": "Land cover net change matrix 2005-06 to 2010-11 (Hectares)"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_LAMPS",
+			"html": "Land Management Practices Survey, 2011-12"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_LAMPS2014",
+			"html": "Land Management Practices Survey, 2013-14"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_LAND_USE",
+			"html": "Land use net change matrix 2006 to 2011"
+		},
+		{
+			"tag": "option",
+			"value": "LENDING_INDUSTRY",
+			"html": "Lending Finance by Industry"
+		},
+		{
+			"tag": "option",
+			"value": "LENDING_BY_PURPOSE",
+			"html": "Lending Finance by Purpose"
+		},
+		{
+			"tag": "option",
+			"value": "LENDING_FINANCE_SUMMARY",
+			"html": "Lending Finance Commitments"
+		},
+		{
+			"tag": "option",
+			"value": "MERCH_EXP",
+			"html": "Merchandise Exports - ($ Thousands)"
+		},
+		{
+			"tag": "option",
+			"value": "MERCH_IMP",
+			"html": "Merchandise Imports - ($ Thousands)"
+		},
+		{
+			"tag": "option",
+			"value": "MINING_EXPLORATION",
+			"html": "Mineral Exploration"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_MONETARY_ACCOUNT",
+			"html": "Monetary account for land use 2006 to 2011 ($'000)"
+		},
+		{
+			"tag": "option",
+			"value": "NETOVERSEASMIGRATION_CY",
+			"html": "Net overseas migration, Arrivals, departures and net, State/territory, Age and sex - Calendar years, 2004 onwards"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_NOM_VISA_CY",
+			"html": "Net overseas migration, Arrivals, departures and net, State/territory, Major groupings and visas - Calendar years, 2004 onwards"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_NOM_VISA_FY",
+			"html": "Net overseas migration, Arrivals, departures and net, State/territory, Major groupings and visas - Financial years, 2004-05 onwards"
+		},
+		{
+			"tag": "option",
+			"value": "NETOVERSEASMIGRATION_FY",
+			"html": "Net overseas migration: Arrivals, departures and net, State/territory, Age and sex - Financial years, 2004-05 onwards"
+		},
+		{
+			"tag": "option",
+			"value": "PATERNITY_AGE_STATE",
+			"html": "Paternity, by age, by state"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_PERSONS_PROJ",
+			"html": "Persons Projections, Australia, 2011 to 2036"
+		},
+		{
+			"tag": "option",
+			"value": "PETROLEUM_EXPLORATION",
+			"html": "Petroleum Exploration"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_PHYSICAL_ACCOUNT_LC",
+			"html": "Physical account for land cover 2006 to 2011 (Hectares)"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_PHYSICAL_ACCOUNT_LU",
+			"html": "Physical account for land use 2006 to 2011 (Hectares)"
+		},
+		{
+			"tag": "option",
+			"value": "POPULATION_CLOCK_FY",
+			"html": "Population clock component data"
+		},
+		{
+			"tag": "option",
+			"value": "POP_PROJ_REGION_2012_2061",
+			"html": "Population Projections by Region, 2012-2061"
+		},
+		{
+			"tag": "option",
+			"value": "POP_PROJ_2011",
+			"html": "Population Projections, Australia, 2012-2101"
+		},
+		{
+			"tag": "option",
+			"value": "CAPEX",
+			"html": "Private New Capital Expenditure and Expected Expenditure"
+		},
+		{
+			"tag": "option",
+			"value": "PPI_SOP",
+			"html": "Producer Price Index - Stage of Production"
+		},
+		{
+			"tag": "option",
+			"value": "PPI_1",
+			"html": "Producer Price Indexes by Industry"
+		},
+		{
+			"tag": "option",
+			"value": "ERP_QUARTERLY",
+			"html": "Quarterly Population Estimates (ERP), by State/Territory, Sex and Age"
+		},
+		{
+			"tag": "option",
+			"value": "RIME_LGA2011",
+			"html": "Regional Internal Migration Estimates by LGA2011, 2006-07 to 2014-15 "
+		},
+		{
+			"tag": "option",
+			"value": "RIME_REGION",
+			"html": "Regional Internal Migration Estimates by Region (SA2 and above), 2006-07 to 2014-15"
+		},
+		{
+			"tag": "option",
+			"value": "RIN_SA34_GCCSA_STE",
+			"html": "Regional Internal Migration Estimates by Region (SA3 and above), Age and Sex, 2006-07 to 2014-15"
+		},
+		{
+			"tag": "option",
+			"value": "RIM_SA4_GCCSA_STE_H",
+			"html": "Regional Internal Migration Estimates by Region of Arrival and Departure (SA4 and above), 2006-07 to 2014-15"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_REGIONAL_ASGS",
+			"html": "Regional Statistics by ASGS, 2011-2016"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_REGIONAL_LGA",
+			"html": "Regional Statistics by LGA, 2011-2016"
+		},
+		{
+			"tag": "option",
+			"value": "RES_DWELL",
+			"html": "Residential Dwellings: Unstratified Medians and Counts by Dwelling Type by GCCSA"
+		},
+		{
+			"tag": "option",
+			"value": "RES_DWEL_ST",
+			"html": "Residential Dwellings: Values, Mean Price and Number by State and Territories"
+		},
+		{
+			"tag": "option",
+			"value": "RES_PROP_INDEX",
+			"html": "Residential Property Price Indexes, All Series by GCCSA"
+		},
+		{
+			"tag": "option",
+			"value": "RT",
+			"html": "Retail Trade"
+		},
+		{
+			"tag": "option",
+			"value": "NEWMVSALES",
+			"html": "Sales of New Motor Vehicles"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_SEIFA_LGA",
+			"html": "SEIFA by Local Government Area (LGA)"
+		},
+		{
+			"tag": "option",
+			"value": "SEIFA_POA",
+			"html": "SEIFA by Postal Area Code (POA)"
+		},
+		{
+			"tag": "option",
+			"value": "SEIFA_SSC",
+			"html": "SEIFA by State Suburb Code (SSC)"
+		},
+		{
+			"tag": "option",
+			"value": "SEIFA_SA1",
+			"html": "SEIFA by Statistical Area 1 (SA1)"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_SEIFA_SA2",
+			"html": "SEIFA by Statistical Area 2 (SA2)"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_SEIFA_SLA",
+			"html": "SEIFA by Statistical Local Area (SLA)"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_T01",
+			"html": "T01 Selected Person Characteristics"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_T01_LGA",
+			"html": "T01 Selected Person Characteristics (LGA)"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_T02",
+			"html": "T02 Selected Medians and Averages"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_T02_LGA",
+			"html": "T02 Selected Medians and Averages (LGA)"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_T03",
+			"html": "T03 Age by Sex"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_T03_LGA",
+			"html": "T03 Age by Sex (LGA)"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_T04",
+			"html": "T04 Registered Marital Status by Age by Sex"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_T04_LGA",
+			"html": "T04 Registered Marital Status by Age by Sex (LGA)"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_T05",
+			"html": "T05 Social Marital Status by Age by Sex"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_T05_LGA",
+			"html": "T05 Social Marital Status by Age by Sex (LGA)"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_T06",
+			"html": "T06 Indigenous Status by Age by Sex"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_T06_LGA",
+			"html": "T06 Indigenous Status by Age by Sex (LGA)"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_T07",
+			"html": "T07 Number of Children Ever Born by Age of Parent"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_T07_LGA",
+			"html": "T07 Number of Children Ever Born by Age of Parent (LGA)"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_T08",
+			"html": "T08 Country of Birth of Person by Sex"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_T08_LGA",
+			"html": "T08 Country of Birth of Person by Sex (LGA)"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_T09",
+			"html": "T09 Ancestry by Birthplace of Parents"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_T09_LGA",
+			"html": "T09 Ancestry by Birthplace of Parents (LGA)"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_T10",
+			"html": "T10 Language Spoken at Home by Sex"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_T10_LGA",
+			"html": "T10 Language Spoken at Home by Sex (LGA)"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_T11",
+			"html": "T11 Proficiency in Spoken English/Language by Age"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_T11_LGA",
+			"html": "T11 Proficiency in Spoken English/Language by Age (LGA)"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_T12",
+			"html": "T12 Religious Affiliation by Age"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_T12_LGA",
+			"html": "T12 Religious Affiliation by Age (LGA)"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_T13",
+			"html": "T13 Type of Educational Institution Attending by Sex"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_T13_LGA",
+			"html": "T13 Type of Educational Institution Attending by Sex (LGA)"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_T14",
+			"html": "T14 Dwelling Structure by Household Composition and Family Composition"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_T14_LGA",
+			"html": "T14 Dwelling Structure by Household Composition and Family Composition (LGA)"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_T15",
+			"html": "T15 Dwelling Structure by Number of Persons Usually Resident"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_T15_LGA",
+			"html": "T15 Dwelling Structure by Number of Persons Usually Resident (LGA)"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_T16",
+			"html": "T16 Dwelling Structure and Number of Bedrooms by Number of Persons Usually Resident for Family Households"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_T16_LGA",
+			"html": "T16 Dwelling Structure and Number of Bedrooms by Number of Persons Usually Resident for Family Households (LGA)"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_T17",
+			"html": "T17 Dwelling Structure and Number of Bedrooms by Number of Persons Usually Resident for Group Households"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_T17_LGA",
+			"html": "T17 Dwelling Structure and Number of Bedrooms by Number of Persons Usually Resident for Group Households (LGA)"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_T18",
+			"html": "T18 Tenure Type and Landlord Type by Dwelling Structure"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_T18_LGA",
+			"html": "T18 Tenure Type and Landlord Type by Dwelling Structure (LGA)"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_T19",
+			"html": "T19 Rent (weekly) by Landlord Type"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_T19_LGA",
+			"html": "T19 Rent (weekly) by Landlord Type (LGA)"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_T20",
+			"html": "T20 Rent (weekly) by Family Composition for Couple Families"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_T20_LGA",
+			"html": "T20 Rent (weekly) by Family Composition for Couple Families (LGA)"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_T21",
+			"html": "T21 Rent (weekly) by Family Composition for One Parent Families"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_T21_LGA",
+			"html": "T21 Rent (weekly) by Family Composition for One Parent Families (LGA)"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_T22",
+			"html": "T22 Total Family Income (weekly) by Number of Children for Couple Families"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_T22_LGA",
+			"html": "T22 Total Family Income (weekly) by Number of Children for Couple Families (LGA)"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_T23",
+			"html": "T23 Total Family Income (weekly) by Number of Children for One Parent Families"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_T23_LGA",
+			"html": "T23 Total Family Income (weekly) by Number of Children for One Parent Families (LGA)"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_T24",
+			"html": "T24 Total Household Income (weekly) by Rent (weekly)"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_T24_LGA",
+			"html": "T24 Total Household Income (weekly) by Rent (weekly) (LGA)"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_T25",
+			"html": "T25 Family Composition by Mortgage Repayment"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_T25_LGA",
+			"html": "T25 Family Composition by Mortgage Repayment (LGA)"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_T26",
+			"html": "T26 Family Composition by Income Comparison for Parents/Partners"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_T26_LGA",
+			"html": "T26 Family Composition by Income Comparison for Parents/Partners (LGA)"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_T27",
+			"html": "T27 Family Composition and Social Marital Status by Number of Dependent Children"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_T27_LGA",
+			"html": "T27 Family Composition and Social Marital Status by Number of Dependent Children (LGA)"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_T28",
+			"html": "T28 Selected Labour Force, Education and Migration Characteristics"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_T28_LGA",
+			"html": "T28 Selected Labour Force, Education and Migration Characteristics (LGA)"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_T29",
+			"html": "T29 Family Composition and Labour Force Status of Parent(s)/Partners by Total Family Income (weekly)"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_T29_LGA",
+			"html": "T29 Family Composition and Labour Force Status of Parent(s)/Partners by Total Family Income (weekly) (LGA)"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_T30",
+			"html": "T30 Non-School Qualification: Level of Education by Age by Sex"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_T30_LGA",
+			"html": "T30 Non-School Qualification: Level of Education by Age by Sex (LGA)"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_T31",
+			"html": "T31 Non-School Qualification: Field of Study by Age by Sex"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_T31_LGA",
+			"html": "T31 Non-School Qualification: Field of Study by Age by Sex (LGA)"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_T32",
+			"html": "T32 Labour Force Status by Age by Sex"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_T32_LGA",
+			"html": "T32 Labour Force Status by Age by Sex (LGA)"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_T33",
+			"html": "T33 Industry of Employment by Sex"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_T33_LGA",
+			"html": "T33 Industry of Employment by Sex (LGA)"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_T34",
+			"html": "T34 Occupation by Sex"
+		},
+		{
+			"tag": "option",
+			"value": "ABS_CENSUS2011_T34_LGA",
+			"html": "T34 Occupation by Sex (LGA)"
+		},
+		{
+			"tag": "option",
+			"value": "LABOUR_PRICE_INDEX",
+			"html": "Wage Price Index"
+		}
+	]
+}

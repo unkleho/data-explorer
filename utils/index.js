@@ -48,11 +48,13 @@ export function buildDimensionsApiUrl(dimensionIds) {
 }
 
 export function buildVictoryData(data) {
+  // Dataset
   const observations = getObservations(data);
   const timePeriods = getTimePeriods(data);
+  const dimensionsConfig = getDimensionsConfig(data);
   console.log('buildVictoryData');
-  console.log(data);
-  // console.log('timePeriods');
+  // console.log(data);
+  console.log(dimensionsConfig);
   // console.log(timePeriods);
 
   return Object.keys(observations).map(function(key) {
@@ -62,14 +64,20 @@ export function buildVictoryData(data) {
     const dimensions = key.split(':');
     const timePeriodIndex = dimensions.length - 1;
     const timePeriod = dimensions[timePeriodIndex];
+    const timePeriodKey = timePeriods[timePeriod].id;
 
     return {
-      x: createDate(timePeriods[timePeriod].id),
+      x: createDate(timePeriodKey),
       y: value[0],
     }
   })
 }
 
+export function getDimensionsConfig(data) {
+  return data.structure.dimensions.observation;
+}
+
+// Create date from TIME_PERIOD
 export function createDate(dateString) {
   let year;
   let month = 0;
@@ -80,20 +88,32 @@ export function createDate(dateString) {
     year = dateString;
   } else {
     const date = dateString.split('-');
+    const suffix = date[1];
     year = date[0];
 
-    if (date[0] === 'Q1') {
-      month = 0;
-    } else if (date[0] === 'Q2') {
-      month = 3;
-    } else if (date[0] === 'Q3') {
-      month = 6;
-    } else if (date[0] === 'Q4') {
-      month = 9;
+    // Suffix could have Q for quarter or MM for month
+    if (isNaN(suffix)) {
+      // If not number, ie string
+      if (suffix === 'Q1') {
+        month = 0;
+      } else if (suffix === 'Q2') {
+        month = 3;
+      } else if (suffix === 'Q3') {
+        month = 6;
+      } else if (suffix === 'Q4') {
+        month = 9;
+      }
+    } else {
+      // Assume it is monthly...
+      // TODO: Best to get frequency argument to make sure
+      month = parseInt(suffix);
     }
   }
 
-  return new Date(year, month, day);
+  const result = new Date(year, month, day);
+  // console.log(result);
+
+  return result;
 }
 
 export function getObservations(data) {
