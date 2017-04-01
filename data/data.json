@@ -1,0 +1,605 @@
+{
+	"header": {
+		"id": "f292f384-cc43-4804-a11e-d2cb41c9d24a",
+		"test": false,
+		"prepared": "2017-03-30T10:48:55.6505699Z",
+		"sender": {
+			"id": "ABS",
+			"name": "Australian Bureau of Statistics"
+		},
+		"links": [{
+			"href": "http://stat.data.abs.gov.au:80/sdmx-json/data/BIRTHS_SUMMARY/1.0.A/all?detail=Full&dimensionAtObservation=AllDimensions",
+			"rel": "request"
+		}]
+	},
+	"dataSets": [{
+		"action": "Information",
+		"observations": {
+			"0:0:0:0": [
+				233012,
+				0,
+				null,
+				0,
+				0,
+				null
+			],
+			"0:0:0:1": [
+				227810,
+				0,
+				null,
+				0,
+				0,
+				null
+			],
+			"0:0:0:2": [
+				226291,
+				0,
+				null,
+				0,
+				0,
+				null
+			],
+			"0:0:0:3": [
+				224181,
+				0,
+				null,
+				0,
+				0,
+				null
+			],
+			"0:0:0:4": [
+				223129,
+				0,
+				null,
+				0,
+				0,
+				null
+			],
+			"0:0:0:5": [
+				225527,
+				0,
+				null,
+				0,
+				0,
+				null
+			],
+			"0:0:0:6": [
+				235842,
+				0,
+				null,
+				0,
+				0,
+				null
+			],
+			"0:0:0:7": [
+				239903,
+				0,
+				null,
+				0,
+				0,
+				null
+			],
+			"0:0:0:8": [
+				242570,
+				0,
+				null,
+				0,
+				0,
+				null
+			],
+			"0:0:0:9": [
+				234034,
+				0,
+				null,
+				0,
+				0,
+				null
+			],
+			"0:0:0:10": [
+				247348,
+				0,
+				null,
+				0,
+				0,
+				null
+			],
+			"0:0:0:11": [
+				243408,
+				0,
+				null,
+				0,
+				0,
+				null
+			],
+			"0:0:0:12": [
+				243959,
+				0,
+				null,
+				0,
+				0,
+				null
+			],
+			"0:0:0:13": [
+				246193,
+				0,
+				null,
+				0,
+				0,
+				null
+			],
+			"0:0:0:14": [
+				250853,
+				0,
+				null,
+				0,
+				0,
+				null
+			],
+			"0:0:0:15": [
+				262648,
+				0,
+				null,
+				0,
+				0,
+				null
+			],
+			"0:0:0:16": [
+				257247,
+				0,
+				null,
+				0,
+				0,
+				null
+			],
+			"0:0:0:17": [
+				264151,
+				0,
+				null,
+				0,
+				0,
+				null
+			],
+			"0:0:0:18": [
+				260229,
+				0,
+				null,
+				0,
+				0,
+				null
+			],
+			"0:0:0:19": [
+				258051,
+				0,
+				null,
+				0,
+				0,
+				null
+			],
+			"0:0:0:20": [
+				256190,
+				0,
+				null,
+				0,
+				0,
+				null
+			],
+			"0:0:0:21": [
+				253834,
+				0,
+				null,
+				0,
+				0,
+				null
+			],
+			"0:0:0:22": [
+				251842,
+				0,
+				null,
+				0,
+				0,
+				null
+			],
+			"0:0:0:23": [
+				249616,
+				0,
+				null,
+				0,
+				0,
+				null
+			],
+			"0:0:0:24": [
+				248870,
+				0,
+				null,
+				0,
+				0,
+				null
+			],
+			"0:0:0:25": [
+				249636,
+				0,
+				null,
+				0,
+				0,
+				null
+			],
+			"0:0:0:26": [
+				246394,
+				0,
+				null,
+				0,
+				0,
+				null
+			],
+			"0:0:0:27": [
+				250988,
+				0,
+				null,
+				0,
+				0,
+				null
+			],
+			"0:0:0:28": [
+				251161,
+				0,
+				null,
+				0,
+				0,
+				null
+			],
+			"0:0:0:29": [
+				254246,
+				0,
+				null,
+				0,
+				0,
+				null
+			],
+			"0:0:0:30": [
+				264493,
+				0,
+				null,
+				0,
+				0,
+				null
+			],
+			"0:0:0:31": [
+				270849,
+				0,
+				null,
+				0,
+				0,
+				null
+			],
+			"0:0:0:32": [
+				292152,
+				0,
+				null,
+				0,
+				0,
+				null
+			],
+			"0:0:0:33": [
+				302272,
+				0,
+				null,
+				0,
+				0,
+				null
+			],
+			"0:0:0:34": [
+				301253,
+				0,
+				null,
+				0,
+				0,
+				null
+			],
+			"0:0:0:35": [
+				303318,
+				0,
+				null,
+				0,
+				0,
+				null
+			],
+			"0:0:0:36": [
+				301617,
+				0,
+				null,
+				0,
+				0,
+				null
+			],
+			"0:0:0:37": [
+				309582,
+				0,
+				null,
+				0,
+				0,
+				null
+			],
+			"0:0:0:38": [
+				308065,
+				0,
+				null,
+				0,
+				0,
+				null
+			],
+			"0:0:0:39": [
+				299697,
+				0,
+				null,
+				0,
+				0,
+				null
+			],
+			"0:0:0:40": [
+				305377,
+				0,
+				null,
+				0,
+				0,
+				null
+			]
+		}
+	}],
+	"structure": {
+		"links": [{
+			"href": "http://stat.data.abs.gov.au/sdmx-json/dataflow/BIRTHS_SUMMARY/all",
+			"rel": "dataflow"
+		}],
+		"name": "Births, summary, by state",
+		"description": "Births, summary, by state",
+		"dimensions": {
+			"observation": [{
+					"keyPosition": 0,
+					"id": "MEASURE",
+					"name": "Measure",
+					"values": [{
+						"id": "1",
+						"name": "Births"
+					}]
+				},
+				{
+					"keyPosition": 1,
+					"id": "ASGS_2011",
+					"name": "Region",
+					"values": [{
+						"id": "0",
+						"name": "Australia"
+					}]
+				},
+				{
+					"keyPosition": 2,
+					"id": "FREQUENCY",
+					"name": "Frequency",
+					"values": [{
+						"id": "A",
+						"name": "Annual"
+					}],
+					"role": "FREQ"
+				},
+				{
+					"id": "TIME_PERIOD",
+					"name": "Time",
+					"values": [{
+							"id": "1975",
+							"name": "1975"
+						},
+						{
+							"id": "1976",
+							"name": "1976"
+						},
+						{
+							"id": "1977",
+							"name": "1977"
+						},
+						{
+							"id": "1978",
+							"name": "1978"
+						},
+						{
+							"id": "1979",
+							"name": "1979"
+						},
+						{
+							"id": "1980",
+							"name": "1980"
+						},
+						{
+							"id": "1981",
+							"name": "1981"
+						},
+						{
+							"id": "1982",
+							"name": "1982"
+						},
+						{
+							"id": "1983",
+							"name": "1983"
+						},
+						{
+							"id": "1984",
+							"name": "1984"
+						},
+						{
+							"id": "1985",
+							"name": "1985"
+						},
+						{
+							"id": "1986",
+							"name": "1986"
+						},
+						{
+							"id": "1987",
+							"name": "1987"
+						},
+						{
+							"id": "1988",
+							"name": "1988"
+						},
+						{
+							"id": "1989",
+							"name": "1989"
+						},
+						{
+							"id": "1990",
+							"name": "1990"
+						},
+						{
+							"id": "1991",
+							"name": "1991"
+						},
+						{
+							"id": "1992",
+							"name": "1992"
+						},
+						{
+							"id": "1993",
+							"name": "1993"
+						},
+						{
+							"id": "1994",
+							"name": "1994"
+						},
+						{
+							"id": "1995",
+							"name": "1995"
+						},
+						{
+							"id": "1996",
+							"name": "1996"
+						},
+						{
+							"id": "1997",
+							"name": "1997"
+						},
+						{
+							"id": "1998",
+							"name": "1998"
+						},
+						{
+							"id": "1999",
+							"name": "1999"
+						},
+						{
+							"id": "2000",
+							"name": "2000"
+						},
+						{
+							"id": "2001",
+							"name": "2001"
+						},
+						{
+							"id": "2002",
+							"name": "2002"
+						},
+						{
+							"id": "2003",
+							"name": "2003"
+						},
+						{
+							"id": "2004",
+							"name": "2004"
+						},
+						{
+							"id": "2005",
+							"name": "2005"
+						},
+						{
+							"id": "2006",
+							"name": "2006"
+						},
+						{
+							"id": "2007",
+							"name": "2007"
+						},
+						{
+							"id": "2008",
+							"name": "2008"
+						},
+						{
+							"id": "2009",
+							"name": "2009"
+						},
+						{
+							"id": "2010",
+							"name": "2010"
+						},
+						{
+							"id": "2011",
+							"name": "2011"
+						},
+						{
+							"id": "2012",
+							"name": "2012"
+						},
+						{
+							"id": "2013",
+							"name": "2013"
+						},
+						{
+							"id": "2014",
+							"name": "2014"
+						},
+						{
+							"id": "2015",
+							"name": "2015"
+						}
+					],
+					"role": "TIME_PERIOD"
+				}
+			]
+		},
+		"attributes": {
+			"dataSet": [],
+			"series": [],
+			"observation": [{
+					"id": "TIME_FORMAT",
+					"name": "Time Format",
+					"values": [{
+						"id": "P1Y",
+						"name": "Annual"
+					}]
+				},
+				{
+					"id": "OBS_STATUS",
+					"name": "Observation Status",
+					"values": []
+				},
+				{
+					"id": "UNIT",
+					"name": "Unit",
+					"values": [{
+						"id": "NUM",
+						"name": "Number"
+					}],
+					"role": "UNIT_MEASURE"
+				},
+				{
+					"id": "POWERCODE",
+					"name": "Unit multiplier",
+					"default": "0",
+					"values": [{
+						"id": "0",
+						"name": "Units"
+					}],
+					"role": "UNIT_MULT"
+				},
+				{
+					"id": "REFERENCEPERIOD",
+					"name": "Reference period",
+					"values": [],
+					"role": "BASE_PER"
+				}
+			]
+		},
+		"annotations": [{
+			"title": "Statistical usage warning",
+			"uri": "",
+			"text": "ABS.Stat beta is continuing to be developed.  Data will be updated as soon as possible following its 11:30 am release on the ABS website."
+		}]
+	}
+}
