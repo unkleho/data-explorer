@@ -3,18 +3,26 @@
   "version": "1.0.0",
   "description": "",
   "main": "pages/index.js",
+  "engines": {
+    "node": "6.9.x"
+  },
   "scripts": {
     "dev": "node server.js",
     "build": "next build",
+    "heroku-postbuild": "heroku-nextjs-build",
     "start": "NODE_ENV=production node server.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@mars/heroku-nextjs-build": "^2.0.0",
     "axios": "^0.15.3",
     "next": "^2.0.0",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
     "victory": "^0.18.3"
-  }
+  },
+  "cacheDirectories": [
+    "nextjs/node_modules"
+  ]
 }
