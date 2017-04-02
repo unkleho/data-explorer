@@ -25,7 +25,7 @@ export function buildApiUrl({ dimensionIds, dataSetKey }) {
 
 // Get array of dimension ids
 export function getDefaultDimensionIds(dimensions) {
-  console.log(dimensions);
+  // console.log(dimensions);
   let result = [];
 
   dimensions.forEach((dimension) => {
@@ -34,8 +34,7 @@ export function getDefaultDimensionIds(dimensions) {
     };
   })
 
-  console.log(result);
-
+  // console.log(result);
   return result;
 }
 
@@ -52,9 +51,7 @@ export function buildVictoryData(data) {
   const observations = getObservations(data);
   const timePeriods = getTimePeriods(data);
   const dimensionsConfig = getDimensionsConfig(data);
-  console.log('buildVictoryData');
-  // console.log(data);
-  console.log(dimensionsConfig);
+  // console.log(dimensionsConfig);
   // console.log(timePeriods);
 
   return Object.keys(observations).map(function(key) {
@@ -121,13 +118,12 @@ export function getObservations(data) {
 }
 
 export function getTimePeriods(data) {
-  console.log('getTimePeriods');
-
+  // console.log('getTimePeriods');
   let result = data.structure.dimensions.observation.filter((obs) => {
     // console.log(obs.id === 'TIME_PERIOD');
     return obs.id === 'TIME_PERIOD';
   });
-  console.log(result);
+
   return result[0].values;
 }
 

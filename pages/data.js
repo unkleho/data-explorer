@@ -25,50 +25,48 @@ class Page extends Component {
 
     this.state = {
       data: null, // Data from ABS
-      dataSetKey: 'BIRTHS_SUMMARY',
       dataSet: null, // Current dataSet
       dataSets: buildDataSets(dataSetsRaw), // List of DataSets
     };
   }
 
-  static getInitialProps ({ query: { id } }) {
-    console.log(id);
-    return { id }
+  static async getInitialProps ({ query: { id } }) {
+    // Get dataSet metadata
+    const res = await axios.get(buildMetaApiUrl(id));
+    const dataSet = res.data.structure;
+    const dimensions = dataSet.dimensions.observation;
+    const dimensionIds = getDefaultDimensionIds(dimensions);
+
+    // Get data!
+    const res2 = await axios.get(buildApiUrl({
+      dimensionIds,
+      dataSetKey: id,
+    }));
+    const data = res2.data;
+
+    return {
+      id,
+      dataSet,
+      dataSets: buildDataSets(dataSetsRaw), // List of DataSets
+      data,
+      dimensions,
+    }
   }
 
   componentDidMount() {
-    // Work out default dimensionIds
-    console.log(this.props.id);
-    if (this.props.id) {
+    this.setState({
+      data: this.props.data,
+      dimensionIds: getDefaultDimensionIds(this.props.dimensions),
+    });
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (prevProps.id !== this.props.id) {
       this.setState({
-        dataSetKey: this.props.id,
+        data: this.props.data,
+        dimensionIds: getDefaultDimensionIds(this.props.dimensions),
       })
     }
-    // const dimensionIds = getDefaultDimensionIds(this.state.dataSet.dimensions.observation);
-    // console.log(dimensionIds);
-
-    const dataSetKey = this.props.id;
-
-    // Get dataSet meta
-    axios.get(buildMetaApiUrl(dataSetKey))
-      .then(data => {
-        const dimensions = data.data.structure.dimensions.observation;
-
-        this.setState({
-          dataSet: data.data.structure,
-          dimensions,
-          dimensionIds: getDefaultDimensionIds(dimensions),
-        });
-
-        // Get data!
-        axios.get(buildApiUrl({
-          dimensionIds: getDefaultDimensionIds(dimensions),
-          dataSetKey: dataSetKey,
-        }))
-          .then(data => {
-            this.setState({ data: data.data });
-          })
-      })
   }
 
   handleZoom(domain) {
@@ -80,121 +78,188 @@ class Page extends Component {
   }
 
   handleDataSetSelect = (event) => {
-    const dataSetKey = event.target.value;
-
-    // Router.push(`/data/${dataSetKey}`);
-    Router.push(`/data?id=${dataSetKey}`);
-    // window.history.pushState(null, null,`/data/${dataSetKey}`);
-
-    // Get new dataSet meta data
-    axios.get(buildMetaApiUrl(dataSetKey))
-      .then(data => {
-        console.log('buildMetaApiUrl');
-        // console.log(data);
-        const dimensions = data.data.structure.dimensions.observation;
-        // Workout default dimensionIds
-        const dimensionIds = getDefaultDimensionIds(dimensions);
-        console.log(dimensionIds);
-        // const dimensionIds = this.state.dimensionIds;
-
-        // Get data
-        axios.get(buildApiUrl({ dimensionIds: dimensionIds, dataSetKey }))
-          .then(data => {
-            this.setState({ data: data.data });
-          })
-
-        this.setState({
-          dataSet: data.data.structure,
-          dimensions: data.data.structure.dimensions.observation,
-          dataSetKey,
-          dimensionIds,
-        });
-      })
+    const id = event.target.value;
+    Router.push(`/data?id=${id}`);
   }
 
-  handleDimensionSelect = (event, dimensionIndex) => {
+  handleDimensionSelect = async (event, dimensionIndex) => {
     const dimensionId = event.target.value;
     const dimensionIds = this.state.dimensionIds;
     const dataSetKey = this.props.id;
 
-    // const dataSetKey = this.state.dataSetKey;
-    // const dimensions = this.state.dataSet.dimensions.observation;
-    // console.log(dimensions);
-
     // Update dimensionIds array with selected dimensionId
     dimensionIds[dimensionIndex] = dimensionId;
 
-    console.log('dimensionIds');
-    console.log(dimensionIds);
-
-    axios.get(buildApiUrl({
+    const res = await axios.get(buildApiUrl({
       dimensionIds: dimensionIds,
-      // dimensionIds: getDefaultDimensionIds(dimensions),
-      dataSetKey
-    }))
-      .then(data => {
-        // console.table(buildVictoryData(data.data));
-        this.setState({
-          data: data.data,
-          dimensionIds,
-        });
-      })
+      dataSetKey,
+    }));
+
+    this.setState({
+      data: res.data,
+      dimensionIds,
+    })
   }
 
   render() {
-    const chartStyle = { parent: {minWidth: "100%", marginLeft: "10%"}};
+    const chartStyle = {
+      parent: {
+        // minWidth: "100%",
+        // marginLeft: "10%",
+      }
+    };
 
     const victoryData = this.state.data && buildVictoryData(this.state.data);
-    console.log('victoryData');
-    console.log(victoryData);
-    // console.log(this.state.dimensionIds);
+    // console.log('victoryData');
+    // console.log(victoryData);
 
-    // console.log(this.state.dataSet.dimensions);
-    const dataSets = this.state.dataSets;
-    const dimensions = this.state.dataSet && this.state.dataSet.dimensions.observation;
-    console.log('dimensions');
-    console.log(dimensions);
-    // console.log(this.state.dataSet && this.state.dataSet.dimensions.observation);
+    const dataSets = this.props.dataSets;
+    const dimensions = this.props.dimensions;
+    // console.log('dimensions');
+    // console.log(dimensions);
+
     return (
       <div style={{
-        // fontFamily: 'Libre Baskerville, serif',
-        // fontFamily: 'Libre Franklin, sans-serif',
         display: 'flex',
       }}>
         <style jsx global>{`
+          html {
+            box-sizing: border-box;
+          }
+
+          *, *:before, *:after {
+            box-sizing: inherit;
+          }
+
           body {
+            position: relative;
             background: white;
             font-family: 'Lato', sans-serif;
+            margin: 0;
+            font-size: 18px;
+            line-height: 23px;
+            color: #404040;
             // letter-spacing: -0.03em;
           }
 
-          h1 {
-            font-family: 'Libre Baskerville', serif;
-            font-size: 1.2em;
+          body::after {
+            // background: linear-gradient(to bottom, hsla(280, 50%, 30%, .3), hsla(280, 50%, 30%, .3) 1px, transparent 1px, transparent);
+            // background-size: 100% 1.27777778em;
+            // bottom: 0;
+            // content: "";
+            // display: block;
+            // left: 0;
+            // position: absolute;
+            // right: 0;
+            // top: 0;
+            // z-index: 9999;
+            // pointer-events: none;
           }
 
-          h2 {
+          h1, .h1 {
+            font-family: 'Libre Baskerville', serif;
+            font-size: 4.22222222em;
+            line-height: 1.21052632em;
+            margin-top: 0.30263158em;
+            margin-bottom: 0.60526316em;
+          }
+
+          h2, .h2 {
+            font-family: 'Libre Baskerville', serif;
+            font-size: 2.61111111em;
+            line-height: 1.46808511em;
+            margin-top: 0.4893617em;
+            margin-bottom: 0.4893617em;
+          }
+
+          h3, .h3 {
+            font-weight: 900;
             font-family: 'Lato', sans-serif;
-            font-weight: 700;
-            font-size: 0.8em;
-            text-transform: uppercase;
+            font-size: 1.61111111em;
+            line-height: 1.5862069em;
+            margin-top: 0.79310345em;
+            margin-bottom: 0em;
+            max-width: 20em;
+            // text-align: center;
+          }
+
+          h4, .h4 {
+            font-size: 1em;
+            line-height: 1.27777778em;
+            margin-top: 1.27777778em;
+            margin-bottom: 0em;
+          }
+
+          h5, .h5 {
+            font-size: 1em;
+            line-height: 1.27777778em;
+            margin-top: 1.27777778em;
+            margin-bottom: 0em;
+          }
+
+          p, ul, ol, pre, table, blockquote {
+            margin-top: 0em;
+            margin-bottom: 1.27777778em;
+          }
+
+          ul ul, ol ol, ul ol, ol ul {
+            margin-top: 0em;
+            margin-bottom: 0em;
+          }
+
+          /* Let's make sure all's aligned */
+          hr, .hr {
+            border: 1px solid;
+            margin: -1px 0;
+          }
+
+          a, b, i, strong, em, small, code {
+            line-height: 0;
+          }
+
+          sub, sup {
+            line-height: 0;
+            position: relative;
+            vertical-align: baseline;
+          }
+
+          sup {
+            top: -0.5em;
+          }
+
+          sub {
+            bottom: -0.25em;
+          }
+
+          select {
+            max-width: 100%;
+          }
+
+          main {
+            line-height: 1.27777778em;
+            // padding-right: 1.27777778em;
+            padding-left: calc(1.27777778em * 2);
+          }
+
+          aside {
+            line-height: 1.27777778em;
+            padding-left: 1.27777778em;
+            width: 20em;
+            overflow: hidden;
           }
         `}</style>
 
         <Head>
-          <title>My page title</title>
+          <title>ABS Data Explorer</title>
           <meta name="viewport" content="initial-scale=1.0, width=device-width" />
           <link href="https://fonts.googleapis.com/css?family=Lato:400,700,900|Libre+Baskerville:400,400i,700" rel="stylesheet" />
         </Head>
 
         <aside className="sidebar" style={{
-          width: '20em',
-          overflow: 'hidden',
-          paddingRight: '2em',
         }}>
-          <h2>Data Set</h2>
-          <select value={this.state.dataSetKey} onChange={(event) => this.handleDataSetSelect(event)}>
-            {dataSets.map((dataSet) => {
+          <h4>Data Set</h4>
+          <select value={this.props.id} onChange={(event) => this.handleDataSetSelect(event)}>
+            {dataSets && dataSets.map((dataSet) => {
               return (
                 <option value={dataSet.key}>{dataSet.name}</option>
               );
@@ -204,16 +269,16 @@ class Page extends Component {
           <div style={{
             // display: 'flex',
           }}>
-            {dimensions && dimensions.map((dimension, i) => {
+            {this.state.dimensionIds && dimensions && dimensions.map((dimension, i) => {
               const options = dimension.values;
               const currentDimensionId = this.state.dimensionIds[i];
               return (
                 <div style={{
                   // marginBottom: '1em',
-                  paddingBottom: '1em',
-                  borderTop: '1px solid #EEE',
+                  // paddingBottom: '1em',
+                  // borderTop: '1px solid #EEE',
                 }}>
-                  <h2>{dimension.name}</h2>
+                  <h5>{dimension.name}</h5>
                   <select
                     value={currentDimensionId}
                     onChange={(event) => this.handleDimensionSelect(event, i)}
@@ -231,13 +296,12 @@ class Page extends Component {
         </aside>
 
         <main className="content" style={{
-          paddingLeft: '2em',
         }}>
-          <h1>{this.state.dataSet && this.state.dataSet.name}</h1>
+          <h3>{this.props.dataSet && this.props.dataSet.name}</h3>
 
           <VictoryChart
             animate={{ duration: 500 }}
-            width={600}
+            width={700}
             height={400}
             scale={{x: "time"}}
             style={chartStyle}
@@ -261,7 +325,7 @@ class Page extends Component {
           <VictoryChart
             padding={{ top: 0, left: 50, right: 50, bottom: 30 }}
             animate={{ duration: 500 }}
-            width={600}
+            width={700}
             height={100}
             scale={{x: "time"}}
             style={chartStyle}
