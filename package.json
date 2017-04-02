@@ -2,7 +2,7 @@
   "name": "data-explorer",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "pages/index.js",
   "scripts": {
     "dev": "node server.js",
     "build": "next build",

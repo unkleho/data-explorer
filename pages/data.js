@@ -1,5 +1,11 @@
 import { Component } from 'react';
-import { VictoryZoomContainer, VictoryBrushContainer, VictoryAxis, VictoryChart, VictoryLine } from 'victory';
+import {
+  VictoryZoomContainer,
+  VictoryBrushContainer,
+  VictoryAxis,
+  VictoryChart,
+  VictoryLine,
+} from 'victory';
 import axios from 'axios';
 import Router from 'next/router';
 import Head from 'next/head'
@@ -70,8 +76,8 @@ class Page extends Component {
   handleDataSetSelect = (event) => {
     const dataSetKey = event.target.value;
 
-    // Router.push(`/data/${dataSetKey}`);
-    window.history.pushState(null, null,`/data/${dataSetKey}`);
+    Router.push(`/data/${dataSetKey}`);
+    // window.history.pushState(null, null,`/data/${dataSetKey}`);
 
     // Get new dataSet meta data
     axios.get(buildMetaApiUrl(dataSetKey))
@@ -222,7 +228,12 @@ class Page extends Component {
         }}>
           <h1>{this.state.dataSet && this.state.dataSet.name}</h1>
 
-          <VictoryChart width={600} height={400} scale={{x: "time"}} style={chartStyle}
+          <VictoryChart
+            animate={{ duration: 500 }}
+            width={600}
+            height={400}
+            scale={{x: "time"}}
+            style={chartStyle}
             containerComponent={
               <VictoryZoomContainer responsive={false}
                 dimension="x"
@@ -241,8 +252,12 @@ class Page extends Component {
           </VictoryChart>
 
           <VictoryChart
-            padding={{top: 0, left: 50, right: 50, bottom: 30}}
-            width={600} height={100} scale={{x: "time"}} style={chartStyle}
+            padding={{ top: 0, left: 50, right: 50, bottom: 30 }}
+            animate={{ duration: 500 }}
+            width={600}
+            height={100}
+            scale={{x: "time"}}
+            style={chartStyle}
             containerComponent={
               <VictoryBrushContainer responsive={false}
                 dimension="x"
