@@ -10,7 +10,7 @@
     "dev": "node server.js",
     "build": "next build",
     "heroku-postbuild": "heroku-nextjs-build",
-    "start": "NODE_ENV=production node server.js"
+    "start": "node server.js -p $PORT"
   },
   "author": "",
   "license": "ISC",
