@@ -1,4 +1,4 @@
-import { Component } from 'react';
+import { Component, PropTypes } from 'react';
 import {
   VictoryZoomContainer,
   VictoryBrushContainer,
@@ -16,17 +16,23 @@ import dataSetsRaw from '../data/dataSets';
 
 class Page extends Component {
 
+  static propTypes = {
+    id: PropTypes.string,
+  }
+
   constructor() {
     super();
+
     this.state = {
-      data: null,
+      data: null, // Data from ABS
       dataSetKey: 'BIRTHS_SUMMARY',
       dataSet: null, // Current dataSet
-      dataSets: buildDataSets(dataSetsRaw),
+      dataSets: buildDataSets(dataSetsRaw), // List of DataSets
     };
   }
 
   static getInitialProps ({ query: { id } }) {
+    console.log(id);
     return { id }
   }
 
@@ -70,13 +76,14 @@ class Page extends Component {
   }
 
   handleBrush(domain) {
-    this.setState({zoomDomain: domain});
+    this.setState({ zoomDomain: domain });
   }
 
   handleDataSetSelect = (event) => {
     const dataSetKey = event.target.value;
 
-    Router.push(`/data/${dataSetKey}`);
+    // Router.push(`/data/${dataSetKey}`);
+    Router.push(`/data?id=${dataSetKey}`);
     // window.history.pushState(null, null,`/data/${dataSetKey}`);
 
     // Get new dataSet meta data
