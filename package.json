@@ -19,8 +19,11 @@
     "axios": "^0.15.3",
     "next": "^2.0.0",
     "react": "^15.4.2",
+    "react-addons-css-transition-group": "^15.4.2",
+    "react-addons-shallow-compare": "^15.4.2",
     "react-dom": "^15.4.2",
     "react-select": "^1.0.0-rc.3",
+    "react-selectize": "^2.1.0",
     "victory": "^0.18.3"
   },
   "cacheDirectories": [

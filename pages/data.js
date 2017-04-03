@@ -8,7 +8,8 @@ import {
 } from 'victory';
 import axios from 'axios';
 import Router from 'next/router';
-import Head from 'next/head'
+import Head from 'next/head';
+import Select from 'react-select';
 
 import { buildVictoryData, getName, buildApiUrl, buildMetaApiUrl, buildDataSets, getDefaultDimensionIds, getObservations } from '../utils';
 import data from '../data/data';
@@ -80,6 +81,11 @@ class Page extends Component {
   handleDataSetSelect = (event) => {
     const id = event.target.value;
     Router.push(`/data?id=${id}`);
+  }
+
+  handleDataSetSelect2 = (selected) => {
+    // console.log(selected.value);
+    Router.push(`/data?id=${selected.value}`);
   }
 
   handleDimensionSelect = async (event, dimensionIndex) => {
@@ -235,12 +241,13 @@ class Page extends Component {
             line-height: 1.27777778em;
             // padding-right: 1.27777778em;
             padding-left: calc(1.27777778em * 2);
+            width: calc(100% - 11em);
           }
 
           aside {
             line-height: 1.27777778em;
             padding-left: 1.27777778em;
-            width: 20em;
+            width: 11em;
             overflow: hidden;
           }
         `}</style>
@@ -249,18 +256,33 @@ class Page extends Component {
           <title>ABS Data Explorer</title>
           <meta name="viewport" content="initial-scale=1.0, width=device-width" />
           <link href="https://fonts.googleapis.com/css?family=Lato:400,700,900|Libre+Baskerville:400,400i,700" rel="stylesheet" />
+          <link rel="stylesheet" href="https://unpkg.com/react-select/dist/react-select.css" />
         </Head>
 
         <aside className="sidebar" style={{
         }}>
           <h4>Data Set</h4>
-          <select value={this.props.id} onChange={(event) => this.handleDataSetSelect(event)}>
+          <select
+            value={this.props.id}
+            onChange={(event) => this.handleDataSetSelect(event)}
+          >
             {dataSets && dataSets.map((dataSet) => {
               return (
                 <option value={dataSet.key}>{dataSet.name}</option>
               );
             })}
           </select>
+
+          {/* <Select
+            value={this.props.id}
+            options={dataSets && dataSets.map((dataSet) => {
+              return {
+                value: dataSet.key,
+                label: dataSet.name,
+              }
+            })}
+            onChange={this.handleDataSetSelect2}
+          /> */}
 
           <div style={{
             // display: 'flex',
@@ -270,9 +292,6 @@ class Page extends Component {
               const currentDimensionId = this.state.dimensionIds[i];
               return (
                 <div style={{
-                  // marginBottom: '1em',
-                  // paddingBottom: '1em',
-                  // borderTop: '1px solid #EEE',
                 }}>
                   <h5>{dimension.name}</h5>
                   <select
@@ -348,7 +367,7 @@ class Page extends Component {
               </VictoryChart>
             </div>
           ) : (
-            <p>No data</p>
+            <p>No data, try changing a dimension.</p>
           )
         }
         </main>
