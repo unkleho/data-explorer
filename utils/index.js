@@ -23,19 +23,44 @@ export function buildApiUrl({ dimensionIds, dataSetKey }) {
   // return `http://stat.data.abs.gov.au/sdmx-json/data/LF/0.13.3.1599.30.M/all?detail=Full&dimensionAtObservation=AllDimensions`
 }
 
-// Get array of dimension ids
+// Get array of dimension ids, used for creating initial API call.
 export function getDefaultDimensionIds(dimensions) {
-  // console.log(dimensions);
+  if (typeof window !== 'undefined') {
+    console.table(dimensions);
+  }
   let result = [];
 
   dimensions.forEach((dimension) => {
-    if (dimension.id !== 'TIME_PERIOD') {
-      result.push(dimension.values[0].id);
+    const { id, values } = dimension;
+    let defaultId = values[0].id;
+
+    if (id !== 'TIME_PERIOD') {
+      if (id === 'REGION' || id === 'STATE') {
+        // Select Australia first rather than a state
+        result.push(getIdByName(values, 'Australia') || defaultId);
+      // } else if (id === 'SEX') {
+      //   // Select Persons rather than Male or Female
+      //   result.push(getIdByName(values, 'Persons') || defaultId);
+      } else {
+        result.push(defaultId);
+      }
     };
+
   })
 
-  // console.log(result);
   return result;
+
+  function getIdByName(values, name) {
+    const result = values.filter((value) => {
+      return value.name === name;
+    });
+
+    if (result.length === 1) {
+      return result[0].id;
+    } else {
+      return undefined;
+    }
+  }
 }
 
 export function buildDimensionsApiUrl(dimensionIds) {
@@ -49,6 +74,7 @@ export function buildDimensionsApiUrl(dimensionIds) {
 export function buildVictoryData(data) {
   // Dataset
   const observations = getObservations(data);
+  // console.log(observations);
   const timePeriods = getTimePeriods(data);
   const dimensionsConfig = getDimensionsConfig(data);
   // console.log(dimensionsConfig);
@@ -124,7 +150,7 @@ export function getTimePeriods(data) {
     return obs.id === 'TIME_PERIOD';
   });
 
-  return result[0].values;
+  return result && result[0] && result[0].values;
 }
 
 export function getName(data) {

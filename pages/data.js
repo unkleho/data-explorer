@@ -10,7 +10,7 @@ import axios from 'axios';
 import Router from 'next/router';
 import Head from 'next/head'
 
-import { buildVictoryData, getName, buildApiUrl, buildMetaApiUrl, buildDataSets, getDefaultDimensionIds } from '../utils';
+import { buildVictoryData, getName, buildApiUrl, buildMetaApiUrl, buildDataSets, getDefaultDimensionIds, getObservations } from '../utils';
 import data from '../data/data';
 import dataSetsRaw from '../data/dataSets';
 
@@ -108,15 +108,11 @@ class Page extends Component {
         // marginLeft: "10%",
       }
     };
-
-    const victoryData = this.state.data && buildVictoryData(this.state.data);
-    // console.log('victoryData');
-    // console.log(victoryData);
-
-    const dataSets = this.props.dataSets;
-    const dimensions = this.props.dimensions;
-    // console.log('dimensions');
-    // console.log(dimensions);
+    const { data } = this.state;
+    const { dataSets, dimensions } = this.props;
+    const victoryData = data && buildVictoryData(data);
+    console.log('victoryData');
+    console.log(victoryData);
 
     return (
       <div style={{
@@ -299,51 +295,62 @@ class Page extends Component {
         }}>
           <h3>{this.props.dataSet && this.props.dataSet.name}</h3>
 
-          <VictoryChart
-            animate={{ duration: 500 }}
-            width={700}
-            height={400}
-            scale={{x: "time"}}
-            style={chartStyle}
-            containerComponent={
-              <VictoryZoomContainer responsive={false}
-                dimension="x"
-                zoomDomain={this.state.zoomDomain}
-                onDomainChange={this.handleZoom.bind(this)}
-              />
-            }
-          >
-            <VictoryLine
-              style={{
-                data: {stroke: "tomato"}
-              }}
-              data={victoryData}
-            />
+          {victoryData && victoryData.length > 0 ? (
+            <div>
+              <VictoryChart
+                animate={{ duration: 500 }}
+                width={700}
+                height={400}
+                scale={{x: "time"}}
+                style={chartStyle}
+                containerComponent={
+                  <VictoryZoomContainer responsive={false}
+                    dimension="x"
+                    zoomDomain={this.state.zoomDomain}
+                    onDomainChange={this.handleZoom.bind(this)}
+                  />
+                }
+              >
+                <VictoryLine
+                  style={{
+                    data: {
+                      stroke: "tomato",
+                    }
+                  }}
+                  data={victoryData}
+                />
 
-          </VictoryChart>
+              </VictoryChart>
 
-          <VictoryChart
-            padding={{ top: 0, left: 50, right: 50, bottom: 30 }}
-            animate={{ duration: 500 }}
-            width={700}
-            height={100}
-            scale={{x: "time"}}
-            style={chartStyle}
-            containerComponent={
-              <VictoryBrushContainer responsive={false}
-                dimension="x"
-                selectedDomain={this.state.selectedDomain}
-                onDomainChange={this.handleBrush.bind(this)}
-              />
-            }
-          >
-            <VictoryLine
-              style={{
-                data: {stroke: "tomato"}
-              }}
-              data={victoryData}
-            />
-          </VictoryChart>
+              <VictoryChart
+                padding={{ top: 0, left: 50, right: 50, bottom: 30 }}
+                animate={{ duration: 500 }}
+                width={700}
+                height={100}
+                scale={{x: "time"}}
+                style={chartStyle}
+                containerComponent={
+                  <VictoryBrushContainer responsive={false}
+                    dimension="x"
+                    selectedDomain={this.state.selectedDomain}
+                    onDomainChange={this.handleBrush.bind(this)}
+                  />
+                }
+              >
+                <VictoryLine
+                  style={{
+                    data: {
+                      stroke: "tomato"
+                    }
+                  }}
+                  data={victoryData}
+                />
+              </VictoryChart>
+            </div>
+          ) : (
+            <p>No data</p>
+          )
+        }
         </main>
 
       </div>
