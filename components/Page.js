@@ -1,7 +1,7 @@
 import { Component, PropTypes } from 'react';
 import Router from 'next/router';
 import Head from 'next/head';
-import { blueGrey50, blueGrey100, blueGrey300, blueGrey700 } from '../styles/variables';
+import { blueGrey50, blueGrey100, blueGrey300, blueGrey700, deepOrange600 } from '../styles/variables';
 
 class Page extends Component {
 
@@ -138,6 +138,7 @@ class Page extends Component {
             line-height: 1.27777778em;
             // padding-right: 1.27777778em;
             padding-left: calc(1.27777778em * 2);
+            padding-right: calc(1.27777778em * 3);
             width: 80%;
           }
 
@@ -165,6 +166,7 @@ class Page extends Component {
             .logo__abs {
               font-family: 'Roboto';
               font-weight: 700;
+              /*color: #00796B;*/
             }
 
             .logo__text {
@@ -220,6 +222,8 @@ class Page extends Component {
               font-family: 'Roboto';
               opacity: 0.3;
               font-size: 0.8em;
+              line-height: 1.4;
+              margin-bottom: 0.3em;
             }
 
         `}</style>

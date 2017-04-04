@@ -131,7 +131,7 @@ class Data extends Component {
 
         <aside className="sidebar">
           <div className="logo">
-            <span className="logo__abs">ABS</span> <span className="logo__text">Data Explorer</span>
+            <span className="logo__abs">ABS</span> <span className="logo__text">Data Explorer</span> <span style={{ fontSize: '0.4em' }}>beta</span>
           </div>
 
           <div className="data-set-box">
@@ -219,7 +219,7 @@ class Data extends Component {
                   <div>
                     <VictoryChart
                       theme={theme}
-                      padding={{ top: 50, left: 70, right: 50, bottom: 60 }}
+                      padding={{ top: 50, left: 60, right: 0, bottom: 60 }}
                       animate={{ duration: 500 }}
                       width={this.state.dimensions.width}
                       height={400}
@@ -246,7 +246,7 @@ class Data extends Component {
 
                     <VictoryChart
                       theme={theme}
-                      padding={{ top: 10, left: 70, right: 50, bottom: 30 }}
+                      padding={{ top: 10, left: 60, right: 0, bottom: 30 }}
                       animate={{ duration: 500 }}
                       width={this.state.dimensions.width}
                       height={80}
