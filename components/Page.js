@@ -195,6 +195,7 @@ class Page extends Component {
 
           .header {
             padding-top: 1.8em;
+            margin-bottom: 1em;
           }
 
           .header__title {
@@ -205,6 +206,7 @@ class Page extends Component {
           .header__id {
             font-family: 'Roboto';
             opacity: 0.3;
+            font-size: 0.8em;
           }
 
           .header__dimensions {

@@ -5,6 +5,7 @@ import {
   VictoryAxis,
   VictoryChart,
   VictoryLine,
+  VictoryPie,
 } from 'victory';
 import axios from 'axios';
 import Router from 'next/router';
@@ -41,19 +42,30 @@ class Data extends Component {
     const dimensions = dataSet.dimensions.observation;
     const dimensionIds = getDefaultDimensionIds(dimensions);
 
-    // Get data!
-    const res2 = await axios.get(buildApiUrl({
-      dimensionIds,
-      dataSetKey: id,
-    }));
-    const data = res2.data;
+    try {
+      // Get data!
+      const res2 = await axios.get(buildApiUrl({
+        dimensionIds,
+        dataSetKey: id,
+      }));
+      const data = res2.data;
 
-    return {
-      id,
-      dataSet,
-      dataSets: buildDataSets(dataSetsRaw), // List of DataSets
-      data,
-      dimensions,
+      return {
+        id,
+        dataSet,
+        dataSets: buildDataSets(dataSetsRaw), // List of DataSets
+        data,
+        dimensions,
+      }
+    } catch(e) {
+      console.log(e);
+
+      return {
+        id,
+        dataSet,
+        dataSets: buildDataSets(dataSetsRaw), // List of DataSets
+        dimensions,
+      }
     }
   }
 
@@ -148,7 +160,7 @@ class Data extends Component {
             </select>
           </div>
 
-          <Select
+          {/* <Select
             value={this.props.id}
             options={dataSets && dataSets.map((dataSet) => {
               return {
@@ -157,7 +169,7 @@ class Data extends Component {
               }
             })}
             onChange={this.handleDataSetSelect2}
-          />
+          /> */}
 
           <div>
             {this.state.dimensionIds && dimensions && dimensions.map((dimension, i) => {
@@ -217,9 +229,20 @@ class Data extends Component {
 
                 {victoryData && victoryData.length > 0 ? (
                   <div>
+                    {/* <VictoryPie
+                      innerRadius={50}
+                      data={[
+                        {month: "September", y:5000},
+                        {month: "October", y: 5000},
+                        {month: "November", y: 5000},
+                      ]}
+                      x="month"
+                      // y={(datum) => datum.profit - datum.loss}
+                    /> */}
+
                     <VictoryChart
                       theme={theme}
-                      padding={{ top: 50, left: 60, right: 0, bottom: 60 }}
+                      padding={{ top: 30, left: 60, right: 0, bottom: 60 }}
                       animate={{ duration: 500 }}
                       width={this.state.dimensions.width}
                       height={400}
