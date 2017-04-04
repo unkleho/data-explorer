@@ -10,7 +10,7 @@ import axios from 'axios';
 import Router from 'next/router';
 import Head from 'next/head';
 import Measure from 'react-measure';
-// import Select from 'react-select';
+import Select from 'react-select';
 
 import Page from '../components/Page';
 import theme from '../styles/victoryTheme';
@@ -148,7 +148,7 @@ class Data extends Component {
             </select>
           </div>
 
-          {/* <Select
+          <Select
             value={this.props.id}
             options={dataSets && dataSets.map((dataSet) => {
               return {
@@ -157,7 +157,7 @@ class Data extends Component {
               }
             })}
             onChange={this.handleDataSetSelect2}
-          /> */}
+          />
 
           <div>
             {this.state.dimensionIds && dimensions && dimensions.map((dimension, i) => {
