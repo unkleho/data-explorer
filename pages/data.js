@@ -41,6 +41,7 @@ class Data extends Component {
     const dataSet = res.data.structure;
     const dimensions = dataSet.dimensions.observation;
     const dimensionIds = getDefaultDimensionIds(dimensions);
+    const dataSets = buildDataSets(dataSetsRaw); // List of DataSets
 
     try {
       // Get data!
@@ -53,9 +54,10 @@ class Data extends Component {
       return {
         id,
         dataSet,
-        dataSets: buildDataSets(dataSetsRaw), // List of DataSets
+        dataSets,
         data,
         dimensions,
+        isLoaded: true,
       }
     } catch(e) {
       console.log(e);
@@ -63,8 +65,10 @@ class Data extends Component {
       return {
         id,
         dataSet,
-        dataSets: buildDataSets(dataSetsRaw), // List of DataSets
+        dataSets,
+        data: null,
         dimensions,
+        isLoaded: false,
       }
     }
   }
@@ -130,8 +134,16 @@ class Data extends Component {
       }
     };
     const { data } = this.state;
-    const { dataSets, dimensions } = this.props;
-    const victoryData = data && buildVictoryData(data);
+    const { dataSets, dimensions, isLoaded } = this.props;
+    // console.log(isLoaded);
+
+    let victoryData = [];
+
+    // console.log(data);
+
+    if (isLoaded && data) {
+      victoryData = buildVictoryData(data);
+    }
     // console.log('victoryData');
     // console.log(victoryData);
 
@@ -213,7 +225,7 @@ class Data extends Component {
                         return item.id === currentDimensionId;
                       }));
 
-                      return result[0] && (
+                      return result && result[0] && (
                         <div className="header__dimension">
                           <span className="header__dimension__name">
                             {dimension.name}
@@ -227,7 +239,7 @@ class Data extends Component {
                   </div>
                 </div>
 
-                {victoryData && victoryData.length > 0 ? (
+                {(typeof window !== 'undefined' && this.state.dimensions) ? (
                   <div>
                     {/* <VictoryPie
                       innerRadius={50}
@@ -240,63 +252,64 @@ class Data extends Component {
                       // y={(datum) => datum.profit - datum.loss}
                     /> */}
 
-                    <VictoryChart
-                      theme={theme}
-                      padding={{ top: 30, left: 60, right: 0, bottom: 60 }}
-                      animate={{ duration: 500 }}
-                      width={this.state.dimensions.width}
-                      height={400}
-                      scale={{ x: "time" }}
-                      style={chartStyle}
-                      containerComponent={
-                        <VictoryZoomContainer responsive={false}
-                          dimension="x"
-                          zoomDomain={this.state.zoomDomain}
-                          onDomainChange={this.handleZoom.bind(this)}
-                        />
-                      }
-                    >
-                      <VictoryLine
-                        style={{
-                          // data: {
-                          //   stroke: "tomato",
-                          // }
-                        }}
-                        data={victoryData}
-                      />
+                    {(victoryData.length > 0) ? (
+                      <div>
+                        <VictoryChart
+                          theme={theme}
+                          padding={{ top: 30, left: 60, right: 0, bottom: 60 }}
+                          animate={{ duration: 500 }}
+                          width={this.state.dimensions.width}
+                          height={400}
+                          scale={{ x: "time" }}
+                          style={chartStyle}
+                          containerComponent={
+                            <VictoryZoomContainer responsive={false}
+                              dimension="x"
+                              zoomDomain={this.state.zoomDomain}
+                              onDomainChange={this.handleZoom.bind(this)}
+                            />
+                          }
+                        >
+                          <VictoryLine
+                            style={{
+                              // data: {
+                              //   stroke: "tomato",
+                              // }
+                            }}
+                            data={victoryData}
+                          />
 
-                    </VictoryChart>
+                        </VictoryChart>
 
-                    <VictoryChart
-                      theme={theme}
-                      padding={{ top: 10, left: 60, right: 0, bottom: 30 }}
-                      animate={{ duration: 500 }}
-                      width={this.state.dimensions.width}
-                      height={80}
-                      scale={{x: "time"}}
-                      style={chartStyle}
-                      containerComponent={
-                        <VictoryBrushContainer responsive={false}
-                          dimension="x"
-                          selectedDomain={this.state.selectedDomain}
-                          onDomainChange={this.handleBrush.bind(this)}
-                        />
-                      }
-                    >
-                      <VictoryAxis
-                      />
-                      <VictoryLine
-                        style={{
-                          // data: {
-                          //   stroke: "tomato"
-                          // }
-                        }}
-                        data={victoryData}
-                      />
-                    </VictoryChart>
+                        <VictoryChart
+                          theme={theme}
+                          padding={{ top: 10, left: 60, right: 0, bottom: 30 }}
+                          animate={{ duration: 500 }}
+                          width={this.state.dimensions.width}
+                          height={80}
+                          scale={{x: "time"}}
+                          style={chartStyle}
+                          containerComponent={
+                            <VictoryBrushContainer responsive={false}
+                              dimension="x"
+                              selectedDomain={this.state.selectedDomain}
+                              onDomainChange={this.handleBrush.bind(this)}
+                            />
+                          }
+                        >
+                          <VictoryAxis
+                          />
+                          <VictoryLine
+                            data={victoryData}
+                          />
+                        </VictoryChart>
+                      </div>
+                    ) : (
+                      <p><br/>Sorry! No data available, try changing a dimension or choose another data set.</p>
+                    )}
                   </div>
                 ) : (
-                  <p>No data, try changing a dimension.</p>
+                  <p><br/>Loading..</p>
                 )
               }
               </div>

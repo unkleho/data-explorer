@@ -26,7 +26,7 @@ export function buildApiUrl({ dimensionIds, dataSetKey }) {
 // Get array of dimension ids, used for creating initial API call.
 export function getDefaultDimensionIds(dimensions) {
   if (typeof window !== 'undefined') {
-    console.table(dimensions);
+    // console.table(dimensions);
   }
   let result = [];
 
