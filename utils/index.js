@@ -2,20 +2,20 @@
 export function buildDataSets(data) {
   return data.children.map(option => {
     return {
-      name: option.html,
-      key: option.value,
+      id: option.id,
+      title: option.title,
     }
   });
 }
 
-export function buildMetaApiUrl(key) {
+export function buildDataSetApiUrl(key) {
   return `http://stat.data.abs.gov.au/sdmx-json/metadata/${key}/all`;
 }
 
-export function buildApiUrl({ dimensionIds, dataSetKey }) {
+export function buildApiUrl({ dimensionIds, dataSetId }) {
   const dimensionString = buildDimensionsApiUrl(dimensionIds);
 
-  const url = `http://stat.data.abs.gov.au/sdmx-json/data/${dataSetKey}/${dimensionString}/all?detail=Full&dimensionAtObservation=AllDimensions`;
+  const url = `http://stat.data.abs.gov.au/sdmx-json/data/${dataSetId}/${dimensionString}/all?detail=Full&dimensionAtObservation=AllDimensions`;
 
   console.log(url);
 
@@ -26,7 +26,7 @@ export function buildApiUrl({ dimensionIds, dataSetKey }) {
 // Get array of dimension ids, used for creating initial API call.
 export function getDefaultDimensionIds(dimensions) {
   if (typeof window !== 'undefined') {
-    // console.table(dimensions);
+    console.table(dimensions);
   }
   let result = [];
 

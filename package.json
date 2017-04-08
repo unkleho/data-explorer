@@ -1,7 +1,7 @@
 {
   "name": "data-explorer",
   "version": "1.0.0",
-  "description": "",
+  "title": "",
   "main": "pages/index.js",
   "engines": {
     "node": "6.9.x"

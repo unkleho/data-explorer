@@ -351,7 +351,7 @@
 			"rel": "dataflow"
 		}],
 		"name": "Births, summary, by state",
-		"description": "Births, summary, by state",
+		"title": "Births, summary, by state",
 		"dimensions": {
 			"observation": [{
 					"keyPosition": 0,

@@ -15,7 +15,15 @@ import Select from 'react-select';
 
 import Page from '../components/Page';
 import theme from '../styles/victoryTheme';
-import { buildVictoryData, getName, buildApiUrl, buildMetaApiUrl, buildDataSets, getDefaultDimensionIds, getObservations } from '../utils';
+import {
+  buildVictoryData,
+  getName,
+  buildApiUrl,
+  buildDataSetApiUrl,
+  buildDataSets,
+  getDefaultDimensionIds,
+  getObservations,
+} from '../utils';
 import data from '../data/data';
 import dataSetsRaw from '../data/dataSets';
 
@@ -36,38 +44,40 @@ class Data extends Component {
   }
 
   static async getInitialProps ({ query: { id } }) {
-    // Get dataSet metadata
-    const res = await axios.get(buildMetaApiUrl(id));
-    const dataSet = res.data.structure;
+
+    const dataSets = buildDataSets(dataSetsRaw); // List of DataSets
+    const dataSetResult = await axios.get(buildDataSetApiUrl(id)); // Get dataSet metadata
+    const dataSet = dataSetResult.data.structure;
     const dimensions = dataSet.dimensions.observation;
     const dimensionIds = getDefaultDimensionIds(dimensions);
-    const dataSets = buildDataSets(dataSetsRaw); // List of DataSets
+
+    let props = {
+      id,
+      dataSet,
+      dataSets,
+      dimensions,
+    }
 
     try {
+
       // Get data!
-      const res2 = await axios.get(buildApiUrl({
+      const dataResult = await axios.get(buildApiUrl({
         dimensionIds,
-        dataSetKey: id,
+        dataSetId: id,
       }));
-      const data = res2.data;
+      const data = dataResult.data;
 
       return {
-        id,
-        dataSet,
-        dataSets,
+        ...props,
         data,
-        dimensions,
         isLoaded: true,
       }
     } catch(e) {
       console.log(e);
 
       return {
-        id,
-        dataSet,
-        dataSets,
+        ...props,
         data: null,
-        dimensions,
         isLoaded: false,
       }
     }
@@ -90,7 +100,7 @@ class Data extends Component {
   }
 
   handleZoom(domain) {
-    this.setState({selectedDomain: domain});
+    this.setState({ selectedDomain: domain });
   }
 
   handleBrush(domain) {
@@ -110,14 +120,14 @@ class Data extends Component {
   handleDimensionSelect = async (event, dimensionIndex) => {
     const dimensionId = event.target.value;
     const dimensionIds = this.state.dimensionIds;
-    const dataSetKey = this.props.id;
+    const dataSetId = this.props.id;
 
     // Update dimensionIds array with selected dimensionId
     dimensionIds[dimensionIndex] = dimensionId;
 
     const res = await axios.get(buildApiUrl({
       dimensionIds: dimensionIds,
-      dataSetKey,
+      dataSetId,
     }));
 
     this.setState({
@@ -166,7 +176,7 @@ class Data extends Component {
             >
               {dataSets && dataSets.map((dataSet) => {
                 return (
-                  <option value={dataSet.key}>{dataSet.name}</option>
+                  <option value={dataSet.id}>{dataSet.title}</option>
                 );
               })}
             </select>
