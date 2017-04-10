@@ -1,17 +1,24 @@
-// Convert data HTML object to something usable.
-export function buildDataSets(data) {
-  return data.children.map(option => {
-    return {
-      id: option.id,
-      title: option.title,
-    }
-  });
-}
+/*
+ * ABS Data Utilities
+ * -------------------------------------------------------------------------- */
 
+// API UTILITIES
+
+// Get API URL for specific data set
 export function buildDataSetApiUrl(key) {
   return `http://stat.data.abs.gov.au/sdmx-json/metadata/${key}/all`;
 }
 
+// Build the dimensions as a string for API URL
+export function buildDimensionsApiUrl(dimensionIds) {
+  let result = dimensionIds.reduce((prev, id) => {
+    return `${prev}${id}.`;
+  }, '');
+
+  return result.slice(0, -1);
+}
+
+// Get API URL for data within data set
 export function buildApiUrl({ dimensionIds, dataSetId }) {
   const dimensionString = buildDimensionsApiUrl(dimensionIds);
 
@@ -21,6 +28,15 @@ export function buildApiUrl({ dimensionIds, dataSetId }) {
 
   return url
   // return `http://stat.data.abs.gov.au/sdmx-json/data/LF/0.13.3.1599.30.M/all?detail=Full&dimensionAtObservation=AllDimensions`
+}
+
+// Convert data HTML object to something usable.
+export function buildDataSets(data) {
+  return data.children.map(option => {
+    return {
+      ...option,
+    }
+  });
 }
 
 // Get array of dimension ids, used for creating initial API call.
@@ -61,39 +77,6 @@ export function getDefaultDimensionIds(dimensions) {
       return undefined;
     }
   }
-}
-
-export function buildDimensionsApiUrl(dimensionIds) {
-  let result = dimensionIds.reduce((prev, id) => {
-    return `${prev}${id}.`;
-  }, '');
-
-  return result.slice(0, -1);
-}
-
-export function buildVictoryData(data) {
-  // Dataset
-  const observations = getObservations(data);
-  // console.log(observations);
-  const timePeriods = getTimePeriods(data);
-  const dimensionsConfig = getDimensionsConfig(data);
-  // console.log(dimensionsConfig);
-  // console.log(timePeriods);
-
-  return Object.keys(observations).map(function(key) {
-    const value = observations[key];
-
-    // Break key in array to get dimensions
-    const dimensions = key.split(':');
-    const timePeriodIndex = dimensions.length - 1;
-    const timePeriod = dimensions[timePeriodIndex];
-    const timePeriodKey = timePeriods[timePeriod].id;
-
-    return {
-      x: createDate(timePeriodKey),
-      y: value[0],
-    }
-  })
 }
 
 export function getDimensionsConfig(data) {
@@ -155,4 +138,33 @@ export function getTimePeriods(data) {
 
 export function getName(data) {
   return data.structure.name;
+}
+
+/*
+ * Victory Chart Utilities
+ * -------------------------------------------------------------------------- */
+
+export function buildVictoryData(data) {
+  // Dataset
+  const observations = getObservations(data);
+  // console.log(observations);
+  const timePeriods = getTimePeriods(data);
+  const dimensionsConfig = getDimensionsConfig(data);
+  // console.log(dimensionsConfig);
+  // console.log(timePeriods);
+
+  return Object.keys(observations).map(function(key) {
+    const value = observations[key];
+
+    // Break key in array to get dimensions
+    const dimensions = key.split(':');
+    const timePeriodIndex = dimensions.length - 1;
+    const timePeriod = dimensions[timePeriodIndex];
+    const timePeriodKey = timePeriods[timePeriod].id;
+
+    return {
+      x: createDate(timePeriodKey),
+      y: value[0],
+    }
+  })
 }
