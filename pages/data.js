@@ -282,9 +282,6 @@ class Data extends Component {
 
                 {(typeof window !== 'undefined' && this.state.dimensions) ? (
                   <div>
-                    {() => {
-                      console.log(victoryData);
-                    }}
                     {/* <VictoryPie
                       innerRadius={50}
                       data={[
