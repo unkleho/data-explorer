@@ -131,24 +131,26 @@ class Data extends Component {
   }
 
   handleDimensionSelect = async (event, dimensionIndex) => {
-    // console.log(dimensionIndex);
     const ids = [...event.target.options].filter(({selected}) => selected).map(({value}) => value);
-    const dimensionId = event.target.value;
-    const selectedDimensions = this.state.selectedDimensions;
-    const dataSetId = this.props.id;
 
-    // Update selectedDimensions array with selected dimensionId
-    selectedDimensions[dimensionIndex] = ids;
+    if (ids.length > 0) {
+      const dimensionId = event.target.value;
+      const selectedDimensions = this.state.selectedDimensions;
+      const dataSetId = this.props.id;
 
-    const res = await axios.get(buildApiUrl({
-      selectedDimensions,
-      dataSetId,
-    }));
+      // Update selectedDimensions array with selected dimensionId
+      selectedDimensions[dimensionIndex] = ids;
 
-    this.setState({
-      data: res.data,
-      selectedDimensions,
-    })
+      const res = await axios.get(buildApiUrl({
+        selectedDimensions,
+        dataSetId,
+      }));
+
+      this.setState({
+        data: res.data,
+        selectedDimensions,
+      })      
+    }
   }
 
   render() {
