@@ -6,6 +6,7 @@ import {
   VictoryChart,
   VictoryLine,
   VictoryPie,
+  VictoryArea,
 } from 'victory';
 import axios from 'axios';
 import Router from 'next/router';
@@ -15,17 +16,21 @@ import Select from 'react-select';
 
 import Page from '../components/Page';
 import theme from '../styles/victoryTheme';
+import { colors } from '../styles/variables';
 import {
   buildVictoryData,
   getName,
   buildApiUrl,
   buildDataSetApiUrl,
   buildDataSets,
-  getDefaultDimensionIds,
+  getDefaultDimensions,
   getObservations,
 } from '../utils';
-import data from '../data/data';
+
 import dataSetsRaw from '../data/dataSets';
+import birthSummaryData from '../data/birthSummaryDataStates';
+// import birthSummaryData from '../data/birthSummaryData';
+import birthSummaryDataSet from '../data/birthSummaryDataSet';
 
 class Data extends Component {
 
@@ -46,10 +51,15 @@ class Data extends Component {
   static async getInitialProps ({ query: { id } }) {
 
     const dataSets = buildDataSets(dataSetsRaw); // List of DataSets
+
+    // const dataSetResult = birthSummaryDataSet;
+    // const dataSet = dataSetResult.structure;
+
     const dataSetResult = await axios.get(buildDataSetApiUrl(id)); // Get dataSet metadata
     const dataSet = dataSetResult.data.structure;
+
     const dimensions = dataSet.dimensions.observation;
-    const dimensionIds = getDefaultDimensionIds(dimensions);
+    const selectedDimensions = getDefaultDimensions(dimensions);
 
     let props = {
       id,
@@ -62,10 +72,13 @@ class Data extends Component {
 
       // Get data!
       const dataResult = await axios.get(buildApiUrl({
-        dimensionIds,
+        selectedDimensions,
         dataSetId: id,
       }));
       const data = dataResult.data;
+
+      // const dataResult = birthSummaryData;
+      // const data = dataResult;
 
       return {
         ...props,
@@ -86,7 +99,7 @@ class Data extends Component {
   componentDidMount() {
     this.setState({
       data: this.props.data,
-      dimensionIds: getDefaultDimensionIds(this.props.dimensions),
+      selectedDimensions: getDefaultDimensions(this.props.dimensions),
     });
   }
 
@@ -94,7 +107,7 @@ class Data extends Component {
     if (prevProps.id !== this.props.id) {
       this.setState({
         data: this.props.data,
-        dimensionIds: getDefaultDimensionIds(this.props.dimensions),
+        selectedDimensions: getDefaultDimensions(this.props.dimensions),
       })
     }
   }
@@ -118,21 +131,23 @@ class Data extends Component {
   }
 
   handleDimensionSelect = async (event, dimensionIndex) => {
+    // console.log(dimensionIndex);
+    const ids = [...event.target.options].filter(({selected}) => selected).map(({value}) => value);
     const dimensionId = event.target.value;
-    const dimensionIds = this.state.dimensionIds;
+    const selectedDimensions = this.state.selectedDimensions;
     const dataSetId = this.props.id;
 
-    // Update dimensionIds array with selected dimensionId
-    dimensionIds[dimensionIndex] = dimensionId;
+    // Update selectedDimensions array with selected dimensionId
+    selectedDimensions[dimensionIndex] = ids;
 
     const res = await axios.get(buildApiUrl({
-      dimensionIds: dimensionIds,
+      selectedDimensions,
       dataSetId,
     }));
 
     this.setState({
       data: res.data,
-      dimensionIds,
+      selectedDimensions,
     })
   }
 
@@ -154,8 +169,8 @@ class Data extends Component {
     if (isLoaded && data) {
       victoryData = buildVictoryData(data);
     }
-    // console.log('victoryData');
-    // console.log(victoryData);
+    console.log('victoryData');
+    console.log(victoryData);
 
     return (
       <Page>
@@ -194,14 +209,16 @@ class Data extends Component {
           /> */}
 
           <div>
-            {this.state.dimensionIds && dimensions && dimensions.map((dimension, i) => {
+            {this.state.selectedDimensions && dimensions && dimensions.map((dimension, i) => {
               const options = dimension.values;
-              const currentDimensionId = this.state.dimensionIds[i];
+              const currentDimensionIds = this.state.selectedDimensions[i];
+
               return (
                 <div className="dimension-box">
                   <h5>{dimension.name}</h5>
                   <select
-                    value={currentDimensionId}
+                    multiple
+                    value={currentDimensionIds}
                     onChange={(event) => this.handleDimensionSelect(event, i)}
                   >
                     {options.map((option) => {
@@ -229,19 +246,33 @@ class Data extends Component {
                   <h3 className="header__title">{this.props.dataSet && this.props.dataSet.name}</h3>
 
                   <div className="header__dimensions">
-                    {this.state.dimensionIds && dimensions && dimensions.map((dimension, i) => {
-                      const currentDimensionId = this.state.dimensionIds[i];
-                      const result = (dimension.values.filter((item) => {
-                        return item.id === currentDimensionId;
+                    {this.state.selectedDimensions && dimensions && dimensions.map((dimension, i) => {
+                      const currentDimensionIds = this.state.selectedDimensions[i];
+
+                      const results = (dimension.values.filter((item) => {
+                        return currentDimensionIds && currentDimensionIds.indexOf(item.id) > -1 ? true : false;
                       }));
 
-                      return result && result[0] && (
+                      return results && results[0] && (
                         <div className="header__dimension">
                           <span className="header__dimension__name">
                             {dimension.name}
                           </span>
                           <span className="header__dimension__current">
-                            {result[0].name}
+                            {results.map((result, i) => {
+                              const legendLabel = results.length > 1 ? (
+                                <span style={{
+                                  display: 'inline-block',
+                                  backgroundColor: colors[i],
+                                  width: '1em',
+                                  height: '1em',
+                                  marginRight: '0.2em',
+                                }}></span>
+                              ) : '';
+                              return (
+                                <span>{i > 0 && `, `}{legendLabel}{result.name}</span>
+                              )
+                            })}
                           </span>
                         </div>
                       )
@@ -251,6 +282,9 @@ class Data extends Component {
 
                 {(typeof window !== 'undefined' && this.state.dimensions) ? (
                   <div>
+                    {() => {
+                      console.log(victoryData);
+                    }}
                     {/* <VictoryPie
                       innerRadius={50}
                       data={[
@@ -280,14 +314,19 @@ class Data extends Component {
                             />
                           }
                         >
-                          <VictoryLine
-                            style={{
-                              // data: {
-                              //   stroke: "tomato",
-                              // }
-                            }}
-                            data={victoryData}
-                          />
+                          {victoryData.map((data, i) => {
+                            return (
+                              <VictoryLine
+                                style={{
+                                  data: {
+                                    stroke: colors[i],
+                                    // fill: colors[i],
+                                  }
+                                }}
+                                data={data}
+                              />
+                            )
+                          })}
 
                         </VictoryChart>
 
@@ -309,9 +348,18 @@ class Data extends Component {
                         >
                           <VictoryAxis
                           />
-                          <VictoryLine
-                            data={victoryData}
-                          />
+                          {victoryData.map((data, i) => {
+                            return (
+                              <VictoryLine
+                                style={{
+                                  data: {
+                                    stroke: colors[i],
+                                  }
+                                }}
+                                data={data}
+                              />
+                            )
+                          })}
                         </VictoryChart>
                       </div>
                     ) : (

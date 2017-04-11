@@ -10,17 +10,21 @@ export function buildDataSetApiUrl(key) {
 }
 
 // Build the dimensions as a string for API URL
-export function buildDimensionsApiUrl(dimensionIds) {
-  let result = dimensionIds.reduce((prev, id) => {
-    return `${prev}${id}.`;
+export function buildDimensionsApiUrl(selectedDimensions) {
+  let result = selectedDimensions.reduce((prev, ids) => {
+    const idString = ids.reduce((prev, id) => {
+      return `${prev}${id}+`;
+    }, '');
+    return `${prev}${idString.slice(0, -1)}.`;
   }, '');
 
   return result.slice(0, -1);
 }
 
 // Get API URL for data within data set
-export function buildApiUrl({ dimensionIds, dataSetId }) {
-  const dimensionString = buildDimensionsApiUrl(dimensionIds);
+export function buildApiUrl({ selectedDimensions, dataSetId }) {
+  const dimensionString = buildDimensionsApiUrl(selectedDimensions);
+  // console.log(dimensionString);
 
   const url = `http://stat.data.abs.gov.au/sdmx-json/data/${dataSetId}/${dimensionString}/all?detail=Full&dimensionAtObservation=AllDimensions`;
 
@@ -40,7 +44,7 @@ export function buildDataSets(data) {
 }
 
 // Get array of dimension ids, used for creating initial API call.
-export function getDefaultDimensionIds(dimensions) {
+export function getDefaultDimensions(dimensions) {
   if (typeof window !== 'undefined') {
     console.table(dimensions);
   }
@@ -49,19 +53,23 @@ export function getDefaultDimensionIds(dimensions) {
   dimensions.forEach((dimension) => {
     const { id, values } = dimension;
     let defaultId = values[0].id;
+    let dimensionIds = [];
 
     if (id !== 'TIME_PERIOD') {
       if (id === 'REGION' || id === 'STATE') {
         // Select Australia first rather than a state
-        result.push(getIdByName(values, 'Australia') || defaultId);
+        dimensionIds.push(getIdByName(values, 'Australia') || defaultId);
       // } else if (id === 'SEX') {
       //   // Select Persons rather than Male or Female
-      //   result.push(getIdByName(values, 'Persons') || defaultId);
+      //   dimensiondIds.push(getIdByName(values, 'Persons') || defaultId);
       } else {
-        result.push(defaultId);
+        dimensionIds.push(defaultId);
       }
     };
 
+    if (dimensionIds.length > 0) {
+      result.push(dimensionIds);
+    }
   })
 
   return result;
@@ -149,12 +157,19 @@ export function buildVictoryData(data) {
   const observations = getObservations(data);
   // console.log(observations);
   const timePeriods = getTimePeriods(data);
+  // console.log(timePeriods.length);
   const dimensionsConfig = getDimensionsConfig(data);
   // console.log(dimensionsConfig);
   // console.log(timePeriods);
 
-  return Object.keys(observations).map(function(key) {
+  let result = [];
+
+  // Loop through massive glob of flat data and build multi-dimensional array
+  Object.keys(observations).forEach(function(key, i) {
+    let dimensionResult = [];
     const value = observations[key];
+    const resultIndex = Math.floor(i/timePeriods.length);
+    const showLabel = i % timePeriods.length === Math.floor(timePeriods.length / 2);
 
     // Break key in array to get dimensions
     const dimensions = key.split(':');
@@ -162,9 +177,16 @@ export function buildVictoryData(data) {
     const timePeriod = dimensions[timePeriodIndex];
     const timePeriodKey = timePeriods[timePeriod].id;
 
-    return {
+    if (typeof result[resultIndex] === 'undefined') {
+      result[resultIndex] = [];
+    }
+
+    result[resultIndex].push({
       x: createDate(timePeriodKey),
       y: value[0],
-    }
-  })
+      // label: showLabel && 'hi',
+    })
+  });
+
+  return result;
 }

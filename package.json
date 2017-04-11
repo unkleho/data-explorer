@@ -18,6 +18,7 @@
     "@mars/heroku-nextjs-build": "^2.0.0",
     "axios": "^0.15.3",
     "lodash": "^4.17.4",
+    "material-colors": "^1.2.5",
     "next": "^2.0.0",
     "react": "^15.4.2",
     "react-addons-css-transition-group": "^15.4.2",
