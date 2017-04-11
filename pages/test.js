@@ -3,11 +3,8 @@ import Link from 'next/link';
 import Page from '../components/Page';
 import { buildDataSets } from '../utils';
 import dataSetsRaw from '../data/dataSets';
-import dataRaw from '../data/data';
 
 const dataSets = buildDataSets(dataSetsRaw);
-
-console.log(dataRaw);
 
 export default () => (
   <Page>
