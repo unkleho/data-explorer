@@ -13,7 +13,7 @@ import Router from 'next/router';
 import Head from 'next/head';
 import Measure from 'react-measure';
 import Select from 'react-select';
-import { initStore, startClock, getData } from '../store';
+import { initStore, getData } from '../store';
 import { connect } from 'react-redux';
 import withRedux from 'next-redux-wrapper';
 
@@ -53,7 +53,7 @@ class Data extends Component {
     };
   }
 
-  static async getInitialProps ({ query: { id }, isServer }) {
+  static async getInitialProps ({ query: { id }, isServer, store }) {
     const dataSets = buildDataSets(dataSetsRaw); // List of DataSets
 
     // const dataSetResult = birthSummaryDataSet;
@@ -72,30 +72,13 @@ class Data extends Component {
       dimensions,
     }
 
-    try {
-      // Get data!
-      const dataResult = await axios.get(buildApiUrl({
-        selectedDimensions,
-        dataSetId: id,
-      }));
-      const data = dataResult.data;
+    store.dispatch(getData(buildApiUrl({
+      selectedDimensions,
+      dataSetId: id,
+    })));
 
-      // const dataResult = birthSummaryData;
-      // const data = dataResult;
-
-      return {
-        ...props,
-        data,
-        isLoaded: true,
-      }
-    } catch(e) {
-      console.log(e);
-
-      return {
-        ...props,
-        data: null,
-        isLoaded: false,
-      }
+    return {
+      ...props,
     }
   }
 
@@ -157,14 +140,13 @@ class Data extends Component {
   }
 
   render() {
-    console.log(this.props.isLoading);
-    console.log(this.props.data2);
+    console.log(this.props);
     const chartStyle = {
       parent: {
       }
     };
-    const { data } = this.state;
-    const { dataSets, dimensions, isLoaded } = this.props;
+    // const { data } = this.state;
+    const { dataSets, dimensions, isLoaded, data } = this.props;
     // console.log(isLoaded);
 
     let victoryData = [];
@@ -185,10 +167,6 @@ class Data extends Component {
 
     return (
       <Page>
-        <style>
-
-        </style>
-
         <aside className="sidebar">
           <div className="logo">
             <span className="logo__abs">ABS</span> <span className="logo__text">Data Explorer</span> <span style={{ fontSize: '0.4em' }}>beta</span>
@@ -391,4 +369,4 @@ class Data extends Component {
   }
 }
 
-export default withRedux(initStore)(connect(state => state)(Data));
+export default withRedux(initStore, (state) => ({ ...state }))(Data);

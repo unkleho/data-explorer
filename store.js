@@ -2,45 +2,47 @@ import { createStore, applyMiddleware } from 'redux'
 import thunkMiddleware from 'redux-thunk'
 import axios from 'axios';
 
-export const reducer = (state = { lastUpdate: 0, light: false, isLoading: false }, action) => {
+export const reducer = (state = { isLoading: false }, action) => {
   switch (action.type) {
-    case 'TICK':
-      return { lastUpdate: action.ts, light: !!action.light }
-    case 'DATA_LOADING':
-      console.log('hi');
-      return { isLoading: true }
-    case 'DATA_SUCCESS':
+    case 'GET_DATA_LOADING':
+      return {
+        isLoading: true,
+      }
+    case 'GET_DATA_FAILED':
       return {
         isLoading: false,
-        data2: action.data,
+        isError: true,
+      }
+    case 'GET_DATA_SUCCESS':
+      console.log('GET_DATA_SUCCESS');
+      console.log(action.data);
+      return {
+        isLoading: false,
+        isLoaded: true,
+        data: action.data,
       }
     default:
       return state
   }
 }
 
-export const startClock = () => dispatch => {
-  return setInterval(() => dispatch({ type: 'TICK', light: true, ts: Date.now() }), 800)
-}
-
 export const getData = (url) => {
   return async (dispatch) => {
     dispatch({
-      type: 'DATA_LOADING',
+      type: 'GET_DATA_LOADING',
     });
 
     // Fetch
     try {
       const result = await axios.get(url);
-      console.log('try');
 
       dispatch({
-        type: 'DATA_SUCCESS',
+        type: 'GET_DATA_SUCCESS',
         data: result.data,
       })
     } catch(e) {
       dispatch({
-        type: 'DATA_FAILED',
+        type: 'GET_DATA_FAILED',
       })
     }
   }
