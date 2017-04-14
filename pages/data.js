@@ -13,6 +13,9 @@ import Router from 'next/router';
 import Head from 'next/head';
 import Measure from 'react-measure';
 import Select from 'react-select';
+import { initStore, startClock, getData } from '../store';
+import { connect } from 'react-redux';
+import withRedux from 'next-redux-wrapper';
 
 import Page from '../components/Page';
 import theme from '../styles/victoryTheme';
@@ -50,8 +53,7 @@ class Data extends Component {
     };
   }
 
-  static async getInitialProps ({ query: { id } }) {
-
+  static async getInitialProps ({ query: { id }, isServer }) {
     const dataSets = buildDataSets(dataSetsRaw); // List of DataSets
 
     // const dataSetResult = birthSummaryDataSet;
@@ -71,7 +73,6 @@ class Data extends Component {
     }
 
     try {
-
       // Get data!
       const dataResult = await axios.get(buildApiUrl({
         selectedDimensions,
@@ -127,11 +128,6 @@ class Data extends Component {
     Router.push(`/data?id=${id}`);
   }
 
-  handleDataSetSelect2 = (selected) => {
-    // console.log(selected.value);
-    Router.push(`/data?id=${selected.value}`);
-  }
-
   handleDimensionSelect = async (event, dimensionIndex) => {
     const ids = [...event.target.options].filter(({selected}) => selected).map(({value}) => value);
 
@@ -142,6 +138,11 @@ class Data extends Component {
 
       // Update selectedDimensions array with selected dimensionId
       selectedDimensions[dimensionIndex] = ids;
+
+      this.props.dispatch(getData(buildApiUrl({
+        selectedDimensions,
+        dataSetId,
+      })));
 
       const res = await axios.get(buildApiUrl({
         selectedDimensions,
@@ -156,10 +157,10 @@ class Data extends Component {
   }
 
   render() {
+    console.log(this.props.isLoading);
+    console.log(this.props.data2);
     const chartStyle = {
       parent: {
-        // minWidth: "100%",
-        // marginLeft: "10%",
       }
     };
     const { data } = this.state;
@@ -390,4 +391,4 @@ class Data extends Component {
   }
 }
 
-export default Data;
+export default withRedux(initStore)(connect(state => state)(Data));

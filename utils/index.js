@@ -153,12 +153,12 @@ export function getName(data) {
 export function buildVictoryData(data) {
   // Dataset
   const observations = getObservations(data);
-  console.log(observations);
+  // console.log(observations);
   const timePeriods = getTimePeriods(data);
   // console.log(timePeriods.length);
   const dimensionsConfig = getDimensionsConfig(data);
-  console.log(dimensionsConfig);
-  console.log(timePeriods);
+  // console.log(dimensionsConfig);
+  // console.log('timePeriods:' + timePeriods);
   const chartType = getChartType(timePeriods && timePeriods.length);
   // const chartType = 'line';
 
