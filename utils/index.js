@@ -135,9 +135,7 @@ export function getObservations(data) {
 }
 
 export function getTimePeriods(data) {
-  // console.log('getTimePeriods');
   let result = data.structure.dimensions.observation.filter((obs) => {
-    // console.log(obs.id === 'TIME_PERIOD');
     return obs.id === 'TIME_PERIOD';
   });
 
@@ -155,13 +153,37 @@ export function getName(data) {
 export function buildVictoryData(data) {
   // Dataset
   const observations = getObservations(data);
-  // console.log(observations);
+  console.log(observations);
   const timePeriods = getTimePeriods(data);
   // console.log(timePeriods.length);
   const dimensionsConfig = getDimensionsConfig(data);
-  // console.log(dimensionsConfig);
-  // console.log(timePeriods);
+  console.log(dimensionsConfig);
+  console.log(timePeriods);
+  const chartType = getChartType(timePeriods && timePeriods.length);
+  // const chartType = 'line';
 
+  if (chartType === 'line') {
+    return buildLineChartData(observations, timePeriods);
+  } else if (chartType === 'pie') {
+    return buildPieChartData(observations, dimensionsConfig);
+  } else {
+    return [];
+  }
+}
+
+export function getChartType(periods) {
+  let chartType;
+
+  if (periods > 1) {
+    chartType = 'line';
+  } else {
+    chartType = 'pie';
+  }
+
+  return chartType;
+}
+
+export function buildLineChartData(observations, timePeriods) {
   let result = [];
 
   // Loop through massive glob of flat data and build multi-dimensional array
@@ -189,4 +211,14 @@ export function buildVictoryData(data) {
   });
 
   return result;
+}
+
+export function buildPieChartData(observations, dimensionsConfig) {
+  return Object.keys(observations).map((key) => {
+    // console.log(observations[key][0]);
+    return {
+      x: null,
+      y: observations[key][0],
+    }
+  })
 }
