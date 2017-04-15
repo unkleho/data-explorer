@@ -462,7 +462,10 @@
 		},
 		{
 			"id": "ABS_CENSUS2011_B36",
-			"title": "B36 Dwelling Structure by Number of Bedrooms"
+			"title": "B36 Dwelling Structure by Number of Bedrooms",
+			"selectedDimensions": [
+
+			]
 		},
 		{
 			"id": "ABS_CENSUS2011_B36_LGA",

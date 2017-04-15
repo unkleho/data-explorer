@@ -81,7 +81,7 @@ export const getDataSet = (id) => {
       const dataSetResult = await axios.get(buildDataSetApiUrl(id));
       const dataSet = dataSetResult.data.structure;
       const dimensions = dataSet.dimensions.observation;
-      const selectedDimensions = getDefaultDimensions(dimensions);
+      const selectedDimensions = getDefaultDimensions(dimensions, id);
 
       dispatch({
         type: 'GET_DATASET_SUCCESS',

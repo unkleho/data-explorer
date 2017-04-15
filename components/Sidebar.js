@@ -1,6 +1,7 @@
 const Sidebar = ({
   id,
   handleDataSetSelect,
+  handleDimensionSelect,
   dataSets,
   selectedDimensions,
   dimensions,
@@ -15,7 +16,7 @@ const Sidebar = ({
         <h4>Data Set</h4>
         <select
           value={id}
-          onChange={(event) => this.handleDataSetSelect(event)}
+          onChange={(event) => handleDataSetSelect(event)}
         >
           {dataSets && dataSets.map((dataSet) => {
             return (
@@ -47,7 +48,7 @@ const Sidebar = ({
               <select
                 multiple
                 value={currentDimensionIds}
-                onChange={(event) => this.handleDimensionSelect(event, i)}
+                onChange={(event) => handleDimensionSelect(event, i)}
               >
                 {options.map((option) => {
                   return (

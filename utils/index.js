@@ -2,6 +2,8 @@
  * ABS Data Utilities
  * -------------------------------------------------------------------------- */
 
+import dataSets from '../data/dataSets';
+
 // API UTILITIES
 
 // Get API URL for specific data set
@@ -44,7 +46,7 @@ export function buildDataSets(data) {
 }
 
 // Get array of dimension ids, used for creating initial API call.
-export function getDefaultDimensions(dimensions) {
+export function getDefaultDimensions(dimensions, id) {
   if (typeof window !== 'undefined') {
     console.table(dimensions);
   }
@@ -72,6 +74,9 @@ export function getDefaultDimensions(dimensions) {
     }
   })
 
+  // console.log(dataSets.children);
+  console.log(getById(dataSets.children, id));
+
   return result;
 
   function getIdByName(values, name) {
@@ -84,6 +89,18 @@ export function getDefaultDimensions(dimensions) {
     } else {
       return undefined;
     }
+  }
+}
+
+export function getById(items, id) {
+  const result = items.filter((item) => {
+    return item.id == id;
+  });
+
+  if (result.length > 0) {
+    return result[0];
+  } else {
+    return undefined;
   }
 }
 
