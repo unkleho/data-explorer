@@ -13,13 +13,13 @@ import Router from 'next/router';
 import Head from 'next/head';
 import Measure from 'react-measure';
 import Select from 'react-select';
-import { initStore, getData } from '../store';
 import { connect } from 'react-redux';
 import withRedux from 'next-redux-wrapper';
 
 import Page from '../components/Page';
 import theme from '../styles/victoryTheme';
 import { colors } from '../styles/variables';
+import { initStore, getData, getDataSet, getDataSet2 } from '../store';
 import {
   buildVictoryData,
   getName,
@@ -59,43 +59,54 @@ class Data extends Component {
     // const dataSetResult = birthSummaryDataSet;
     // const dataSet = dataSetResult.structure;
 
-    const dataSetResult = await axios.get(buildDataSetApiUrl(id)); // Get dataSet metadata
-    const dataSet = dataSetResult.data.structure;
+    // const dataSetResult = await axios.get(buildDataSetApiUrl(id)); // Get dataSet metadata
+    // const dataSet = dataSetResult.data.structure;
 
-    const dimensions = dataSet.dimensions.observation;
-    const selectedDimensions = getDefaultDimensions(dimensions);
+    // const dimensions = dataSet.dimensions.observation;
+    // const selectedDimensions = getDefaultDimensions(dimensions);
+
+    console.log('getInitialProps');
+    console.log(isServer);
+
+    await store.dispatch(getDataSet(id));
 
     let props = {
-      id,
-      dataSet,
+      // id,
+      // dataSet,
       dataSets,
-      dimensions,
+      // store,
+      // dimensions,
     }
 
-    store.dispatch(getData(buildApiUrl({
-      selectedDimensions,
-      dataSetId: id,
-    })));
+    // store.dispatch(getData(buildApiUrl({
+    //   selectedDimensions,
+    //   dataSetId: id,
+    // })));
 
     return {
       ...props,
     }
+
   }
 
   componentDidMount() {
-    this.setState({
-      data: this.props.data,
-      selectedDimensions: getDefaultDimensions(this.props.dimensions),
-    });
+    // console.log(this.props.dimensions);
+    // this.setState({
+    //   data: this.props.data,
+    //   selectedDimensions: getDefaultDimensions(this.props.dimensions),
+    // });
   }
 
   componentDidUpdate(prevProps, prevState) {
-    if (prevProps.id !== this.props.id) {
-      this.setState({
-        data: this.props.data,
-        selectedDimensions: getDefaultDimensions(this.props.dimensions),
-      })
-    }
+    console.log('componentDidUpdate');
+    // console.log(prevProps, this.props);
+
+    // if (prevProps.id !== this.props.id) {
+    //   this.setState({
+    //     data: this.props.data,
+    //     selectedDimensions: getDefaultDimensions(this.props.dimensions),
+    //   })
+    // }
   }
 
   handleZoom(domain) {
@@ -116,7 +127,7 @@ class Data extends Component {
 
     if (ids.length > 0) {
       const dimensionId = event.target.value;
-      const selectedDimensions = this.state.selectedDimensions;
+      const selectedDimensions = this.props.selectedDimensions;
       const dataSetId = this.props.id;
 
       // Update selectedDimensions array with selected dimensionId
@@ -140,14 +151,14 @@ class Data extends Component {
   }
 
   render() {
-    console.log(this.props);
     const chartStyle = {
       parent: {
       }
     };
-    // const { data } = this.state;
-    const { dataSets, dimensions, isLoaded, data } = this.props;
-    // console.log(isLoaded);
+
+    const { dataSet, dataSets, dimensions, isLoaded, data, selectedDimensions } = this.props;
+    console.log('render');
+    console.log(selectedDimensions, dimensions);
 
     let victoryData = [];
     let chartType;
@@ -198,9 +209,9 @@ class Data extends Component {
           /> */}
 
           <div>
-            {this.state.selectedDimensions && dimensions && dimensions.map((dimension, i) => {
+            {selectedDimensions && dimensions && dimensions.map((dimension, i) => {
               const options = dimension.values;
-              const currentDimensionIds = this.state.selectedDimensions[i];
+              const currentDimensionIds = selectedDimensions[i];
 
               return (
                 <div className="dimension-box">
@@ -235,8 +246,8 @@ class Data extends Component {
                   <h3 className="header__title">{this.props.dataSet && this.props.dataSet.name}</h3>
 
                   <div className="header__dimensions">
-                    {this.state.selectedDimensions && dimensions && dimensions.map((dimension, i) => {
-                      const currentDimensionIds = this.state.selectedDimensions[i];
+                    {selectedDimensions && dimensions && dimensions.map((dimension, i) => {
+                      const currentDimensionIds = selectedDimensions[i];
 
                       const results = (dimension.values.filter((item) => {
                         return currentDimensionIds && currentDimensionIds.indexOf(item.id) > -1 ? true : false;
@@ -369,4 +380,14 @@ class Data extends Component {
   }
 }
 
-export default withRedux(initStore, (state) => ({ ...state }))(Data);
+function mapStateToProps(state) {
+  console.log('mapStateToProps');
+  console.log(state);
+
+  return {
+    ...state,
+  }
+}
+
+
+export default withRedux(initStore, mapStateToProps)(Data);
