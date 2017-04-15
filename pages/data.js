@@ -56,57 +56,14 @@ class Data extends Component {
   static async getInitialProps ({ query: { id }, isServer, store }) {
     const dataSets = buildDataSets(dataSetsRaw); // List of DataSets
 
-    // const dataSetResult = birthSummaryDataSet;
-    // const dataSet = dataSetResult.structure;
-
-    // const dataSetResult = await axios.get(buildDataSetApiUrl(id)); // Get dataSet metadata
-    // const dataSet = dataSetResult.data.structure;
-
-    // const dimensions = dataSet.dimensions.observation;
-    // const selectedDimensions = getDefaultDimensions(dimensions);
-
     console.log('getInitialProps');
     console.log(isServer);
 
     await store.dispatch(getDataSet(id));
 
-    let props = {
-      // id,
-      // dataSet,
-      dataSets,
-      // store,
-      // dimensions,
-    }
-
-    // store.dispatch(getData(buildApiUrl({
-    //   selectedDimensions,
-    //   dataSetId: id,
-    // })));
-
     return {
-      ...props,
+      dataSets,
     }
-
-  }
-
-  componentDidMount() {
-    // console.log(this.props.dimensions);
-    // this.setState({
-    //   data: this.props.data,
-    //   selectedDimensions: getDefaultDimensions(this.props.dimensions),
-    // });
-  }
-
-  componentDidUpdate(prevProps, prevState) {
-    console.log('componentDidUpdate');
-    // console.log(prevProps, this.props);
-
-    // if (prevProps.id !== this.props.id) {
-    //   this.setState({
-    //     data: this.props.data,
-    //     selectedDimensions: getDefaultDimensions(this.props.dimensions),
-    //   })
-    // }
   }
 
   handleZoom(domain) {
@@ -126,7 +83,6 @@ class Data extends Component {
     const ids = [...event.target.options].filter(({selected}) => selected).map(({value}) => value);
 
     if (ids.length > 0) {
-      const dimensionId = event.target.value;
       const selectedDimensions = this.props.selectedDimensions;
       const dataSetId = this.props.id;
 
@@ -137,16 +93,6 @@ class Data extends Component {
         selectedDimensions,
         dataSetId,
       })));
-
-      const res = await axios.get(buildApiUrl({
-        selectedDimensions,
-        dataSetId,
-      }));
-
-      this.setState({
-        data: res.data,
-        selectedDimensions,
-      })
     }
   }
 
@@ -158,7 +104,7 @@ class Data extends Component {
 
     const { dataSet, dataSets, dimensions, isLoaded, data, selectedDimensions } = this.props;
     console.log('render');
-    console.log(selectedDimensions, dimensions);
+    // console.log(selectedDimensions, dimensions);
 
     let victoryData = [];
     let chartType;
@@ -381,8 +327,8 @@ class Data extends Component {
 }
 
 function mapStateToProps(state) {
-  console.log('mapStateToProps');
-  console.log(state);
+  // console.log('mapStateToProps');
+  // console.log(state);
 
   return {
     ...state,
