@@ -11,7 +11,7 @@ export const reducer = (state = { isLoading: false }, action) => {
       console.log('GET_DATASET_LOADING');
       return {
         ...state,
-        isDataSetLoading: true,
+        isLoading: true,
       }
 
     case 'GET_DATASET_FAILED':
@@ -19,7 +19,7 @@ export const reducer = (state = { isLoading: false }, action) => {
       console.log('GET_DATASET_FAILED');
       return {
         ...state,
-        isDataSetLoading: false,
+        isLoading: false,
         isError: true,
       }
 
@@ -30,8 +30,8 @@ export const reducer = (state = { isLoading: false }, action) => {
 
       return {
         ...state,
-        isDataSetLoading: false,
-        isDataSetLoaded: true,
+        isLoading: false,
+        isLoaded: true,
         id: action.id,
         dataSet: action.dataSet,
         dimensions: action.dataSet.dimensions.observation,

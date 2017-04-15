@@ -8,26 +8,22 @@ import {
   VictoryPie,
   VictoryArea,
 } from 'victory';
-import axios from 'axios';
 import Router from 'next/router';
 import Head from 'next/head';
 import Measure from 'react-measure';
 import Select from 'react-select';
-import { connect } from 'react-redux';
 import withRedux from 'next-redux-wrapper';
 
 import Page from '../components/Page';
+import LoadingBar from '../components/LoadingBar';
+import Sidebar from '../components/Sidebar';
 import theme from '../styles/victoryTheme';
 import { colors } from '../styles/variables';
-import { initStore, getData, getDataSet, getDataSet2 } from '../store';
+import { initStore, getData, getDataSet } from '../store';
 import {
   buildVictoryData,
-  getName,
   buildApiUrl,
-  buildDataSetApiUrl,
   buildDataSets,
-  getDefaultDimensions,
-  getObservations,
   getTimePeriods,
   getChartType,
 } from '../utils';
@@ -47,9 +43,6 @@ class Data extends Component {
     super();
 
     this.state = {
-      data: null, // Data from ABS
-      dataSet: null, // Current dataSet
-      dataSets: buildDataSets(dataSetsRaw), // List of DataSets
     };
   }
 
@@ -102,8 +95,16 @@ class Data extends Component {
       }
     };
 
-    const { dataSet, dataSets, dimensions, isLoaded, data, selectedDimensions } = this.props;
-    console.log('render');
+    const {
+      dataSet,
+      dataSets,
+      dimensions,
+      isLoaded,
+      isLoading,
+      data,
+      selectedDimensions
+    } = this.props;
+    // console.log('render');
     // console.log(selectedDimensions, dimensions);
 
     let victoryData = [];
@@ -124,60 +125,18 @@ class Data extends Component {
 
     return (
       <Page>
-        <aside className="sidebar">
-          <div className="logo">
-            <span className="logo__abs">ABS</span> <span className="logo__text">Data Explorer</span> <span style={{ fontSize: '0.4em' }}>beta</span>
-          </div>
+        {isLoading && (
+          <LoadingBar />
+        )}
 
-          <div className="data-set-box">
-            <h4>Data Set</h4>
-            <select
-              value={this.props.id}
-              onChange={(event) => this.handleDataSetSelect(event)}
-            >
-              {dataSets && dataSets.map((dataSet) => {
-                return (
-                  <option value={dataSet.id}>{dataSet.title}</option>
-                );
-              })}
-            </select>
-          </div>
-
-          {/* <Select
-            value={this.props.id}
-            options={dataSets && dataSets.map((dataSet) => {
-              return {
-                value: dataSet.key,
-                label: dataSet.name,
-              }
-            })}
-            onChange={this.handleDataSetSelect2}
-          /> */}
-
-          <div>
-            {selectedDimensions && dimensions && dimensions.map((dimension, i) => {
-              const options = dimension.values;
-              const currentDimensionIds = selectedDimensions[i];
-
-              return (
-                <div className="dimension-box">
-                  <h5>{dimension.name}</h5>
-                  <select
-                    multiple
-                    value={currentDimensionIds}
-                    onChange={(event) => this.handleDimensionSelect(event, i)}
-                  >
-                    {options.map((option) => {
-                      return (
-                        <option value={option.id}>{option.name}</option>
-                      );
-                    })}
-                  </select>
-                </div>
-              );
-            })}
-          </div>
-        </aside>
+        <Sidebar
+          id={this.props.id}
+          dataSets={dataSets}
+          selectedDimensions={selectedDimensions}
+          dimensions={dimensions}
+          handleDataSetSelect={this.handleDataSetSelect}
+          handleDimensionSelect={this.handleDimensionSelect}
+        />
 
           <main className="content" style={{
           }}>
