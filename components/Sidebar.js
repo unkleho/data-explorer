@@ -60,6 +60,13 @@ const Sidebar = ({
           );
         })}
       </div>
+
+      <style jsx>{
+        `aside {
+          font-size: 0.8em;
+        }`
+      }
+      </style>
     </aside>
   )
 }

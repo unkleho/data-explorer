@@ -27,6 +27,9 @@ export const reducer = (state = { isLoading: false }, action) => {
 
       console.log('GET_DATASET_SUCCESS');
       // console.log(action.dataSet);
+      const displayDimensions = action.dimensions.filter(({ id }) => {
+        return id !== 'TIME_PERIOD';
+      })
 
       return {
         ...state,
@@ -34,7 +37,7 @@ export const reducer = (state = { isLoading: false }, action) => {
         isLoaded: true,
         id: action.id,
         dataSet: action.dataSet,
-        dimensions: action.dataSet.dimensions.observation,
+        dimensions: displayDimensions,
         selectedDimensions: action.selectedDimensions,
       }
 
@@ -87,6 +90,7 @@ export const getDataSet = (id) => {
         type: 'GET_DATASET_SUCCESS',
         id,
         dataSet,
+        dimensions,
         selectedDimensions,
       });
 
