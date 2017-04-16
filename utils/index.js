@@ -74,8 +74,15 @@ export function getDefaultDimensions(dimensions, id) {
     }
   })
 
-  // console.log(dataSets.children);
-  console.log(getById(dataSets.children, id));
+  // Work out if dataSet has default dimensions
+  const dataSet = getById(dataSets.children, id);
+  if (dataSet.defaultDimensions && dataSet.defaultDimensions.length > 0) {
+    // TODO: Smarter merging needed, just replacing right now.
+    result = dataSet.defaultDimensions;
+  }
+
+  // console.log(dimensions);
+  // console.log(result);
 
   return result;
 

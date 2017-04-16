@@ -463,8 +463,13 @@
 		{
 			"id": "ABS_CENSUS2011_B36",
 			"title": "B36 Dwelling Structure by Number of Bedrooms",
-			"selectedDimensions": [
-
+			"defaultDimensions": [
+				[ "11" ],
+				[ "1", "2", "3", "4", "5" ],
+				[ "0" ],
+				[ "AUS" ],
+				[ "0" ],
+				[ "A" ]
 			]
 		},
 		{
