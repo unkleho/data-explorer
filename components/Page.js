@@ -67,12 +67,16 @@ class Page extends Component {
           h3, .h3 {
             font-weight: 700;
             font-family: 'Droid Serif', serif;
-            font-size: 2em;
+            font-size: 1em;
             line-height: 1.4em;
             margin-top: 0.79310345em;
             margin-bottom: 0em;
             max-width: 20em;
             // text-align: center;
+
+            @media(min-width: 32em) {
+              font-size: 2em;
+            }
           }
 
           h4, .h4 {
@@ -135,21 +139,31 @@ class Page extends Component {
           }
 
           main {
+            width: 100%;
             line-height: 1.27777778em;
-            // padding-right: 1.27777778em;
-            padding-left: calc(1.27777778em * 2);
-            padding-right: calc(1.27777778em * 3);
-            width: 80%;
+            padding-left: calc(1.27777778em * 1);
+            padding-right: calc(1.27777778em * 1);
+
+            @media(min-width: 32em) {
+              width: 80%;
+              padding-left: calc(1.27777778em * 2);
+              padding-right: calc(1.27777778em * 3);
+            }
           }
 
           aside {
+            display: none;
             /*position: sticky;*/
             line-height: 1.27777778em;
             padding: 1.27777778em;
-            width: 20%;
             min-height: 100vh;
             overflow: hidden;
             background-color: ${blueGrey50};
+
+            @media(min-width: 32em) {
+              display: block;
+              width: 20%;
+            }
           }
 
           .logo {
