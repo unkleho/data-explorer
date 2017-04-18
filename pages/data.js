@@ -73,6 +73,12 @@ class Data extends Component {
     }
   }
 
+  handleMenuClick = (event) => {
+    this.props.dispatch({
+      type: 'TOGGLE_MENU',
+    })
+  }
+
   render() {
     const chartStyle = {
       parent: {
@@ -86,7 +92,8 @@ class Data extends Component {
       isLoaded,
       isLoading,
       data,
-      selectedDimensions
+      selectedDimensions,
+      isMenuActive,
     } = this.props;
     // console.log('render');
     // console.log(selectedDimensions, dimensions);
@@ -109,18 +116,35 @@ class Data extends Component {
 
     return (
       <Page>
+        <style jsx>{`
+          .overlay {
+            position: absolute;
+            z-index: 50;
+            background-color: white;
+            opacity: 0.5;
+            width: 100%;
+            height: 100%;
+
+            @media(min-width: 32em) {
+              display: none;
+            }
+          }
+        `}</style>
+
         {isLoading && (
           <LoadingBar />
         )}
 
-        <Sidebar
-          id={this.props.id}
-          dataSets={dataSets}
-          selectedDimensions={selectedDimensions}
-          dimensions={dimensions}
-          handleDataSetSelect={this.handleDataSetSelect}
-          handleDimensionSelect={this.handleDimensionSelect}
-        />
+        {isMenuActive && (
+          <Sidebar
+            id={this.props.id}
+            dataSets={dataSets}
+            selectedDimensions={selectedDimensions}
+            dimensions={dimensions}
+            handleDataSetSelect={this.handleDataSetSelect}
+            handleDimensionSelect={this.handleDimensionSelect}
+          />
+        )}
 
           <main className="content" style={{
           }}>
@@ -130,7 +154,14 @@ class Data extends Component {
               }}
             >
               <div>
+                {isMenuActive && (
+                  <div className="overlay" onClick={this.handleMenuClick}>
+                  </div>
+                )}
+
                 <div className="header">
+                  <button className="" onClick={this.handleMenuClick}>Menu</button>
+
                   <div className="header__id">{this.props.id}</div>
                   <h3 className="header__title">{this.props.dataSet && this.props.dataSet.name}</h3>
 

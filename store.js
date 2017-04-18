@@ -4,7 +4,9 @@ import axios from 'axios';
 
 import { buildDataSetApiUrl, getDefaultDimensions, buildApiUrl } from './utils';
 
-export const reducer = (state = { isLoading: false }, action) => {
+export const reducer = (state = {
+  isLoading: false,
+}, action) => {
   switch (action.type) {
     case 'GET_DATASET_LOADING':
 
@@ -66,6 +68,14 @@ export const reducer = (state = { isLoading: false }, action) => {
         isLoading: false,
         isLoaded: true,
         data: action.data,
+      }
+
+    case 'TOGGLE_MENU':
+      console.log('TOGGLE_MENU', !state.isMenuActive);
+
+      return {
+        ...state,
+        isMenuActive: !state.isMenuActive,
       }
 
     default:

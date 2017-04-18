@@ -152,8 +152,11 @@ class Page extends Component {
           }
 
           aside {
-            display: none;
+            /*display: none;*/
             /*position: sticky;*/
+            position: absolute;
+            z-index: 100;
+            width: 70%;
             line-height: 1.27777778em;
             padding: 1.27777778em;
             min-height: 100vh;
@@ -161,6 +164,7 @@ class Page extends Component {
             background-color: ${blueGrey50};
 
             @media(min-width: 32em) {
+              position: relative;
               display: block;
               width: 20%;
             }
