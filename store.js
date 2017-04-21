@@ -71,24 +71,12 @@ export const reducer = (state = {
         data: action.data,
       }
 
-    case 'SELECT_MAIN_DIMENSION_ID':
-
-      console.log(action.id);
-      console.log(action.dimensionId);
-
-      const selectedDimensions = state.selectedDimensions.map((selectedDimension, i) => {
-        if (i === action.dimensionId) {
-          return toggleArrayItem(selectedDimension, action.id);
-        } else {
-          return selectedDimension;
-        }
-      })
-
-      console.log(selectedDimensions);
+    case 'SELECT_MAIN_DIMENSION':
 
       return {
         ...state,
-        selectedDimensions,
+        mainDimensionIndex: action.mainDimensionIndex,
+        selectedDimensions: action.selectedDimensions, // TODO: Make default here?
       }
 
     case 'TOGGLE_MENU':
@@ -164,20 +152,6 @@ export const getData = (url) => {
       })
     }
   }
-}
-
-export const selectMainDimensionId = (id, dimensionId) => {
-  return {
-    type: 'SELECT_MAIN_DIMENSION_ID',
-    id,
-    dimensionId,
-  }
-
-  // return (dispatch) => {
-  //   dispatch({
-  //     type: 'SELECT_MAIN_DIMENSION_ID',
-  //   });
-  // }
 }
 
 export const initStore = (initialState) => {

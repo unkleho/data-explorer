@@ -24,6 +24,7 @@ import {
   getTimePeriods,
   getChartType,
   toggleArrayItem,
+  getDefaultDimensions,
 } from '../utils';
 
 import dataSetsRaw from '../data/dataSets';
@@ -100,6 +101,21 @@ class Data extends Component {
     })));
   }
 
+  handleMainDimensionSelect = (mainDimensionIndex) => {
+    const defaultDimensions = getDefaultDimensions(this.props.dimensions, this.props.id);
+
+    this.props.dispatch(getData(buildApiUrl({
+      selectedDimensions: defaultDimensions,
+      dataSetId: this.props.id,
+    })));
+
+    this.props.dispatch({
+      type: 'SELECT_MAIN_DIMENSION',
+      mainDimensionIndex,
+      selectedDimensions: defaultDimensions,
+    })
+  }
+
   render() {
     const chartStyle = {
       parent: {
@@ -115,6 +131,7 @@ class Data extends Component {
       data,
       selectedDimensions,
       isMenuActive,
+      mainDimensionIndex,
     } = this.props;
     // console.log('render');
     // console.log(selectedDimensions, dimensions);
@@ -174,8 +191,10 @@ class Data extends Component {
             dataSets={dataSets}
             selectedDimensions={selectedDimensions}
             dimensions={dimensions}
+            mainDimensionIndex={mainDimensionIndex}
             handleDataSetSelect={this.handleDataSetSelect}
             handleDimensionSelect={this.handleDimensionSelect}
+            handleMainDimensionSelect={this.handleMainDimensionSelect}
             handleMainDimensionIdSelect={this.handleMainDimensionIdSelect}
           />
         )}

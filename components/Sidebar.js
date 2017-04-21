@@ -5,11 +5,13 @@ const Sidebar = ({
   handleDataSetSelect,
   handleDimensionSelect,
   handleMainDimensionIdSelect,
+  handleMainDimensionSelect,
   dataSets,
   selectedDimensions,
   dimensions,
+  mainDimensionIndex = 0,
 }) => {
-  const mainDimensionIndex = 1;
+  // const mainDimensionIndex = 1;
   const mainDimension = dimensions[mainDimensionIndex];
   // console.table(selectedDimensions);
 
@@ -89,7 +91,7 @@ const Sidebar = ({
         <h2>{mainDimension.name}</h2>
         {mainDimension.values.map((value) => {
           const selectedDimension = selectedDimensions[mainDimensionIndex];
-          console.log(selectedDimension.indexOf(value.id));
+          // console.log(selectedDimension.indexOf(value.id));
           const isActive = selectedDimension.indexOf(value.id) === -1 ? false : true;
 
           return (
@@ -108,7 +110,7 @@ const Sidebar = ({
 
           return (
             <div className="dimension-box">
-              <h5>{dimension.name}</h5>
+              <h5 onClick={() => handleMainDimensionSelect(i)}>{dimension.name}</h5>
               <select
                 // multiple
                 value={currentDimensionIds}
