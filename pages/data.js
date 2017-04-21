@@ -11,13 +11,19 @@ import Content from '../components/Content';
 import Sidebar from '../components/Sidebar';
 import theme from '../styles/victoryTheme';
 import { colors } from '../styles/variables';
-import { initStore, getData, getDataSet } from '../store';
+import {
+  initStore,
+  getData,
+  getDataSet,
+  selectMainDimensionId,
+} from '../store';
 import {
   buildVictoryData,
   buildApiUrl,
   buildDataSets,
   getTimePeriods,
   getChartType,
+  toggleArrayItem,
 } from '../utils';
 
 import dataSetsRaw from '../data/dataSets';
@@ -79,6 +85,21 @@ class Data extends Component {
     })
   }
 
+  handleMainDimensionIdSelect = (id, dimensionId) => {
+    // this.props.dispatch(selectMainDimensionId(id, dimensionId));
+
+    this.props.dispatch(getData(buildApiUrl({
+      selectedDimensions: this.props.selectedDimensions.map((selectedDimension, i) => {
+        if (i === dimensionId) {
+          return toggleArrayItem(selectedDimension, id);
+        } else {
+          return selectedDimension;
+        }
+      }),
+      dataSetId: this.props.id,
+    })));
+  }
+
   render() {
     const chartStyle = {
       parent: {
@@ -129,6 +150,18 @@ class Data extends Component {
               display: none;
             }
           }
+
+          main {
+            width: 100%;
+            line-height: 1.27777778em;
+            padding-left: calc(1.27777778em * 1);
+            padding-right: calc(1.27777778em * 1);
+
+            @media(min-width: 32em) {
+              padding-left: calc(1.27777778em * 2);
+              padding-right: calc(1.27777778em * 3);
+            }
+          }
         `}</style>
 
         {isLoading && (
@@ -143,6 +176,7 @@ class Data extends Component {
             dimensions={dimensions}
             handleDataSetSelect={this.handleDataSetSelect}
             handleDimensionSelect={this.handleDimensionSelect}
+            handleMainDimensionIdSelect={this.handleMainDimensionIdSelect}
           />
         )}
 
@@ -159,13 +193,13 @@ class Data extends Component {
                   </div>
                 )}
 
-                <div className="header">
+                {/* <div className="content-header">
                   <button className="" onClick={this.handleMenuClick}>Menu</button>
 
-                  <div className="header__id">{this.props.id}</div>
-                  <h3 className="header__title">{this.props.dataSet && this.props.dataSet.name}</h3>
+                  <div className="content-header__id">{this.props.id}</div>
+                  <h3 className="content-header__title">{dataSet && dataSet.name}</h3>
 
-                  <div className="header__dimensions">
+                  <div className="content-header__dimensions">
                     {selectedDimensions && dimensions && dimensions.map((dimension, i) => {
                       const currentDimensionIds = selectedDimensions[i];
 
@@ -174,11 +208,11 @@ class Data extends Component {
                       }));
 
                       return results && results[0] && (
-                        <div className="header__dimension">
-                          <span className="header__dimension__name">
+                        <div className="content-header__dimension">
+                          <span className="content-header__dimension__name">
                             {dimension.name}
                           </span>
-                          <span className="header__dimension__current">
+                          <span className="content-header__dimension__current">
                             {results.map((result, i) => {
                               const legendLabel = results.length > 1 ? (
                                 <span style={{
@@ -198,7 +232,7 @@ class Data extends Component {
                       )
                     })}
                   </div>
-                </div>
+                </div> */}
 
                 {(typeof window !== 'undefined' && this.state.dimensions) ? (
                   <div>

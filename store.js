@@ -6,6 +6,7 @@ import { buildDataSetApiUrl, getDefaultDimensions, buildApiUrl } from './utils';
 
 export const reducer = (state = {
   isLoading: false,
+  isMenuActive: true,
 }, action) => {
   switch (action.type) {
     case 'GET_DATASET_LOADING':
@@ -68,6 +69,26 @@ export const reducer = (state = {
         isLoading: false,
         isLoaded: true,
         data: action.data,
+      }
+
+    case 'SELECT_MAIN_DIMENSION_ID':
+
+      console.log(action.id);
+      console.log(action.dimensionId);
+
+      const selectedDimensions = state.selectedDimensions.map((selectedDimension, i) => {
+        if (i === action.dimensionId) {
+          return toggleArrayItem(selectedDimension, action.id);
+        } else {
+          return selectedDimension;
+        }
+      })
+
+      console.log(selectedDimensions);
+
+      return {
+        ...state,
+        selectedDimensions,
       }
 
     case 'TOGGLE_MENU':
@@ -145,6 +166,31 @@ export const getData = (url) => {
   }
 }
 
+export const selectMainDimensionId = (id, dimensionId) => {
+  return {
+    type: 'SELECT_MAIN_DIMENSION_ID',
+    id,
+    dimensionId,
+  }
+
+  // return (dispatch) => {
+  //   dispatch({
+  //     type: 'SELECT_MAIN_DIMENSION_ID',
+  //   });
+  // }
+}
+
 export const initStore = (initialState) => {
   return createStore(reducer, initialState, applyMiddleware(thunkMiddleware))
+}
+
+function toggleArrayItem(a, v) {
+    var i = a.indexOf(v);
+    if (i === -1) {
+      a.push(v);
+    } else {
+      a.splice(i,1);
+    }
+
+    return a;
 }

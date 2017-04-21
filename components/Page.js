@@ -1,6 +1,8 @@
 import { Component, PropTypes } from 'react';
 import Router from 'next/router';
 import Head from 'next/head';
+
+import Header from '../components/Header';
 import { blueGrey50, blueGrey100, blueGrey300, blueGrey700, deepOrange600 } from '../styles/variables';
 
 class Page extends Component {
@@ -11,9 +13,7 @@ class Page extends Component {
 
   render() {
     return (
-      <div style={{
-        display: 'flex',
-      }}>
+      <div>
         <style jsx global>{`
           html {
             box-sizing: border-box;
@@ -138,107 +138,34 @@ class Page extends Component {
             font-size: 0.8em;
           }
 
-          main {
-            width: 100%;
-            line-height: 1.27777778em;
-            padding-left: calc(1.27777778em * 1);
-            padding-right: calc(1.27777778em * 1);
-
-            @media(min-width: 32em) {
-              width: 80%;
-              padding-left: calc(1.27777778em * 2);
-              padding-right: calc(1.27777778em * 3);
-            }
-          }
-
-          aside {
-            /*display: none;*/
-            /*position: sticky;*/
-            position: absolute;
-            z-index: 100;
-            width: 70%;
-            line-height: 1.27777778em;
-            padding: 1.27777778em;
-            min-height: 100vh;
-            overflow: hidden;
-            background-color: ${blueGrey50};
-
-            @media(min-width: 32em) {
-              position: relative;
-              display: block;
-              width: 20%;
-            }
-          }
-
-          .logo {
-            margin: -1.27777778em -1.27777778em 0;
-            padding: 1.27777778em 1.27777778em 1.1em;
-            font-size: 1.2em;
-            line-height: 1.4;
-            background-color: ${blueGrey300};
-            color: white;
-            /*margin-bottom: 1.2em;*/
-            /*text-align: center;*/
-          }
-
-            .logo__abs {
-              font-family: 'Roboto';
-              font-weight: 700;
-              /*color: #00796B;*/
-            }
-
-            .logo__text {
-              font-family: 'Roboto';
-              font-weight: 100;
-              font-size: 1em;
-            }
-
-          .data-set-box {
-            margin: 0 -1.27777778em;
-            padding: 1.27777778em 1.27777778em 1.1em;
-            /*margin-bottom: 1.5em;*/
-            padding-bottom: 1.5em;
-            background-color: ${blueGrey100};
-          }
-
-          .data-set-box h4 {
-            margin-top: 0;
-          }
-
-          .dimension-box {
-            border-top: 2px solid ${blueGrey100};
-            margin-top: 1.3em;
-            margin-bottom: 1em;
-          }
-
-          .header {
+          .content-header {
             padding-top: 1.8em;
             margin-bottom: 1em;
           }
 
-          .header__title {
+          .content-header__title {
             margin-top: 0;
             margin-bottom: 0.3em;
           }
 
-          .header__id {
+          .content-header__id {
             font-family: 'Roboto';
             opacity: 0.3;
             font-size: 0.8em;
           }
 
-          .header__dimensions {
+          .content-header__dimensions {
             display: flex;
             font-size: 0.8em;
           }
 
-            .header__dimension {
+            .content-header__dimension {
               display: flex;
               flex-direction: column;
               margin-right: 2em;
             }
 
-            .header__dimension__name {
+            .content-header__dimension__name {
               font-family: 'Roboto';
               opacity: 0.3;
               font-size: 0.8em;
@@ -255,6 +182,7 @@ class Page extends Component {
           <link rel="stylesheet" href="https://unpkg.com/react-select/dist/react-select.css" />
         </Head>
 
+        <Header />
         {this.props.children}
       </div>
     );
