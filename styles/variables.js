@@ -1,4 +1,4 @@
-import { cyan, orange, purple } from 'material-colors';
+import { cyan, orange, purple, yellow, red, blue, green } from 'material-colors';
 
 // Colors
 export const yellow200 = "#FFF59D";
@@ -18,6 +18,9 @@ export const colors = [
   cyan['500'],
   orange['500'],
   purple['500'],
+  yellow['500'],
+  blue['500'],
+  green['500'],
 ];
 
 // Typography

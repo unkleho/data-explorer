@@ -8,7 +8,7 @@ import withRedux from 'next-redux-wrapper';
 import Page from '../components/Page';
 import LoadingBar from '../components/LoadingBar';
 import Content from '../components/Content';
-import Sidebar from '../components/Sidebar';
+import DataHeader from '../components/DataHeader';
 import theme from '../styles/victoryTheme';
 import { colors } from '../styles/variables';
 import {
@@ -154,6 +154,97 @@ class Data extends Component {
 
     return (
       <Page>
+        {isLoading && (
+          <LoadingBar />
+        )}
+
+        {isMenuActive && (
+          <DataHeader
+            id={this.props.id}
+            dataSets={dataSets}
+            selectedDimensions={selectedDimensions}
+            dimensions={dimensions}
+            mainDimensionIndex={mainDimensionIndex}
+            onDataSetSelect={this.handleDataSetSelect}
+            onDimensionSelect={this.handleDimensionSelect}
+            onMainDimensionSelect={this.handleMainDimensionSelect}
+            onMainDimensionIdSelect={this.handleMainDimensionIdSelect}
+          />
+        )}
+
+        <main className="content" style={{
+        }}>
+          <Measure
+            onMeasure={(dimensions) => {
+              this.setState({ dimensions });
+            }}
+          >
+            <div>
+              {isMenuActive && (
+                <div className="overlay" onClick={this.handleMenuClick}>
+                </div>
+              )}
+
+              {/* <div className="content-header">
+                <button className="" onClick={this.handleMenuClick}>Menu</button>
+
+                <div className="content-header__id">{this.props.id}</div>
+                <h3 className="content-header__title">{dataSet && dataSet.name}</h3>
+
+                <div className="content-header__dimensions">
+                  {selectedDimensions && dimensions && dimensions.map((dimension, i) => {
+                    const currentDimensionIds = selectedDimensions[i];
+
+                    const results = (dimension.values.filter((item) => {
+                      return currentDimensionIds && currentDimensionIds.indexOf(item.id) > -1 ? true : false;
+                    }));
+
+                    return results && results[0] && (
+                      <div className="content-header__dimension">
+                        <span className="content-header__dimension__name">
+                          {dimension.name}
+                        </span>
+                        <span className="content-header__dimension__current">
+                          {results.map((result, i) => {
+                            const legendLabel = results.length > 1 ? (
+                              <span style={{
+                                display: 'inline-block',
+                                backgroundColor: colors[i],
+                                width: '1em',
+                                height: '1em',
+                                marginRight: '0.2em',
+                              }}></span>
+                            ) : '';
+                            return (
+                              <span>{i > 0 && `, `}{legendLabel}{result.name}</span>
+                            )
+                          })}
+                        </span>
+                      </div>
+                    )
+                  })}
+                </div>
+              </div> */}
+
+              {(typeof window !== 'undefined' && this.state.dimensions) ? (
+                <div>
+                  <Content
+                    victoryData={victoryData}
+                    chartStyle={chartStyle}
+                    theme={theme}
+                    width={this.state.dimensions.width}
+                    height={this.state.dimensions.height}
+                    chartType={chartType}
+                  />
+                </div>
+              ) : (
+                <p><br/>Loading..</p>
+              )
+            }
+            </div>
+          </Measure>
+        </main>
+
         <style jsx>{`
           .overlay {
             position: absolute;
@@ -180,97 +271,6 @@ class Data extends Component {
             }
           }
         `}</style>
-
-        {isLoading && (
-          <LoadingBar />
-        )}
-
-        {isMenuActive && (
-          <Sidebar
-            id={this.props.id}
-            dataSets={dataSets}
-            selectedDimensions={selectedDimensions}
-            dimensions={dimensions}
-            mainDimensionIndex={mainDimensionIndex}
-            handleDataSetSelect={this.handleDataSetSelect}
-            handleDimensionSelect={this.handleDimensionSelect}
-            onMainDimensionSelect={this.handleMainDimensionSelect}
-            handleMainDimensionIdSelect={this.handleMainDimensionIdSelect}
-          />
-        )}
-
-          <main className="content" style={{
-          }}>
-            <Measure
-              onMeasure={(dimensions) => {
-                this.setState({ dimensions });
-              }}
-            >
-              <div>
-                {isMenuActive && (
-                  <div className="overlay" onClick={this.handleMenuClick}>
-                  </div>
-                )}
-
-                {/* <div className="content-header">
-                  <button className="" onClick={this.handleMenuClick}>Menu</button>
-
-                  <div className="content-header__id">{this.props.id}</div>
-                  <h3 className="content-header__title">{dataSet && dataSet.name}</h3>
-
-                  <div className="content-header__dimensions">
-                    {selectedDimensions && dimensions && dimensions.map((dimension, i) => {
-                      const currentDimensionIds = selectedDimensions[i];
-
-                      const results = (dimension.values.filter((item) => {
-                        return currentDimensionIds && currentDimensionIds.indexOf(item.id) > -1 ? true : false;
-                      }));
-
-                      return results && results[0] && (
-                        <div className="content-header__dimension">
-                          <span className="content-header__dimension__name">
-                            {dimension.name}
-                          </span>
-                          <span className="content-header__dimension__current">
-                            {results.map((result, i) => {
-                              const legendLabel = results.length > 1 ? (
-                                <span style={{
-                                  display: 'inline-block',
-                                  backgroundColor: colors[i],
-                                  width: '1em',
-                                  height: '1em',
-                                  marginRight: '0.2em',
-                                }}></span>
-                              ) : '';
-                              return (
-                                <span>{i > 0 && `, `}{legendLabel}{result.name}</span>
-                              )
-                            })}
-                          </span>
-                        </div>
-                      )
-                    })}
-                  </div>
-                </div> */}
-
-                {(typeof window !== 'undefined' && this.state.dimensions) ? (
-                  <div>
-                    <Content
-                      victoryData={victoryData}
-                      chartStyle={chartStyle}
-                      theme={theme}
-                      width={this.state.dimensions.width}
-                      height={this.state.dimensions.height}
-                      chartType={chartType}
-                    />
-                  </div>
-                ) : (
-                  <p><br/>Loading..</p>
-                )
-              }
-              </div>
-            </Measure>
-          </main>
       </Page>
     );
   }
