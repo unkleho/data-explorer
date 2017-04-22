@@ -5,62 +5,26 @@ const Sidebar = ({
   handleDataSetSelect,
   handleDimensionSelect,
   handleMainDimensionIdSelect,
-  handleMainDimensionSelect,
+  onMainDimensionSelect,
   dataSets,
   selectedDimensions,
   dimensions,
   mainDimensionIndex = 0,
 }) => {
-  // const mainDimensionIndex = 1;
   const mainDimension = dimensions[mainDimensionIndex];
-  // console.table(selectedDimensions);
+  const displayDimensions = dimensions.filter((dimension, i) => i !== mainDimensionIndex);
+  // console.table(displayDimensions);
+
+  const handleMainDimensionSelect = (event) => {
+    const id = event.target.value;
+    // Work out new index
+    const index = dimensions.findIndex(dimension => dimension.id === id);
+    // console.log('handleMainDimensionSelect', id);
+    onMainDimensionSelect(index);
+  }
 
   return (
     <aside className="sidebar">
-      <style jsx>{`
-        aside {
-          background-color: ${blueGrey50};
-          padding: 1em;
-
-          @media(min-width: 32em) {
-          }
-        }
-
-        button {
-          border: none;
-          background-color: #DDD;
-          margin-right: 1em;
-        }
-
-        button.active {
-          background-color: white;
-        }
-
-        .data-set-box {
-          padding: 1.27777778em 1.27777778em 1.1em;
-          /*margin-bottom: 1.5em;*/
-          padding-bottom: 1.5em;
-          background-color: ${blueGrey100};
-        }
-
-        .data-set-box h4 {
-          margin-top: 0;
-        }
-
-        .dimension-boxes {
-          display: flex;
-          margin-right: -1em;
-        }
-
-        .dimension-box {
-          flex: 1;
-          border-top: 2px solid ${blueGrey100};
-          margin-top: 1.3em;
-          margin-bottom: 1em;
-          margin-right: 1em;
-        }
-      `}</style>
-
       <div className="data-set-box">
         <h4>Data Set</h4>
         <select
@@ -87,9 +51,20 @@ const Sidebar = ({
       /> */}
 
       <div className="main-dimension-box">
-        {/* {console.log(mainDimension)} */}
-        <h2>{mainDimension.name}</h2>
-        {mainDimension.values.map((value) => {
+        <select
+          value={mainDimension && mainDimension.id}
+          onChange={(event) => handleMainDimensionSelect(event)}
+        >
+
+        {dimensions.map((dimension) => {
+          return (
+            <option value={dimension.id}>{dimension.name}</option>
+          )
+        })}
+
+        </select>
+
+        {mainDimension && mainDimension.values.map((value) => {
           const selectedDimension = selectedDimensions[mainDimensionIndex];
           // console.log(selectedDimension.indexOf(value.id));
           const isActive = selectedDimension.indexOf(value.id) === -1 ? false : true;
@@ -108,24 +83,71 @@ const Sidebar = ({
           const options = dimension.values;
           const currentDimensionIds = selectedDimensions[i];
 
-          return (
-            <div className="dimension-box">
-              <h5 onClick={() => handleMainDimensionSelect(i)}>{dimension.name}</h5>
-              <select
-                // multiple
-                value={currentDimensionIds}
-                onChange={(event) => handleDimensionSelect(event, i)}
-              >
-                {options.map((option) => {
-                  return (
-                    <option value={option.id}>{option.name}</option>
-                  );
-                })}
-              </select>
-            </div>
-          );
+          if (i !== mainDimensionIndex) {
+            return (
+              <div className="dimension-box">
+                <h5 onClick={() => onMainDimensionSelect(i)}>{dimension.name}</h5>
+                <select
+                  // multiple
+                  value={currentDimensionIds}
+                  onChange={(event) => handleDimensionSelect(event, i)}
+                >
+                  {options.map((option) => {
+                    return (
+                      <option value={option.id}>{option.name}</option>
+                    );
+                  })}
+                </select>
+              </div>
+            );
+          }
         })}
       </div>
+
+      <style jsx>{`
+        aside {
+          background-color: ${blueGrey50};
+          padding: 1em;
+
+          @media(min-width: 32em) {
+          }
+        }
+
+        button {
+          border: none;
+          background-color: #DDD;
+          margin-right: 1em;
+        }
+
+        button.active {
+          background-color: white;
+        }
+
+        .data-set-box {
+          /*padding: 1.27777778em 1.27777778em 1.1em;*/
+          /*margin-bottom: 1.5em;*/
+          /*padding-bottom: 1.5em;*/
+          /*background-color: ${blueGrey100};*/
+        }
+
+        .data-set-box h4 {
+          margin-top: 0;
+        }
+
+        .dimension-boxes {
+          display: flex;
+          margin-right: -1em;
+        }
+
+        .dimension-box {
+          flex: 1;
+          border-top: 2px solid ${blueGrey100};
+          margin-top: 1.3em;
+          margin-bottom: 1em;
+          margin-right: 1em;
+        }
+      `}</style>
+
     </aside>
   )
 }

@@ -194,7 +194,7 @@ class Data extends Component {
             mainDimensionIndex={mainDimensionIndex}
             handleDataSetSelect={this.handleDataSetSelect}
             handleDimensionSelect={this.handleDimensionSelect}
-            handleMainDimensionSelect={this.handleMainDimensionSelect}
+            onMainDimensionSelect={this.handleMainDimensionSelect}
             handleMainDimensionIdSelect={this.handleMainDimensionIdSelect}
           />
         )}
