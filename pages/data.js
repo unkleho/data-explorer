@@ -157,9 +157,9 @@ class Data extends Component {
 
     return (
       <Page>
-        {isLoading && (
+        {/* {isLoading && (
           <LoadingBar />
-        )}
+        )} */}
 
         {isMenuActive && (
           <DataHeader

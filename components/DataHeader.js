@@ -1,5 +1,7 @@
 import { blueGrey50, blueGrey100, blueGrey300, blueGrey700, deepOrange600, colors } from '../styles/variables';
 import { blueGrey } from 'material-colors';
+import Select from 'react-select';
+import Router from 'next/router';
 
 const DataHeader = ({
   id,
@@ -17,12 +19,28 @@ const DataHeader = ({
   const displayDimensions = dimensions.filter((dimension, i) => i !== mainDimensionIndex);
   // console.table(displayDimensions);
 
+  const handleDataSetSelect = (option) => {
+    const id = option.value;
+    Router.push(`/data?id=${id}`);
+  }
 
   return (
     <aside className="sidebar">
       <div className="data-set-box">
         <div className="data-set-box__id">{dataSet.id}</div>
-        <h1>{dataSet.title}</h1>
+        {/* <h1>{dataSet.title}</h1> */}
+        <Select
+          name="data-set-select"
+          className="data-set-box__select"
+          value={dataSet.id}
+          options={dataSets.map(dataSet => {
+            return {
+              value: dataSet.id,
+              label: dataSet.title,
+            }
+          })}
+          onChange={handleDataSetSelect}
+        />
         {/* <select
           value={id}
           onChange={(event) => onDataSetSelect(event)}
@@ -47,14 +65,16 @@ const DataHeader = ({
       /> */}
 
       <div className="dimension-boxes">
+        <i className="material-icons">filter_list</i>
+
         {selectedDimensions && dimensions && dimensions.map((dimension, i) => {
           const options = dimension.values;
           const currentDimensionIds = selectedDimensions[i];
 
-          if (i !== mainDimensionIndex) {
+          // if (i !== mainDimensionIndex) {
             return (
               <div className="dimension-box">
-                {/* <h5 onClick={() => onMainDimensionSelect(i)}>{dimension.name}</h5> */}
+                <h5 onClick={() => onMainDimensionSelect(i)}>{dimension.name}</h5>
                 <select
                   // multiple
                   value={currentDimensionIds}
@@ -68,7 +88,7 @@ const DataHeader = ({
                 </select>
               </div>
             );
-          }
+          // }
         })}
       </div>
 
@@ -101,32 +121,34 @@ const DataHeader = ({
             opacity: 0.6;
           }
 
-        .main-dimension-box {
-          display: flex;
-        }
-
-          .main-dimension-box__header {
-            flex: 1;
-            margin-right: 1em;
+          :global(.Select-control) {
+            background-color: transparent;
+            border: none;
           }
 
-          .main-dimension-box__content {
-            flex: 4;
-            /*display: flex;*/
+          :global(.is-open) > :global(.Select-control) {
+            background-color: transparent;
+            border: none;
+          }
 
-            & button {
-              lost-column: 1/4;
+          :global(.Select-value) {
+            padding-left: 0 !important;
+          }
 
-              border: none;
-              background-color: #DDD;
-              font-size: 1em;
-              margin-right: 0.5em;
-              margin-bottom: 0.5em;
-              padding: 0.5em;
-            }
+          :global(.Select-clear) {
+            display: none;
+          }
 
-            & button.active {
-              background-color: white;
+          :global(.Select-value-label) {
+            color: white !important;
+            font-size: 2em;
+            font-family: 'Roboto';
+            font-weight: 600;
+          }
+
+          :global(.data-set-box__select) {
+            & .Select-control {
+              background-color: transparent;
             }
           }
 
@@ -134,6 +156,10 @@ const DataHeader = ({
           display: flex;
           padding: 1em;
           background-color: white;
+
+          & i {
+            margin-right: 1em;
+          }
         }
 
         .dimension-box {
