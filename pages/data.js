@@ -4,11 +4,13 @@ import Head from 'next/head';
 import Measure from 'react-measure';
 import Select from 'react-select';
 import withRedux from 'next-redux-wrapper';
+import { blueGrey } from 'material-colors';
 
 import Page from '../components/Page';
 import LoadingBar from '../components/LoadingBar';
 import Content from '../components/Content';
 import DataHeader from '../components/DataHeader';
+import DataAside from '../components/DataAside';
 import theme from '../styles/victoryTheme';
 import { colors } from '../styles/variables';
 import {
@@ -136,6 +138,7 @@ class Data extends Component {
     // console.log('render');
     // console.log(selectedDimensions, dimensions);
 
+    const mainDimension = dimensions[mainDimensionIndex];
     let victoryData = [];
     let chartType;
 
@@ -172,8 +175,15 @@ class Data extends Component {
           />
         )}
 
-        <main className="content" style={{
-        }}>
+        <DataAside
+          mainDimensionIndex={mainDimensionIndex || 0}
+          selectedDimensions={selectedDimensions}
+          dimensions={dimensions}
+          onMainDimensionIdSelect={this.handleMainDimensionIdSelect}
+          onMainDimensionSelect={this.handleMainDimensionSelect}
+        ></DataAside>
+
+        <main className="content">
           <Measure
             onMeasure={(dimensions) => {
               this.setState({ dimensions });
@@ -246,7 +256,7 @@ class Data extends Component {
         </main>
 
         <style jsx>{`
-          .overlay {
+          /*.overlay {
             position: absolute;
             z-index: 50;
             background-color: white;
@@ -257,7 +267,7 @@ class Data extends Component {
             @media(min-width: 32em) {
               display: none;
             }
-          }
+          }*/
 
           main {
             width: 100%;
@@ -266,6 +276,8 @@ class Data extends Component {
             padding-right: calc(1.27777778em * 1);
 
             @media(min-width: 32em) {
+              lost-column: 3/4;
+
               padding-left: calc(1.27777778em * 2);
               padding-right: calc(1.27777778em * 3);
             }
@@ -277,9 +289,6 @@ class Data extends Component {
 }
 
 function mapStateToProps(state) {
-  // console.log('mapStateToProps');
-  // console.log(state);
-
   return {
     ...state,
   }

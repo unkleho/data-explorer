@@ -1,6 +1,6 @@
 module.exports = () => ({
   plugins: {
-    'lost': {},
-    'postcss-cssnext': {}
+    'postcss-cssnext': {},
+    'lost': {}
   }
 })

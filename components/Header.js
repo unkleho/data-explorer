@@ -1,5 +1,6 @@
 import { Component, PropTypes } from 'react';
 import { blueGrey300 } from '../styles/variables';
+import { blueGrey } from 'material-colors';
 
 class Header extends Component {
   static propTypes = {
@@ -17,12 +18,12 @@ class Header extends Component {
         <style jsx>{`
           header {
             padding-left: 1em;
-            background-color: ${blueGrey300};
+            background-color: ${blueGrey['700']};
           }
 
           .logo {
-            font-size: 1.2em;
-            line-height: 2;
+            font-size: 1em;
+            line-height: 3;
             color: white;
           }
 

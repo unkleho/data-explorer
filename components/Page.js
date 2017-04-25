@@ -1,6 +1,7 @@
 import { Component, PropTypes } from 'react';
 import Router from 'next/router';
 import Head from 'next/head';
+import { blueGrey } from 'material-colors';
 
 import Header from '../components/Header';
 import { blueGrey50, blueGrey100, blueGrey300, blueGrey700, deepOrange600 } from '../styles/variables';
@@ -31,6 +32,7 @@ class Page extends Component {
             font-size: 18px;
             line-height: 23px;
             color: ${blueGrey700};
+            /*background-color: ${blueGrey['100']};*/
             // letter-spacing: -0.03em;
           }
 
