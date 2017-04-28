@@ -17,7 +17,10 @@ class DataHeader extends Component {
   }
 
   handleDataSetSelect = (id) => {
-    // const id = option.value;
+    this.setState({
+      showDataSetSelector: false,
+    })
+
     Router.push(`/data?id=${id}`);
   }
 
@@ -51,12 +54,14 @@ class DataHeader extends Component {
           <div className="data-set-box__id">{dataSet.id}</div>
           <h1 onClick={this.handleDataSetTitleClick}>{dataSet.title}</h1>
 
-          {this.state.showDataSetSelector && (
+          {/* {this.state.showDataSetSelector && ( */}
             <DataSetSelector
+              isActive={this.state.showDataSetSelector}
+              selectedId={dataSet.id}
               dataSets={dataSets}
               onDataSetSelect={this.handleDataSetSelect}
             />
-          )}
+          {/* )} */}
 
           {/* <Select
             name="data-set-select"
