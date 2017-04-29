@@ -34,7 +34,33 @@ class DataAside extends Component {
 
     return (
       <aside className="main-dimension-box">
-        <div className="main-dimension-box__header">
+        {dimensions.map((dimension, dimensionIndex) => {
+          return (
+            <div>
+              <div className="dimension-title">
+                {dimension.name}
+              </div>
+
+              {dimension.values.map((value) => {
+                const selectedDimension = selectedDimensions[dimensionIndex];
+                const selectedDimensionId = selectedDimension.indexOf(value.id);
+                const isActive = selectedDimensionId === -1 ? false : true;
+
+                return (
+                  <button
+                    className={isActive && 'active'}
+                    style={{
+                      backgroundColor: selectedDimensionId > -1 && colors[selectedDimensionId],
+                    }}
+                    onClick={() => onMainDimensionIdSelect(value.id, dimensionIndex)}
+                  >{value.name}</button>
+                )
+              })}
+            </div>
+          )
+        })}
+
+        {/* <div className="main-dimension-box__header">
           <select
             value={mainDimension && mainDimension.id}
             onChange={(event) => this.handleMainDimensionSelect(event)}
@@ -63,17 +89,29 @@ class DataAside extends Component {
               >{value.name}</button>
             )
           })}
-        </div>
+        </div> */}
 
         <style jsx>{`
           @lost gutter 0;
 
           aside {
             background-color: #ECEFF1;
+            height: calc(100vh - 3em);
+            overflow-x: auto;
+          }
+
+          .dimension-title {
+            position: sticky;
+            top: 0;
+            background-color: ${blueGrey['200']};
+            margin-bottom: 0.4em;
+            margin-left: -1em;
+            margin-right: -1em;
+            padding: 0.5em 1em;
           }
 
           .main-dimension-box {
-            padding: 1em;
+            padding: 0 1em 1em;
 
             @media(min-width: 32em) {
               lost-column: 1/4;

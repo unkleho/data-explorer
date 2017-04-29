@@ -21,6 +21,7 @@
     "material-colors": "^1.2.5",
     "next": "^2.0.0",
     "next-redux-wrapper": "^1.0.0",
+    "rc-collapse": "^1.7.3",
     "react": "^15.4.2",
     "react-addons-css-transition-group": "^15.4.2",
     "react-addons-shallow-compare": "^15.4.2",
