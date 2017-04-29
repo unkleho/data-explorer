@@ -50,9 +50,6 @@ class Data extends Component {
   static async getInitialProps ({ query: { id }, isServer, store }) {
     const dataSets = buildDataSets(dataSetsRaw); // List of DataSets
 
-    console.log('getInitialProps');
-    console.log(isServer);
-
     await store.dispatch(getDataSet(id));
 
     return {
@@ -157,9 +154,6 @@ class Data extends Component {
 
     return (
       <Page>
-        {/* {isLoading && (
-          <LoadingBar />
-        )} */}
 
         {isMenuActive && (
           <DataHeader
@@ -184,6 +178,10 @@ class Data extends Component {
         ></DataAside>
 
         <main className="content">
+          {isLoading && (
+            <LoadingBar />
+          )}
+
           <Measure
             onMeasure={(dimensions) => {
               this.setState({ dimensions });

@@ -5,6 +5,7 @@ import { colors } from '../styles/variables';
 
 class DataAside extends Component {
   static propTypes = {
+    dimensions: PropTypes.array,
   }
 
   constructor() {
@@ -65,6 +66,8 @@ class DataAside extends Component {
         </div>
 
         <style jsx>{`
+          @lost gutter 0;
+
           aside {
             background-color: #ECEFF1;
           }
@@ -84,7 +87,9 @@ class DataAside extends Component {
           button {
             border: none;
             display: block;
-            font-size: 0.8em;
+            text-align: left;
+            text-transform: capitalize;
+            font-size: 0.7em;
             width: 100%;
             padding: 0.5em;
             border-radius: 4px;

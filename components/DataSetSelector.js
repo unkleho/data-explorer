@@ -1,5 +1,5 @@
 import { Component, PropTypes } from 'react';
-import { blueGrey } from 'material-colors';
+import { blueGrey, deepOrange } from 'material-colors';
 
 import { colors } from '../styles/variables';
 
@@ -32,7 +32,8 @@ class DataSetSelector extends Component {
 
   handleDataSetSelect = (id, i) => {
     this.props.onDataSetSelect(id);
-    this.refs[id].scrollIntoView({ block: 'end', behaviour: 'smooth' });
+    this.refs.box.scrollTop = this.refs[id].offsetTop;
+    // this.refs[id].scrollIntoView({ block: 'end', behaviour: 'smooth' });
   }
 
   render() {
@@ -45,6 +46,7 @@ class DataSetSelector extends Component {
       <div
         className={`box ${isActive ? 'is-active' : ''}`}
         // ref={(box) => { this.box = box; }}
+        ref="box"
       >
         {this.props.dataSets.map((dataSet, i) => {
           const id = dataSet.id;
@@ -62,17 +64,24 @@ class DataSetSelector extends Component {
         <style jsx>{`
           .box {
             display: none;
-            background-color: #ECEFF1;
+            position: absolute;
+            padding: 1em;
+            background-color: white;
             overflow-x: auto;
-            height: 10em;
+            height: 14em;
           }
 
           .box.is-active {
             display: block;
           }
 
+          .title {
+            padding: 0.2em;
+          }
+
           .title.is-active {
-            background-color: red;
+            background-color: ${deepOrange['500']};
+            color: white;
           }
         `}</style>
       </div>

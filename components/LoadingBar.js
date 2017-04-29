@@ -7,9 +7,10 @@ const LoadingBar = ({}) => {
         {`
           div {
             position: absolute;
-            top: 1em;
+            top: 0.8em;
             right: 1em;
             opacity: 0.5;
+            color: white;
           }
         `}
       </style>

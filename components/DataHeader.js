@@ -49,7 +49,7 @@ class DataHeader extends Component {
     // console.table(displayDimensions);
 
     return (
-      <aside className="sidebar">
+      <aside className="box">
         <div className="data-set-box">
           <div className="data-set-box__id">{dataSet.id}</div>
           <h1 onClick={this.handleDataSetTitleClick}>{dataSet.title}</h1>
@@ -63,40 +63,7 @@ class DataHeader extends Component {
             />
           {/* )} */}
 
-          {/* <Select
-            name="data-set-select"
-            className="data-set-box__select"
-            value={dataSet.id}
-            options={dataSets.map(dataSet => {
-              return {
-                value: dataSet.id,
-                label: dataSet.title,
-              }
-            })}
-            onChange={handleDataSetSelect}
-          /> */}
-          {/* <select
-            value={id}
-            onChange={(event) => onDataSetSelect(event)}
-          >
-            {dataSets && dataSets.map((dataSet) => {
-              return (
-                <option value={dataSet.id}>{dataSet.title}</option>
-              );
-            })}
-          </select> */}
         </div>
-
-        {/* <Select
-          value={this.props.id}
-          options={dataSets && dataSets.map((dataSet) => {
-            return {
-              value: dataSet.key,
-              label: dataSet.name,
-            }
-          })}
-          onChange={this.onDataSetSelect2}
-        /> */}
 
         <div className="dimension-boxes">
           <i className="material-icons">filter_list</i>
@@ -129,11 +96,12 @@ class DataHeader extends Component {
         <style jsx>{`
           @lost gutter 0.5em;
 
-          aside {
+          .box {
             background-color: ${blueGrey50};
             /*padding: 1em 1em 0;*/
 
             @media(min-width: 32em) {
+              lost-column: 3/4 1;
             }
           }
 
