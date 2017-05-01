@@ -63,7 +63,13 @@ class Data extends Component {
   }
 
   handleDimensionSelect = async (event, dimensionIndex) => {
-    const ids = [...event.target.options].filter(({selected}) => selected).map(({value}) => value);
+    // console.log(event);
+    // const ids = [...event.target.options].filter(({ selected }) => selected).map(({ value }) => value);
+    // console.log(ids);
+
+    let ids = [];
+    ids[0] = event.value;
+    // console.log(ids);
 
     if (ids.length > 0) {
       const selectedDimensions = this.props.selectedDimensions;
@@ -169,13 +175,13 @@ class Data extends Component {
           />
         )}
 
-        <DataAside
+        {/* <DataAside
           mainDimensionIndex={mainDimensionIndex || 0}
           selectedDimensions={selectedDimensions}
           dimensions={dimensions}
           onMainDimensionIdSelect={this.handleMainDimensionIdSelect}
           onMainDimensionSelect={this.handleMainDimensionSelect}
-        ></DataAside>
+        ></DataAside> */}
 
         <main className="content">
           {isLoading && (
@@ -274,7 +280,7 @@ class Data extends Component {
             padding-right: calc(1.27777778em * 1);
 
             @media(min-width: 32em) {
-              lost-column: 3/4;
+              /*lost-column: 3/4;*/
 
               padding-left: calc(1.27777778em * 2);
               padding-right: calc(1.27777778em * 3);

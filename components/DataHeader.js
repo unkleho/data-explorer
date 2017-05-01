@@ -66,7 +66,7 @@ class DataHeader extends Component {
         </div>
 
         <div className="dimension-boxes">
-          <i className="material-icons">filter_list</i>
+          {/* <i className="material-icons">filter_list</i> */}
 
           {selectedDimensions && dimensions && dimensions.map((dimension, i) => {
             const options = dimension.values;
@@ -76,7 +76,22 @@ class DataHeader extends Component {
               return (
                 <div className="dimension-box">
                   <h5 onClick={() => onMainDimensionSelect(i)}>{dimension.name}</h5>
-                  <select
+
+                  <Select
+                    name="form-field-name"
+                    value={currentDimensionIds[0]}
+                    clearable={false}
+                    // multi={true}
+                    options={options.map((option) => {
+                      return {
+                        label: option.name,
+                        value: option.id,
+                      }
+                    })}
+                    onChange={(event) => onDimensionSelect(event, i)}
+                  />
+
+                  {/* <select
                     // multiple
                     value={currentDimensionIds}
                     onChange={(event) => onDimensionSelect(event, i)}
@@ -86,7 +101,7 @@ class DataHeader extends Component {
                         <option value={option.id}>{option.name}</option>
                       );
                     })}
-                  </select>
+                  </select> */}
                 </div>
               );
             // }
@@ -101,29 +116,38 @@ class DataHeader extends Component {
             /*padding: 1em 1em 0;*/
 
             @media(min-width: 32em) {
-              lost-column: 3/4 1;
+              /*lost-column: 3/4 1;*/
             }
           }
 
           .data-set-box {
             padding: 1em;
-            background-color: ${blueGrey['500']};
+            /*background-color: ${blueGrey['500']};*/
 
             & h1 {
               font-size: 2em;
-              color: white;
+              color: ${blueGrey['700']};
               margin-top: 0;
               margin-bottom: 0;
             }
           }
 
             .data-set-box__id {
-              color: white;
+              color: ${blueGrey['400']};
               font-size: 0.8em;
               opacity: 0.6;
             }
 
-            :global(.Select-control) {
+            :global(.Select-value) {
+              font-size: 12px;
+            }
+
+            :global(.Select-menu-outer) {
+              font-size: 12px;
+              line-height: 16px;
+            }
+
+            /*:global(.Select-control) {
               background-color: transparent;
               border: none;
             }
@@ -133,9 +157,6 @@ class DataHeader extends Component {
               border: none;
             }
 
-            :global(.Select-value) {
-              padding-left: 0 !important;
-            }
 
             :global(.Select-clear) {
               display: none;
@@ -152,7 +173,7 @@ class DataHeader extends Component {
               & .Select-control {
                 background-color: transparent;
               }
-            }
+            }*/
 
           .dimension-boxes {
             display: flex;

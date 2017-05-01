@@ -41,21 +41,23 @@ class DataAside extends Component {
                 {dimension.name}
               </div>
 
-              {dimension.values.map((value) => {
-                const selectedDimension = selectedDimensions[dimensionIndex];
-                const selectedDimensionId = selectedDimension.indexOf(value.id);
-                const isActive = selectedDimensionId === -1 ? false : true;
+              <div className="dimension-buttons">
+                {dimension.values.map((value) => {
+                  const selectedDimension = selectedDimensions[dimensionIndex];
+                  const selectedDimensionId = selectedDimension.indexOf(value.id);
+                  const isActive = selectedDimensionId === -1 ? false : true;
 
-                return (
-                  <button
-                    className={isActive && 'active'}
-                    style={{
-                      backgroundColor: selectedDimensionId > -1 && colors[selectedDimensionId],
-                    }}
-                    onClick={() => onMainDimensionIdSelect(value.id, dimensionIndex)}
-                  >{value.name}</button>
-                )
-              })}
+                  return (
+                    <button
+                      className={isActive && 'active'}
+                      style={{
+                        backgroundColor: selectedDimensionId > -1 && colors[selectedDimensionId],
+                      }}
+                      onClick={() => onMainDimensionIdSelect(value.id, dimensionIndex)}
+                    >{value.name}</button>
+                  )
+                })}
+              </div>
             </div>
           )
         })}
@@ -104,7 +106,7 @@ class DataAside extends Component {
             position: sticky;
             top: 0;
             background-color: ${blueGrey['200']};
-            margin-bottom: 0.4em;
+            /*margin-bottom: 0.4em;*/
             margin-left: -1em;
             margin-right: -1em;
             padding: 0.5em 1em;
@@ -133,6 +135,10 @@ class DataAside extends Component {
             border-radius: 4px;
             background-color: white;
             margin-bottom: 0.5em;
+
+            &:first-child {
+              margin-top: 0.4em;
+            }
 
             &.active {
               color: white;
