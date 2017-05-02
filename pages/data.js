@@ -62,14 +62,37 @@ class Data extends Component {
     Router.push(`/data?id=${id}`);
   }
 
-  handleDimensionSelect = async (event, dimensionIndex) => {
+  handleDimensionSelect = async (options, dimensionIndex) => {
     // console.log(event);
     // const ids = [...event.target.options].filter(({ selected }) => selected).map(({ value }) => value);
     // console.log(ids);
 
+    // const ids = options.map((option) => {
+    //   return option.value;
+    // });
     let ids = [];
-    ids[0] = event.value;
-    // console.log(ids);
+    ids[0] = options.value;
+    console.log(options);
+
+    if (ids.length > 0) {
+      const selectedDimensions = this.props.selectedDimensions;
+      const dataSetId = this.props.id;
+
+      // Update selectedDimensions array with selected dimensionId
+      selectedDimensions[dimensionIndex] = ids;
+
+      this.props.dispatch(getData(buildApiUrl({
+        selectedDimensions,
+        dataSetId,
+      })));
+    }
+  }
+
+  handleMultiDimensionSelect = (options, dimensionIndex) => {
+    console.log(options);
+    const ids = options.map((option) => {
+      return option.value;
+    });
 
     if (ids.length > 0) {
       const selectedDimensions = this.props.selectedDimensions;
@@ -170,6 +193,7 @@ class Data extends Component {
             mainDimensionIndex={mainDimensionIndex}
             onDataSetSelect={this.handleDataSetSelect}
             onDimensionSelect={this.handleDimensionSelect}
+            onMultiDimensionSelect={this.handleMultiDimensionSelect}
             onMainDimensionSelect={this.handleMainDimensionSelect}
             onMainDimensionIdSelect={this.handleMainDimensionIdSelect}
           />
@@ -278,6 +302,7 @@ class Data extends Component {
             line-height: 1.27777778em;
             padding-left: calc(1.27777778em * 1);
             padding-right: calc(1.27777778em * 1);
+            background-color: white;
 
             @media(min-width: 32em) {
               /*lost-column: 3/4;*/

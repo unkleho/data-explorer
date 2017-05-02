@@ -30,6 +30,14 @@ class DataHeader extends Component {
     })
   }
 
+  handleDimensionSelect = (options, selectedDimensionIndex) => {
+    this.props.onDimensionSelect(options, selectedDimensionIndex);
+  }
+
+  handleMultiDimensionSelect = (options, selectedDimensionIndex) => {
+    this.props.onMultiDimensionSelect(options, selectedDimensionIndex);
+  }
+
   render() {
     const {
       id,
@@ -41,6 +49,7 @@ class DataHeader extends Component {
       onDimensionSelect,
       onMainDimensionIdSelect,
       onMainDimensionSelect,
+      onMultiDimensionSelect,
     } = this.props;
 
     const dataSet = dataSets.filter(dataSet => dataSet.id === id)[0];
@@ -72,14 +81,16 @@ class DataHeader extends Component {
             const options = dimension.values;
             const currentDimensionIds = selectedDimensions[i];
 
-            // if (i !== mainDimensionIndex) {
+            // console.log(currentDimensionIds);
+
+            if (i !== mainDimensionIndex) {
               return (
                 <div className="dimension-box">
                   <h5 onClick={() => onMainDimensionSelect(i)}>{dimension.name}</h5>
 
                   <Select
                     name="form-field-name"
-                    value={currentDimensionIds[0]}
+                    value={currentDimensionIds.length === 1 ? currentDimensionIds[0] : currentDimensionIds}
                     clearable={false}
                     // multi={true}
                     options={options.map((option) => {
@@ -88,9 +99,9 @@ class DataHeader extends Component {
                         value: option.id,
                       }
                     })}
-                    onChange={(event) => onDimensionSelect(event, i)}
+                    // onChange={(event) => onDimensionSelect(event, i)}
+                    onChange={(options) => this.handleDimensionSelect(options, i)}
                   />
-
                   {/* <select
                     // multiple
                     value={currentDimensionIds}
@@ -104,8 +115,24 @@ class DataHeader extends Component {
                   </select> */}
                 </div>
               );
-            // }
+            }
           })}
+        </div>
+
+        <div className="main-dimension-box">
+          <Select
+            name="form-field-name"
+            value={selectedDimensions[mainDimensionIndex]}
+            clearable={false}
+            multi={true}
+            options={mainDimension.values.map((option) => {
+              return {
+                label: option.name,
+                value: option.id,
+              }
+            })}
+            onChange={(options) => this.handleMultiDimensionSelect(options, mainDimensionIndex)}
+          />
         </div>
 
         <style jsx>{`

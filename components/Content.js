@@ -24,7 +24,7 @@ class Content extends Component {
   constructor() {
     super();
 
-    this.state = {};    
+    this.state = {};
   }
 
   handleZoom(domain) {
@@ -58,13 +58,13 @@ class Content extends Component {
                 height={400}
                 scale={{ x: "time" }}
                 style={chartStyle}
-                containerComponent={
-                  <VictoryZoomContainer responsive={false}
-                    dimension="x"
-                    zoomDomain={this.state.zoomDomain}
-                    onDomainChange={this.handleZoom.bind(this)}
-                  />
-                }
+                // containerComponent={
+                //   <VictoryZoomContainer responsive={false}
+                //     dimension="x"
+                //     zoomDomain={this.state.zoomDomain}
+                //     onDomainChange={this.handleZoom.bind(this)}
+                //   />
+                // }
               >
                 {victoryData.map((data, i) => {
                   return (
@@ -81,7 +81,7 @@ class Content extends Component {
                 })}
               </VictoryChart>
 
-              <VictoryChart
+              {/* <VictoryChart
                 theme={theme}
                 padding={{ top: 10, left: 60, right: 0, bottom: 30 }}
                 animate={{ duration: 500 }}
@@ -111,7 +111,7 @@ class Content extends Component {
                     />
                   )
                 })}
-              </VictoryChart>
+              </VictoryChart> */}
             </div>
           ) : (
             <VictoryPie
