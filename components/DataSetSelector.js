@@ -52,12 +52,12 @@ class DataSetSelector extends Component {
           const id = dataSet.id;
 
           return (
-            <div
+            <a
               // onClick={() => this.props.onDataSetSelect(dataSet.id)}
               onClick={() => this.handleDataSetSelect(id, i)}
               ref={id}
               className={`title ${selectedId === id ? 'is-active' : ''}`}
-            >{dataSet.title}</div>
+            >{dataSet.title}</a>
           )
         })}
 
@@ -69,6 +69,8 @@ class DataSetSelector extends Component {
             background-color: white;
             overflow-x: auto;
             height: 14em;
+            z-index: 100;
+            margin-right: 1em;
           }
 
           .box.is-active {
@@ -76,12 +78,22 @@ class DataSetSelector extends Component {
           }
 
           .title {
+            display: block;
             padding: 0.2em;
+            cursor: pointer;
+
+            &:hover {
+              color: ${deepOrange['700']};
+            }
           }
 
           .title.is-active {
             background-color: ${deepOrange['500']};
             color: white;
+
+            &:hover {
+              color: white;              
+            }
           }
         `}</style>
       </div>

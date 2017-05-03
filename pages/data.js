@@ -8,7 +8,7 @@ import { blueGrey } from 'material-colors';
 
 import Page from '../components/Page';
 import LoadingBar from '../components/LoadingBar';
-import Content from '../components/Content';
+import DataContent from '../components/DataContent';
 import DataHeader from '../components/DataHeader';
 import DataAside from '../components/DataAside';
 import theme from '../styles/victoryTheme';
@@ -266,7 +266,7 @@ class Data extends Component {
 
               {(typeof window !== 'undefined' && this.state.dimensions) ? (
                 <div>
-                  <Content
+                  <DataContent
                     victoryData={victoryData}
                     chartStyle={chartStyle}
                     theme={theme}

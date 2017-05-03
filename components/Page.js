@@ -33,7 +33,7 @@ class Page extends Component {
             line-height: 23px;
             color: ${blueGrey700};
 
-            background-color: #F5F7F8;
+            background-color: white;
             // letter-spacing: -0.03em;
           }
 
@@ -117,9 +117,9 @@ class Page extends Component {
             margin: -1px 0;
           }
 
-          a, b, i, strong, em, small, code {
+          /*a, b, i, strong, em, small, code {
             line-height: 0;
-          }
+          }*/
 
           sub, sup {
             line-height: 0;

@@ -61,7 +61,9 @@ class DataHeader extends Component {
       <aside className="box">
         <div className="data-set-box">
           <div className="data-set-box__id">{dataSet.id}</div>
-          <h1 onClick={this.handleDataSetTitleClick}>{dataSet.title}</h1>
+          <h1
+            className="data-set-box__title" onClick={this.handleDataSetTitleClick}
+          >{dataSet.title} <i className="material-icons">&#xE5C6;</i></h1>
 
           {/* {this.state.showDataSetSelector && ( */}
             <DataSetSelector
@@ -120,6 +122,8 @@ class DataHeader extends Component {
         </div>
 
         <div className="main-dimension-box">
+          <h5>{mainDimension.name}</h5>
+
           <Select
             name="form-field-name"
             value={selectedDimensions[mainDimensionIndex]}
@@ -132,6 +136,7 @@ class DataHeader extends Component {
               }
             })}
             onChange={(options) => this.handleMultiDimensionSelect(options, mainDimensionIndex)}
+            // valueComponent={CustomValueComponent}
           />
         </div>
 
@@ -140,6 +145,7 @@ class DataHeader extends Component {
 
           .box {
             background-color: ${blueGrey50};
+            background-color: white;
             /*padding: 1em 1em 0;*/
 
             @media(min-width: 32em) {
@@ -149,7 +155,7 @@ class DataHeader extends Component {
 
           .data-set-box {
             padding: 1em;
-            /*background-color: ${blueGrey['500']};*/
+            background-color: #F5F7F8;
 
             & h1 {
               font-size: 2em;
@@ -165,13 +171,57 @@ class DataHeader extends Component {
               opacity: 0.6;
             }
 
+            .data-set-box__title {
+              cursor: pointer;
+            }
+
             :global(.Select-value) {
-              font-size: 12px;
+              font-size: 14px;
+              margin-bottom: 5px;
             }
 
             :global(.Select-menu-outer) {
-              font-size: 12px;
+              font-size: 14px;
               line-height: 16px;
+            }
+
+            :global(.Select--multi) :global(.Select-value) {
+              background-color: ${blueGrey['300']};
+              color: white;
+              border: none;
+            }
+
+            :global(.Select--multi) :global(.Select-value-icon) {
+              border-right: 1px solid white;
+            }
+
+            :global(.Select--multi) :global(.Select-value:nth-child(1)) {
+              background-color: ${colors[0]};
+            }
+
+            :global(.Select--multi) :global(.Select-value:nth-child(2)) {
+              background-color: ${colors[1]};
+            }
+
+            :global(.Select--multi) :global(.Select-value:nth-child(3)) {
+              background-color: ${colors[2]};
+            }
+
+            :global(.Select--multi) :global(.Select-value:nth-child(4)) {
+              background-color: ${colors[3]};
+            }
+
+            :global(.Select--multi) :global(.Select-value:nth-child(5)) {
+              background-color: ${colors[4]};
+            }
+
+            :global(.Select--multi) :global(.Select-value:nth-child(6)) {
+              background-color: ${colors[5]};
+              color: ${blueGrey700}
+            }
+
+            :global(.Select--multi) :global(.Select-value:nth-child(7)) {
+              background-color: ${colors[6]};
             }
 
             /*:global(.Select-control) {
@@ -204,26 +254,56 @@ class DataHeader extends Component {
 
           .dimension-boxes {
             display: flex;
+            flex-direction: column;
             padding: 1em;
             background-color: white;
 
             & i {
               margin-right: 1em;
             }
+
+            @media(min-width: 32em) {
+              flex-direction: row;
+            }
           }
 
           .dimension-box {
             flex: 1;
-            margin-right: 1em;
+            margin-right: 0;
+            margin-bottom: 1em;
+
+            & h5 {
+              cursor: pointer;
+
+              &:hover {
+                color: ${deepOrange600};
+              }
+            }
+
+            &:last-child {
+              margin-right: 0;
+              margin-bottom: 0;
+            }
+
+            @media(min-width: 32em) {
+              margin-right: 1em;
+              margin-bottom: 0;
+            }
+          }
+
+          .main-dimension-box {
+            background-color: white;
+            padding: 0 1em 1em;
           }
         `}</style>
 
       </aside>
     )
 
-
   }
 
 }
+
+
 
 export default DataHeader;
