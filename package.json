@@ -10,7 +10,8 @@
     "dev": "node server.js",
     "build": "next build",
     "heroku-postbuild": "heroku-nextjs-build",
-    "start": "node server.js -p $PORT"
+    "start": "node server.js -p $PORT",
+    "test": "jest --watch"
   },
   "author": "",
   "license": "ISC",
@@ -39,6 +40,8 @@
     "nextjs/node_modules"
   ],
   "devDependencies": {
+    "babel-jest": "^19.0.0",
+    "jest": "^19.0.2",
     "lost": "^8.0.0",
     "postcss-cssnext": "^2.10.0"
   }

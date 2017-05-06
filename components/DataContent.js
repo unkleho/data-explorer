@@ -56,7 +56,7 @@ class Content extends Component {
                 animate={{ duration: 500 }}
                 width={width}
                 height={400}
-                scale={{ x: "time" }}
+                scale={{ x: 'time' }}
                 style={chartStyle}
                 // containerComponent={
                 //   <VictoryZoomContainer responsive={false}
@@ -136,18 +136,5 @@ class Content extends Component {
     )
   }
 }
-
-// const Content = ({
-//   victoryData,
-//   chartType,
-//   theme,
-//   width,
-//   height,
-//   colors,
-//   data,
-// }) => {
-//   return (
-//   )
-// }
 
 export default Content;

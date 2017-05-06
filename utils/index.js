@@ -198,7 +198,7 @@ export function buildVictoryData(data) {
 export function getChartType(periods) {
   let chartType;
 
-  if (periods > 1) {
+  if (periods >= 1) {
     chartType = 'line';
   } else {
     chartType = 'pie';
@@ -217,11 +217,7 @@ export function buildLineChartData(observations, timePeriods) {
     const resultIndex = Math.floor(i/timePeriods.length);
     const showLabel = i % timePeriods.length === Math.floor(timePeriods.length / 2);
 
-    // Break key in array to get dimensions
-    const dimensions = key.split(':');
-    const timePeriodIndex = dimensions.length - 1;
-    const timePeriod = dimensions[timePeriodIndex];
-    const timePeriodKey = timePeriods[timePeriod].id;
+    const timePeriodKey = getTimePeriodKey(key, timePeriods);
 
     if (typeof result[resultIndex] === 'undefined') {
       result[resultIndex] = [];
@@ -230,11 +226,22 @@ export function buildLineChartData(observations, timePeriods) {
     result[resultIndex].push({
       x: createDate(timePeriodKey),
       y: value[0],
-      // label: showLabel && 'hi',
+      label: resultIndex,
     })
   });
 
   return result;
+}
+
+// Get last key
+export function getTimePeriodKey(observationKey, timePeriods) {
+  // Break key in array to get dimensions
+  const dimensions = observationKey.split(':');
+  const timePeriodIndex = dimensions.length - 1;
+  const timePeriod = dimensions[timePeriodIndex];
+  const timePeriodKey = timePeriods[timePeriod].id;
+
+  return timePeriodKey;
 }
 
 export function buildPieChartData(observations, dimensionsConfig) {
