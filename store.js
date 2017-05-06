@@ -7,6 +7,7 @@ import { buildDataSetApiUrl, getDefaultDimensions, buildApiUrl } from './utils';
 export const reducer = (state = {
   isLoading: false,
   isMenuActive: true,
+  mainDimensionIndex: 0,
 }, action) => {
   switch (action.type) {
     case 'GET_DATASET_LOADING':

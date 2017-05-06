@@ -27,6 +27,7 @@ import {
   getChartType,
   toggleArrayItem,
   getDefaultDimensions,
+  getDimensionColourMap,
 } from '../utils';
 
 import dataSetsRaw from '../data/dataSets';
@@ -159,12 +160,17 @@ class Data extends Component {
       data,
       selectedDimensions,
       isMenuActive,
-      mainDimensionIndex,
     } = this.props;
-    // console.log('render');
-    // console.log(selectedDimensions, dimensions);
+    const mainDimensionIndex = this.props.mainDimensionIndex || 0;
 
     const mainDimension = dimensions[mainDimensionIndex];
+    const selectedMainDimension = selectedDimensions[mainDimensionIndex];
+
+    console.log(selectedMainDimension);
+
+    // let colourMap;
+    const colourMap = getDimensionColourMap(selectedMainDimension, mainDimension.values);
+
     let victoryData = [];
     let chartType;
 
@@ -273,6 +279,7 @@ class Data extends Component {
                     width={this.state.dimensions.width}
                     height={this.state.dimensions.height}
                     chartType={chartType}
+                    colourMap={colourMap}
                   />
                 </div>
               ) : (

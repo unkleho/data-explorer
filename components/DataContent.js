@@ -19,6 +19,7 @@ class Content extends Component {
     width: PropTypes.number,
     height: PropTypes.number,
     chartStyle: PropTypes.object,
+    colourMap: PropTypes.array,
   }
 
   constructor() {
@@ -42,7 +43,8 @@ class Content extends Component {
       theme,
       width,
       height,
-      chartStyle
+      chartStyle,
+      colourMap,
     } = this.props;
 
     return (
@@ -71,7 +73,7 @@ class Content extends Component {
                     <VictoryLine
                       style={{
                         data: {
-                          stroke: colors[i],
+                          stroke: colourMap[i] && colors[colourMap[i].colour],
                           // fill: colors[i],
                         }
                       }}

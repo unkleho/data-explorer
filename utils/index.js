@@ -198,7 +198,7 @@ export function buildVictoryData(data) {
 export function getChartType(periods) {
   let chartType;
 
-  if (periods >= 1) {
+  if (periods > 1) {
     chartType = 'line';
   } else {
     chartType = 'pie';
@@ -212,8 +212,7 @@ export function buildLineChartData(observations, timePeriods) {
 
   // Loop through massive glob of flat data and build multi-dimensional array
   Object.keys(observations).forEach(function(key, i) {
-    let dimensionResult = [];
-    const value = observations[key];
+    const value = observations[key][0];
     const resultIndex = Math.floor(i/timePeriods.length);
     const showLabel = i % timePeriods.length === Math.floor(timePeriods.length / 2);
 
@@ -225,8 +224,8 @@ export function buildLineChartData(observations, timePeriods) {
 
     result[resultIndex].push({
       x: createDate(timePeriodKey),
-      y: value[0],
-      label: resultIndex,
+      y: value,
+      // label: resultIndex,
     })
   });
 
@@ -252,6 +251,23 @@ export function buildPieChartData(observations, dimensionsConfig) {
       y: observations[key][0],
     }
   })
+}
+
+export function getDimensionColourMap(selectedDimension, values, colors) {
+  const result = [];
+
+  values.forEach((value) => {
+    const colourIndex = selectedDimension.indexOf(value.id);
+
+    if (colourIndex > -1) {
+      result.push({
+        ...value,
+        colour: colourIndex,
+      })
+    }
+  })
+
+  return result;
 }
 
 export function toggleArrayItem(a, v) {

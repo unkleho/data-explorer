@@ -55,6 +55,7 @@ class DataHeader extends Component {
     const dataSet = dataSets.filter(dataSet => dataSet.id === id)[0];
     const mainDimension = dimensions[mainDimensionIndex];
     const displayDimensions = dimensions.filter((dimension, i) => i !== mainDimensionIndex);
+    // console.log(selectedDimensions);
     // console.table(displayDimensions);
 
     return (
@@ -101,20 +102,8 @@ class DataHeader extends Component {
                         value: option.id,
                       }
                     })}
-                    // onChange={(event) => onDimensionSelect(event, i)}
                     onChange={(options) => this.handleDimensionSelect(options, i)}
                   />
-                  {/* <select
-                    // multiple
-                    value={currentDimensionIds}
-                    onChange={(event) => onDimensionSelect(event, i)}
-                  >
-                    {options.map((option) => {
-                      return (
-                        <option value={option.id}>{option.name}</option>
-                      );
-                    })}
-                  </select> */}
                 </div>
               );
             }
