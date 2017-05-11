@@ -59,22 +59,28 @@ class DataHeader extends Component {
     // console.table(displayDimensions);
 
     return (
-      <aside className="box">
-        <div className="data-set-box">
+      <aside className={`box`}>
+
+        <div className={`data-set-box ${this.state.showDataSetSelector ? 'is-open' : ''}`}>
           <div className="data-set-box__id">{dataSet.id}</div>
           <h1
             className="data-set-box__title" onClick={this.handleDataSetTitleClick}
-          >{dataSet.title} <i className="material-icons">&#xE5C6;</i></h1>
+          >
+            {dataSet.title} {this.state.showDataSetSelector ? (
+              <span>Close <i className="material-icons">&#xE5D8;</i></span>
+            ) : (
+              <span>Change <i className="material-icons">&#xE5DB;</i></span>
+            )}
+          </h1>
 
-          {/* {this.state.showDataSetSelector && ( */}
+          {this.state.showDataSetSelector && (
             <DataSetSelector
               isActive={this.state.showDataSetSelector}
               selectedId={dataSet.id}
               dataSets={dataSets}
               onDataSetSelect={this.handleDataSetSelect}
             />
-          {/* )} */}
-
+          )}
         </div>
 
         <div className="dimension-boxes">
@@ -147,10 +153,32 @@ class DataHeader extends Component {
             background-color: #F5F7F8;
 
             & h1 {
+              cursor: pointer;
               font-size: 2em;
               color: ${blueGrey['700']};
               margin-top: 0;
               margin-bottom: 0;
+
+              & span {
+                display: inline-block;
+                font-weight: normal;
+                color: white;
+                background-color: ${blueGrey['300']};
+                font-size: 0.3em;
+                line-height: 1;
+                padding: 0.5em 1em;
+                border-radius: 1em;
+
+                & i {
+                  font-size: 1em;
+                  margin: 0;
+                  line-height: 1;
+                }
+              }
+            }
+
+            &.is-open {
+              height: 20em;
             }
           }
 
@@ -158,10 +186,6 @@ class DataHeader extends Component {
               color: ${blueGrey['400']};
               font-size: 0.8em;
               opacity: 0.6;
-            }
-
-            .data-set-box__title {
-              cursor: pointer;
             }
 
             :global(.Select-value) {

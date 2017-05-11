@@ -11,6 +11,7 @@ import LoadingBar from '../components/LoadingBar';
 import DataContent from '../components/DataContent';
 import DataHeader from '../components/DataHeader';
 import DataAside from '../components/DataAside';
+// import Modal from '../components/Modal';
 import theme from '../styles/victoryTheme';
 import { colors } from '../styles/variables';
 import {

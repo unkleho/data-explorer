@@ -1,5 +1,6 @@
 import { Component, PropTypes } from 'react';
 import { blueGrey, deepOrange } from 'material-colors';
+import Select from 'react-select';
 
 import { colors } from '../styles/variables';
 
@@ -26,20 +27,21 @@ class DataSetSelector extends Component {
   componentDidUpdate(prevProps) {
     // TODO: Probably needs condition
     // if (prevProps.selectedId !== this.props.selectedId) {
-      this.refs[this.props.selectedId].scrollIntoView({ block: 'end', behaviour: 'smooth' });
+      // this.refs[this.props.selectedId].scrollIntoView({ block: 'end', behaviour: 'smooth' });
     // }
   }
 
-  handleDataSetSelect = (id, i) => {
+  handleDataSetSelect = (id) => {
     this.props.onDataSetSelect(id);
-    this.refs.box.scrollTop = this.refs[id].offsetTop;
+    // this.refs.box.scrollTop = this.refs[id].offsetTop;
     // this.refs[id].scrollIntoView({ block: 'end', behaviour: 'smooth' });
   }
 
   render() {
     const {
       isActive,
-      selectedId
+      selectedId,
+      dataSets,
     } = this.props;
 
     return (
@@ -48,7 +50,22 @@ class DataSetSelector extends Component {
         // ref={(box) => { this.box = box; }}
         ref="box"
       >
-        {this.props.dataSets.map((dataSet, i) => {
+        <Select
+          name="form-field-name"
+          value={selectedId}
+          clearable={false}
+          options={dataSets.map((option) => {
+            return {
+              label: option.title,
+              value: option.id,
+            }
+          })}
+          openOnFocus
+          autofocus={true}
+          onChange={(option) => this.handleDataSetSelect(option.value)}
+        />
+
+        {/* {dataSets.map((dataSet, i) => {
           const id = dataSet.id;
 
           return (
@@ -59,23 +76,25 @@ class DataSetSelector extends Component {
               className={`title ${selectedId === id ? 'is-active' : ''}`}
             >{dataSet.title}</a>
           )
-        })}
+        })} */}
 
         <style jsx>{`
           .box {
-            display: none;
-            position: absolute;
-            padding: 1em;
+            margin-top: 1em;
+            /*display: none;*/
+            /*position: absolute;*/
+            /*padding: 1em;
             background-color: white;
             overflow-x: auto;
-            height: 14em;
-            z-index: 100;
-            margin-right: 1em;
+            height: 90%;
+            width: 90%;
+            z-index: 100;*/
+            /*margin-right: 1em;*/
           }
 
-          .box.is-active {
+          /*.box.is-active {
             display: block;
-          }
+          }*/
 
           .title {
             display: block;
@@ -92,7 +111,7 @@ class DataSetSelector extends Component {
             color: white;
 
             &:hover {
-              color: white;              
+              color: white;
             }
           }
         `}</style>
