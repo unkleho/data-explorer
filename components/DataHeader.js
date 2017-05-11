@@ -95,7 +95,10 @@ class DataHeader extends Component {
             if (i !== mainDimensionIndex) {
               return (
                 <div className="dimension-box">
-                  <h5 onClick={() => onMainDimensionSelect(i)}>{dimension.name}</h5>
+                  <h5 onClick={() => onMainDimensionSelect(i)}>
+                    {dimension.name}
+                    <i className="material-icons">&#xE24B;</i>
+                  </h5>
 
                   <Select
                     name="form-field-name"
@@ -117,7 +120,7 @@ class DataHeader extends Component {
         </div>
 
         <div className="main-dimension-box">
-          <h5>{mainDimension.name}</h5>
+          <h1><i className="material-icons">&#xE24B;</i> {mainDimension.name}</h1>
 
           <Select
             name="form-field-name"
@@ -288,6 +291,12 @@ class DataHeader extends Component {
             & h5 {
               cursor: pointer;
 
+              & i {
+                float: right;
+                font-size: 1.2em;
+                margin-right: 0;
+              }
+
               &:hover {
                 color: ${deepOrange600};
               }
@@ -307,6 +316,18 @@ class DataHeader extends Component {
           .main-dimension-box {
             background-color: white;
             padding: 0 1em 1em;
+
+            & h1 {
+              display: flex;
+              /*align-items: baseline;*/
+              font-size: 0.8em;
+              text-transform: uppercase;
+
+              & i {
+                font-size: 1em;
+                margin-right: 0.5em;
+              }
+            }
           }
         `}</style>
 
