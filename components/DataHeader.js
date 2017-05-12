@@ -90,11 +90,9 @@ class DataHeader extends Component {
             const options = dimension.values;
             const currentDimensionIds = selectedDimensions[i];
 
-            // console.log(currentDimensionIds);
-
-            if (i !== mainDimensionIndex) {
+            // if (i !== mainDimensionIndex) {
               return (
-                <div className="dimension-box">
+                <div className={`dimension-box ${i === mainDimensionIndex ? 'is-selected' : ''}`}>
                   <h5 onClick={() => onMainDimensionSelect(i)}>
                     {dimension.name}
                     <i className="material-icons">&#xE24B;</i>
@@ -115,7 +113,7 @@ class DataHeader extends Component {
                   />
                 </div>
               );
-            }
+            // }
           })}
         </div>
 
@@ -240,34 +238,6 @@ class DataHeader extends Component {
               background-color: ${colors[6]};
             }
 
-            /*:global(.Select-control) {
-              background-color: transparent;
-              border: none;
-            }
-
-            :global(.is-open) > :global(.Select-control) {
-              background-color: transparent;
-              border: none;
-            }
-
-
-            :global(.Select-clear) {
-              display: none;
-            }
-
-            :global(.Select-value-label) {
-              color: white !important;
-              font-size: 2em;
-              font-family: 'Roboto';
-              font-weight: 600;
-            }
-
-            :global(.data-set-box__select) {
-              & .Select-control {
-                background-color: transparent;
-              }
-            }*/
-
           .dimension-boxes {
             display: flex;
             flex-direction: column;
@@ -293,18 +263,27 @@ class DataHeader extends Component {
 
               & i {
                 float: right;
+                opacity: 0.5;
                 font-size: 1.2em;
                 margin-right: 0;
               }
 
               &:hover {
                 color: ${deepOrange600};
+
+                & i {
+                  opacity: 1;
+                }
               }
             }
 
             &:last-child {
               margin-right: 0;
               margin-bottom: 0;
+            }
+
+            &.is-selected {
+              opacity: 0.3;
             }
 
             @media(min-width: 32em) {

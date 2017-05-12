@@ -47,6 +47,8 @@ class Content extends Component {
       colourMap,
     } = this.props;
 
+    // console.log(colourMap);
+
     return (
       <div>
         {(victoryData && victoryData.length > 0) ? (
@@ -60,13 +62,6 @@ class Content extends Component {
                 height={400}
                 scale={{ x: 'time' }}
                 style={chartStyle}
-                // containerComponent={
-                //   <VictoryZoomContainer responsive={false}
-                //     dimension="x"
-                //     zoomDomain={this.state.zoomDomain}
-                //     onDomainChange={this.handleZoom.bind(this)}
-                //   />
-                // }
               >
                 {victoryData.map((data, i) => {
                   return (
@@ -82,38 +77,6 @@ class Content extends Component {
                   )
                 })}
               </VictoryChart>
-
-              {/* <VictoryChart
-                theme={theme}
-                padding={{ top: 10, left: 60, right: 0, bottom: 30 }}
-                animate={{ duration: 500 }}
-                width={width}
-                height={80}
-                scale={{x: "time"}}
-                style={chartStyle}
-                containerComponent={
-                  <VictoryBrushContainer responsive={false}
-                    dimension="x"
-                    selectedDomain={this.state.selectedDomain}
-                    onDomainChange={this.handleBrush.bind(this)}
-                  />
-                }
-              >
-                <VictoryAxis
-                />
-                {victoryData.map((data, i) => {
-                  return (
-                    <VictoryLine
-                      style={{
-                        data: {
-                          stroke: colors[i],
-                        }
-                      }}
-                      data={data}
-                    />
-                  )
-                })}
-              </VictoryChart> */}
             </div>
           ) : (
             <VictoryPie
@@ -124,9 +87,14 @@ class Content extends Component {
                 data: {
                   fill: (d) => {
                     // console.log(d);
-                    return colors[d.eventKey]
+                    const i = d.eventKey;
+                    return colourMap[i] && colors[colourMap[i].colour];
+                    // return colors[d.eventKey]
                   }
                 }
+              }}
+              labels={(d) => {
+                return colourMap[d.eventKey] && colourMap[d.eventKey].name;
               }}
               animate={{ duration: 500 }}
             />

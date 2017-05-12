@@ -167,15 +167,11 @@ class Data extends Component {
     const mainDimension = dimensions[mainDimensionIndex];
     const selectedMainDimension = selectedDimensions[mainDimensionIndex];
 
-    console.log(selectedMainDimension);
-
     // let colourMap;
     const colourMap = getDimensionColourMap(selectedMainDimension, mainDimension.values);
 
     let victoryData = [];
     let chartType;
-
-    // console.log('data', data);
 
     if (isLoaded && data) {
       // Work out chart type based on data
@@ -184,9 +180,6 @@ class Data extends Component {
       chartType = getChartType(timePeriods && timePeriods.length);
       console.log('chartType: ' + chartType);
     }
-    // console.log('victoryData');
-    // console.log(victoryData);
-    // console.log(chartType);
 
     return (
       <Page>

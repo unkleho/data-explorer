@@ -32,7 +32,7 @@ export const reducer = (state = {
       console.log('GET_DATASET_SUCCESS');
       // console.log(action.dataSet);
       const displayDimensions = action.dimensions.filter(({ id }) => {
-        return id !== 'TIME_PERIOD';
+        return id !== 'TIME_PERIOD' && id !== 'FREQUENCY';
       })
 
       return {
