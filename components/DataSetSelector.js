@@ -62,6 +62,7 @@ class DataSetSelector extends Component {
           })}
           openOnFocus
           autofocus={true}
+          searchable={false}
           onChange={(option) => this.handleDataSetSelect(option.value)}
         />
 

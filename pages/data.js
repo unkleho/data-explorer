@@ -74,7 +74,7 @@ class Data extends Component {
     // });
     let ids = [];
     ids[0] = options.value;
-    console.log(options);
+    // console.log(options);
 
     if (ids.length > 0) {
       const selectedDimensions = this.props.selectedDimensions;
@@ -178,7 +178,7 @@ class Data extends Component {
       const timePeriods = getTimePeriods(data);
       victoryData = buildVictoryData(data);
       chartType = getChartType(timePeriods && timePeriods.length);
-      console.log('chartType: ' + chartType);
+      // console.log('chartType: ' + chartType);
     }
 
     return (
@@ -208,10 +208,6 @@ class Data extends Component {
         ></DataAside> */}
 
         <main className="content">
-          {isLoading && (
-            <LoadingBar />
-          )}
-
           <Measure
             onMeasure={(dimensions) => {
               this.setState({ dimensions });
@@ -265,7 +261,10 @@ class Data extends Component {
               </div> */}
 
               {(typeof window !== 'undefined' && this.state.dimensions) ? (
-                <div>
+                <div className="content">
+                  {isLoading && (
+                    <p className="loading">Loading</p>
+                  )}
                   <DataContent
                     victoryData={victoryData}
                     chartStyle={chartStyle}
@@ -282,6 +281,8 @@ class Data extends Component {
             }
             </div>
           </Measure>
+
+          <p style={{ fontSize: '0.6em', float: 'right' }}>Source: Australian Bureau of Statistics</p>
         </main>
 
         <style jsx>{`
@@ -311,6 +312,22 @@ class Data extends Component {
               padding-left: calc(1.27777778em * 2);
               padding-right: calc(1.27777778em * 3);
             }
+          }
+
+          .content {
+            position: relative;
+          }
+
+          .loading {
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: flex;
+            background-color: rgba(0,0,0,0.05);
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100%;
           }
         `}</style>
       </Page>

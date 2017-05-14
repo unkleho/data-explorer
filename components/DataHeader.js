@@ -90,19 +90,19 @@ class DataHeader extends Component {
             const options = dimension.values;
             const currentDimensionIds = selectedDimensions[i];
 
-            // if (i !== mainDimensionIndex) {
+            if (dimension.id !== 'FREQUENCY') {
               return (
                 <div className={`dimension-box ${i === mainDimensionIndex ? 'is-selected' : ''}`}>
                   <h5 onClick={() => onMainDimensionSelect(i)}>
-                    {dimension.name}
                     <i className="material-icons">&#xE24B;</i>
+                    {dimension.name}
                   </h5>
 
                   <Select
                     name="form-field-name"
                     value={currentDimensionIds.length === 1 ? currentDimensionIds[0] : currentDimensionIds}
                     clearable={false}
-                    // multi={true}
+                    searchable={false}
                     options={options.map((option) => {
                       return {
                         label: option.name,
@@ -113,7 +113,7 @@ class DataHeader extends Component {
                   />
                 </div>
               );
-            // }
+            }
           })}
         </div>
 
@@ -260,12 +260,16 @@ class DataHeader extends Component {
 
             & h5 {
               cursor: pointer;
+              display: inline-block;
+              background-color: ${blueGrey['100']};
+              padding: 0.5em;
+              border-radius: 4px;
 
               & i {
-                float: right;
+                display: none;
                 opacity: 0.5;
                 font-size: 1.2em;
-                margin-right: 0;
+                margin-right: 0.5em;
               }
 
               &:hover {
