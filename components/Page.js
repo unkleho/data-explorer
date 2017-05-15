@@ -27,7 +27,7 @@ class Page extends Component {
           body {
             position: relative;
             background: white;
-            font-family: 'Droid Serif', serif;
+            font-family: 'Roboto', sans-serif;            
             margin: 0;
             font-size: 18px;
             line-height: 23px;

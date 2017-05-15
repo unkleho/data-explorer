@@ -92,7 +92,10 @@ class DataHeader extends Component {
 
             if (dimension.id !== 'FREQUENCY') {
               return (
-                <div className={`dimension-box ${i === mainDimensionIndex ? 'is-selected' : ''}`}>
+                <div
+                  className={`dimension-box ${i === mainDimensionIndex ? 'is-selected' : ''}`}
+                  key={`dimension-box-${i}`}
+                >
                   <h5 onClick={() => onMainDimensionSelect(i)}>
                     <i className="material-icons">&#xE24B;</i>
                     {dimension.name}
@@ -168,7 +171,7 @@ class DataHeader extends Component {
                 font-size: 0.3em;
                 line-height: 1;
                 padding: 0.5em 1em;
-                border-radius: 1em;
+                border-radius: 4px;
 
                 & i {
                   font-size: 1em;
