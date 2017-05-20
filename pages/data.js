@@ -14,28 +14,22 @@ import DataAside from '../components/DataAside';
 // import Modal from '../components/Modal';
 import theme from '../styles/victoryTheme';
 import { colors } from '../styles/variables';
+import { initStore } from '../store';
 import {
-  initStore,
-} from '../store';
-import {
-  getData,
+  getDataSets,
   getDataSet,
+  getData,
   selectMainDimensionId,
 } from '../actions';
 import {
   buildVictoryData,
   buildApiUrl,
-  buildDataSets,
   getTimePeriods,
   getChartType,
   toggleArrayItem,
   getDefaultDimensions,
   getDimensionColourMap,
 } from '../utils';
-
-// import dataSetsRaw from '../data/dataSets';
-import dataSetsRaw from '../data/oecdDataSets';
-import config from '../data/config';
 
 class Data extends Component {
 
@@ -50,29 +44,31 @@ class Data extends Component {
     };
   }
 
-  static async getInitialProps ({ query: { id, source }, isServer, store }) {
-    const dataSets = buildDataSets(dataSetsRaw); // List of DataSets
-    await store.dispatch(getDataSet(id, config.dataSets[source].apiUrl));
+  static async getInitialProps ({ query: { id = null, source }, isServer, store }) {
+    let newId;
+
+    if (!id && source === 'ABS') {
+      newId = 'LF';
+    } else if (!id && source === 'OECD') {
+      newId = 'MON2013_REFERENCE_TABLE';
+    } else {
+      newId = id;
+    }
+
+    await store.dispatch(getDataSets(source));
+    await store.dispatch(getDataSet(newId, source));
 
     return {
-      dataSets,
+      id: newId,
       source,
     }
   }
 
   handleDataSetSelect = (id) => {
-    console.log(this.props);
     Router.push(`/data?id=${id}&source=${this.props.source}`);
   }
 
   handleDimensionSelect = async (options, dimensionIndex) => {
-    // console.log(event);
-    // const ids = [...event.target.options].filter(({ selected }) => selected).map(({ value }) => value);
-    // console.log(ids);
-
-    // const ids = options.map((option) => {
-    //   return option.value;
-    // });
     let ids = [];
     ids[0] = options.value;
     // console.log(options);
@@ -90,10 +86,15 @@ class Data extends Component {
         baseApiUrl: 'http://stats.oecd.org/sdmx-json',
       })));
     }
+
+    // Cool little script for html multi select
+    // const ids = [...event.target.options].filter(({ selected }) => selected).map(({ value }) => value);
+    // const ids = options.map((option) => {
+    //   return option.value;
+    // });
   }
 
   handleMultiDimensionSelect = (options, dimensionIndex) => {
-    // console.log(options);
     const ids = options.map((option) => {
       return option.value;
     });
@@ -166,7 +167,6 @@ class Data extends Component {
       isMenuActive,
     } = this.props;
     const mainDimensionIndex = this.props.mainDimensionIndex || 0;
-
     const mainDimension = dimensions[mainDimensionIndex];
     const selectedMainDimension = selectedDimensions[mainDimensionIndex];
 

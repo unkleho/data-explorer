@@ -7,6 +7,17 @@ export const reducer = (state = {
   mainDimensionIndex: 0,
 }, action) => {
   switch (action.type) {
+
+    case 'GET_DATASETS_SUCCESS':
+
+      console.log('GET_DATASETS_SUCCESS');
+      return {
+        ...state,
+        source: action.source,
+        sourceTitle: action.sourceTitle,
+        dataSets: action.dataSets,
+      }
+
     case 'GET_DATASET_LOADING':
 
       console.log('GET_DATASET_LOADING');

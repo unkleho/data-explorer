@@ -62,11 +62,11 @@ class DataHeader extends Component {
       <aside className={`box`}>
 
         <div className={`data-set-box ${this.state.showDataSetSelector ? 'is-open' : ''}`}>
-          <div className="data-set-box__id">{dataSet.id}</div>
+          <div className="data-set-box__id">{dataSet && dataSet.id}</div>
           <h1
             className="data-set-box__title" onClick={this.handleDataSetTitleClick}
           >
-            {dataSet.title} {this.state.showDataSetSelector ? (
+            {dataSet && dataSet.title} {this.state.showDataSetSelector ? (
               <span>Close <i className="material-icons">&#xE5D8;</i></span>
             ) : (
               <span>Change <i className="material-icons">&#xE5DB;</i></span>

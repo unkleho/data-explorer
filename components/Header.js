@@ -1,30 +1,100 @@
 import { Component, PropTypes } from 'react';
-import { blueGrey300 } from '../styles/variables';
+import withRedux from 'next-redux-wrapper';
+import Router from 'next/router';
+import Link from 'next/link';
 import { blueGrey } from 'material-colors';
 
+import { initStore } from '../store';
+import { blueGrey300 } from '../styles/variables';
+
 class Header extends Component {
+
   static propTypes = {
+    source: PropTypes.string,
   }
 
   constructor() {
     super();
 
-    this.state = {};
+    this.state = {
+      isMenuActive: false,
+      sources: [
+        { title: 'ABS', source: 'ABS' },
+        { title: 'OECD', source: 'OECD' },
+        { title: 'UNESCO', source: 'UNESCO' },
+      ]
+    };
+  }
+
+  handleSourceSelect = () => {
+
+  }
+
+  handleMenuToggle = () => {
+    console.log('hi');
+    this.setState({
+      isMenuActive: !this.state.isMenuActive,
+    });
   }
 
   render() {
+    const {
+      source,
+    } = this.props;
+
+    const {
+      sources,
+      isMenuActive,
+    } = this.state;
+
     return (
-      <header>
+      <header className={`${isMenuActive && 'is-active'}`}>
+        <div className="logo">
+          <span className="logo__abs">{source}</span>
+            &nbsp;<span className="logo__text">Data Explorer</span>
+            &nbsp;<span style={{ fontSize: '0.6em', opacity: '0.7' }}>BETA</span>
+            &nbsp;
+            <i
+              className="material-icons arrow"
+              onClick={this.handleMenuToggle}
+            >{isMenuActive ? 'keyboard_arrow_up' : 'keyboard_arrow_down'}</i>
+        </div>
+
+        <div className={`menu ${isMenuActive && 'is-active'}`}>
+          <ul>
+            {sources.map((s) => {
+              return (
+                <li
+                  // onClick={() => Router.push(`/data?source=${s.source}`)}
+                ><Link href={`/data?source=${s.source}`}><a>{s.title}</a></Link></li>
+              )
+            })}
+          </ul>
+        </div>
+
         <style jsx>{`
           header {
             padding-left: 1em;
             background-color: ${blueGrey['700']};
+            color: white;
+            height: 2.95em;
+            transition: 0.3s;
+            overflow: hidden;
+
+            &.is-active {
+              height: 5.9em;
+            }
+          }
+
+          a:link, a:visited {
+            color: white;
           }
 
           .logo {
             font-size: 1em;
             line-height: 3;
-            color: white;
+            display: flex;
+            align-items: baseline;
           }
 
             .logo__abs {
@@ -38,26 +108,44 @@ class Header extends Component {
               font-weight: 100;
               font-size: 1em;
             }
+
+            .arrow {
+              align-self: center;
+              cursor: pointer;
+            }
+
+            .menu {
+              /*display: none;*/
+              background-color: ${blueGrey['600']};
+
+              & ul {
+                display: flex;
+                margin-left: 0;
+                margin-bottom: 0;
+                padding-left: 1em;
+                list-style: none;
+                line-height: 3;
+              }
+
+              & li {
+                margin-right: 1.5em;
+              }
+
+              /*&.is-active {
+                display: block;
+              }*/
+            }
         `}</style>
-        <div className="logo">
-          <span className="logo__abs">ABS</span> <span className="logo__text">Data Explorer</span> <span style={{ fontSize: '0.4em' }}>beta</span>
-        </div>
       </header>
     )
   }
 }
 
-// const Header = ({
-//   victoryData,
-//   chartType,
-//   theme,
-//   width,
-//   height,
-//   colors,
-//   data,
-// }) => {
-//   return (
-//   )
-// }
+function mapStateToProps(state) {
+  console.log(state);
+  return {
+    ...state,
+  }
+}
 
-export default Header;
+export default withRedux(initStore, mapStateToProps)(Header);

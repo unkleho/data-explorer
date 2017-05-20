@@ -2,8 +2,8 @@
  * ABS Data Utilities
  * -------------------------------------------------------------------------- */
 
-// import dataSets from '../data/dataSets';
-import dataSets from '../data/oecdDataSets';
+import dataSets from '../data/absDataSets';
+// import dataSets from '../data/oecdDataSets';
 
 // API UTILITIES
 
@@ -47,7 +47,7 @@ export function buildDataSets(data) {
 }
 
 // Get array of dimension ids, used for creating initial API call.
-export function getDefaultDimensions(dimensions, id) {
+export function getDefaultDimensions(dimensions, id, dataSetDefaultDimensions) {
   if (typeof window !== 'undefined') {
     console.table(dimensions);
   }
@@ -76,14 +76,12 @@ export function getDefaultDimensions(dimensions, id) {
   })
 
   // Work out if dataSet has default dimensions
-  const dataSet = getById(dataSets.children, id);
-  if (dataSet.defaultDimensions && dataSet.defaultDimensions.length > 0) {
-    // TODO: Smarter merging needed, just replacing right now.
-    result = dataSet.defaultDimensions;
-  }
-
-  // console.log(dimensions);
-  // console.log(result);
+  // TODO: Re-enable this!
+  // const dataSet = getById(dataSets.children, id);
+  // if (dataSet.defaultDimensions && dataSet.defaultDimensions.length > 0) {
+  //   // TODO: Smarter merging needed, just replacing right now.
+  //   result = dataSet.defaultDimensions;
+  // }
 
   return result;
 

@@ -1,8 +1,40 @@
 import axios from 'axios';
 
+import { buildDataSets } from '../utils';
+
+import config from '../data/config';
+import allDataSets from '../data';
+
 import { buildDataSetApiUrl, getDefaultDimensions, buildApiUrl } from '../utils';
 
-export const getDataSet = (id, baseApiUrl) => {
+export const getDataSets = (source) => {
+  const dataSets = buildDataSets(allDataSets[source]); // List of DataSets
+
+  return (dispatch) => {
+    dispatch({
+      type: 'GET_DATASETS_LOADING',
+    });
+
+    try {
+      dispatch({
+        type: 'GET_DATASETS_SUCCESS',
+        dataSets,
+        source: source,
+        sourceTitle: source,
+      })
+    } catch(e) {
+      console.log(e);
+
+      dispatch({
+        type: 'GET_DATASETS_FAILED',
+      });
+    }
+  }
+}
+
+export const getDataSet = (id, source) => {
+  const baseApiUrl = config.dataSets[source].apiUrl;
+
   return async (dispatch) => {
     dispatch({
       type: 'GET_DATASET_LOADING',
@@ -11,6 +43,8 @@ export const getDataSet = (id, baseApiUrl) => {
     try {
       // Get dataSet metadata
       const dataSetResult = await axios.get(buildDataSetApiUrl(id, baseApiUrl));
+      console.log(buildDataSetApiUrl(id, baseApiUrl));
+
       const dataSet = dataSetResult.data.structure;
       const dimensions = dataSet.dimensions.observation;
       const selectedDimensions = getDefaultDimensions(dimensions, id);

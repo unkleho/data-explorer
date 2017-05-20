@@ -15,6 +15,18 @@ class Page extends Component {
   render() {
     return (
       <div>
+        <Head>
+          <title>ABS Data Explorer</title>
+          <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+          <link href="https://fonts.googleapis.com/css?family=Droid+Serif:400,400i,700,700i|Roboto:100,100i,300,300i,400,400i,500,500i,700,900" rel="stylesheet" />
+          <link rel="stylesheet" href="https://unpkg.com/react-select/dist/react-select.css" />
+          <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+          <link rel="stylesheet" href="https://unpkg.com/react-select/dist/react-select.css" />
+        </Head>
+
+        <Header />
+        {this.props.children}
+
         <style jsx global>{`
           html {
             box-sizing: border-box;
@@ -27,7 +39,7 @@ class Page extends Component {
           body {
             position: relative;
             background: white;
-            font-family: 'Roboto', sans-serif;            
+            font-family: 'Roboto', sans-serif;
             margin: 0;
             font-size: 18px;
             line-height: 23px;
@@ -141,6 +153,15 @@ class Page extends Component {
             font-size: 0.8em;
           }
 
+          a:link, a:visited {
+            text-decoration: none;
+            color: ${blueGrey['700']};
+          }
+
+          a:hover, a:active {
+            text-decoration: underline;
+          }
+
           .content-header {
             padding-top: 1.8em;
             margin-bottom: 1em;
@@ -177,18 +198,6 @@ class Page extends Component {
             }
 
         `}</style>
-
-        <Head>
-          <title>ABS Data Explorer</title>
-          <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-          <link href="https://fonts.googleapis.com/css?family=Droid+Serif:400,400i,700,700i|Roboto:100,100i,300,300i,400,400i,500,500i,700,900" rel="stylesheet" />
-          <link rel="stylesheet" href="https://unpkg.com/react-select/dist/react-select.css" />
-          <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
-          <link rel="stylesheet" href="https://unpkg.com/react-select/dist/react-select.css" />
-        </Head>
-
-        <Header />
-        {this.props.children}
       </div>
     );
   }
