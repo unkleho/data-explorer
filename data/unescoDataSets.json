@@ -1,0 +1,33 @@
+{
+	"title": "ABS Data Sets",
+	"children": [
+    {
+      "id": "CAI_DS",
+      "title": "Communication and information"
+    },
+    {
+      "id": "CEMP_DS",
+      "title": "Cultural employment"
+    },
+    {
+      "id": "DEMO_DS",
+      "title": "Demographic and socio-economic"
+    },
+    {
+      "id": "EDULIT_DS",
+      "title": "Education"
+    },
+    {
+      "id": "CUL_DS",
+      "title": "Feature films"
+    },
+    {
+      "id": "INNOV_DS",
+      "title": "Innovation"
+    },
+    {
+      "id": "SCN_DS",
+      "title": "Science,technology and innovation"
+    }
+  ]
+}

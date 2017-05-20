@@ -2,7 +2,7 @@ import { Component, PropTypes } from 'react';
 import withRedux from 'next-redux-wrapper';
 import Router from 'next/router';
 import Link from 'next/link';
-import { blueGrey } from 'material-colors';
+import { blueGrey, orange } from 'material-colors';
 
 import { initStore } from '../store';
 import { blueGrey300 } from '../styles/variables';
@@ -66,7 +66,16 @@ class Header extends Component {
               return (
                 <li
                   // onClick={() => Router.push(`/data?source=${s.source}`)}
-                ><Link href={`/data?source=${s.source}`}><a>{s.title}</a></Link></li>
+                  onClick={this.handleMenuToggle}
+                  className={s.source === source && 'is-active'}
+                >
+                  <Link
+                    href={`/data?source=${s.source}`}
+                  >
+                    <a
+                    >{s.title}</a>
+                  </Link>
+                </li>
               )
             })}
           </ul>
@@ -122,13 +131,19 @@ class Header extends Component {
                 display: flex;
                 margin-left: 0;
                 margin-bottom: 0;
-                padding-left: 1em;
+                padding-left: 0;
                 list-style: none;
                 line-height: 3;
               }
 
               & li {
-                margin-right: 1.5em;
+                /*margin-right: 1.5em;*/
+                padding-left: 1em;
+                padding-right: 1em;
+
+                &.is-active {
+                  background-color: ${orange['900']};
+                }
               }
 
               /*&.is-active {
