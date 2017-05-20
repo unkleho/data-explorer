@@ -30,6 +30,7 @@ import {
   getDefaultDimensions,
   getDimensionColourMap,
 } from '../utils';
+import allData from '../data';
 
 class Data extends Component {
 
@@ -45,18 +46,20 @@ class Data extends Component {
   }
 
   static async getInitialProps ({ query: { id = null, source }, isServer, store }) {
-    let newId;
+    // Work out if custom default dataSet exists
+    const defaultId = allData[source].defaultDataSetId;
+    const newId = id || defaultId || allData[source].dataSets.children[0].id;    
 
     // TODO: Let's do this properly hey... get it from 'data'
-    if (!id && source === 'ABS') {
-      newId = 'LF';
-    } else if (!id && source === 'OECD') {
-      newId = 'SNA_TABLE1';
-    } else if (!id && source === 'UNESCO') {
-      newId = 'DEMO_DS';
-    } else {
-      newId = id;
-    }
+    // if (!id && source === 'ABS') {
+    //   newId = 'LF';
+    // } else if (!id && source === 'OECD') {
+    //   newId = 'SNA_TABLE1';
+    // } else if (!id && source === 'UNESCO') {
+    //   newId = 'DEMO_DS';
+    // } else {
+    //   newId = id;
+    // }
 
     await store.dispatch(getDataSets(source));
     await store.dispatch(getDataSet(newId, source));

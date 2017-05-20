@@ -31,7 +31,6 @@ class Header extends Component {
   }
 
   handleMenuToggle = () => {
-    console.log('hi');
     this.setState({
       isMenuActive: !this.state.isMenuActive,
     });
@@ -157,7 +156,6 @@ class Header extends Component {
 }
 
 function mapStateToProps(state) {
-  console.log(state);
   return {
     ...state,
   }

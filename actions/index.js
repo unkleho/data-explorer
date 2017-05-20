@@ -2,13 +2,12 @@ import axios from 'axios';
 
 import { buildDataSets } from '../utils';
 
-import config from '../data/config';
-import allDataSets from '../data';
+import allData from '../data';
 
 import { buildDataSetApiUrl, getDefaultDimensions, buildApiUrl } from '../utils';
 
 export const getDataSets = (source) => {
-  const dataSets = buildDataSets(allDataSets[source]); // List of DataSets
+  const dataSets = buildDataSets(allData[source].dataSets); // List of DataSets
 
   return (dispatch) => {
     dispatch({
@@ -33,7 +32,7 @@ export const getDataSets = (source) => {
 }
 
 export const getDataSet = (id, source) => {
-  const baseApiUrl = config.dataSets[source].apiUrl;
+  const baseApiUrl = allData[source].apiUrl;
 
   return async (dispatch) => {
     dispatch({
