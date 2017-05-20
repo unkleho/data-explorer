@@ -17,6 +17,7 @@
   "license": "ISC",
   "dependencies": {
     "@mars/heroku-nextjs-build": "^2.0.0",
+    "artoo": "^0.2.1",
     "axios": "^0.15.3",
     "babel-preset-es2015": "^6.24.1",
     "lodash": "^4.17.4",
@@ -35,6 +36,8 @@
     "react-select": "^1.0.0-rc.3",
     "redux": "^3.6.0",
     "redux-thunk": "^2.2.0",
+    "scrape-it": "^3.3.2",
+    "scraperjs": "^1.2.0",
     "styled-jsx-postcss": "^0.2.0",
     "victory": "^0.18.3"
   },

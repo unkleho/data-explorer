@@ -2,13 +2,14 @@
  * ABS Data Utilities
  * -------------------------------------------------------------------------- */
 
-import dataSets from '../data/dataSets';
+// import dataSets from '../data/dataSets';
+import dataSets from '../data/oecdDataSets';
 
 // API UTILITIES
 
 // Get API URL for specific data set
-export function buildDataSetApiUrl(key) {
-  return `http://stat.data.abs.gov.au/sdmx-json/metadata/${key}/all`;
+export function buildDataSetApiUrl(key, baseApiUrl) {
+  return `${baseApiUrl}/metadata/${key}/all`;
 }
 
 // Build the dimensions as a string for API URL
@@ -24,11 +25,11 @@ export function buildDimensionsApiUrl(selectedDimensions) {
 }
 
 // Get API URL for data within data set
-export function buildApiUrl({ selectedDimensions, dataSetId }) {
+export function buildApiUrl({ selectedDimensions, dataSetId, baseApiUrl }) {
   const dimensionString = buildDimensionsApiUrl(selectedDimensions);
   // console.log(dimensionString);
 
-  const url = `http://stat.data.abs.gov.au/sdmx-json/data/${dataSetId}/${dimensionString}/all?detail=Full&dimensionAtObservation=AllDimensions`;
+  const url = `${baseApiUrl}/data/${dataSetId}/${dimensionString}/all?detail=Full&dimensionAtObservation=AllDimensions`;
 
   console.log(url);
 

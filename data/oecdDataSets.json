@@ -1,0 +1,4665 @@
+{
+	"title": "Datasets",
+	"children": [
+		{
+			"id": "FACTBOOK2014_PUB",
+			"title": "   Factbook Country Statistical Profiles   -  2014 edition"
+		},
+		{
+			"id": "MON2013_REFERENCE_TABLE",
+			"title": " 2013 ) Monitoring and evaluation : Reference Tables"
+		},
+		{
+			"id": "TEC7_REV4",
+			"title": " VII - TEC by ownership (domestic or foreign)"
+		},
+		{
+			"id": "NONTAX",
+			"title": "[Discontinued] Non-tax revenue and grants"
+		},
+		{
+			"id": "REVEU",
+			"title": "[Discontinued] VAT and Customs duties - European Union"
+		},
+		{
+			"id": "SNA_TABLE1",
+			"title": "1. Gross domestic product (GDP)"
+		},
+		{
+			"id": "SNA_TABLE1_TRAINING",
+			"title": "1. Gross domestic product (GDP) Training2"
+		},
+		{
+			"id": "SNA_TABLE1_SNA93",
+			"title": "1. Gross domestic product (GDP), SNA93"
+		},
+		{
+			"id": "SNA_TABLE10",
+			"title": "10. Taxes and social contributions receipts"
+		},
+		{
+			"id": "SNA_TABLE10_SNA93",
+			"title": "10. Taxes and social contributions receipts, SNA93"
+		},
+		{
+			"id": "SNA_TABLE11",
+			"title": "11. Government expenditure by function (COFOG)"
+		},
+		{
+			"id": "SNA_TABLE11_SNA93",
+			"title": "11. Government expenditure by function (COFOG), SNA93"
+		},
+		{
+			"id": "SNA_TABLE12",
+			"title": "12. Government deficit/surplus, revenue, expenditure and main aggregates"
+		},
+		{
+			"id": "SNA_TABLE12_SNA93",
+			"title": "12. Government deficit/surplus, revenue, expenditure and main aggregates, SNA93"
+		},
+		{
+			"id": "SNA_TABLE13",
+			"title": "13. Simplified non-financial accounts"
+		},
+		{
+			"id": "SNA_TABLE13_SNA93",
+			"title": "13. Simplified non-financial accounts, SNA93"
+		},
+		{
+			"id": "SNA_TABLE14A",
+			"title": "14A. Non-financial accounts by sectors"
+		},
+		{
+			"id": "SNA_TABLE14A_SNA93",
+			"title": "14A. Non-financial accounts by sectors, SNA93"
+		},
+		{
+			"id": "SNA_TABLE2",
+			"title": "2. Disposable income and net lending - net borrowing"
+		},
+		{
+			"id": "SNA_TABLE2_SNA93",
+			"title": "2. Disposable income and net lending - net borrowing, SNA93"
+		},
+		{
+			"id": "PPP2005",
+			"title": "2005 PPP Benchmark results"
+		},
+		{
+			"id": "TALIS",
+			"title": "2008 - Complete database "
+		},
+		{
+			"id": "PPP2008",
+			"title": "2008 PPP Benchmark results"
+		},
+		{
+			"id": "TSE_2009",
+			"title": "2009 -F- Total Support Estimate by country "
+		},
+		{
+			"id": "OECD_TSE2010",
+			"title": "2010 -A- OECD Total Support Estimate"
+		},
+		{
+			"id": "PSE_2010",
+			"title": "2010 -B- Producer Support Estimate (PSE) and related indicators by country "
+		},
+		{
+			"id": "CPSE_2010",
+			"title": "2010 -C- Composition of Producer Support Estimate"
+		},
+		{
+			"id": "CSE_2010",
+			"title": "2010 -D- Consumer Support Estimate and related indicators by country"
+		},
+		{
+			"id": "GSSE_2010",
+			"title": "2010 -E- General Services Support Estimate by country"
+		},
+		{
+			"id": "TSE_2010",
+			"title": "2010 -F- Total Support Estimate by country"
+		},
+		{
+			"id": "MON2011TSE_O",
+			"title": "2011 A) OECD : Estimate of support to agriculture"
+		},
+		{
+			"id": "MON2011TSE",
+			"title": "2011 B) OECD countries : Estimate of support to agriculture"
+		},
+		{
+			"id": "MON2011TSE_EE",
+			"title": "2011 C) Emerging Economies: Estimate of support to agriculture"
+		},
+		{
+			"id": "MON20113_1",
+			"title": "2011 D) OECD countries : Producer Support Estimate by country"
+		},
+		{
+			"id": "MON20113_1EE",
+			"title": "2011 E) Emerging Economies: Producer Support Estimate by country"
+		},
+		{
+			"id": "MON20113_2",
+			"title": "2011 F) OECD countries : Consumer Support Estimate by country"
+		},
+		{
+			"id": "MON20113_2EE",
+			"title": "2011 G) Emerging Economies: Consumer Support Estimate by country"
+		},
+		{
+			"id": "MON20113_3",
+			"title": "2011 H) OECD countries : General Services Support Estimate by country"
+		},
+		{
+			"id": "MON20113_3EE",
+			"title": "2011 I) Emerging Economies: General Services Support Estimate by country"
+		},
+		{
+			"id": "MON20113_4",
+			"title": "2011 J) OECD countries : Total Support Estimate by country"
+		},
+		{
+			"id": "MON20113_4EE",
+			"title": "2011 K) Emerging Economies: Total Support Estimate by country"
+		},
+		{
+			"id": "MON20113_5",
+			"title": "2011 L) OECD countries : Composition of Producer Support Estimate by country"
+		},
+		{
+			"id": "MON20113_5EE",
+			"title": "2011 M) Emerging Economies: Composition of Producer Support Estimate by country"
+		},
+		{
+			"id": "MON20113_6",
+			"title": "2011 N) OECD countries : Characteristics of policy support by country"
+		},
+		{
+			"id": "MON20113_6EE",
+			"title": "2011 O) Emerging Economies: Characteristics of policy support by country"
+		},
+		{
+			"id": "MON20113_7",
+			"title": "2011 P) OECD countries : Composition of General Services Support Estimate"
+		},
+		{
+			"id": "PPP2011",
+			"title": "2011 PPP Benchmark results"
+		},
+		{
+			"id": "MON20113_7EE",
+			"title": "2011 Q) Emerging Economies: Composition of General Services Support Estimate"
+		},
+		{
+			"id": "MON2011PSCT_O",
+			"title": "2011 R) OECD : Producer Single Commodity Transfers"
+		},
+		{
+			"id": "MON2011PSCT",
+			"title": "2011 S) OECD countries : Producer Single Commodity Transfers"
+		},
+		{
+			"id": "MON2011PSCT_EE",
+			"title": "2011 T) Emerging Economies: Producer Single Commodity Transfers"
+		},
+		{
+			"id": "MON2011CSCT_O",
+			"title": "2011 U) OECD : Consumer Single Commodity Transfers"
+		},
+		{
+			"id": "MON2011CSCT",
+			"title": "2011 V) OECD countries : Consumer Single Commodity Transfers"
+		},
+		{
+			"id": "MON2011CSCT_EE",
+			"title": "2011 W) Emerging Economies: Consumer Single Commodity Transfers"
+		},
+		{
+			"id": "MON2011AANRI",
+			"title": "2011 X) OECD countries :  Payments made on the basis of area, animal numbers, receipts or income"
+		},
+		{
+			"id": "MON2011AANRI_EE",
+			"title": "2011 Y) Emerging Economies:  Payments made on the basis of area, animal numbers, receipts or income"
+		},
+		{
+			"id": "MON2012TSE_O",
+			"title": "2012 A) OECD: Estimate of support to agriculture"
+		},
+		{
+			"id": "PT_CH6_FIG39",
+			"title": "2012 Anexo I Figura 39: Níveis de educação entre africanos com 15 a 24 anos de idade"
+		},
+		{
+			"id": "PT_CH6_FIG40",
+			"title": "2012 Anexo I Figura 40: Jovens africanos em zonas urbanas e zonas rurais por nível de rendimento"
+		},
+		{
+			"id": "MON2012TSE",
+			"title": "2012 B) OECD countries : Estimate of support to agriculture"
+		},
+		{
+			"id": "MON2012TSE_EE",
+			"title": "2012 C) Emerging Economies: Estimate of support to agriculture"
+		},
+		{
+			"id": "PT_CH6_BOX6",
+			"title": "2012 Caixa 6: Dinâmica de assentamento e criação de emprego rural na África Ocidental"
+		},
+		{
+			"id": "PT_CH6_BOX9",
+			"title": "2012 Caixa 9: Taxas de inscrição no ensino secundário e terciário, por região do mundo"
+		},
+		{
+			"id": "MON20123_1",
+			"title": "2012 D) OECD countries : Producer Support Estimate by country"
+		},
+		{
+			"id": "MON20123_1EE",
+			"title": "2012 E) Emerging Economies: Producer Support Estimate by country"
+		},
+		{
+			"id": "MON20123_2",
+			"title": "2012 F) OECD countries : Consumer Support Estimate by country"
+		},
+		{
+			"id": "PT_CH1_FIG1",
+			"title": "2012 Figura 1.1: Análise africana da situação económica actual e expectativas para os próximos seis meses"
+		},
+		{
+			"id": "PT_CH1_FIG2",
+			"title": "2012 Figura 1.2: Crescimento económico de África (%)"
+		},
+		{
+			"id": "PT_CH1_FIG3",
+			"title": "2012 Figura 1.3: Crescimento económico mundial"
+		},
+		{
+			"id": "PT_CH1_FIG4",
+			"title": "2012 Figura 1.4: Crescimento do PIB (%)"
+		},
+		{
+			"id": "PT_CH1_FIG5",
+			"title": "2012 Figura 1.5: Preços do petróleo e do ouro"
+		},
+		{
+			"id": "PT_CH1_FIG6",
+			"title": "2012 Figura 1.6: Preços de exportação dos produtos agrícolas"
+		},
+		{
+			"id": "PT_CH1_FIG7",
+			"title": "2012 Figura 1.7: Preços de importação de bens alimentares básicos"
+		},
+		{
+			"id": "PT_CH1_FIG8",
+			"title": "2012 Figura 1.8: Saldos orçamentais e de conta corrente em países exportadores de petróleo"
+		},
+		{
+			"id": "PT_CH6_FIG1",
+			"title": "2012 Figura 1: África apresenta um rápido crescimento de jovens com educação (grupo com idades entre os 20-24 por nível de educação, 2000-2030)"
+		},
+		{
+			"id": "PT_CH6_FIG10",
+			"title": "2012 Figura 10: Jovens e adultos por actividade"
+		},
+		{
+			"id": "PT_CH6_FIG11",
+			"title": "2012 Figura 11: Quem são os jovens NEET?"
+		},
+		{
+			"id": "PT_CH6_FIG12",
+			"title": "2012 Figura 12: Estatuto de emprego por nível de educação e grupo etário nos PRB"
+		},
+		{
+			"id": "PT_CH6_FIG13",
+			"title": "2012 Figura 13: Estatuto de emprego por nível de educação e grupo etário nos PRM"
+		},
+		{
+			"id": "PT_CH6_FIG14",
+			"title": "2012 Figura 14: Desempregados contra NEET: motivos auto-admitidos para não trabalhar"
+		},
+		{
+			"id": "PT_CH6_FIG15",
+			"title": "2012 Figura 15: Motivos para não trabalhar entre os jovens desanimados por nível educativo alcançado"
+		},
+		{
+			"id": "PT_CH6_FIG16",
+			"title": "2012 Figura 16: Percursos transitórios por jovens do sexo masculino e feminino (15-30)"
+		},
+		{
+			"id": "PT_CH6_FIG17",
+			"title": "2012 Figura 17: Emprego juvenil por actividade em 2008 e 2010: as actividades do sector informal e a agricultura absorveram o impacto da crise"
+		},
+		{
+			"id": "PT_CH6_FIG18",
+			"title": "2012 Figura 18: Vendas agregadas e número de empresas da África subsariana, por dimensão"
+		},
+		{
+			"id": "PT_CH6_FIG19",
+			"title": "2012 Figura 19: O compromisso entre o emprego vulnerável e o desemprego"
+		},
+		{
+			"id": "PT_CH2_FIG10",
+			"title": "2012 Figura 2.10: O aumento das receitas fiscais baseia-se, sobretudo, nos impostos sobre os recursos (% PIB)"
+		},
+		{
+			"id": "PT_CH2_FIG1A",
+			"title": "2012 Figura 2.1a: Recursos financeiros internos e externos (mil milhões de USD, 2010)"
+		},
+		{
+			"id": "PT_CH2_FIG1B",
+			"title": "2012 Figura 2.1b: Recursos financeiros internos e externos (em % do PIB, 2010)"
+		},
+		{
+			"id": "PT_CH2_FIG2",
+			"title": "2012 Figura 2.2: O IDE ultrapassou a APD em 2005, mas está abaixo do pico atingido em 2008"
+		},
+		{
+			"id": "PT_CH2_FIG3A",
+			"title": "2012 Figura 2.3a: O IDE recupera na África Subsariana e diminui no norte de África devido à incerteza gerada pela Primavera Árabe (IDE para o Norte de África vs África Subsariana)"
+		},
+		{
+			"id": "PT_CH2_FIG3B",
+			"title": "2012 Figura 2.3b: O IDE recupera na África Subsariana e diminui no norte de África devido à incerteza gerada pela Primavera Árabe (IDE para a África Subsariana: exportadores de petróleo vs. importadores de petróleo)"
+		},
+		{
+			"id": "PT_CH2_FIG4",
+			"title": "2012 Figura 2.4: Os países importadores de petróleo atraíram mais IDE em % do PIB do que os países exportadores de petróleo"
+		},
+		{
+			"id": "PT_CH2_FIG5A",
+			"title": "2012 Figura 2.5a: Os fluxos de IDE africano têm origem, maioritariamente, em países ricos em recursos naturais e como destino países da OCDE  (Fluxos de IDE de África, por região) (% PIB)"
+		},
+		{
+			"id": "PT_CH2_FIG5B",
+			"title": "2012 Figura 2.5b: Os fluxos de IDE africano têm origem, maioritariamente, em países ricos em recursos naturais e como destino países da OCDE (IDE de África para países da OCDE) (mil milhões de USD) "
+		},
+		{
+			"id": "PT_CH2_FIG6",
+			"title": "2012 Figura 2.6: Investimento em carteira versus IDE em África (2000-2011)"
+		},
+		{
+			"id": "PT_CH2_FIG7",
+			"title": "2012 Figura 2.7: Fluxos de remessas por sub-região Africana (% PIB)"
+		},
+		{
+			"id": "PT_CH2_FIG8",
+			"title": "2012 Figura 2.8: Manutenção dos níveis de APD em África durante a crise internacional (mil milhões de USD, preços constantes de 2009)"
+		},
+		{
+			"id": "PT_CH2_FIG9",
+			"title": "2012 Figura 2.9: A percentagem das receitas fiscais no PIB cresceu na última década"
+		},
+		{
+			"id": "PT_CH6_FIG20",
+			"title": "2012 Figura 20: Distribuição de emprego primário por tipo"
+		},
+		{
+			"id": "PT_CH6_FIG21",
+			"title": "2012 Figura 21: Mais de metade dos jovens rurais trabalha fora da agricultura"
+		},
+		{
+			"id": "PT_CH6_FIG22",
+			"title": "2012 Figura 22: Pobreza alimentar entre os jovens trabalhadores:agrícola vs. não agrícola vs. urbano"
+		},
+		{
+			"id": "PT_CH6_FIG23",
+			"title": "2012 Figura 23: Desafios do mercado de trabalho enfrentados pelos jovens"
+		},
+		{
+			"id": "PT_CH6_FIG24",
+			"title": "2012 Figura 24: Percepção dos jovens dos principais obstáculos a encontrarem um emprego"
+		},
+		{
+			"id": "PT_CH6_FIG25",
+			"title": "2012 Figura 25: O desânimo relativamente a um mercado de trabalho justo aumenta com a educação"
+		},
+		{
+			"id": "PT_CH6_FIG26",
+			"title": "2012 Figura 26: Maiores obstáculos às empresas na África subsariana"
+		},
+		{
+			"id": "PT_CH6_FIG27",
+			"title": "2012 Figura 27: Obstáculos às empresas no Norte de África e na África subsariana"
+		},
+		{
+			"id": "PT_CH6_FIG28",
+			"title": "2012 Figura 28: Os obstáculos mais importantes para as empresas informais"
+		},
+		{
+			"id": "PT_CH6_FIG29",
+			"title": "2012 Figura 29: Emprego e desemprego juvenil por níveis de educação e rendimento do país"
+		},
+		{
+			"id": "PT_CH6_FIG3",
+			"title": "2012 Figura 3: Tempo despendido pelos jovens por grupo de rendimentos do país (2010)"
+		},
+		{
+			"id": "PT_CH6_FIG30",
+			"title": "2012 Figura 30: Fatla de competências contra desfasamento de competências"
+		},
+		{
+			"id": "PT_CH6_FIG31",
+			"title": "2012 figura 31: Probabilidade prevista de ter um emprego assalariado em vez de outro estatuto de emprego (em cada nível de educação)"
+		},
+		{
+			"id": "PT_CH6_FIG32",
+			"title": "2012 Figura 32: Empresas que oferecem formação, África e o mundo"
+		},
+		{
+			"id": "PT_CH6_FIG33",
+			"title": "2012 Figura 33: As expectativas dos empregadores são um desafio para os jovens que entram no mercado de trabalho"
+		},
+		{
+			"id": "PT_CH6_FIG34",
+			"title": "2012 Figura 34: Raisons avancées par les jeunes pour justifier qu'ils ne travaillent pas"
+		},
+		{
+			"id": "PT_CH6_FIG35",
+			"title": "2012 Figura 35: Onde pretende trabalhar, pressupondo remuneração e benefícios iguais?"
+		},
+		{
+			"id": "PT_CH6_FIG36",
+			"title": "2012 Figura 36: Percentagem de jovens desempregados e desanimados que têm um plano para criar um negócio"
+		},
+		{
+			"id": "PT_CH6_FIG37",
+			"title": "2012 Figura 37: Classificação dos especialistas do país do AEO quanto às regulamentações laborais enquanto obstáculos para os jovens"
+		},
+		{
+			"id": "PT_CH6_FIG38",
+			"title": "2012 Figura 38: Iniciativas direccionadas para o emprego juvenil"
+		},
+		{
+			"id": "PT_CH6_FIG4",
+			"title": "2012 Figura 4: Desemprego juvenil e adulto"
+		},
+		{
+			"id": "PT_CH5_FIG1",
+			"title": "2012 Figura 5.1: Protestos públicos, violência pública e índices de preços dos bens alimentares"
+		},
+		{
+			"id": "PT_CH5_FIG2",
+			"title": "2012 Figura 5.2: Índice de endurecimento político 1996-2011 (ano de base 1996 = 100)"
+		},
+		{
+			"id": "PT_CH6_FIG5",
+			"title": "2012 Figura 5: Taxa de emprego para a população em idade activa em África e comparativos"
+		},
+		{
+			"id": "PT_CH6_FIG6",
+			"title": "2012 Figura 6: Cinco tipos de mercado de trabalho para os jovens em África"
+		},
+		{
+			"id": "PT_CH6_FIG7",
+			"title": "2012 Figura 7: Insegurança alimentar moderada e grave por estatuto de emprego e por nível de rendimento do país"
+		},
+		{
+			"id": "PT_CH6_FIG8",
+			"title": "2012 Figura 8: Distribuição do emprego por características básicas"
+		},
+		{
+			"id": "PT_CH6_FIG9",
+			"title": "2012 Figura 9: Onde os jovens africanos trabalham"
+		},
+		{
+			"id": "AEO2012_CH1_FIG1",
+			"title": "2012 Figure 1.1: Africa Assessment of current Economic Situation and Expectations for the next six months"
+		},
+		{
+			"id": "AEO2012_CH1_FIG2",
+			"title": "2012 Figure 1.2: Africa´s Economic Growth (%)"
+		},
+		{
+			"id": "AEO2012_CH1_FIG3",
+			"title": "2012 Figure 1.3: World Economic growth"
+		},
+		{
+			"id": "AEO2012_CH1_FIG4",
+			"title": "2012 Figure 1.4: Growth of GDP by countries (%)"
+		},
+		{
+			"id": "AEO2012_CH1_FIG5",
+			"title": "2012 Figure 1.5: Oil price and Gold price"
+		},
+		{
+			"id": "AEO2012_CH1_FIG6",
+			"title": "2012 Figure 1.6: Export prices of agricultural products"
+		},
+		{
+			"id": "AEO2012_CH1_FIG8",
+			"title": "2012 Figure 1.8: Current accounts and fiscal balances in oil-exporting countries"
+		},
+		{
+			"id": "AEO2012_CH1_FIG9",
+			"title": "2012 Figure 1.9: Current accounts and fiscal balances in oil-importing countries"
+		},
+		{
+			"id": "AEO2012_CH2_FIG10",
+			"title": "2012 Figure 2.10: The increase in tax revenue is mainly driven by taxes on natural resources"
+		},
+		{
+			"id": "AEO2012_CH2_FIG1A",
+			"title": "2012 Figure 2.1a: Domestic and external financial resources (USD billion, 2010)"
+		},
+		{
+			"id": "AEO2012_CH2_FIG1B",
+			"title": "2012 Figure 2.1b: Domestic and external financial resources (% GDP, 2010)"
+		},
+		{
+			"id": "AEO2012_CH2_FIG2",
+			"title": "2012 Figure 2.2: FDI overtook ODA in 2005, but is below its 2008 peak"
+		},
+		{
+			"id": "AEO2012_CH2_FIG3A",
+			"title": "2012 Figure 2.3a: FDI to Sub-Saharan Africa recovered, while North Africa suffered (FDI to Northern Africa vs Sub-Saharan Africa)"
+		},
+		{
+			"id": "AEO2012_CH2_FIG3B",
+			"title": "2012 Figure 2.3b: FDI to Sub-Saharan Africa recovered, while North Africa suffered (FDI to sub-saharan Africa: oil-exporters vs oil-importers)"
+		},
+		{
+			"id": "AEO2012_CH2_FIG4",
+			"title": "2012 Figure 2.4: Oil-importing countries attracted more FDI as a share of GDP than oil-exporting countries"
+		},
+		{
+			"id": "AEO2012_CH2_FIG5A",
+			"title": "2012 Figure 2.5a: African FDI outflows mainly go from resource-rich countries to OECD nations (% of GDP)"
+		},
+		{
+			"id": "AEO2012_CH2_FIG5B",
+			"title": "2012 Figure 2.5b: African FDI outflows mainly go from resource-rich countries to OECD nations (USD billion)"
+		},
+		{
+			"id": "AEO2012_CH2_FIG6",
+			"title": "2012 Figure 2.6: Portfolio investments compared to FDI in Africa (2000-11)"
+		},
+		{
+			"id": "AEO2012_CH2_FIG7",
+			"title": "2012 Figure 2.7: Remittance flows per African subregion"
+		},
+		{
+			"id": "AEO2012_CH2_FIG8",
+			"title": "2012 Figure 2.8: ODA levels to Africa have maintained levels through the international crisis"
+		},
+		{
+			"id": "AEO2012_CH2_FIG9",
+			"title": "2012 Figure 2.9: Tax revenues in Africa represent an increasing share of GDP during the last decade"
+		},
+		{
+			"id": "AEO2012_CH5_FIG1",
+			"title": "2012 Figure 5.1: Public protests, civil violence and food price indices"
+		},
+		{
+			"id": "AEO2012_CH5_FIG2",
+			"title": "2012 Figure 5.2: Political Hardening Index 1996-2011 (base year 1996 = 100)"
+		},
+		{
+			"id": "MON20123_2EE",
+			"title": "2012 G) Emerging Economies: Consumer Support Estimate by country"
+		},
+		{
+			"id": "MON20123_3",
+			"title": "2012 H) OECD countries : General Services Support Estimate by country"
+		},
+		{
+			"id": "MON20123_3EE",
+			"title": "2012 I) Emerging Economies: General Services Support Estimate by country"
+		},
+		{
+			"id": "MON20123_4",
+			"title": "2012 J) OECD countries : Total Support Estimate by country"
+		},
+		{
+			"id": "MON20123_4EE",
+			"title": "2012 K) Emerging Economies: Total Support Estimate by country"
+		},
+		{
+			"id": "MON20123_5",
+			"title": "2012 L) OECD countries : Composition of Producer Support Estimate by country"
+		},
+		{
+			"id": "MON20123_5EE",
+			"title": "2012 M) Emerging Economies: Composition of Producer Support Estimate by country"
+		},
+		{
+			"id": "MON20123_6",
+			"title": "2012 N) OECD countries : Characteristics of policy support by country"
+		},
+		{
+			"id": "MON20123_6EE",
+			"title": "2012 O) Emerging Economies: Characteristics of policy support by country"
+		},
+		{
+			"id": "MON20123_7",
+			"title": "2012 P) OECD countries : Composition of General Services Support Estimate"
+		},
+		{
+			"id": "MON20123_7EE",
+			"title": "2012 Q) Emerging Economies: Composition of General Services Support Estimate"
+		},
+		{
+			"id": "MON2012PSCT_O",
+			"title": "2012 R) OECD : Producer Single Commodity Transfers"
+		},
+		{
+			"id": "MON2012PSCT",
+			"title": "2012 S) OECD countries : Producer Single Commodity Transfers"
+		},
+		{
+			"id": "MON2012PSCT_EE",
+			"title": "2012 T) Emerging Economies: Producer Single Commodity Transfers"
+		},
+		{
+			"id": "PT_CH2_TAB1",
+			"title": "2012 Tabela 2.1: Resumo dos fluxos financeiros externos e das receitas fiscais em África (2000/12)"
+		},
+		{
+			"id": "PT_CH5_TAB3",
+			"title": "2012 Tabela 5.3: Índice de Percepção da corrupção (CPI) por Transparency International 2010/12"
+		},
+		{
+			"id": "AEO2012_CH2_TAB1",
+			"title": "2012 Table 2.1: Summary of external financial flows and tax receipts in Africa (2000-12)  "
+		},
+		{
+			"id": "AEO2012_CH5_TAB3",
+			"title": "2012 Table 5.3: Corruption perception index by transparency international 2010-2012"
+		},
+		{
+			"id": "MON2012CSCT_O",
+			"title": "2012 U) OECD: Consumer Single Commodity Transfers"
+		},
+		{
+			"id": "MON2012CSCT",
+			"title": "2012 V) OECD countries : Consumer Single Commodity Transfers"
+		},
+		{
+			"id": "MON2012CSCT_EE",
+			"title": "2012 W) Emerging Economies: Consumer Single Commodity Transfers"
+		},
+		{
+			"id": "MON2012AANRI",
+			"title": "2012 X) OECD countries :  Payments made on the basis of area, animal numbers, receipts or income"
+		},
+		{
+			"id": "MON2012AANRI_EE",
+			"title": "2012 Y) Emerging Economies:  Payments made on the basis of area, animal numbers, receipts or income"
+		},
+		{
+			"id": "TALIS_2013",
+			"title": "2013 - Complete database"
+		},
+		{
+			"id": "MON2014_REFERENCE_TABLE",
+			"title": "2014 ) Monitoring and evaluation : Reference Tables"
+		},
+		{
+			"id": "PPP2014",
+			"title": "2014 PPP Benchmark results"
+		},
+		{
+			"id": "MON2015_REFERENCE_TABLE",
+			"title": "2015 ) Monitoring and evaluation : Reference Tables"
+		},
+		{
+			"id": "MON2016_REFERENCE_TABLE",
+			"title": "2016 - Monitoring and evaluation : Reference Tables"
+		},
+		{
+			"id": "SNA_TABLE3",
+			"title": "3. Population and employment by main activity"
+		},
+		{
+			"id": "SNA_TABLE3_SNA93",
+			"title": "3. Population and employment by main activity, SNA93"
+		},
+		{
+			"id": "SNA_TABLE30",
+			"title": "30. Supply at basic prices and its transformation into purchaser's prices"
+		},
+		{
+			"id": "SNA_TABLE31",
+			"title": "31. Supply, Output and its components by industries"
+		},
+		{
+			"id": "SNA_TABLE4",
+			"title": "4. PPPs and exchange rates"
+		},
+		{
+			"id": "SNA_TABLE40",
+			"title": "40. Use at purchaser's prices"
+		},
+		{
+			"id": "SNA_TABLE41",
+			"title": "41. Use, Value added and its components, GFCF and assets by activity"
+		},
+		{
+			"id": "SNA_TABLE42",
+			"title": "42. Use, Employment by activity"
+		},
+		{
+			"id": "SNA_TABLE43",
+			"title": "43. Use at basic prices"
+		},
+		{
+			"id": "SNA_TABLE44",
+			"title": "44. Valuation matrices"
+		},
+		{
+			"id": "SNA_TABLE5",
+			"title": "5. Final consumption expenditure of households"
+		},
+		{
+			"id": "SNA_TABLE5_SNA93",
+			"title": "5. Final consumption expenditure of households, SNA93"
+		},
+		{
+			"id": "SNA_TABLE6",
+			"title": "6. Value added and its components by activity, ISIC rev3"
+		},
+		{
+			"id": "SNA_TABLE6_SNA93",
+			"title": "6. Value added and its components by activity, SNA93"
+		},
+		{
+			"id": "SNA_TABLE610",
+			"title": "610. Financial accounts - consolidated"
+		},
+		{
+			"id": "SNA_TABLE610R",
+			"title": "610. Financial accounts - consolidated - SNA 2008"
+		},
+		{
+			"id": "SNA_TABLE620",
+			"title": "620. Financial accounts - non consolidated"
+		},
+		{
+			"id": "SNA_TABLE620R",
+			"title": "620. Financial accounts - non consolidated - SNA 2008"
+		},
+		{
+			"id": "SNA_TABLE6A",
+			"title": "6A. Value added and its components by activity, ISIC rev4"
+		},
+		{
+			"id": "SNA_TABLE6A_SNA93",
+			"title": "6A. Value added and its components by activity, ISIC rev4, SNA93"
+		},
+		{
+			"id": "SNA_TABLE7",
+			"title": "7. Labour input by activity, ISIC rev3"
+		},
+		{
+			"id": "SNA_TABLE7_SNA93",
+			"title": "7. Labour input by activity, SNA93"
+		},
+		{
+			"id": "SNA_TABLE710",
+			"title": "710. Financial balance sheets - consolidated"
+		},
+		{
+			"id": "SNA_TABLE710R",
+			"title": "710. Financial balance sheets - consolidated - SNA 2008"
+		},
+		{
+			"id": "SNA_TABLE720",
+			"title": "720. Financial balance sheets - non consolidated"
+		},
+		{
+			"id": "SNA_TABLE720R",
+			"title": "720. Financial balance sheets - non consolidated - SNA 2008"
+		},
+		{
+			"id": "SNA_TABLE750",
+			"title": "750. General Government Debt - Maastricht"
+		},
+		{
+			"id": "SNA_TABLE7A",
+			"title": "7A. Labour input by activity, ISIC rev4"
+		},
+		{
+			"id": "SNA_TABLE7A_SNA93",
+			"title": "7A. Labour input by activity, ISIC rev4, SNA93"
+		},
+		{
+			"id": "SNA_TABLE8",
+			"title": "8. Capital formation by activity, ISIC rev3"
+		},
+		{
+			"id": "SNA_TABLE8_SNA93",
+			"title": "8. Capital formation by activity, SNA93"
+		},
+		{
+			"id": "SNA_TABLE8A",
+			"title": "8A. Capital formation by activity ISIC rev4"
+		},
+		{
+			"id": "SNA_TABLE8A_SNA93",
+			"title": "8A. Capital formation by activity ISIC rev4, SNA93"
+		},
+		{
+			"id": "SNA_TABLE9",
+			"title": "9. Fixed assets by activity and by type of product, ISIC rev3"
+		},
+		{
+			"id": "SNA_TABLE9_SNA93",
+			"title": "9. Fixed assets by activity and by type of product, SNA93"
+		},
+		{
+			"id": "SNA_TABLE9A",
+			"title": "9A. Fixed assets by activity and by asset, ISIC rev4"
+		},
+		{
+			"id": "SNA_TABLE9A_SNA93",
+			"title": "9A. Fixed assets by activity and by asset, ISIC rev4, SNA93"
+		},
+		{
+			"id": "SNA_TABLE9B",
+			"title": "9B. Balance sheets for non-financial assets"
+		},
+		{
+			"id": "SNA_TABLE9B_SNA93",
+			"title": "9B. Balance sheets for non-financial assets, SNA93"
+		},
+		{
+			"id": "CHAPTER_C_EAG2014",
+			"title": "Access to education, participation and progression (Chapter C)"
+		},
+		{
+			"id": "EAG_AL",
+			"title": "Adult education and learning"
+		},
+		{
+			"id": "AEOCN2015",
+			"title": "AEO Country Notes Tables, 2015"
+		},
+		{
+			"id": "AEOREV2015",
+			"title": "AEO Revenue Statistics, 2015"
+		},
+		{
+			"id": "AEOANN2015",
+			"title": "AEO Statistical annex, 2015"
+		},
+		{
+			"id": "AEO",
+			"title": "African Economic Outlook"
+		},
+		{
+			"id": "SAH_URBA_CITY_LIST_7",
+			"title": "Africapolis List and Population of West African urban agglomerations 1950-2010"
+		},
+		{
+			"id": "AEI_NUTRIENTS",
+			"title": "Agri-Environmental indicators: Nutrients"
+		},
+		{
+			"id": "AEI_OTHER",
+			"title": "Agri-Environmental other indicators"
+		},
+		{
+			"id": "TABLE5",
+			"title": "Aid (ODA) by sector and donor [DAC5]"
+		},
+		{
+			"id": "TABLE3A",
+			"title": "Aid (ODA) commitments to countries and regions [DAC3a]"
+		},
+		{
+			"id": "TABLE2A",
+			"title": "Aid (ODA) disbursements to countries and regions [DAC2a]"
+		},
+		{
+			"id": "TABLE7B",
+			"title": "Aid (ODA) tying status [DAC7b]"
+		},
+		{
+			"id": "RIOMARKERS",
+			"title": "Aid activities targeting Global Environmental Objectives"
+		},
+		{
+			"id": "GENDER",
+			"title": "Aid projects targeting gender equality and womens empowerment (CRS)"
+		},
+		{
+			"id": "AEA",
+			"title": "Air Emission Accounts"
+		},
+		{
+			"id": "ALFS_SUMTAB",
+			"title": "ALFS Summary tables"
+		},
+		{
+			"id": "HOUSE_PRICES",
+			"title": "Analytical house prices indicators"
+		},
+		{
+			"id": "ANBERD_REV4",
+			"title": "ANBERD: business enterprise R&D broken down by industry (ISIC Rev. 4)"
+		},
+		{
+			"id": "ANBERD_REV2",
+			"title": "ANBERD: business enterprise R&D by industry (ISIC Rev. 2)"
+		},
+		{
+			"id": "ANBERD2011_REV3",
+			"title": "ANBERD: business enterprise R&D by industry (ISIC Rev. 3)"
+		},
+		{
+			"id": "AEO2012_CH6_FIG39",
+			"title": "Annex I Figure 39: Education levels among 15-24 year old Africans"
+		},
+		{
+			"id": "AEO2012_CH6_FIG40",
+			"title": "Annex I Figure 40: African youth in urban and rural areas by country income"
+		},
+		{
+			"id": "PGI_7IA",
+			"title": "Annual institutional investors - Template B"
+		},
+		{
+			"id": "ANHRS",
+			"title": "Average annual hours actually worked per worker"
+		},
+		{
+			"id": "AV_AN_WAGE",
+			"title": "Average annual wages"
+		},
+		{
+			"id": "EDU_CLASS",
+			"title": "Average class size"
+		},
+		{
+			"id": "AVD_DUR",
+			"title": "Average duration of unemployment"
+		},
+		{
+			"id": "AVE_HRS",
+			"title": "Average usual weekly hours worked on the main job"
+		},
+		{
+			"id": "MEI_BOP",
+			"title": "Balance of Payments (MEI)"
+		},
+		{
+			"id": "MEI_BOP6",
+			"title": "Balance of Payments (MEI) BPM6"
+		},
+		{
+			"id": "BSI",
+			"title": "Balance sheet and income"
+		},
+		{
+			"id": "FIXINCLSA",
+			"title": "Benefits, Taxes and Wages – Net Incomes"
+		},
+		{
+			"id": "BLI2013",
+			"title": "Better Life Index - Edition 2013"
+		},
+		{
+			"id": "BLI2014",
+			"title": "Better Life Index - Edition 2014"
+		},
+		{
+			"id": "BLI2015",
+			"title": "Better Life Index - Edition 2015"
+		},
+		{
+			"id": "BLI",
+			"title": "Better Life Index - Edition 2016"
+		},
+		{
+			"id": "BTDIXE_I3",
+			"title": "Bilateral Trade in Goods by Industry and End-use (BTDIxE), ISIC Rev.3"
+		},
+		{
+			"id": "BTDIXE_I4",
+			"title": "Bilateral Trade in Goods by Industry and End-use (BTDIxE), ISIC Rev.4"
+		},
+		{
+			"id": "AEO2012_CH6_BOX6",
+			"title": "Box 6: Rural vs. Agricultural population in Nigeria (1980-2010, in thousands)"
+		},
+		{
+			"id": "AEO2012_CH6_BOX9",
+			"title": "Box 9: Secondary and tertiary enrolment ratios, by world region"
+		},
+		{
+			"id": "DECOMP",
+			"title": "Breakdown of Gross Domestic Product per capita in its components"
+		},
+		{
+			"id": "BERD_INDUSTRY",
+			"title": "Business enterprise R-D expenditure by industry"
+		},
+		{
+			"id": "BERD_INDUSTRY_ISIC4",
+			"title": "Business enterprise R-D expenditure by industry (ISIC 4)"
+		},
+		{
+			"id": "BERD_FUNDS",
+			"title": "Business enterprise R-D expenditure by industry and by source of funds"
+		},
+		{
+			"id": "BERD_FUNDS_ISIC4",
+			"title": "Business enterprise R-D expenditure by industry and by source of funds (ISIC 4)"
+		},
+		{
+			"id": "BERD_COST",
+			"title": "Business enterprise R-D expenditure by industry and by type of cost"
+		},
+		{
+			"id": "BERD_COST_ISIC4",
+			"title": "Business enterprise R-D expenditure by industry and by type of cost (ISIC Rev.4)"
+		},
+		{
+			"id": "BERD_SIZE",
+			"title": "Business enterprise R-D expenditure by size class and by source of funds"
+		},
+		{
+			"id": "PERS_INDUSTRY",
+			"title": "Business enterprise R-D personnel by industry"
+		},
+		{
+			"id": "PERS_INDUSTRY_ISIC4",
+			"title": "Business enterprise R-D personnel by industry (ISIC 4)"
+		},
+		{
+			"id": "MEI_BTS_COS",
+			"title": "Business Tendency and Consumer Opinion Surveys (MEI)"
+		},
+		{
+			"id": "PT2",
+			"title": "Business written in the reporting country"
+		},
+		{
+			"id": "CALCULATED",
+			"title": "Calculated variables"
+		},
+		{
+			"id": "CS",
+			"title": "Capital Services by Type of Asset"
+		},
+		{
+			"id": "STAN_IO_GHG",
+			"title": "Carbon Dioxide Emissions embodied in International Trade"
+		},
+		{
+			"id": "IO_GHG_2015",
+			"title": "Carbon Dioxide Emissions embodied in International Trade"
+		},
+		{
+			"id": "IRTAD_CASUAL_BY_AGE",
+			"title": "Casualties by age & road user"
+		},
+		{
+			"id": "GOV_DEBT",
+			"title": "Central Government Debt"
+		},
+		{
+			"id": "CWB",
+			"title": "Child Well-Being (2009)"
+		},
+		{
+			"id": "PT9",
+			"title": "Commissions in the reporting country"
+		},
+		{
+			"id": "BENCHMARK_STIO",
+			"title": "Comparative performance of national science and innovation systems"
+		},
+		{
+			"id": "MEI_CLI",
+			"title": "Composite Leading Indicators (MEI)"
+		},
+		{
+			"id": "QASA_TABLE710",
+			"title": "Consolidated financial balance sheets by economic sector (Quarterly table 0710)"
+		},
+		{
+			"id": "QASA_TABLE710R",
+			"title": "Consolidated financial balance sheets by economic sector (Quarterly table 0710) - SNA 2008"
+		},
+		{
+			"id": "QASA_TABLE610",
+			"title": "Consolidated financial transactions by economic sector (Quarterly table 0610)"
+		},
+		{
+			"id": "QASA_TABLE610R",
+			"title": "Consolidated financial transactions by economic sector (Quarterly table 0610) - SNA 2008"
+		},
+		{
+			"id": "MEI_PRICES",
+			"title": "Consumer Prices"
+		},
+		{
+			"id": "CPA",
+			"title": "Country Programmable Aid (CPA)"
+		},
+		{
+			"id": "CSPCUBE",
+			"title": "Country statistical profiles"
+		},
+		{
+			"id": "AWCOU",
+			"title": "Country tables (current model)"
+		},
+		{
+			"id": "CRS1",
+			"title": "Creditor Reporting System (CRS)"
+		},
+		{
+			"id": "DEC_I",
+			"title": "Decile ratios of gross earnings"
+		},
+		{
+			"id": "HEALTH_DEMR",
+			"title": "Demographic References"
+		},
+		{
+			"id": "FOREST",
+			"title": "Depletion and growth of forest resources in terms of volume (thousand m3)"
+		},
+		{
+			"id": "PT6",
+			"title": "Destinations of investments by direct insurance or reinsurance companies"
+		},
+		{
+			"id": "REVCMR",
+			"title": "Details of Public Revenues - Cameroon"
+		},
+		{
+			"id": "REVCIV",
+			"title": "Details of Public Revenues - Côte d’Ivoire"
+		},
+		{
+			"id": "REVMUS",
+			"title": "Details of Public Revenues - Mauritius"
+		},
+		{
+			"id": "REVMAR",
+			"title": "Details of Public Revenues - Morocco"
+		},
+		{
+			"id": "REVRWA",
+			"title": "Details of Public Revenues - Rwanda"
+		},
+		{
+			"id": "REVSEN",
+			"title": "Details of Public Revenues - Senegal"
+		},
+		{
+			"id": "REVZAF",
+			"title": "Details of Public Revenues - South Africa"
+		},
+		{
+			"id": "REVTUN",
+			"title": "Details of Public Revenues - Tunisia"
+		},
+		{
+			"id": "LAC_REVCHL",
+			"title": "Details of Tax Revenue  -  Chile"
+		},
+		{
+			"id": "LAC_REVMEX",
+			"title": "Details of Tax Revenue  -  Mexico"
+		},
+		{
+			"id": "REVARG",
+			"title": "Details of Tax Revenue - Argentina"
+		},
+		{
+			"id": "REVAUS",
+			"title": "Details of Tax Revenue - Australia"
+		},
+		{
+			"id": "REVAUT",
+			"title": "Details of Tax Revenue - Austria"
+		},
+		{
+			"id": "REVBHS",
+			"title": "Details of Tax Revenue - Bahamas"
+		},
+		{
+			"id": "REVBAR",
+			"title": "Details of Tax Revenue - Barbados"
+		},
+		{
+			"id": "REVBEL",
+			"title": "Details of Tax Revenue - Belgium"
+		},
+		{
+			"id": "REVBLZ",
+			"title": "Details of Tax Revenue - Belize"
+		},
+		{
+			"id": "REVBOL",
+			"title": "Details of Tax Revenue - Bolivia"
+		},
+		{
+			"id": "REVBRA",
+			"title": "Details of Tax Revenue - Brazil"
+		},
+		{
+			"id": "REVCAN",
+			"title": "Details of Tax Revenue - Canada"
+		},
+		{
+			"id": "REVCHL",
+			"title": "Details of Tax Revenue - Chile"
+		},
+		{
+			"id": "REVCOL",
+			"title": "Details of Tax Revenue - Colombia"
+		},
+		{
+			"id": "REVCRI",
+			"title": "Details of Tax Revenue - Costa Rica"
+		},
+		{
+			"id": "REVCUB",
+			"title": "Details of Tax Revenue - Cuba"
+		},
+		{
+			"id": "REVCZE",
+			"title": "Details of Tax Revenue - Czech Republic"
+		},
+		{
+			"id": "REVDNK",
+			"title": "Details of Tax Revenue - Denmark"
+		},
+		{
+			"id": "REVDOM",
+			"title": "Details of Tax Revenue - Dominican Republic"
+		},
+		{
+			"id": "REVECU",
+			"title": "Details of Tax Revenue - Ecuador"
+		},
+		{
+			"id": "REVSLV",
+			"title": "Details of Tax Revenue - El Salvador"
+		},
+		{
+			"id": "REVEST",
+			"title": "Details of Tax Revenue - Estonia"
+		},
+		{
+			"id": "REVFIN",
+			"title": "Details of Tax Revenue - Finland"
+		},
+		{
+			"id": "REVFRA",
+			"title": "Details of Tax Revenue - France"
+		},
+		{
+			"id": "REVDEU",
+			"title": "Details of Tax Revenue - Germany"
+		},
+		{
+			"id": "REVGRC",
+			"title": "Details of Tax Revenue - Greece"
+		},
+		{
+			"id": "REVGTM",
+			"title": "Details of Tax Revenue - Guatemala"
+		},
+		{
+			"id": "REVHON",
+			"title": "Details of Tax Revenue - Honduras"
+		},
+		{
+			"id": "REVHUN",
+			"title": "Details of Tax Revenue - Hungary"
+		},
+		{
+			"id": "REVISL",
+			"title": "Details of Tax Revenue - Iceland"
+		},
+		{
+			"id": "REVIDN",
+			"title": "Details of Tax Revenue - Indonesia"
+		},
+		{
+			"id": "REVIRL",
+			"title": "Details of Tax Revenue - Ireland"
+		},
+		{
+			"id": "REVISR",
+			"title": "Details of Tax Revenue - Israel"
+		},
+		{
+			"id": "REVITA",
+			"title": "Details of Tax Revenue - Italy"
+		},
+		{
+			"id": "REVJAM",
+			"title": "Details of Tax Revenue - Jamaica"
+		},
+		{
+			"id": "REVJPN",
+			"title": "Details of Tax Revenue - Japan"
+		},
+		{
+			"id": "REVKOR",
+			"title": "Details of Tax Revenue - Korea"
+		},
+		{
+			"id": "REVLVA",
+			"title": "Details of Tax Revenue - Latvia"
+		},
+		{
+			"id": "REVLUX",
+			"title": "Details of Tax Revenue - Luxembourg"
+		},
+		{
+			"id": "REVMYS",
+			"title": "Details of Tax Revenue - Malaysia"
+		},
+		{
+			"id": "REVMEX",
+			"title": "Details of Tax Revenue - Mexico"
+		},
+		{
+			"id": "REVNLD",
+			"title": "Details of Tax Revenue - Netherlands"
+		},
+		{
+			"id": "REVNZL",
+			"title": "Details of Tax Revenue - New Zealand"
+		},
+		{
+			"id": "REVNIC",
+			"title": "Details of Tax Revenue - Nicaragua"
+		},
+		{
+			"id": "REVNOR",
+			"title": "Details of Tax Revenue - Norway"
+		},
+		{
+			"id": "REVPAN",
+			"title": "Details of Tax Revenue - Panama"
+		},
+		{
+			"id": "REVPRY",
+			"title": "Details of Tax Revenue - Paraguay"
+		},
+		{
+			"id": "REVPER",
+			"title": "Details of Tax Revenue - Peru"
+		},
+		{
+			"id": "REVPHL",
+			"title": "Details of Tax Revenue - Philippines"
+		},
+		{
+			"id": "REVPOL",
+			"title": "Details of Tax Revenue - Poland"
+		},
+		{
+			"id": "REVPRT",
+			"title": "Details of Tax Revenue - Portugal"
+		},
+		{
+			"id": "REVSGP",
+			"title": "Details of Tax Revenue - Singapore"
+		},
+		{
+			"id": "REVSVK",
+			"title": "Details of Tax Revenue - Slovak Republic"
+		},
+		{
+			"id": "REVSVN",
+			"title": "Details of Tax Revenue - Slovenia"
+		},
+		{
+			"id": "REVESP",
+			"title": "Details of Tax Revenue - Spain"
+		},
+		{
+			"id": "REVSWE",
+			"title": "Details of Tax Revenue - Sweden"
+		},
+		{
+			"id": "REVCHE",
+			"title": "Details of Tax Revenue - Switzerland"
+		},
+		{
+			"id": "REVTTO",
+			"title": "Details of Tax Revenue - Trinidad and Tobago"
+		},
+		{
+			"id": "REVTUR",
+			"title": "Details of Tax Revenue - Turkey"
+		},
+		{
+			"id": "REVGBR",
+			"title": "Details of Tax Revenue - United Kingdom"
+		},
+		{
+			"id": "REVUSA",
+			"title": "Details of Tax Revenue - United States"
+		},
+		{
+			"id": "REVURY",
+			"title": "Details of Tax Revenue - Uruguay"
+		},
+		{
+			"id": "REVVEN",
+			"title": "Details of Tax Revenue - Venezuela"
+		},
+		{
+			"id": "REVJPN_ASIAN",
+			"title": "Details of Tax Revenue Asia - Japan"
+		},
+		{
+			"id": "REVKOR_ASIAN",
+			"title": "Details of Tax Revenue Asia - Korea"
+		},
+		{
+			"id": "DW_D",
+			"title": "Discouraged workers"
+		},
+		{
+			"id": "EAG_GRAD_ENTR_FIELD",
+			"title": "Distribution of graduates and entrants by Field"
+		},
+		{
+			"id": "EAG_PERS_SHARE_AGE",
+			"title": "Distribution of teachers by age and gender"
+		},
+		{
+			"id": "TOURISM_DOMESTIC",
+			"title": "Domestic tourism"
+		},
+		{
+			"id": "G_FUNCTION_AMOUNTS",
+			"title": "Earmarked Intergovernmental Grants by Function"
+		},
+		{
+			"id": "G_FUNCTION_RATIO",
+			"title": "Earmarked Intergovernmental Grants by Function-percentage of the total grants issued"
+		},
+		{
+			"id": "TISP",
+			"title": "EBOPS 2002 - Trade in services by partner country"
+		},
+		{
+			"id": "TISP_EBOPS2010",
+			"title": "EBOPS 2010 - Trade in services by partner country"
+		},
+		{
+			"id": "EO01_VINTAGE",
+			"title": "Economic Outlook No 01 - June 1967 - Annual Projections for OECD Countries"
+		},
+		{
+			"id": "EO02_VINTAGE",
+			"title": "Economic Outlook No 02 - December 1967 - Annual Projections for OECD Countries"
+		},
+		{
+			"id": "EO03_VINTAGE",
+			"title": "Economic Outlook No 03 - June 1968 - Annual Projections for OECD Countries"
+		},
+		{
+			"id": "EO04_VINTAGE",
+			"title": "Economic Outlook No 04 - December 1968 - Annual Projections for OECD Countries"
+		},
+		{
+			"id": "EO05_VINTAGE",
+			"title": "Economic Outlook No 05 - June 1969 - Annual Projections for OECD Countries"
+		},
+		{
+			"id": "EO06_VINTAGE",
+			"title": "Economic Outlook No 06 - December 1969 - Annual Projections for OECD Countries"
+		},
+		{
+			"id": "EO07_VINTAGE",
+			"title": "Economic Outlook No 07 - June 1970 - Annual Projections for OECD Countries"
+		},
+		{
+			"id": "EO08_VINTAGE",
+			"title": "Economic Outlook No 08 - December 1970 - Annual Projections for OECD Countries"
+		},
+		{
+			"id": "EO09_VINTAGE",
+			"title": "Economic Outlook No 09 - June 1971 - Annual Projections for OECD Countries"
+		},
+		{
+			"id": "EO10_VINTAGE",
+			"title": "Economic Outlook No 10 - December 1971 - Annual Projections for OECD Countries"
+		},
+		{
+			"id": "EO",
+			"title": "Economic Outlook No 100 - November 2016"
+		},
+		{
+			"id": "EO100_INTERNET",
+			"title": "Economic Outlook No 100 - November 2016"
+		},
+		{
+			"id": "EO11_VINTAGE",
+			"title": "Economic Outlook No 11 - June 1972 - Annual Projections for OECD Countries"
+		},
+		{
+			"id": "EO12_VINTAGE",
+			"title": "Economic Outlook No 12 - December 1972 - Annual Projections for OECD Countries"
+		},
+		{
+			"id": "EO13_VINTAGE",
+			"title": "Economic Outlook No 13 - June 1973 - Annual Projections for OECD Countries"
+		},
+		{
+			"id": "EO14_VINTAGE",
+			"title": "Economic Outlook No 14 - December 1973 - Annual Projections for OECD Countries"
+		},
+		{
+			"id": "EO15_VINTAGE",
+			"title": "Economic Outlook No 15 - June 1974 - Annual Projections for OECD Countries"
+		},
+		{
+			"id": "EO16_VINTAGE",
+			"title": "Economic Outlook No 16 - December 1974 - Annual Projections for OECD Countries"
+		},
+		{
+			"id": "EO17_VINTAGE",
+			"title": "Economic Outlook No 17 - June 1975 - Annual Projections for OECD Countries"
+		},
+		{
+			"id": "EO18_VINTAGE",
+			"title": "Economic Outlook No 18 - December 1975 - Annual Projections for OECD Countries"
+		},
+		{
+			"id": "EO19_VINTAGE",
+			"title": "Economic Outlook No 19 - June 1976 - Annual Projections for OECD Countries"
+		},
+		{
+			"id": "EO20_VINTAGE",
+			"title": "Economic Outlook No 20 - December 1976 - Annual Projections for OECD Countries"
+		},
+		{
+			"id": "EO21_VINTAGE",
+			"title": "Economic Outlook No 21 - June 1977 - Annual Projections for OECD Countries"
+		},
+		{
+			"id": "EO22_VINTAGE",
+			"title": "Economic Outlook No 22 - December 1977 - Annual Projections for OECD Countries"
+		},
+		{
+			"id": "EO23_VINTAGE",
+			"title": "Economic Outlook No 23 - June 1978 - Annual Projections for OECD Countries"
+		},
+		{
+			"id": "EO24_VINTAGE",
+			"title": "Economic Outlook No 24 - December 1978 - Annual Projections for OECD Countries"
+		},
+		{
+			"id": "EO25_VINTAGE",
+			"title": "Economic Outlook No 25 - June 1979 - Annual Projections for OECD Countries"
+		},
+		{
+			"id": "EO26_VINTAGE",
+			"title": "Economic Outlook No 26 - December 1979 - Annual Projections for OECD Countries"
+		},
+		{
+			"id": "EO27_VINTAGE",
+			"title": "Economic Outlook No 27 - June 1980 - Annual Projections for OECD Countries"
+		},
+		{
+			"id": "EO28_VINTAGE",
+			"title": "Economic Outlook No 28 - December 1980 - Annual Projections for OECD Countries"
+		},
+		{
+			"id": "EO29_VINTAGE",
+			"title": "Economic Outlook No 29 - June 1981 - Annual Projections for OECD Countries"
+		},
+		{
+			"id": "EO30_VINTAGE",
+			"title": "Economic Outlook No 30 - December 1981 - Annual Projections for OECD Countries"
+		},
+		{
+			"id": "EO31_VINTAGE",
+			"title": "Economic Outlook No 31 - June 1982 - Annual Projections for OECD Countries"
+		},
+		{
+			"id": "EO32_VINTAGE",
+			"title": "Economic Outlook No 32 - December 1982 - Annual Projections for OECD Countries"
+		},
+		{
+			"id": "EO33_VINTAGE",
+			"title": "Economic Outlook No 33 - June 1983 - Annual Projections for OECD Countries"
+		},
+		{
+			"id": "EO34_VINTAGE",
+			"title": "Economic Outlook No 34 - December 1983 - Annual Projections for OECD Countries"
+		},
+		{
+			"id": "EO35_VINTAGE",
+			"title": "Economic Outlook No 35 - June 1984 - Annual Projections for OECD Countries"
+		},
+		{
+			"id": "EO36_VINTAGE",
+			"title": "Economic Outlook No 36 - December 1984 - Annual Projections for OECD Countries"
+		},
+		{
+			"id": "EO37_VINTAGE",
+			"title": "Economic Outlook No 37 - June 1985 - Annual Projections for OECD Countries"
+		},
+		{
+			"id": "EO38_VINTAGE",
+			"title": "Economic Outlook No 38 - December 1985 - Annual Projections for OECD Countries"
+		},
+		{
+			"id": "EO39_VINTAGE",
+			"title": "Economic Outlook No 39 - June 1986 - Annual Projections for OECD Countries"
+		},
+		{
+			"id": "EO40_VINTAGE",
+			"title": "Economic Outlook No 40 - December 1986 - Annual Projections for OECD Countries"
+		},
+		{
+			"id": "EO41_VINTAGE",
+			"title": "Economic Outlook No 41 - June 1987 - Annual Projections for OECD Countries"
+		},
+		{
+			"id": "EO42_VINTAGE",
+			"title": "Economic Outlook No 42 - December 1987 - Annual Projections for OECD Countries"
+		},
+		{
+			"id": "EO43_VINTAGE",
+			"title": "Economic Outlook No 43 - June 1988 - Annual Projections for OECD Countries"
+		},
+		{
+			"id": "EO44_VINTAGE",
+			"title": "Economic Outlook No 44 - December 1988 - Annual Projections for OECD Countries"
+		},
+		{
+			"id": "EO45_VINTAGE",
+			"title": "Economic Outlook No 45 - June 1989 - Annual Projections for OECD Countries"
+		},
+		{
+			"id": "EO46_VINTAGE",
+			"title": "Economic Outlook No 46 - December 1989 - Annual Projections for OECD Countries"
+		},
+		{
+			"id": "EO47_VINTAGE",
+			"title": "Economic Outlook No 47 - June 1990 - Annual Projections for OECD Countries"
+		},
+		{
+			"id": "EO48_VINTAGE",
+			"title": "Economic Outlook No 48 - December 1990 - Annual Projections for OECD Countries"
+		},
+		{
+			"id": "EO49_VINTAGE",
+			"title": "Economic Outlook No 49 - June 1991 - Annual Projections for OECD Countries"
+		},
+		{
+			"id": "EO50_VINTAGE",
+			"title": "Economic Outlook No 50 - December 1991 - Annual Projections for OECD Countries"
+		},
+		{
+			"id": "EO51_VINTAGE",
+			"title": "Economic Outlook No 51 - June 1992 - Annual Projections for OECD Countries"
+		},
+		{
+			"id": "EO52_VINTAGE",
+			"title": "Economic Outlook No 52 - December 1992 - Annual Projections for OECD Countries"
+		},
+		{
+			"id": "EO53_VINTAGE",
+			"title": "Economic Outlook No 53 - June 1993 - Annual Projections for OECD Countries"
+		},
+		{
+			"id": "EO54_VINTAGE",
+			"title": "Economic Outlook No 54 - December 1993 - Annual Projections for OECD Countries"
+		},
+		{
+			"id": "EO55_VINTAGE",
+			"title": "Economic Outlook No 55 - June 1994 - Annual Projections for OECD Countries"
+		},
+		{
+			"id": "EO56_VINTAGE",
+			"title": "Economic Outlook No 56 - December 1994 - Annual Projections for OECD Countries"
+		},
+		{
+			"id": "EO57_VINTAGE",
+			"title": "Economic Outlook No 57 - June 1995 - Annual Projections for OECD Countries"
+		},
+		{
+			"id": "EO58_VINTAGE",
+			"title": "Economic Outlook No 58 - December 1995 - Annual Projections for OECD Countries"
+		},
+		{
+			"id": "EO59_VINTAGE",
+			"title": "Economic Outlook No 59 - June 1996 - Annual Projections for OECD Countries"
+		},
+		{
+			"id": "EO60_MAIN",
+			"title": "Economic Outlook No 60 - December 1996 - Annual Projections for OECD Countries"
+		},
+		{
+			"id": "EO60_TRADE",
+			"title": "Economic Outlook No 60 - December 1996 - Annual Trade and Payments Projections"
+		},
+		{
+			"id": "EO61_MAIN",
+			"title": "Economic Outlook No 61 - June 1997 - Annual Projections for OECD Countries"
+		},
+		{
+			"id": "EO61_TRADE",
+			"title": "Economic Outlook No 61 - June 1997 - Annual Trade and Payments Projections"
+		},
+		{
+			"id": "EO62_MAIN",
+			"title": "Economic Outlook No 62 - December 1997 - Annual Projections for OECD Countries"
+		},
+		{
+			"id": "EO62_TRADE",
+			"title": "Economic Outlook No 62 - December 1997 - Annual Trade and Payments Projections"
+		},
+		{
+			"id": "EO63_MAIN",
+			"title": "Economic Outlook No 63 - June 1998 - Annual Projections for OECD Countries"
+		},
+		{
+			"id": "EO63_TRADE",
+			"title": "Economic Outlook No 63 - June 1998 - Annual Trade and Payments Projections"
+		},
+		{
+			"id": "EO64_MAIN",
+			"title": "Economic Outlook No 64 - December 1998 - Annual Projections for OECD Countries"
+		},
+		{
+			"id": "EO64_TRADE",
+			"title": "Economic Outlook No 64 - December 1998 - Annual Trade and Payments Projections"
+		},
+		{
+			"id": "EO65_MAIN",
+			"title": "Economic Outlook No 65 - June 1999 - Annual Projections for OECD Countries"
+		},
+		{
+			"id": "EO65_TRADE",
+			"title": "Economic Outlook No 65 - June 1999 - Annual Trade and Payments Projections"
+		},
+		{
+			"id": "EO66_MAIN",
+			"title": "Economic Outlook No 66 - December 1999 - Annual Projections for OECD Countries"
+		},
+		{
+			"id": "EO66_TRADE",
+			"title": "Economic Outlook No 66 - December 1999 - Annual Trade and Payments Projections"
+		},
+		{
+			"id": "EO67_MAIN",
+			"title": "Economic Outlook No 67 - June 2000 - Annual Projections for OECD Countries"
+		},
+		{
+			"id": "EO67_TRADE",
+			"title": "Economic Outlook No 67 - June 2000 - Annual Trade and Payments Projections"
+		},
+		{
+			"id": "EO68_MAIN",
+			"title": "Economic Outlook No 68 - December 2000 - Annual Projections for OECD Countries"
+		},
+		{
+			"id": "EO68_TRADE",
+			"title": "Economic Outlook No 68 - December 2000 - Annual Trade and Payments Projections"
+		},
+		{
+			"id": "EO69_MAIN",
+			"title": "Economic Outlook No 69 - June 2001 - Annual Projections for OECD Countries"
+		},
+		{
+			"id": "EO69_TRADE",
+			"title": "Economic Outlook No 69 - June 2001 - Annual Trade and Payments Projections"
+		},
+		{
+			"id": "EO70_MAIN",
+			"title": "Economic Outlook No 70 - December 2001 - Annual Projections for OECD Countries"
+		},
+		{
+			"id": "EO70_TRADE",
+			"title": "Economic Outlook No 70 - December 2001 - Annual Trade and Payments Projections"
+		},
+		{
+			"id": "EO71_MAIN",
+			"title": "Economic Outlook No 71 - June 2002 - Annual Projections for OECD Countries"
+		},
+		{
+			"id": "EO71_TRADE",
+			"title": "Economic Outlook No 71 - June 2002 - Annual Trade and Payments Projections"
+		},
+		{
+			"id": "EO72_MAIN",
+			"title": "Economic Outlook No 72 - December 2002 - Annual Projections for OECD Countries"
+		},
+		{
+			"id": "EO72_TRADE",
+			"title": "Economic Outlook No 72 - December 2002 - Annual Trade and Payments Projections"
+		},
+		{
+			"id": "EO73_MAIN",
+			"title": "Economic Outlook No 73 - June 2003 - Annual Projections for OECD Countries"
+		},
+		{
+			"id": "EO73_TRADE",
+			"title": "Economic Outlook No 73 - June 2003 - Annual Trade and Payments Projections"
+		},
+		{
+			"id": "EO74_MAIN",
+			"title": "Economic Outlook No 74 - December 2003 - Annual Projections for OECD Countries"
+		},
+		{
+			"id": "EO74_TRADE",
+			"title": "Economic Outlook No 74 - December 2003 - Annual Trade and Payments Projections"
+		},
+		{
+			"id": "EO75_MAIN",
+			"title": "Economic Outlook No 75 - June 2004 - Annual Projections for OECD Countries"
+		},
+		{
+			"id": "EO75_TRADE",
+			"title": "Economic Outlook No 75 - June 2004 - Annual Trade and Payments Projections"
+		},
+		{
+			"id": "EO76_MAIN",
+			"title": "Economic Outlook No 76 - December 2004 - Annual Projections for OECD Countries"
+		},
+		{
+			"id": "EO76_TRADE",
+			"title": "Economic Outlook No 76 - December 2004 - Annual Trade and Payments Projections"
+		},
+		{
+			"id": "EO77_MAIN",
+			"title": "Economic Outlook No 77 - June 2005 - Annual Projections for OECD Countries"
+		},
+		{
+			"id": "EO77_TRADE",
+			"title": "Economic Outlook No 77 - June 2005 - Annual Trade and Payments Projections"
+		},
+		{
+			"id": "EO78_MAIN",
+			"title": "Economic Outlook No 78 - December 2005 - Annual Projections for OECD Countries"
+		},
+		{
+			"id": "EO78_TRADE",
+			"title": "Economic Outlook No 78 - December 2005 - Annual Trade and Payments Projections"
+		},
+		{
+			"id": "EO79_MAIN",
+			"title": "Economic Outlook No 79 - June 2006 - Annual Projections for OECD Countries"
+		},
+		{
+			"id": "EO79_TRADE",
+			"title": "Economic Outlook No 79 - June 2006 - Annual Trade and Payments Projections"
+		},
+		{
+			"id": "EO80_MAIN",
+			"title": "Economic Outlook No 80 - December 2006 - Annual Projections for OECD Countries"
+		},
+		{
+			"id": "EO80_TRADE",
+			"title": "Economic Outlook No 80 - December 2006 - Annual Trade and Payments Projections"
+		},
+		{
+			"id": "EO81_MAIN",
+			"title": "Economic Outlook No 81 - June 2007 - Annual Projections for OECD Countries"
+		},
+		{
+			"id": "EO81_TRADE",
+			"title": "Economic Outlook No 81 - June 2007 - Annual Trade and Payments Projections"
+		},
+		{
+			"id": "EO82_MAIN",
+			"title": "Economic Outlook No 82 - December 2007 - Annual Projections for OECD Countries"
+		},
+		{
+			"id": "EO82_TRADE",
+			"title": "Economic Outlook No 82 - December 2007 - Annual Trade and Payments Projections"
+		},
+		{
+			"id": "EO83_MAIN",
+			"title": "Economic Outlook No 83 - June 2008 - Annual Projections for OECD Countries"
+		},
+		{
+			"id": "EO83_TRADE",
+			"title": "Economic Outlook No 83 - June 2008 - Annual Trade and Payments Projections"
+		},
+		{
+			"id": "EO83_FLASHFILE_EO83",
+			"title": "Economic Outlook No 83 - June 2008 - Flash file"
+		},
+		{
+			"id": "EO84_MAIN",
+			"title": "Economic Outlook No 84 - December 2008 - Annual Projections for OECD Countries"
+		},
+		{
+			"id": "EO84_TRADE",
+			"title": "Economic Outlook No 84 - December 2008 - Annual Trade and Payments Projections"
+		},
+		{
+			"id": "EO84_FLASHFILE_EO84",
+			"title": "Economic Outlook No 84 - December 2008 - Flash file"
+		},
+		{
+			"id": "EO85_MAIN",
+			"title": "Economic Outlook No 85 - June 2009 - Annual Projections for OECD Countries"
+		},
+		{
+			"id": "EO85_TRADE",
+			"title": "Economic Outlook No 85 - June 2009 - Annual Trade and Payments Projections"
+		},
+		{
+			"id": "EO85_FLASHFILE_EO85",
+			"title": "Economic Outlook No 85 - June 2009 - Flash file"
+		},
+		{
+			"id": "EO86_MAIN",
+			"title": "Economic Outlook No 86 - December 2009 - Annual Projections for OECD Countries"
+		},
+		{
+			"id": "EO86_TRADE",
+			"title": "Economic Outlook No 86 - December 2009 - Annual Trade and Payments Projections"
+		},
+		{
+			"id": "EO86_FLASHFILE_EO86",
+			"title": "Economic Outlook No 86 - November 2009 - Flash file"
+		},
+		{
+			"id": "EO87_FLASHFILE_EO87",
+			"title": "Economic Outlook No 87 - June 2010 - Flash file"
+		},
+		{
+			"id": "EO87_OUTLOOK87",
+			"title": "Economic Outlook No 87 - June 2010 - Public version"
+		},
+		{
+			"id": "EO88_INTERNET",
+			"title": "Economic Outlook No 88 - December 2010 - Annual Projections for OECD Countries"
+		},
+		{
+			"id": "EO88_FLASHFILE_EO88",
+			"title": "Economic Outlook No 88 - December 2010 - Flash file"
+		},
+		{
+			"id": "EO89_INTERNET",
+			"title": "Economic Outlook No 89 - June 2011 - Annual Projections for OECD Countries"
+		},
+		{
+			"id": "EO89_FLASHFILE_EO89",
+			"title": "Economic Outlook No 89 - June 2011 - Flash file"
+		},
+		{
+			"id": "EO90_FLASHFILE_EO90",
+			"title": "Economic Outlook No 90 - December 2011 - Flash file"
+		},
+		{
+			"id": "EO90_INTERNET",
+			"title": "Economic Outlook No 90 - December 2011 - OECD Annual Projections"
+		},
+		{
+			"id": "EO91_FLASHFILE_EO91",
+			"title": "Economic Outlook No 91 - June 2012 - Flash file"
+		},
+		{
+			"id": "EO91_LTB",
+			"title": "Economic Outlook No 91 - June 2012 - Long-term baseline projections"
+		},
+		{
+			"id": "EO91_INTERNET",
+			"title": "Economic Outlook No 91 - June 2012 - OECD Annual Projections"
+		},
+		{
+			"id": "EO92_FLASHFILE_EO92",
+			"title": "Economic Outlook No 92 - December 2012 - Flash file"
+		},
+		{
+			"id": "EO92_INTERNET",
+			"title": "Economic Outlook No 92 - December 2012 - OECD Annual Projections"
+		},
+		{
+			"id": "EO93_FLASHFILE_EO93",
+			"title": "Economic Outlook No 93 - June 2013 - Flash file"
+		},
+		{
+			"id": "EO93_LTB",
+			"title": "Economic Outlook No 93 - June 2013 - Long-term baseline projections"
+		},
+		{
+			"id": "EO93_INTERNET",
+			"title": "Economic Outlook No 93 - June 2013 - OECD Annual Projections"
+		},
+		{
+			"id": "EO94_INTERNET",
+			"title": "Economic Outlook No 94 - November 2013 - OECD Annual Projections"
+		},
+		{
+			"id": "EO95_LTB",
+			"title": "Economic Outlook No 95 - May 2014 - Long-term baseline projections"
+		},
+		{
+			"id": "EO95_INTERNET",
+			"title": "Economic Outlook No 95 - May 2014 - OECD Annual Projections"
+		},
+		{
+			"id": "EO96_INTERNET",
+			"title": "Economic Outlook No 96 - November 2014 - OECD Annual Projections"
+		},
+		{
+			"id": "EO97_INTERNET",
+			"title": "Economic Outlook No 97 - June 2015 - OECD Annual Projections"
+		},
+		{
+			"id": "EO97_OUTLOOK97",
+			"title": "Economic Outlook No 97 - June 2015 - OLIS version"
+		},
+		{
+			"id": "EO98_INTERNET",
+			"title": "Economic Outlook No 98 - November 2015 "
+		},
+		{
+			"id": "EO99_INTERNET",
+			"title": "Economic Outlook No 99 - June 2016"
+		},
+		{
+			"id": "HEALTH_ECOR",
+			"title": "Economic References"
+		},
+		{
+			"id": "ECONSH_D",
+			"title": "Economic short time workers"
+		},
+		{
+			"id": "GENDER_EDU",
+			"title": "Education"
+		},
+		{
+			"id": "EAG_EARNINGS",
+			"title": "Education and earnings"
+		},
+		{
+			"id": "EAG_ESO",
+			"title": "Education and social outcomes"
+		},
+		{
+			"id": "EAG_EA_SKILLS",
+			"title": "Educational attainment and labour market outcomes by skills"
+		},
+		{
+			"id": "EAG_NEAC",
+			"title": "Educational attainment and labour-force status "
+		},
+		{
+			"id": "EDU_FIN_NATURE",
+			"title": "Educational expenditure by nature "
+		},
+		{
+			"id": "EDU_FIN_SOURCE",
+			"title": "Educational expenditure by source and destination "
+		},
+		{
+			"id": "EAG_FIN_RATIO_CATEGORY",
+			"title": "Educational finance indicators"
+		},
+		{
+			"id": "RPERS",
+			"title": "Educational personnel"
+		},
+		{
+			"id": "EDU_PERS_AGE",
+			"title": "Educational personnel by age "
+		},
+		{
+			"id": "EDU_PERS_INST",
+			"title": "Educational personnel by institution "
+		},
+		{
+			"id": "ELSPENSIONS",
+			"title": "ELS Pensions"
+		},
+		{
+			"id": "AIR_EMISSIONS",
+			"title": "Emissions of air pollutants"
+		},
+		{
+			"id": "GENDER_EMP",
+			"title": "Employment"
+		},
+		{
+			"id": "ALFS_EMP",
+			"title": "Employment by activities and status (ALFS)"
+		},
+		{
+			"id": "TENURE_AVE",
+			"title": "Employment by job tenure intervals - average tenure"
+		},
+		{
+			"id": "TENURE_FREQ",
+			"title": "Employment by job tenure intervals - frequency"
+		},
+		{
+			"id": "TENURE_DIS",
+			"title": "Employment by job tenure intervals - persons"
+		},
+		{
+			"id": "TEMP_D",
+			"title": "Employment by permanency of the job"
+		},
+		{
+			"id": "FISH_EMPL",
+			"title": "Employment in fisheries"
+		},
+		{
+			"id": "MIG_EMP_EDUCATION",
+			"title": "Employment rates by place of birth and educational attainment (25-64)"
+		},
+		{
+			"id": "EDU_ENRL_AGE",
+			"title": "Enrolment by age"
+		},
+		{
+			"id": "EDU_ENRL_FIELD",
+			"title": "Enrolment by field"
+		},
+		{
+			"id": "EDU_ENRL_INST",
+			"title": "Enrolment by type of institution"
+		},
+		{
+			"id": "EDU_FIN_STUD",
+			"title": "Enrolment data adjusted to financial year"
+		},
+		{
+			"id": "EDU_ENRL_MOBILE",
+			"title": "Enrolment of international students by origin"
+		},
+		{
+			"id": "EAG_ENRL_RATE_AGE",
+			"title": "Enrolment rate by age"
+		},
+		{
+			"id": "TOURISM_ENTR_EMPL",
+			"title": "Enterprises and employment in tourism"
+		},
+		{
+			"id": "GENDER_ENT1",
+			"title": "Entrepreneurship"
+		},
+		{
+			"id": "ENV_KEI",
+			"title": "Environmental - Indicators"
+		},
+		{
+			"id": "ENVPERFINDIC_TAD_2008",
+			"title": "Environmental Performance of Agriculture 2008"
+		},
+		{
+			"id": "TAD_ENVINDIC_2013",
+			"title": "Environmental Performance of Agriculture 2013"
+		},
+		{
+			"id": "EPS",
+			"title": "Environmental Policy Stringency Index"
+		},
+		{
+			"id": "EAMFP",
+			"title": "Environmentally Adjusted Multifactor Productivity"
+		},
+		{
+			"id": "ENV_ENVPOLICY",
+			"title": "Environmentally related tax revenue"
+		},
+		{
+			"id": "REFSERIES_MSIT",
+			"title": "Exchange rates"
+		},
+		{
+			"id": "EBDAG",
+			"title": "Expenditure by disease, age and gender under the System of Health Accounts (SHA) Framework"
+		},
+		{
+			"id": "RFIN1",
+			"title": "Expenditure by funding source and transaction type"
+		},
+		{
+			"id": "RFIN2",
+			"title": "Expenditure by nature and resource category"
+		},
+		{
+			"id": "EXP_PM2_5",
+			"title": "Exposure to PM2.5 in countries and regions"
+		},
+		{
+			"id": "EXP_PM2_5_FUA",
+			"title": "Exposure to PM2.5 in metropolitan areas"
+		},
+		{
+			"id": "EXT",
+			"title": "Extraction and Check"
+		},
+		{
+			"id": "CSP2012",
+			"title": "Factbook Country Statistical Profiles   -  2013 edition"
+		},
+		{
+			"id": "FACTBOOK2015_PUB",
+			"title": "Factbook Country Statistical Profiles   -  2015/2016 edition"
+		},
+		{
+			"id": "FAMILY",
+			"title": "Family Database"
+		},
+		{
+			"id": "FDI_FLOW_CTRY",
+			"title": "FDI financial flows - By partner country"
+		},
+		{
+			"id": "FDI_FLOW_AGGR",
+			"title": "FDI financial flows - Main aggregates"
+		},
+		{
+			"id": "FDI_FLOW_IND",
+			"title": "FDI financial flows by industry BMD4"
+		},
+		{
+			"id": "FDI_FLOW_INDUSTRY",
+			"title": "FDI flows by industry"
+		},
+		{
+			"id": "FDI_FLOW_PARTNER",
+			"title": "FDI flows by partner country"
+		},
+		{
+			"id": "FDI_INC_IND",
+			"title": "FDI income by industry BMD4"
+		},
+		{
+			"id": "FDI_INC_CTRY",
+			"title": "FDI income by partner country BMD4"
+		},
+		{
+			"id": "FDI_INC_AGGR",
+			"title": "FDI income, main aggregates BMD4"
+		},
+		{
+			"id": "FDI_AGGR_SUMM",
+			"title": "FDI main aggregates - Summary"
+		},
+		{
+			"id": "FDI_POSITION_INDUSTRY",
+			"title": "FDI positions by industry"
+		},
+		{
+			"id": "FDI_POS_IND_TEMP_A",
+			"title": "FDI positions by industry - Template A"
+		},
+		{
+			"id": "FDI_POS_IND",
+			"title": "FDI positions by industry BMD4"
+		},
+		{
+			"id": "FDI_POSITION_PARTNER",
+			"title": "FDI positions by partner country"
+		},
+		{
+			"id": "FDI_POS_PARTNER_TEMP_A",
+			"title": "FDI positions by partner country - Template A"
+		},
+		{
+			"id": "FDI_POS_PARTNER_TEMP_A_TEST_NM",
+			"title": "FDI positions by partner country - Template A TEST NM1"
+		},
+		{
+			"id": "FDI_POS_CTRY",
+			"title": "FDI positions by partner country BMD4"
+		},
+		{
+			"id": "FDI_POS_AGGR",
+			"title": "FDI positions, main aggregates BMD4"
+		},
+		{
+			"id": "FDI_BOP_IIP",
+			"title": "FDI series of BOP and IIP aggregates"
+		},
+		{
+			"id": "AEO11_OVERVIEW_CHAPTER1_FIG1_PT",
+			"title": "Figura 1.1: Crescimento económico em África "
+		},
+		{
+			"id": "AEO11_OVERVIEW_CHAPTER1_FIG7_PT",
+			"title": "Figura 1.10: Preço do petróleo e do ouro (base: Janeiro de 2000)"
+		},
+		{
+			"id": "AEO11_OVERVIEW_CHAPTER1_FIG8_PT",
+			"title": "Figura 1.11: Preço do cobre e do alumínio (base: Janeiro de 2000)"
+		},
+		{
+			"id": "AEO11_OVERVIEW_CHAPTER1_FIG9_PT",
+			"title": "Figura 1.12: Preços de exportação de produtos agrícolas (base: Janeiro de 2000)"
+		},
+		{
+			"id": "AEO11_OVERVIEW_CHAPTER1_FIG10_PT",
+			"title": "Figura 1.13: Preços de importações de bens alimentares de primeira necessidade (base: Janeiro de 2000)"
+		},
+		{
+			"id": "AEO11_OVERVIEW_CHAPTER1_FIG12_PT",
+			"title": "Figura 1.15: Contas correntes e equilíbrios fiscais nos países exportadores de petróleo"
+		},
+		{
+			"id": "AEO11_OVERVIEW_CHAPTER1_FIG13_PT",
+			"title": "Figura 1.16: Contas correntes e equilíbrios fiscais nos países importadores de petróleo"
+		},
+		{
+			"id": "AEO11_OVERVIEW_CHAPTER1_FIG2_PT",
+			"title": "Figura 1.2: Situação económica actual em África e expectativas para os próximos seis meses"
+		},
+		{
+			"id": "AEO11_OVERVIEW_CHAPTER1_FIG3_PT",
+			"title": "Figura 1.3: Variação em termos de trocas de alguns países, ricos em recursos (referido a Janeiro de 2000) "
+		},
+		{
+			"id": "AEO11_OVERVIEW_CHAPTER1_FIG4_PT",
+			"title": "Figura 1.4: Variação em termos de trocas de alguns países, pobres em recursos"
+		},
+		{
+			"id": "AEO11_OVERVIEW_CHAPTER1_FIG5_PT",
+			"title": "Figura 1.5: Remessas dos emigrantes para África"
+		},
+		{
+			"id": "AEO11_OVERVIEW_CHAPTER1_FIG6_PT",
+			"title": "Figura 1.6: Crescimento Económico Mundial"
+		},
+		{
+			"id": "AEO11_OVERVIEW_CHAPTER1_FIG16_PT",
+			"title": "Figura 1.7: Contribuição das Regiões para o crescimento Africano"
+		},
+		{
+			"id": "AEO11_OVERVIEW_CHAPTER2_FIG1_PT",
+			"title": "Figura 2.1: Fluxos de IDE e APD em África 2000-11 (milhares de milhões de USD, preços correntes)"
+		},
+		{
+			"id": "AEO11_OVERVIEW_CHAPTER2_FIG2_PT",
+			"title": "Figura 2.2: Fluxos de IDE para países exportadores de petróleo vs. países sem petróleo 2000-09 (milhares de milhões de USD, preços correntes) "
+		},
+		{
+			"id": "AEO11_OVERVIEW_CHAPTER2_FIG3_PT",
+			"title": "Figura 2.3: Investimentos directo e de carteira em África (milhares de milhões de USD, preços correntes)"
+		},
+		{
+			"id": "AEO11_OVERVIEW_CHAPTER2_FIG4_PT",
+			"title": "Figura 2.4 Desembolsos líquidos de APD para África 2000-09 (milhares de milhões de USD, preços correntes)"
+		},
+		{
+			"id": "PT_FIG2_AEO2013",
+			"title": "Figura 2: Dívida externa total (percentagem do PIB) e serviço da dívida (percentagem das exportações de bens e serviços) 2013"
+		},
+		{
+			"id": "AEO11_OVERVIEW_CHAPTER5_FIG1_PT",
+			"title": "Figura 5.1: Protestos e violência públicos e índice de preços de alimentos (ano de base 1996 = 100)"
+		},
+		{
+			"id": "AEO11_OVERVIEW_CHAPTER5_FIG2_PT",
+			"title": "Figura 5.2: Índice de endurecimento político (ano base 1996 = 100)"
+		},
+		{
+			"id": "AEO11_INDEPTH_CHAPTER6_FIG11_PT",
+			"title": "Figura 6.11: Dívida africana pós-PPAE (Dívida externa/ rácios PIB, 1995-2009)"
+		},
+		{
+			"id": "AEO11_INDEPTH_CHAPTER6_FIG12_PT",
+			"title": "Figura 6.12: Quem gere as Parcerias Emergentes?"
+		},
+		{
+			"id": "AEO11_INDEPTH_CHAPTER6_FIG3_PT",
+			"title": "Figura 6.3: Peso dos parceiros emergentes e traditionais no comércio com África (em percentagem)"
+		},
+		{
+			"id": "AEO11_INDEPTH_CHAPTER6_FIG4_PT",
+			"title": "Figura 6.4: Comércio total de África com os seus perceiros tradicionais"
+		},
+		{
+			"id": "AEO11_INDEPTH_CHAPTER6_FIG5_PT",
+			"title": "Figura 6.5: Fluxos de IDE para África 1995-2008"
+		},
+		{
+			"id": "AEO11_INDEPTH_CHAPTER6_FIG6_PT",
+			"title": "Figura 6.6: Comércio total de África com os parceiros emergentes (2009)"
+		},
+		{
+			"id": "AEO11_INDEPTH_CHAPTER6_FIG7_PT",
+			"title": "Figura 6.7: Percepção das vantagens comparativas de diversos tipos de parceiros de desenvolvimento por sectores, na perspectiva das partes interessadas nos países africanos"
+		},
+		{
+			"id": "AEO11_INDEPTH_CHAPTER6_FIG8_PT",
+			"title": "Figura 6.8: Exportações africanas de produtos manufacturados por parceiros (1995-2009)"
+		},
+		{
+			"id": "AEO11_INDEPTH_CHAPTER6_FIG9_PT",
+			"title": "Figura 6.9: Exportações africanas de bens manufacturados (1995-2009)"
+		},
+		{
+			"id": "PT_FIG1_C_AEO2013",
+			"title": "Figura1:Crescimento do PIB real (C) 2013 "
+		},
+		{
+			"id": "PT_FIG1_E_AEO2013",
+			"title": "Figura1:Crescimento do PIB real (E) 2013 "
+		},
+		{
+			"id": "PT_FIG1_N_AEO2013",
+			"title": "Figura1:Crescimento do PIB real (N) 2013 "
+		},
+		{
+			"id": "FIGURA1_N_AEO2013",
+			"title": "Figura1:Crescimento do PIB real (N) 2013"
+		},
+		{
+			"id": "PT_FIG1_O_AEO2013",
+			"title": "Figura1:Crescimento do PIB real (O) 2013 "
+		},
+		{
+			"id": "PT_FIG1_S_AEO2013",
+			"title": "Figura1:Crescimento do PIB real (S) 2013 "
+		},
+		{
+			"id": "AEO11_OVERVIEW_CHAPTER1_FIG1_EN",
+			"title": "Figure 1.1: Africa´s economic growth "
+		},
+		{
+			"id": "AEO11_OVERVIEW_CHAPTER1_FIG7_EN",
+			"title": "Figure 1.10: Oil price and gold price (base January 2000 = 100 )"
+		},
+		{
+			"id": "AEO11_OVERVIEW_CHAPTER1_FIG8_EN",
+			"title": "Figure 1.11: Copper and aluminium prices (base January 2000 = 100)"
+		},
+		{
+			"id": "AEO11_OVERVIEW_CHAPTER1_FIG9_EN",
+			"title": "Figure 1.12: Export prices of agricultural products (base January 2000 = 100)"
+		},
+		{
+			"id": "AEO11_OVERVIEW_CHAPTER1_FIG10_EN",
+			"title": "Figure 1.13: Import prices of basic foodstuffs (base January 2000 = 100)"
+		},
+		{
+			"id": "AEO11_OVERVIEW_CHAPTER1_FIG12_EN",
+			"title": "Figure 1.15: Current account and fiscal balance in oil-exporting countries"
+		},
+		{
+			"id": "AEO11_OVERVIEW_CHAPTER1_FIG13_EN",
+			"title": "Figure 1.16: Current account and fiscal balance in oil-importing countries"
+		},
+		{
+			"id": "AEO11_OVERVIEW_CHAPTER1_FIG2_EN",
+			"title": "Figure 1.2: Assessment of Africa's current economic situation and expectations for the next six months"
+		},
+		{
+			"id": "AEO11_OVERVIEW_CHAPTER1_FIG3_EN",
+			"title": "Figure 1.3: Terms of trade in selected resource-rich countries "
+		},
+		{
+			"id": "AEO11_OVERVIEW_CHAPTER1_FIG4_EN",
+			"title": "Figure 1.4: Terms of trade in selected resource-poor countries"
+		},
+		{
+			"id": "AEO11_OVERVIEW_CHAPTER1_FIG5_EN",
+			"title": "Figure 1.5: Migrant remittances to Africa"
+		},
+		{
+			"id": "AEO11_OVERVIEW_CHAPTER1_FIG6_EN",
+			"title": "Figure 1.6: World economic growth"
+		},
+		{
+			"id": "AEO11_OVERVIEW_CHAPTER1_FIG16_EN",
+			"title": "Figure 1.7: Contributions of regions to Africa's growth"
+		},
+		{
+			"id": "AEO2012_CH6_FIG1",
+			"title": "Figure 1: Africa is experiencing a rapid growth of youth with education (20-24 year-old cohorts by education, 2000-2030)"
+		},
+		{
+			"id": "FIGURE1_C_AEO2013",
+			"title": "Figure 1: Real GDP growth 2013 (Central)"
+		},
+		{
+			"id": "FIGURE1_E_AEO2013",
+			"title": "Figure 1: Real GDP growth 2013 (East)"
+		},
+		{
+			"id": "FIGURE1_N_AEO2013",
+			"title": "Figure 1: Real GDP Growth 2013 (North)"
+		},
+		{
+			"id": "FIGURE1_S_AEO2013",
+			"title": "Figure 1: Real GDP growth 2013 (South)"
+		},
+		{
+			"id": "FIGURE1_W_AEO2013",
+			"title": "Figure 1: Real GDP growth 2013 (West)"
+		},
+		{
+			"id": "AEO2012_CH6_FIG10",
+			"title": "Figure 10: Youth and Adults by Occupation"
+		},
+		{
+			"id": "AEO2012_CH6_FIG11",
+			"title": "Figure 11: Who are the young people in NEET?"
+		},
+		{
+			"id": "AEO2012_CH6_FIG12",
+			"title": "Figure 12: Employment status by education and age cohort in LICs"
+		},
+		{
+			"id": "AEO2012_CH6_FIG13",
+			"title": "Figure 13: Employment status by education and age cohort in MICs"
+		},
+		{
+			"id": "AEO2012_CH6_FIG14",
+			"title": "Figure 14: Unemployed versus NEET: Self-reported reasons for not working"
+		},
+		{
+			"id": "AEO2012_CH6_FIG15",
+			"title": "Figure 15: Reasons for not working among discouraged youth by educational achievement"
+		},
+		{
+			"id": "AEO2012_CH6_FIG16",
+			"title": "Figure 16: Transition pathways by male and female youth (15-30)"
+		},
+		{
+			"id": "AEO2012_CH6_FIG17",
+			"title": "Figure 17: Youth employment by occupation 2008 and 2010: Informal sector activities and Farming have absorbed the impact of the crisis "
+		},
+		{
+			"id": "AEO2012_CH6_FIG18",
+			"title": "Figure 18: Aggregate sales and number of enterprises in Sub-Saharan Africa, by size"
+		},
+		{
+			"id": "AEO2012_CH6_FIG19",
+			"title": "Figure 19: The trade off between vulnerable employment and unemployment"
+		},
+		{
+			"id": "AEO11_OVERVIEW_CHAPTER2_FIG1_EN",
+			"title": "Figure 2.1: FDI and ODA flows to Africa 2000-11 (billion USD, current)"
+		},
+		{
+			"id": "AEO11_OVERVIEW_CHAPTER2_FIG2_EN",
+			"title": "Figure 2.2: FDI flows to countries exporting oil vs countries without oil 2000-09 (billion USD, current)"
+		},
+		{
+			"id": "AEO11_OVERVIEW_CHAPTER2_FIG3_EN",
+			"title": "Figure 2.3: Foreign direct investment and portfolio investment in Africa (billion USD, current)"
+		},
+		{
+			"id": "AEO11_OVERVIEW_CHAPTER2_FIG4_EN",
+			"title": "Figure 2.4: Net ODA disbursements to Africa 2000-09 (billion USD, current)"
+		},
+		{
+			"id": "AEO11_COUNTRYNOTES_FIG2_EN",
+			"title": "Figure 2: Stock of total external debt (percentage of GDP) and debt service (percentage of exports of goods and services)"
+		},
+		{
+			"id": "FIGURE2_AEO2013_V2",
+			"title": "Figure 2: Stock of total external debt and debt service 2013"
+		},
+		{
+			"id": "AEO2012_CH6_FIG20",
+			"title": "Figure 20: Household enterprises are the fastest growing livelihood sector in low income countries, ordered by GDP per capita"
+		},
+		{
+			"id": "AEO2012_CH6_FIG21",
+			"title": "Figure 21: More than half of rural youth work outside of agriculture"
+		},
+		{
+			"id": "AEO2012_CH6_FIG22",
+			"title": "Figure 22: Rural youth working in agriculture are the poorest group of working youth, youth in rural non-farm activities are only slightly poorer than urban youth"
+		},
+		{
+			"id": "AEO2012_CH6_FIG23",
+			"title": "Figure 23: Labour market challenges faced by youth"
+		},
+		{
+			"id": "AEO2012_CH6_FIG24",
+			"title": "Figure 24: Youth perceptions of main obstacles to finding a job"
+		},
+		{
+			"id": "AEO2012_CH6_FIG26",
+			"title": "Figure 26: Obstacles to firms (Enterprise Surveys)"
+		},
+		{
+			"id": "AEO2012_CH6_FIG27",
+			"title": "Figure 27: Obstacles to Enterprises in North Africa and Sub Saharan Africa"
+		},
+		{
+			"id": "AEO2012_CH6_FIG28",
+			"title": "Figure 28: The most important obstacles faced by informal firms "
+		},
+		{
+			"id": "AEO2012_CH6_FIG29",
+			"title": "Figure 29: Youth employment and unemployment by education and country income groups"
+		},
+		{
+			"id": "AEO2012_CH6_FIG3",
+			"title": "Figure 3: Time Use by Country Income Level: In middle income countries youth are more likely to be students, wage employed or NEET, in low income countries, youth are more likely to be self-employed or underemployed"
+		},
+		{
+			"id": "AEO2012_CH6_FIG30",
+			"title": "Figure 30: Lack of skills versus skills mismatching"
+		},
+		{
+			"id": "AEO2012_CH6_FIG31",
+			"title": "Figure 31: Probability of being waged employed by education level (multivariate analysis with Gallup World Poll data)"
+		},
+		{
+			"id": "AEO2012_CH6_FIG32",
+			"title": "Figure 32: Firms offering training to its employees in Africa and the world"
+		},
+		{
+			"id": "AEO2012_CH6_FIG33",
+			"title": "Figure 33: Employers’ expectations are a challenge for youth entering the job market"
+		},
+		{
+			"id": "AEO2012_CH6_FIG34",
+			"title": "Figure 34: Self-reported reasons for not working among unemployed and discouraged youth"
+		},
+		{
+			"id": "AEO2012_CH6_FIG35",
+			"title": "Figure 35: Where do you want to work, assuming equal pay and benefits?"
+		},
+		{
+			"id": "AEO2012_CH6_FIG36",
+			"title": "Figure 36: Unemployed and discouraged youth with plans for a business by country income group"
+		},
+		{
+			"id": "AEO2012_CH6_FIG37",
+			"title": "Figure 37: AEO country experts’ rating of labour regulations as obstacles to youth"
+		},
+		{
+			"id": "AEO2012_CH6_FIG38",
+			"title": "Figure 38: Initiatives targeting youth employment"
+		},
+		{
+			"id": "AEO2012_CH6_FIG4",
+			"title": "Figure 4: Youth and adult unemployment"
+		},
+		{
+			"id": "AEO11_OVERVIEW_CHAPTER5_FIG1_EN",
+			"title": "Figure 5.1: Public protests, public violence and food price indices (base year 1996 = 100)"
+		},
+		{
+			"id": "AEO11_OVERVIEW_CHAPTER5_FIG2_EN",
+			"title": "Figure 5.2: Political hardening index 1996-2010 (base year 1996 = 100)"
+		},
+		{
+			"id": "AEO2012_CH6_FIG5",
+			"title": "Figure 5: Employment Rate to working age population in Africa and comparators"
+		},
+		{
+			"id": "AEO11_INDEPTH_CHAPTER6_FIG11_EN",
+			"title": "Figure 6.11: Africa’s post-HIPC debt (external debt in percentage of GDP, 1995-2009)"
+		},
+		{
+			"id": "AEO11_INDEPTH_CHAPTER6_FIG12_EN",
+			"title": "Figure 6.12: To what extent is each local stakeholder involved in the partnership with emerging partners? (average score)"
+		},
+		{
+			"id": "AEO11_INDEPTH_CHAPTER6_FIG3_EN",
+			"title": "Figure 6.3: Shares of emerging and traditional partners in Africa's trade from 1992 to 2009 (in percentage)"
+		},
+		{
+			"id": "AEO11_INDEPTH_CHAPTER6_FIG4_EN",
+			"title": "Figure 6.4: Africa's total volume of trade and with traditional partners (1992-2009, in billion USD)"
+		},
+		{
+			"id": "AEO11_INDEPTH_CHAPTER6_FIG5_EN",
+			"title": "Figure 6.5: African FDI inflows 1995-2008"
+		},
+		{
+			"id": "AEO11_INDEPTH_CHAPTER6_FIG6_EN",
+			"title": "Figure 6.6: Distribution of Africa's total trade with emerging partners (2009, in percentage)"
+		},
+		{
+			"id": "AEO11_INDEPTH_CHAPTER6_FIG7_EN",
+			"title": "Figure 6.7: Perceived competitive advantage of various types of development partners in Africa"
+		},
+		{
+			"id": "AEO11_INDEPTH_CHAPTER6_FIG8_EN",
+			"title": "Figure 6.8: Africa’s exports of manufactured products by type of partner (1995-2009, in billion USD)"
+		},
+		{
+			"id": "AEO11_INDEPTH_CHAPTER6_FIG9_EN",
+			"title": "Figure 6.9: Africa's exports of manufactured goods (1995-2009, in billion USD)"
+		},
+		{
+			"id": "AEO2012_CH6_FIG6",
+			"title": "Figure 6: Five types of labour markets for youth in Africa"
+		},
+		{
+			"id": "AEO2012_CH6_FIG7",
+			"title": "Figure 7: Moderately and severely food insecure by employment status and country income level"
+		},
+		{
+			"id": "AEO2012_CH6_FIG8",
+			"title": "Figure 8: Employment and its drivers"
+		},
+		{
+			"id": "AEO2012_CH6_FIG9",
+			"title": "Figure 9: Where African youth work"
+		},
+		{
+			"id": "CHAPTER_B_EAG2014",
+			"title": "Financial and human resources invested in education (Chapter B)"
+		},
+		{
+			"id": "PGI_A_F_STCKS",
+			"title": "Financial balance sheets - non consolidated (Annual)"
+		},
+		{
+			"id": "PGI_Q_F_STCKS",
+			"title": "Financial balance sheets - non-consolidated (Quarterly)"
+		},
+		{
+			"id": "FIN_IND_FA",
+			"title": "Financial Indicators – Flows"
+		},
+		{
+			"id": "FIN_IND_FBS",
+			"title": "Financial Indicators – Stocks"
+		},
+		{
+			"id": "PGI_A_F_TRNSCTN",
+			"title": "Financial transactions - non consolidated (Annual)"
+		},
+		{
+			"id": "PGI_Q_F_TRNSCTN",
+			"title": "Financial transactions - non-consolidated (Quarterly)"
+		},
+		{
+			"id": "MEMTAX",
+			"title": "Financing of social security benefits"
+		},
+		{
+			"id": "SMES_SCOREBOARD",
+			"title": "Financing SMEs and Entrepreneurs: An OECD Scoreboard"
+		},
+		{
+			"id": "FISH_PAT_COL",
+			"title": "Fisheries International collaboration in technology development (bilateral)"
+		},
+		{
+			"id": "FISH_PAT_COL_RATES",
+			"title": "Fisheries International collaboration in technology development (rates)"
+		},
+		{
+			"id": "FISH_PAT_RD",
+			"title": "Fisheries R&D expenditures"
+		},
+		{
+			"id": "FISH_FSE",
+			"title": "Fisheries Support Estimate"
+		},
+		{
+			"id": "FISH_PAT_DEV",
+			"title": "Fisheries technology development"
+		},
+		{
+			"id": "FISH_PAT_DIFF",
+			"title": "Fisheries technology diffusion"
+		},
+		{
+			"id": "FISH_FLEET",
+			"title": "Fishing fleet"
+		},
+		{
+			"id": "FOOD_WASTE",
+			"title": "Food Waste"
+		},
+		{
+			"id": "RFOREIGN",
+			"title": "Foreign / international students enrolled"
+		},
+		{
+			"id": "FISH_FLD",
+			"title": "Foreign landings in domestic ports"
+		},
+		{
+			"id": "FFS_AUS",
+			"title": "Fossil Fuel Support - AUS"
+		},
+		{
+			"id": "FFS_AUT",
+			"title": "Fossil Fuel Support - AUT"
+		},
+		{
+			"id": "FFS_BEL",
+			"title": "Fossil Fuel Support - BEL"
+		},
+		{
+			"id": "FFS_BRA",
+			"title": "Fossil Fuel Support - BRA"
+		},
+		{
+			"id": "FFS_CAN",
+			"title": "Fossil Fuel Support - CAN"
+		},
+		{
+			"id": "FFS_CHE",
+			"title": "Fossil Fuel Support - CHE"
+		},
+		{
+			"id": "FFS_CHL",
+			"title": "Fossil Fuel Support - CHL"
+		},
+		{
+			"id": "FFS_CHN",
+			"title": "Fossil Fuel Support - CHN"
+		},
+		{
+			"id": "FFS_CZE",
+			"title": "Fossil Fuel Support - CZE"
+		},
+		{
+			"id": "FFS_DEU",
+			"title": "Fossil Fuel Support - DEU"
+		},
+		{
+			"id": "FFS_DNK",
+			"title": "Fossil Fuel Support - DNK"
+		},
+		{
+			"id": "FFS_ESP",
+			"title": "Fossil Fuel Support - ESP"
+		},
+		{
+			"id": "FFS_EST",
+			"title": "Fossil Fuel Support - EST"
+		},
+		{
+			"id": "FFS_FIN",
+			"title": "Fossil Fuel Support - FIN"
+		},
+		{
+			"id": "FFS_FRA",
+			"title": "Fossil Fuel Support - FRA"
+		},
+		{
+			"id": "FFS_GBR",
+			"title": "Fossil Fuel Support - GBR"
+		},
+		{
+			"id": "FFS_GRC",
+			"title": "Fossil Fuel Support - GRC"
+		},
+		{
+			"id": "FFS_HUN",
+			"title": "Fossil Fuel Support - HUN"
+		},
+		{
+			"id": "FFS_IDN",
+			"title": "Fossil Fuel Support - IDN"
+		},
+		{
+			"id": "FFS_IND",
+			"title": "Fossil Fuel Support - IND"
+		},
+		{
+			"id": "FFS_IRL",
+			"title": "Fossil Fuel Support - IRL"
+		},
+		{
+			"id": "FFS_ISR",
+			"title": "Fossil Fuel Support - ISR"
+		},
+		{
+			"id": "FFS_ITA",
+			"title": "Fossil Fuel Support - ITA"
+		},
+		{
+			"id": "FFS_JPN",
+			"title": "Fossil Fuel Support - JPN"
+		},
+		{
+			"id": "FFS_KOR",
+			"title": "Fossil Fuel Support - KOR"
+		},
+		{
+			"id": "FFS_LUX",
+			"title": "Fossil Fuel Support - LUX"
+		},
+		{
+			"id": "FFS_MEX",
+			"title": "Fossil Fuel Support - MEX"
+		},
+		{
+			"id": "FFS_NLD",
+			"title": "Fossil Fuel Support - NLD"
+		},
+		{
+			"id": "FFS_NOR",
+			"title": "Fossil Fuel Support - NOR"
+		},
+		{
+			"id": "FFS_NZL",
+			"title": "Fossil Fuel Support - NZL"
+		},
+		{
+			"id": "FFS_POL",
+			"title": "Fossil Fuel Support - POL"
+		},
+		{
+			"id": "FFS_PRT",
+			"title": "Fossil Fuel Support - PRT"
+		},
+		{
+			"id": "FFS_RUS",
+			"title": "Fossil Fuel Support - RUS"
+		},
+		{
+			"id": "FFS_SVK",
+			"title": "Fossil Fuel Support - SVK"
+		},
+		{
+			"id": "FFS_SVN",
+			"title": "Fossil Fuel Support - SVN"
+		},
+		{
+			"id": "FFS_SWE",
+			"title": "Fossil Fuel Support - SWE"
+		},
+		{
+			"id": "FFS_TUR",
+			"title": "Fossil Fuel Support - TUR"
+		},
+		{
+			"id": "FFS_USA",
+			"title": "Fossil Fuel Support - USA"
+		},
+		{
+			"id": "FFS_ZAF",
+			"title": "Fossil Fuel Support - ZAF"
+		},
+		{
+			"id": "WATER_ABSTRACT",
+			"title": "Freshwater abstractions (million m3)"
+		},
+		{
+			"id": "WATER_RESOURCES",
+			"title": "Freshwater resources (long term annual average)"
+		},
+		{
+			"id": "FTPTC_D",
+			"title": "FTPT employment based on a common definition"
+		},
+		{
+			"id": "FTPTN_D",
+			"title": "FTPT employment based on national definitions"
+		},
+		{
+			"id": "PNN_NEW",
+			"title": "Funded Pension Statistics"
+		},
+		{
+			"id": "PNNI_NEW",
+			"title": "Funded Pensions Indicators"
+		},
+		{
+			"id": "G20_PRICES",
+			"title": "G20 – CPI All items "
+		},
+		{
+			"id": "GID2",
+			"title": "Gender, Institutions and Development Database 2009 (GID-DB)"
+		},
+		{
+			"id": "GIDDB2012",
+			"title": "Gender, Institutions and Development Database 2012 (GID-DB)"
+		},
+		{
+			"id": "GIDDB2014",
+			"title": "Gender, Institutions and Development Database 2014 (GID-DB)"
+		},
+		{
+			"id": "PT1",
+			"title": "General insurance statistics"
+		},
+		{
+			"id": "WATER_DISCHARGE",
+			"title": "Generation and discharge of wastewater"
+		},
+		{
+			"id": "WSECTOR",
+			"title": "Generation of waste by sector"
+		},
+		{
+			"id": "DACDEFL",
+			"title": "GeoBook: Deflators"
+		},
+		{
+			"id": "DACGEO",
+			"title": "GeoBook: Geographical flows to developing countries"
+		},
+		{
+			"id": "DACIND",
+			"title": "GeoBook: Indicators"
+		},
+		{
+			"id": "DACSECTOR",
+			"title": "GeoBook: ODA by sector – bilateral commitments by donor and recipient"
+		},
+		{
+			"id": "SAH_URBA_LATLON_V3",
+			"title": "Geolocation of urban agglomerations in West Africa"
+		},
+		{
+			"id": "ITF_GOODS_TRANSPORT",
+			"title": "Goods transport"
+		},
+		{
+			"id": "GOV",
+			"title": "Government at a Glance"
+		},
+		{
+			"id": "GOV_2011",
+			"title": "Government at a Glance - 2011 edition "
+		},
+		{
+			"id": "GOV_2013",
+			"title": "Government at a Glance - 2013 edition "
+		},
+		{
+			"id": "GOV_2015",
+			"title": "Government at a Glance - 2015 edition"
+		},
+		{
+			"id": "GBAORD_NABS2007",
+			"title": "Government budget appropriations or outlays for RD"
+		},
+		{
+			"id": "FISH_GFT",
+			"title": "Government financial transfers"
+		},
+		{
+			"id": "RGRADAGE",
+			"title": "Graduates by age"
+		},
+		{
+			"id": "EDU_GRAD_AGE",
+			"title": "Graduates by age"
+		},
+		{
+			"id": "EDU_GRAD_FIELD",
+			"title": "Graduates by field"
+		},
+		{
+			"id": "RGRADSTY",
+			"title": "Graduates by field of education"
+		},
+		{
+			"id": "EAG_GRAD_ENTR_RATES",
+			"title": "Graduation rates and entry rates"
+		},
+		{
+			"id": "GREEN_GROWTH",
+			"title": "Green Growth Indicators"
+		},
+		{
+			"id": "AIR_GHG",
+			"title": "Greenhouse gas emissions"
+		},
+		{
+			"id": "PT7",
+			"title": "Gross claims payments"
+		},
+		{
+			"id": "GERD_SCIENCE",
+			"title": "Gross domestic expenditure on R-D by sector of performance and field of science"
+		},
+		{
+			"id": "GERD_OBJECTIVE_NABS2007",
+			"title": "Gross domestic expenditure on R-D by sector of performance and socio-economic objective in NABS2007"
+		},
+		{
+			"id": "GERD_FUNDS",
+			"title": "Gross domestic expenditure on R-D by sector of performance and source of funds"
+		},
+		{
+			"id": "GERD_FUNDS_PRE1981",
+			"title": "Gross domestic expenditure on R-D by sector of performance and source of funds (1963-1980)"
+		},
+		{
+			"id": "GERD_COST",
+			"title": "Gross Domestic Expenditure on R-D by sector of performance and type of cost"
+		},
+		{
+			"id": "SHA_HK",
+			"title": "Gross fixed capital formation in the health care system"
+		},
+		{
+			"id": "PT8",
+			"title": "Gross operating expenses"
+		},
+		{
+			"id": "PDB_GR",
+			"title": "Growth in GDP per capita, productivity and ULC"
+		},
+		{
+			"id": "HICP_COICOP",
+			"title": "Harmonised Indices of Consumer Prices (HICPs) by COICOP divisions"
+		},
+		{
+			"id": "HEALTH_HCQI",
+			"title": "Health Care Quality Indicators"
+		},
+		{
+			"id": "HEALTH_REAC",
+			"title": "Health Care Resources"
+		},
+		{
+			"id": "HEALTH_PROC",
+			"title": "Health Care Utilisation"
+		},
+		{
+			"id": "SHA",
+			"title": "Health expenditure and financing"
+		},
+		{
+			"id": "HEALTH_STAT",
+			"title": "Health Status"
+		},
+		{
+			"id": "HEALTH_WFMI",
+			"title": "Health Workforce Migration"
+		},
+		{
+			"id": "POP_PROJ",
+			"title": "Historical population data and projections (1950-2050)"
+		},
+		{
+			"id": "EAR_MEI",
+			"title": "Hourly Earnings (MEI)"
+		},
+		{
+			"id": "HH_DASH",
+			"title": "Household Dashboard"
+		},
+		{
+			"id": "7HA_A_Q",
+			"title": "Households' financial and non-financial assets and liabilities - Annual and Quarterly - archived"
+		},
+		{
+			"id": "QASA_7HH",
+			"title": "Households' financial assets and liabilities"
+		},
+		{
+			"id": "TEC1_REV4",
+			"title": "I - TEC by sector and size class"
+		},
+		{
+			"id": "TSEC1",
+			"title": "I: TEC by Size Classes"
+		},
+		{
+			"id": "ICT_HH2",
+			"title": "ICT Access and Usage by Households and Individuals"
+		},
+		{
+			"id": "ICT_BUS",
+			"title": "ICT Access and Use by Businesses"
+		},
+		{
+			"id": "TEC2_REV4",
+			"title": "II - TEC by Top enterprises"
+		},
+		{
+			"id": "TSEC2",
+			"title": "II: TEC by Top enterprises"
+		},
+		{
+			"id": "TEC3_REV4",
+			"title": "III - TEC by Partner zones and countries"
+		},
+		{
+			"id": "TES3",
+			"title": "III: TEC by Partner zones and countries"
+		},
+		{
+			"id": "DIOC_CITIZEN_AGE",
+			"title": "Immigrants by citizenship and age"
+		},
+		{
+			"id": "DIOC_OCCUPATION_DET",
+			"title": "Immigrants by detailed occupation"
+		},
+		{
+			"id": "DIOC_DURATION_STAY",
+			"title": "Immigrants by duration of stay"
+		},
+		{
+			"id": "DIOC_FIELD_STUDY",
+			"title": "Immigrants by field of study"
+		},
+		{
+			"id": "DIOC_LFS",
+			"title": "Immigrants by labour force status"
+		},
+		{
+			"id": "DIOC_OCCUPATION",
+			"title": "Immigrants by occupation"
+		},
+		{
+			"id": "DIOC_SECTOR",
+			"title": "Immigrants by sector"
+		},
+		{
+			"id": "DIOC_SEX_AGE",
+			"title": "Immigrants by sex and age"
+		},
+		{
+			"id": "TOURISM_INBOUND",
+			"title": "Inbound tourism"
+		},
+		{
+			"id": "DW_I",
+			"title": "Incidence of discouraged workers"
+		},
+		{
+			"id": "ECONSH_I",
+			"title": "Incidence of economic short time workers"
+		},
+		{
+			"id": "USLHRS_I",
+			"title": "Incidence of employment by usual weekly hours worked"
+		},
+		{
+			"id": "FTPTC_I",
+			"title": "Incidence of FTPT employment - common definition"
+		},
+		{
+			"id": "FTPTN_I",
+			"title": "Incidence of FTPT employment - national definitions"
+		},
+		{
+			"id": "INVPT_I",
+			"title": "Incidence of involuntary part time workers"
+		},
+		{
+			"id": "MA_I",
+			"title": "Incidence of marginally attached workers"
+		},
+		{
+			"id": "TEMP_I",
+			"title": "Incidence of permanent employment"
+		},
+		{
+			"id": "DUR_I",
+			"title": "Incidence of unemployment by duration"
+		},
+		{
+			"id": "IDD",
+			"title": "Income Distribution and Poverty"
+		},
+		{
+			"id": "BPF1",
+			"title": "Income Statement and Balance Sheet "
+		},
+		{
+			"id": "ITF_INDICATORS",
+			"title": "Indicators"
+		},
+		{
+			"id": "FISH_INLAND",
+			"title": "Inland fisheries"
+		},
+		{
+			"id": "SHA_FP",
+			"title": "Input costs for health care provision"
+		},
+		{
+			"id": "IOTS",
+			"title": "Input-Output Tables"
+		},
+		{
+			"id": "7IA_A_Q",
+			"title": "Institutional investors' assets - Annual and Quarterly - archived "
+		},
+		{
+			"id": "QASA_7II_INDIC",
+			"title": "Institutional Investors' Indicators"
+		},
+		{
+			"id": "7II_INDIC",
+			"title": "Institutional investors indicators - archived"
+		},
+		{
+			"id": "QASA_7II",
+			"title": "Institutional Investors’ Assets and Liabilities"
+		},
+		{
+			"id": "PT3",
+			"title": "Insurance business by domestic and foreign risks"
+		},
+		{
+			"id": "PT4",
+			"title": "Insurance business written abroad by branches"
+		},
+		{
+			"id": "PT5",
+			"title": "Insurance business written in the reporting country"
+		},
+		{
+			"id": "INSIND",
+			"title": "Insurance indicators"
+		},
+		{
+			"id": "EAG_MOB",
+			"title": "Intergenerational mobility in education"
+		},
+		{
+			"id": "G_TYPE_AMOUNTS",
+			"title": "Intergovernmental Grants by Type"
+		},
+		{
+			"id": "G_TYPE_RATIO",
+			"title": "Intergovernmental Grants by Type-percentage of total grants revenue"
+		},
+		{
+			"id": "TOURISM_NATIONAL_ECON",
+			"title": "Internal tourism consumption"
+		},
+		{
+			"id": "PATS_COOP",
+			"title": "International co-operation in patents"
+		},
+		{
+			"id": "EDU_GRAD_MOBILE",
+			"title": "International graduates by origin "
+		},
+		{
+			"id": "MIG",
+			"title": "International Migration Database"
+		},
+		{
+			"id": "MEI_TRD",
+			"title": "International Trade (MEI)"
+		},
+		{
+			"id": "FISH_TRADE",
+			"title": "International trade of fisheries products"
+		},
+		{
+			"id": "CIF_FOB_ITIC",
+			"title": "International Transport and Insurance Costs of Merchandise Trade (ITIC)"
+		},
+		{
+			"id": "INVPT_D",
+			"title": "Involuntary part time workers"
+		},
+		{
+			"id": "AFA_CALC_IN3",
+			"title": "Inward activity of multinationals - Share in national total (manufacturing)"
+		},
+		{
+			"id": "AMNE_IN",
+			"title": "Inward activity of multinationals by industrial sector - ISIC Rev 4"
+		},
+		{
+			"id": "AFA_IN3",
+			"title": "Inward activity of multinationals by industrial sector (manufacturing) - ISIC Rev 3"
+		},
+		{
+			"id": "AMNE_IN_PARTNER",
+			"title": "Inward activity of multinationals by investing country - ISIC Rev 4"
+		},
+		{
+			"id": "AFA_IN3_MANUF",
+			"title": "Inward activity of multinationals by investing country, total manufacturing - ISIC Rev 3"
+		},
+		{
+			"id": "FATS_IN3_SERV",
+			"title": "Inward activity of Multinationals in  ISIC Rev 3 (services)"
+		},
+		{
+			"id": "TEC4_REV4",
+			"title": "IV - TEC by number of partner countries"
+		},
+		{
+			"id": "TSEC4",
+			"title": "IV: TEC by number of partner countries"
+		},
+		{
+			"id": "TEC9_REV4",
+			"title": "IX - TEC by activity sectors"
+		},
+		{
+			"id": "JOBQ",
+			"title": "Job quality"
+		},
+		{
+			"id": "KEY_STIO",
+			"title": "Key figures"
+		},
+		{
+			"id": "TAXBEN",
+			"title": "Key Indicators"
+		},
+		{
+			"id": "KEI",
+			"title": "Key Short-Term Economic Indicators"
+		},
+		{
+			"id": "TOURISM_KEY_IND_PC",
+			"title": "Key tourism indicators"
+		},
+		{
+			"id": "PDYGTH",
+			"title": "Labour productivity growth in the total economy"
+		},
+		{
+			"id": "LEVEL",
+			"title": "Labour productivity levels in the total economy"
+		},
+		{
+			"id": "WATER_QUALITY",
+			"title": "Lake and river quality"
+		},
+		{
+			"id": "LAND_USE",
+			"title": "Land use"
+		},
+		{
+			"id": "PDB_LV",
+			"title": "Level of GDP per capita and productivity"
+		},
+		{
+			"id": "LFS_SEXAGE_I_C",
+			"title": "LFS by  sex and age - composition"
+		},
+		{
+			"id": "LFS_D",
+			"title": "LFS by sex and age"
+		},
+		{
+			"id": "LFS_SEXAGE_I_R",
+			"title": "LFS by sex and age - indicators"
+		},
+		{
+			"id": "SAH_URBA_INDIC_3",
+			"title": "List of indicators on settlement dynamics in West Africa"
+		},
+		{
+			"id": "HEALTH_LTCR",
+			"title": "Long-Term Care Resources and Utilisation"
+		},
+		{
+			"id": "MEI",
+			"title": "Main Economic Indicators Publication"
+		},
+		{
+			"id": "MSTI_PUB",
+			"title": "Main Science and Technology Indicators"
+		},
+		{
+			"id": "EDU_PERS_MANA",
+			"title": "Management educational personnel and teacher aides "
+		},
+		{
+			"id": "MA_D",
+			"title": "Marginally attached workers"
+		},
+		{
+			"id": "MTC",
+			"title": "Maritime Transport Costs"
+		},
+		{
+			"id": "MATERIAL_RESOURCES",
+			"title": "Material resources"
+		},
+		{
+			"id": "MULTISYSTEM",
+			"title": "Members' total use of the multilateral system"
+		},
+		{
+			"id": "CITIES",
+			"title": "Metropolitan areas"
+		},
+		{
+			"id": "MIN2AVE",
+			"title": "Minimum relative to average wages of full-time workers"
+		},
+		{
+			"id": "MW_CURP",
+			"title": "Minimum wages at current prices in NCU"
+		},
+		{
+			"id": "CPL",
+			"title": "Monthly comparative price levels"
+		},
+		{
+			"id": "MEI_FIN",
+			"title": "Monthly Monetary and Financial Statistics (MEI)"
+		},
+		{
+			"id": "MFP",
+			"title": "Multi-factor Productivity"
+		},
+		{
+			"id": "MUNW",
+			"title": "Municipal waste, Generation and Treatment "
+		},
+		{
+			"id": "NAAG",
+			"title": "National Accounts at a Glance"
+		},
+		{
+			"id": "NAAG_2009",
+			"title": "National Accounts at a Glance - 2009 edition"
+		},
+		{
+			"id": "NAAG_2010",
+			"title": "National Accounts at a Glance - 2010 edition"
+		},
+		{
+			"id": "NAAG_2011",
+			"title": "National Accounts at a Glance - 2011 edition"
+		},
+		{
+			"id": "NAAG_2013",
+			"title": "National Accounts at a Glance - 2013 edition "
+		},
+		{
+			"id": "NAAG_2014",
+			"title": "National Accounts at a Glance - 2014"
+		},
+		{
+			"id": "NAAG_2015_NOV15",
+			"title": "National Accounts at a Glance - 2015"
+		},
+		{
+			"id": "PRICES_COICOP",
+			"title": "National Consumer Price Indices (CPIs) by COICOP divisions"
+		},
+		{
+			"id": "MEI_CPI_WEIGHTS",
+			"title": "National CPI weights "
+		},
+		{
+			"id": "FISH_NLD",
+			"title": "National landings in domestic ports"
+		},
+		{
+			"id": "FISH_NLF",
+			"title": "National landings in foreign ports"
+		},
+		{
+			"id": "NCM_LIVE",
+			"title": "NCM Live cube"
+		},
+		{
+			"id": "NCM_STAGING",
+			"title": "NCM Staging cube"
+		},
+		{
+			"id": "EDU_ENTR_AGE",
+			"title": "New entrants by age "
+		},
+		{
+			"id": "EDU_ENTR_FIELD",
+			"title": "New entrants by field"
+		},
+		{
+			"id": "RNENTAGE",
+			"title": "New entrants by sex and age"
+		},
+		{
+			"id": "NM_TEST_ATTRIBUTE_DATASET",
+			"title": "NM Attribute test dataset EN"
+		},
+		{
+			"id": "QASA_TABLE720",
+			"title": "Non-consolidated financial balance sheets by economic sector (Quarterly table 0720)"
+		},
+		{
+			"id": "QASA_TABLE720R",
+			"title": "Non-consolidated financial balance sheets by economic sector (Quarterly table 0720) - SNA 2008"
+		},
+		{
+			"id": "QASA_TABLE620",
+			"title": "Non-consolidated financial transactions by economic sector (Quarterly table 0620)"
+		},
+		{
+			"id": "QASA_TABLE620R",
+			"title": "Non-consolidated financial transactions by economic sector (Quarterly table 0620) - SNA 2008"
+		},
+		{
+			"id": "QASA_TABLE801",
+			"title": "Non-financial accounts by economic sector (Tables 0119, 0801)"
+		},
+		{
+			"id": "HEALTH_LVNG",
+			"title": "Non-Medical Determinants of Health"
+		},
+		{
+			"id": "MIG_NUP_RATES_GENDER",
+			"title": "NUP rates by place of birth and sex"
+		},
+		{
+			"id": "DP_LIVE",
+			"title": "OECD Data Live dataset"
+		},
+		{
+			"id": "FDIINDEX",
+			"title": "OECD FDI Regulatory Restrictiveness Index"
+		},
+		{
+			"id": "GVC_INDICATORS",
+			"title": "OECD Global Value Chains indicators – May 2013"
+		},
+		{
+			"id": "JOBQ_I",
+			"title": "OECD Inventory of Survey Questions on the Quality of the Working Environment"
+		},
+		{
+			"id": "HIGH_AGLINK_2009",
+			"title": "OECD-FAO Agricultural Outlook 2009-2018"
+		},
+		{
+			"id": "HIGH_AGLINK_2010",
+			"title": "OECD-FAO Agricultural Outlook 2010-2019"
+		},
+		{
+			"id": "HIGH_AGLINK_2011",
+			"title": "OECD-FAO Agricultural Outlook 2011-2020"
+		},
+		{
+			"id": "HIGH_AGLINK_2012",
+			"title": "OECD-FAO Agricultural Outlook 2012-2021"
+		},
+		{
+			"id": "HIGH_AGLINK_2013",
+			"title": "OECD-FAO Agricultural Outlook 2013-2022"
+		},
+		{
+			"id": "HIGH_AGLINK_2014",
+			"title": "OECD-FAO Agricultural Outlook 2014-2023"
+		},
+		{
+			"id": "HIGH_AGLINK_2015",
+			"title": "OECD-FAO Agricultural Outlook 2015-2024"
+		},
+		{
+			"id": "HIGH_AGLINK_2016",
+			"title": "OECD-FAO Agricultural Outlook 2016-2025"
+		},
+		{
+			"id": "ONRD_COST",
+			"title": "Other national R&D expenditure by field of science and by type of cost"
+		},
+		{
+			"id": "ONRD_FUNDS",
+			"title": "Other national R-D expenditure by field of science and by source of funds"
+		},
+		{
+			"id": "TABLE2B",
+			"title": "Other official flows (OOF)-disbursements [DAC2b]"
+		},
+		{
+			"id": "TOURISM_OUTBOUND",
+			"title": "Outbound tourism"
+		},
+		{
+			"id": "AFA_CALC_OUT3",
+			"title": "Outward activity of multinationals - Share in national total (manufacturing)"
+		},
+		{
+			"id": "AFA_OUT3_PARTNER",
+			"title": "Outward activity of multinationals by country of location - ISIC Rev 3"
+		},
+		{
+			"id": "AMNE_OUT_PARTNER",
+			"title": "Outward activity of multinationals by country of location - ISIC Rev 4"
+		},
+		{
+			"id": "AMNE_OUT",
+			"title": "Outward activity of multinationals by industrial sector - ISIC Rev 4"
+		},
+		{
+			"id": "AFA_OUT3",
+			"title": "Outward activity of multinationals by industrial sector (manufacturing) - ISIC Rev 3"
+		},
+		{
+			"id": "FATS_OUT3_SERV",
+			"title": "Outward Activity of Multinationals in ISIC Rev 3 (services)"
+		},
+		{
+			"id": "IPM_STIO",
+			"title": "Overview of national innovation policy mix"
+		},
+		{
+			"id": "CIIE10",
+			"title": "Part 1 - Comparing innovation in education with other sectors"
+		},
+		{
+			"id": "PART2",
+			"title": "Part 2 - Innovation as change in classrooms and schools"
+		},
+		{
+			"id": "ITF_PASSENGER_TRANSPORT",
+			"title": "Passenger transport"
+		},
+		{
+			"id": "PAT_IND",
+			"title": "Patent indicators"
+		},
+		{
+			"id": "PAT_COL",
+			"title": "Patents - International collaboration in technology development (bilateral)"
+		},
+		{
+			"id": "PAT_COL_RATES",
+			"title": "Patents - International collaboration in technology development (rates)"
+		},
+		{
+			"id": "PAT_DEV",
+			"title": "Patents - Technology development"
+		},
+		{
+			"id": "PAT_DIFF",
+			"title": "Patents - Technology diffusion"
+		},
+		{
+			"id": "PATS_REGION",
+			"title": "Patents by regions"
+		},
+		{
+			"id": "PATS_IPC",
+			"title": "Patents by technology"
+		},
+		{
+			"id": "PAG",
+			"title": "Pensions at a Glance"
+		},
+		{
+			"id": "HEALTH_PHMC",
+			"title": "Pharmaceutical Market"
+		},
+		{
+			"id": "POP_FIVE_HIST",
+			"title": "Population"
+		},
+		{
+			"id": "ALFS_POP_LABOUR",
+			"title": "Population and Labour Force"
+		},
+		{
+			"id": "ALFS_POP_VITAL",
+			"title": "Population and Vital Statistics"
+		},
+		{
+			"id": "EDU_DEM",
+			"title": "Population data"
+		},
+		{
+			"id": "MEI_CTRY_WEIGHTS",
+			"title": "Prices country weights"
+		},
+		{
+			"id": "TABLE4",
+			"title": "Private flows [DAC4]"
+		},
+		{
+			"id": "MEI_PRICES_PPI",
+			"title": "Producer Prices"
+		},
+		{
+			"id": "PMR",
+			"title": "Product Market Regulation 2013."
+		},
+		{
+			"id": "MEI_REAL",
+			"title": "Production and Sales (MEI)"
+		},
+		{
+			"id": "FISH_AQUA",
+			"title": "Production from aquaculture"
+		},
+		{
+			"id": "PDBI_I4",
+			"title": "Productivity and ULC by main economic activity (ISIC Rev.4)"
+		},
+		{
+			"id": "PDBI",
+			"title": "Productivity by industry (ISIC Rev.3)"
+		},
+		{
+			"id": "PROFSVC",
+			"title": "Professional Services 2013."
+		},
+		{
+			"id": "EAG_GRAD_ENTR_SHARE",
+			"title": "Profile of graduates and new entrants"
+		},
+		{
+			"id": "LMPEXP",
+			"title": "Public expenditure and participant stocks on LMP"
+		},
+		{
+			"id": "EXP_COFOG_SPECIAL",
+			"title": "Public Finance and Employment: Expenditures according to COFOG Special"
+		},
+		{
+			"id": "REVENUE_OUT",
+			"title": "Public Finance and Employment: Kinds of Revenue"
+		},
+		{
+			"id": "PPRF",
+			"title": "Public Pension Reserve Funds' Statistics"
+		},
+		{
+			"id": "7PSD_D1D4",
+			"title": "Public sector debt by instrument coverage"
+		},
+		{
+			"id": "QASA_TABLE7PSD",
+			"title": "Public Sector Debt, consolidated, nominal value"
+		},
+		{
+			"id": "PPPGDP",
+			"title": "Purchasing Power Parities for GDP and related indicators"
+		},
+		{
+			"id": "ULC_QUA",
+			"title": "Quarterly benchmarked Unit Labour Cost indicators – By economic activity"
+		},
+		{
+			"id": "QITS",
+			"title": "Quarterly International Trade Statistics"
+		},
+		{
+			"id": "QNA",
+			"title": "Quarterly National Accounts"
+		},
+		{
+			"id": "QNA_TRAINING",
+			"title": "Quarterly National Accounts Training"
+		},
+		{
+			"id": "RD_ACTIVITY",
+			"title": "R-D expenditure by sector of performance and type of R-D"
+		},
+		{
+			"id": "RD_ACTIVITY_PRE1981",
+			"title": "R-D expenditure by sector of performance and type of R-D (1963-1980)"
+		},
+		{
+			"id": "PERS_SCIENCE",
+			"title": "R-D personnel by sector of employment and field of science"
+		},
+		{
+			"id": "PERS_OCCUP",
+			"title": "R-D personnel by sector of employment and occupation"
+		},
+		{
+			"id": "PERS_OCCUP_PRE1981",
+			"title": "R-D personnel by sector of employment and occupation (1963-1980)"
+		},
+		{
+			"id": "PERS_QUAL",
+			"title": "R-D personnel by sector of employment and qualification"
+		},
+		{
+			"id": "RMW",
+			"title": "Real minimum wages"
+		},
+		{
+			"id": "TOURISM_REC_EXP",
+			"title": "Receipts and expenditure"
+		},
+		{
+			"id": "REFSERIES_LAC",
+			"title": "Reference Series - Latin American Countries"
+		},
+		{
+			"id": "REFSERIES_REV",
+			"title": "Reference Series for Revenue Statistics"
+		},
+		{
+			"id": "REGION_DEMOGR",
+			"title": "Regional Demography"
+		},
+		{
+			"id": "REGION_ECONOM",
+			"title": "Regional Economy"
+		},
+		{
+			"id": "REGION_INNOVATION",
+			"title": "Regional Innovation"
+		},
+		{
+			"id": "REGION_LABOUR",
+			"title": "Regional Labour"
+		},
+		{
+			"id": "REGION_SOCIAL",
+			"title": "Regional Social and Environmental indicators"
+		},
+		{
+			"id": "RWB",
+			"title": "Regional Well-Being"
+		},
+		{
+			"id": "LAB_REG_VAC",
+			"title": "Registered Unemployed and Job Vacancies"
+		},
+		{
+			"id": "ETCR",
+			"title": "Regulation in energy, transport and communications 2013"
+		},
+		{
+			"id": "RETAIL",
+			"title": "Regulation in retail trade 2013."
+		},
+		{
+			"id": "RPPI",
+			"title": "Residential Property Price Indices (RPPIs) – Complete database "
+		},
+		{
+			"id": "RPPI_TARGET",
+			"title": "Residential Property Price Indices (RPPIs) - Headline indicators "
+		},
+		{
+			"id": "RTA_STIO",
+			"title": "Revealed technology advantage in selected fields"
+		},
+		{
+			"id": "RS_AFR",
+			"title": "Revenue Statistics - African Countries : Comparative tables"
+		},
+		{
+			"id": "RS_ASI",
+			"title": "Revenue Statistics - Asian Countries : Comparative tables"
+		},
+		{
+			"id": "RSLACT",
+			"title": "Revenue Statistics - Latin American Countries : Comparative tables"
+		},
+		{
+			"id": "REV",
+			"title": "Revenue Statistics - OECD countries: Comparative tables"
+		},
+		{
+			"id": "SHA_FS",
+			"title": "Revenues of health care financing schemes"
+		},
+		{
+			"id": "MEI_ARCHIVE",
+			"title": "Revisions Analysis Dataset – Infra-annual Indicators"
+		},
+		{
+			"id": "ITF_ROAD_HAULAGE",
+			"title": "Road haulage charges and taxes"
+		},
+		{
+			"id": "ITF_ROAD_ACCIDENTS",
+			"title": "Road injury accidents"
+		},
+		{
+			"id": "STIO_2014",
+			"title": "Science Technology and Industry Outlook 2014"
+		},
+		{
+			"id": "STIO_2016",
+			"title": "Science Technology and Innovation Outlook 2016"
+		},
+		{
+			"id": "SDBS_BDI",
+			"title": "SDBS Business Demography Indicators (ISIC Rev. 3)"
+		},
+		{
+			"id": "SDBS_BDI_ISIC4",
+			"title": "SDBS Business Demography Indicators (ISIC Rev. 4)"
+		},
+		{
+			"id": "SSIS_BSC",
+			"title": "SDBS Structural Business Statistics (ISIC Rev. 3)"
+		},
+		{
+			"id": "SSIS_BSC_ISIC4",
+			"title": "SDBS Structural Business Statistics (ISIC Rev. 4)"
+		},
+		{
+			"id": "STRI",
+			"title": "Services Trade Restrictiveness Index"
+		},
+		{
+			"id": "EAG_ENRL_SHARE_CATEGORY",
+			"title": "Share of enrolment by gender, programme orientation and mode of study"
+		},
+		{
+			"id": "EAG_ENRL_SHARE_INST",
+			"title": "Share of enrolment by type of institution"
+		},
+		{
+			"id": "EAG_ENRL_MOBILES_ORIGIN",
+			"title": "Share of international or foreign students enrolled by country of origin"
+		},
+		{
+			"id": "EAG_ENRL_MOBILES_FIELDS",
+			"title": "Share of international or foreign students enrolled by field of education"
+		},
+		{
+			"id": "ITF_SHORT_TERM_INDIC",
+			"title": "Short-term Indicators"
+		},
+		{
+			"id": "STLABOUR",
+			"title": "Short-Term Labour Market Statistics"
+		},
+		{
+			"id": "SOCX_AGG",
+			"title": "Social Expenditure - Aggregated data"
+		},
+		{
+			"id": "SOCX_DET",
+			"title": "Social Expenditure - Detailed data"
+		},
+		{
+			"id": "SOCX_REF",
+			"title": "Social Expenditure - Reference series"
+		},
+		{
+			"id": "SIGI2014",
+			"title": "Social Institutions and Gender Index 2014 (SIGI)"
+		},
+		{
+			"id": "HEALTH_PROT",
+			"title": "Social Protection"
+		},
+		{
+			"id": "MEM4",
+			"title": "Social security contributions and payroll taxes paid by government"
+		},
+		{
+			"id": "DP_STAGING",
+			"title": "Staging Cube"
+		},
+		{
+			"id": "DP_STAGING_TEST",
+			"title": "Staging Cube - Test"
+		},
+		{
+			"id": "BTD_ED_2010",
+			"title": "STAN Bilateral Trade 2010"
+		},
+		{
+			"id": "BTDIXE_ISIC3_2011",
+			"title": "STAN Bilateral Trade by Industry and End-use (ISIC Rev.3) ed.2011"
+		},
+		{
+			"id": "BTDIXE",
+			"title": "STAN Bilateral Trade Database by Industry and End-use category"
+		},
+		{
+			"id": "STAN08BIS",
+			"title": "STAN Database for Structural Analysis (ISIC Rev. 3, SNA93)"
+		},
+		{
+			"id": "STANI4",
+			"title": "STAN Database for Structural Analysis (ISIC Rev. 4)"
+		},
+		{
+			"id": "STAN",
+			"title": "STAN Database for Structural Analysis ed2005"
+		},
+		{
+			"id": "TRANS_STAN_KARINE",
+			"title": "STAN data----Karine"
+		},
+		{
+			"id": "STANINDICATORS",
+			"title": "STAN Indicators"
+		},
+		{
+			"id": "STAN_INDICATORS_2005",
+			"title": "STAN Indicators 2005"
+		},
+		{
+			"id": "STAN_INDICATORS_2009",
+			"title": "STAN Indicators 2009"
+		},
+		{
+			"id": "STANI4_2016",
+			"title": "STAN Industrial Analysis"
+		},
+		{
+			"id": "STAN_IO_INTERM_M",
+			"title": "STAN Input-Output Intermediate Import Ratio, 2012"
+		},
+		{
+			"id": "STAN_IO_M_X",
+			"title": "STAN Input-Output: Imports content of Exports, 2012"
+		},
+		{
+			"id": "STAN_IO_TOT_DOM_IMP",
+			"title": "STAN Input-Output: Total, Domestic and Imports, 2012"
+		},
+		{
+			"id": "STAN_IO_LEONTIEF",
+			"title": "STAN I-O Inverse Matrix (Total), 2012"
+		},
+		{
+			"id": "STAN_IO_LEONTIEF_DOM",
+			"title": "STAN I-O Inverse Matrix Coefficients (Domestic), 2012"
+		},
+		{
+			"id": "QASA_7II_DISCR",
+			"title": "Statistical discrepancy (Institutional Investors – Financial Balance Sheets)"
+		},
+		{
+			"id": "STRI_H",
+			"title": "STRI Heterogeneity Indices"
+		},
+		{
+			"id": "EPL_CD",
+			"title": "Strictness of employment protection – collective dismissals (additional restrictions)"
+		},
+		{
+			"id": "EPL_OV",
+			"title": "Strictness of employment protection – individual and collective dismissals (regular contracts)"
+		},
+		{
+			"id": "EPL_R",
+			"title": "Strictness of employment protection – individual dismissals (regular contracts)"
+		},
+		{
+			"id": "EPL_T",
+			"title": "Strictness of employment protection – temporary contracts"
+		},
+		{
+			"id": "BERD_STIO",
+			"title": "Structural composition of BERD"
+		},
+		{
+			"id": "ROVERAGE",
+			"title": "Students aligned to finance and personnel data"
+		},
+		{
+			"id": "RENRLAGE",
+			"title": "Students enrolled by age"
+		},
+		{
+			"id": "RENRL",
+			"title": "Students enrolled by type of institution"
+		},
+		{
+			"id": "EAG_PERS_RATIO",
+			"title": "Student-teacher ratio and average class size"
+		},
+		{
+			"id": "SNGF",
+			"title": "Subnational Government Structure and Finance"
+		},
+		{
+			"id": "FSS",
+			"title": "Survey on Donors Forward Spending Plans"
+		},
+		{
+			"id": "SURVEYDATA",
+			"title": "Survey on Monitoring the Paris Declaration"
+		},
+		{
+			"id": "AEO11_OVERVIEW_CHAPTER1_TAB2_PT",
+			"title": "Tabela 1.1: Crescimento por regiões (Crescimento do PIB real em percentagem)"
+		},
+		{
+			"id": "AEO11_OVERVIEW_CHAPTER1_TAB1_PT",
+			"title": "Tabela 1.2: Tendências Demográficas em África (milhões pessoas)"
+		},
+		{
+			"id": "PT_TAB1_AEO2013",
+			"title": "Tabela 1: Indicadores Macroeconómicos 2013"
+		},
+		{
+			"id": "AEO11_OVERVIEW_CHAPTER2_TAB1_PT",
+			"title": "Tabela 2.1: Fluxos de IDE para Regiões Africanas 2005-10 (milhares de milhões de USD, a preços correntes) "
+		},
+		{
+			"id": "AEO11_COUNTRYNOTES_TAB2_PT",
+			"title": "Tabela 2: PIB por setor (em percentagem)"
+		},
+		{
+			"id": "PT_TAB2_AEO2013",
+			"title": "Tabela 2: PIB por setor (em percentagem)"
+		},
+		{
+			"id": "PT_TABLE2_AEO2012",
+			"title": "Tabela 2: PIB por setor (em percentagem) 2012"
+		},
+		{
+			"id": "AEO11_COUNTRYNOTES_TAB3_PT",
+			"title": "Tabela 3: Componentes da Procura"
+		},
+		{
+			"id": "PT_TABLE3_AEO2012",
+			"title": "Tabela 3: Finanças Públicas (em percentagem do PIB) 2012"
+		},
+		{
+			"id": "PT_TAB3_AEO2013",
+			"title": "Tabela 3: Finanças Públicas 2013 (em percentagem do PIB)"
+		},
+		{
+			"id": "AEO11_OVERVIEW_CHAPTER4_TAB1_PT",
+			"title": "Tabela 4.1: Elasticidades da pobreza em termos de crescimento e desigualdade (1.25 USD de acordo com a PPC de 2005)"
+		},
+		{
+			"id": "AEO11_OVERVIEW_CHAPTER4_TAB2_PT",
+			"title": "Tabela 4.2: Índices de desenvolvimento humano"
+		},
+		{
+			"id": "PT_TABLE4_AEO2012",
+			"title": "Tabela 4: Balança Corrente (em percentagem do PIB) 2012"
+		},
+		{
+			"id": "PT_TAB4_AEO2013",
+			"title": "Tabela 4: Balança Corrente (em percentagem do PIB) 2013"
+		},
+		{
+			"id": "AEO11_COUNTRYNOTES_TAB4_PT",
+			"title": "Tabela 4: Finanças Públicas (em percentagem do PIB)"
+		},
+		{
+			"id": "AEO11_OVERVIEW_CHAPTER5_TAB3_PT",
+			"title": "Tabela 5.3: Índice de Percepção da Corrupção "
+		},
+		{
+			"id": "AEO11_OVERVIEW_CHAPTER5_TAB5_PT",
+			"title": "Tabela 5.4: Índice de liberdade económica em África, 2003-11"
+		},
+		{
+			"id": "AEO11_COUNTRYNOTES_TAB5_PT",
+			"title": "Tabela 5: Balança Corrente (em percentagem do PIB)"
+		},
+		{
+			"id": "AEO11_INDEPTH_CHAPTER6_TAB1_PT",
+			"title": "Tabela 6.1: Países africanos, por categoria, no mundo a quatro velocidades"
+		},
+		{
+			"id": "AEO11_INDEPTH_CHAPTER6_TAB11_PT",
+			"title": "Tabela 6.11: Etiópia, dívida pública em percentagem do PIB"
+		},
+		{
+			"id": "AEO11_INDEPTH_CHAPTER6_TAB2_PT",
+			"title": "Tabela 6.2: Parcela dos parceiros tradicionais e emergentes nas importações, exportações e comércio total de África 2000 e 2009 (em percentagem)"
+		},
+		{
+			"id": "AEO11_INDEPTH_CHAPTER6_TAB3_PT",
+			"title": "Tabela 6.3: Fluxos de IDE para alguns países africanos na última década, por país de origem (em percentagem)"
+		},
+		{
+			"id": "AEO11_INDEPTH_CHAPTER6_TAB4_PT",
+			"title": "Tabela 6.4a: Desembolsos brutos de APD (definição CAD/OCDE) de Parceiros Tradicionais, 2009 (milhões de USD)"
+		},
+		{
+			"id": "AEO11_INDEPTH_CHAPTER6_TAB5_PT",
+			"title": "Tabela 6.5: Comércio entre países africanos e parceiros emergentes no valor mínimo de 10 milhões de USD anual"
+		},
+		{
+			"id": "AEO11_INDEPTH_CHAPTER6_TAB6_PT",
+			"title": "Tabela 6.6: Comércio sectorial entre África a os parceiros emergentes com mínimo de 53 milhões de USD anual"
+		},
+		{
+			"id": "AEO11_INDEPTH_CHAPTER6_TAB8_A_PT",
+			"title": "Tabela 6.8a: Distribuição das exportações africanas por tipo de parceiro (2009, em percentagem)"
+		},
+		{
+			"id": "AEO11_INDEPTH_CHAPTER6_TAB8_B_PT",
+			"title": "Tabela 6.8b: Distribuição das importações africanas por tipo de parceiro (2009, em percentagem) "
+		},
+		{
+			"id": "AEO11_INDEPTH_CHAPTER6_TAB9_A_PT",
+			"title": "Tabela 6.9a: Importações africanas de produtos manufacturados por origem (2000-09, em percentagem)"
+		},
+		{
+			"id": "AEO11_INDEPTH_CHAPTER6_TAB9_B_PT",
+			"title": "Tabela 6.9b: Exportações africanas de produtos manufacturados, por destino (2000-09, em percentagem)"
+		},
+		{
+			"id": "AEO11_OVERVIEW_CHAPTER1_TAB2_EN",
+			"title": "Table 1.1: Growth by regions (real GDP growth in percentage)"
+		},
+		{
+			"id": "AEO11_OVERVIEW_CHAPTER1_TAB1_EN",
+			"title": "Table 1.2: Demographic trends in Africa (million persons) "
+		},
+		{
+			"id": "AEO11_COUNTRYNOTES_TAB1_EN",
+			"title": "Table 1: Macroeconomic indicators"
+		},
+		{
+			"id": "TABLE1_AEO2013",
+			"title": "Table 1: Macroeconomic indicators "
+		},
+		{
+			"id": "TABLE1_AEO2012",
+			"title": "Table 1: Macroeconomic Indicators 2012"
+		},
+		{
+			"id": "TABLE1_AEO",
+			"title": "Table 1: Macroeconomic indicators NEW"
+		},
+		{
+			"id": "AEO11_OVERVIEW_CHAPTER2_TAB1_EN",
+			"title": "Table 2.1: FDI flows to African regions 2005-10 (billion USD, current)"
+		},
+		{
+			"id": "AEO11_COUNTRYNOTES_TAB2_EN",
+			"title": "Table 2: GDP by sector (in percentage)"
+		},
+		{
+			"id": "TABLE2_AEO2013_V2",
+			"title": "Table 2: GDP by Sector (percentage of GDP)"
+		},
+		{
+			"id": "AEO11_COUNTRYNOTES_TAB3_EN",
+			"title": "Table 3: Demand composition"
+		},
+		{
+			"id": "TABLE3_AEO2013_V2",
+			"title": "Table 3: Public Finances (percentage of GDP)"
+		},
+		{
+			"id": "AEO11_OVERVIEW_CHAPTER4_TAB1_EN",
+			"title": "Table 4.1: Growth and inequality elasticities of poverty (USD 1.25 in 2005 PPP)"
+		},
+		{
+			"id": "AEO11_OVERVIEW_CHAPTER4_TAB2_EN",
+			"title": "Table 4.2: Indices of human development"
+		},
+		{
+			"id": "TABLE4_AEO2013_V2",
+			"title": "Table 4: Current Account (percentage of GDP)"
+		},
+		{
+			"id": "AEO11_COUNTRYNOTES_TAB4_EN",
+			"title": "Table 4: Public finances (percentage of GDP)"
+		},
+		{
+			"id": "AEO11_OVERVIEW_CHAPTER5_TAB3_EN",
+			"title": "Table 5.3: Corruption perception index"
+		},
+		{
+			"id": "AEO11_COUNTRYNOTES_TAB5_EN",
+			"title": "Table 5: Current account (percentage of GDP)"
+		},
+		{
+			"id": "AEO11_INDEPTH_CHAPTER6_TAB1_EN",
+			"title": "Table 6.1: Number of African countries by category in the four-speed world"
+		},
+		{
+			"id": "AEO11_INDEPTH_CHAPTER6_TAB11_EN",
+			"title": "Table 6.11: Ethiopia, public debt in percentage of GDP"
+		},
+		{
+			"id": "AEO11_INDEPTH_CHAPTER6_TAB2_EN",
+			"title": "Table 6.2: Shares of traditional and emerging partners in Africa’s imports, exports and total trade, 2000 and 2009 (in percentage)"
+		},
+		{
+			"id": "AEO11_INDEPTH_CHAPTER6_TAB3_EN",
+			"title": "Table 6.3: FDI flows to selected African countries over the last decade, by country of origin (in percentage)"
+		},
+		{
+			"id": "AEO11_INDEPTH_CHAPTER6_TAB4_EN",
+			"title": "Table 6.4a: ODA gross disbursements (OECD DAC definition) from traditional partners, 2009 (in million USD)"
+		},
+		{
+			"id": "AEO11_INDEPTH_CHAPTER6_TAB5_EN",
+			"title": "Table 6.5: Number of African countries in which emerging partners have significant trade (at least 10 million USD a year)"
+		},
+		{
+			"id": "AEO11_INDEPTH_CHAPTER6_TAB6_EN",
+			"title": "Table 6.6: Number of sectors in which emerging partners have significant trade with Africa (at least 53 million USD a year)"
+		},
+		{
+			"id": "AEO11_INDEPTH_CHAPTER6_TAB8_A_EN",
+			"title": "Table 6.8a: Distribution of Africa’s exports by type of partners (2009, in percentage)"
+		},
+		{
+			"id": "AEO11_INDEPTH_CHAPTER6_TAB8_B_EN",
+			"title": "Table 6.8b: Distribution of Africa’s imports by types of partners (2009, in percentage)"
+		},
+		{
+			"id": "AEO11_INDEPTH_CHAPTER6_TAB9_A_EN",
+			"title": "Table 6.9a: Africa’s imports of manufactured products, by origin (2000-09, in percentage)"
+		},
+		{
+			"id": "TABLE_I1",
+			"title": "Table I.1. Central government personal income tax rates and thresholds"
+		},
+		{
+			"id": "TABLE_I2",
+			"title": "Table I.2. Sub-central personal income tax rates-non-progressive systems"
+		},
+		{
+			"id": "TABLE_I3",
+			"title": "Table I.3. Sub-central personal income tax rates-progressive systems"
+		},
+		{
+			"id": "TABLE_I4",
+			"title": "Table I.4. Marginal personal income tax and social security contribution rates on gross labour income"
+		},
+		{
+			"id": "TABLE_I5",
+			"title": "Table I.5. Average personal income tax and social security contribution rates on gross labour income"
+		},
+		{
+			"id": "TABLE_I6",
+			"title": "Table I.6. All-in average personal income tax rates at average wage by family type"
+		},
+		{
+			"id": "TABLE_I7",
+			"title": "Table I.7. Top statutory personal income tax rate and top marginal tax rates for employees"
+		},
+		{
+			"id": "TABLE_II1",
+			"title": "Table II.1. Corporate income tax rate"
+		},
+		{
+			"id": "TABLE_II2",
+			"title": "Table II.2. Targeted corporate income tax rates"
+		},
+		{
+			"id": "TABLE_II3",
+			"title": "Table II.3. Sub-central corporate income tax rates"
+		},
+		{
+			"id": "TABLE_II4",
+			"title": "Table II.4. Overall statutory tax rates on dividend income"
+		},
+		{
+			"id": "TABLE_III1",
+			"title": "Table III.1. Employee social security contribution rates"
+		},
+		{
+			"id": "TABLE_III2",
+			"title": "Table III.2. Employer social security contribution rates"
+		},
+		{
+			"id": "TABLE_III3",
+			"title": "Table III.3 Self-employed social security contribution rates"
+		},
+		{
+			"id": "TALIS_EDUGPS",
+			"title": "TALIS Indicators"
+		},
+		{
+			"id": "TAXAUTO",
+			"title": "Tax autonomy"
+		},
+		{
+			"id": "TXWDECOMP",
+			"title": "Tax wedge decomposition "
+		},
+		{
+			"id": "AWCOMP",
+			"title": "Taxing Wages - Comparative tables"
+		},
+		{
+			"id": "CHAPTER_D_EAG2014",
+			"title": "The learning environment and organisation of schools (Chapter D)"
+		},
+		{
+			"id": "CHAPTER_A_EAG2014_NEW",
+			"title": "The output of educational institutions and the impact of learning (Chapter A)"
+		},
+		{
+			"id": "WILD_LIFE",
+			"title": "Threatened species"
+		},
+		{
+			"id": "TIMELY_BDS_ISIC4",
+			"title": "Timely Indicators of Entrepreneurship (ISIC4)"
+		},
+		{
+			"id": "TISX",
+			"title": "TIS Extra Series"
+		},
+		{
+			"id": "TABLE1",
+			"title": "Total flows by donor (ODA+OOF+Private) [DAC1]"
+		},
+		{
+			"id": "REF_TOTAL_ODF",
+			"title": "Total official development flows by country and region (ODF)"
+		},
+		{
+			"id": "REF_TOTALOFFICIAL",
+			"title": "Total official flows by country and region (ODA+OOF)"
+		},
+		{
+			"id": "RPOP",
+			"title": "Total population by sex and age"
+		},
+		{
+			"id": "REF_TOTALRECPTS",
+			"title": "Total receipts by country and region (ODA+OOF+private)"
+		},
+		{
+			"id": "TIM2015_C1",
+			"title": "Trade in employment: Core Indicators"
+		},
+		{
+			"id": "TIVA2015_C1",
+			"title": "Trade in Value Added (TiVA) – October 2015"
+		},
+		{
+			"id": "TIVA2015_C3",
+			"title": "Trade in Value Added (TiVA) - Origin of value added in final demand"
+		},
+		{
+			"id": "TIVA2015_C2",
+			"title": "Trade in Value Added (TiVA) - Origin of value added in gross exports"
+		},
+		{
+			"id": "TIVA_2016_C1",
+			"title": "Trade in Value Added (TiVA): December 2016"
+		},
+		{
+			"id": "TIVA_2016_C3",
+			"title": "Trade in Value Added (TiVA): Origin of Value Added in final demand"
+		},
+		{
+			"id": "TIVA_2016_C2",
+			"title": "Trade in Value Added (TiVA): Origin of Value Added in gross exports"
+		},
+		{
+			"id": "PARTNER",
+			"title": "Trade in value by partner countries"
+		},
+		{
+			"id": "SITC_SECTION",
+			"title": "Trade in value classified by sections of SITC"
+		},
+		{
+			"id": "UN_DEN",
+			"title": "Trade Union Density"
+		},
+		{
+			"id": "EAG_TRANS",
+			"title": "Transition from school to work"
+		},
+		{
+			"id": "ITF_INV-MTN_DATA",
+			"title": "Transport infrastructure investment and maintenance spending"
+		},
+		{
+			"id": "WATER_BOD",
+			"title": "Treatment capacity of wastewater treatment plants, in terms of BOD5"
+		},
+		{
+			"id": "U_GID",
+			"title": "Uganda-GID"
+		},
+		{
+			"id": "U_SIGI",
+			"title": "Uganda-SIGI"
+		},
+		{
+			"id": "DUR_D",
+			"title": "Unemployment by duration"
+		},
+		{
+			"id": "U_D_D",
+			"title": "Union members and employees"
+		},
+		{
+			"id": "ULC_ANN",
+			"title": "Unit Labour Costs - Annual Indicators"
+		},
+		{
+			"id": "ULC_EEQ",
+			"title": "Unit labour costs and labour productivity (employment based), Total economy"
+		},
+		{
+			"id": "USLHRS_D",
+			"title": "Usual hours worked by weekly hour bands"
+		},
+		{
+			"id": "TEC5_REV4",
+			"title": "V - TEC by commodity groups (CPC) "
+		},
+		{
+			"id": "TSEC5",
+			"title": "V: TEC by commodity groups (CPC)"
+		},
+		{
+			"id": "TEC6_REV4",
+			"title": "VI - TEC by type of trader"
+		},
+		{
+			"id": "TEC8_REV4",
+			"title": "VIII - TEC by exports intensity"
+		},
+		{
+			"id": "INDICE_OECD",
+			"title": "Volume, unit value and price index - OECD base year"
+		},
+		{
+			"id": "WATER_TREAT",
+			"title": "Wastewater treatment (% population connected)"
+		},
+		{
+			"id": "WEALTH",
+			"title": "Wealth"
+		},
+		{
+			"id": "WSDB",
+			"title": "World Indicators of Skills for Employment"
+		},
+		{
+			"id": "TEC10_REV4",
+			"title": "X - TEC by partner countries and size-class"
+		}
+	]
+}

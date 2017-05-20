@@ -21,7 +21,7 @@ class DataHeader extends Component {
       showDataSetSelector: false,
     })
 
-    Router.push(`/data?id=${id}`);
+    this.props.onDataSetSelect(id)
   }
 
   handleDataSetTitleClick = (event) => {

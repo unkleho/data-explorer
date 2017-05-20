@@ -16,10 +16,12 @@ import theme from '../styles/victoryTheme';
 import { colors } from '../styles/variables';
 import {
   initStore,
+} from '../store';
+import {
   getData,
   getDataSet,
   selectMainDimensionId,
-} from '../store';
+} from '../actions';
 import {
   buildVictoryData,
   buildApiUrl,
@@ -31,10 +33,9 @@ import {
   getDimensionColourMap,
 } from '../utils';
 
-import dataSetsRaw from '../data/dataSets';
-import birthSummaryData from '../data/birthSummaryDataStates';
-// import birthSummaryData from '../data/birthSummaryData';
-import birthSummaryDataSet from '../data/birthSummaryDataSet';
+// import dataSetsRaw from '../data/dataSets';
+import dataSetsRaw from '../data/oecdDataSets';
+import config from '../data/config';
 
 class Data extends Component {
 
@@ -49,19 +50,19 @@ class Data extends Component {
     };
   }
 
-  static async getInitialProps ({ query: { id }, isServer, store }) {
+  static async getInitialProps ({ query: { id, source }, isServer, store }) {
     const dataSets = buildDataSets(dataSetsRaw); // List of DataSets
-
-    await store.dispatch(getDataSet(id));
+    await store.dispatch(getDataSet(id, config.dataSets[source].apiUrl));
 
     return {
       dataSets,
+      source,
     }
   }
 
-  handleDataSetSelect = (event) => {
-    const id = event.target.value;
-    Router.push(`/data?id=${id}`);
+  handleDataSetSelect = (id) => {
+    console.log(this.props);
+    Router.push(`/data?id=${id}&source=${this.props.source}`);
   }
 
   handleDimensionSelect = async (options, dimensionIndex) => {
@@ -86,12 +87,13 @@ class Data extends Component {
       this.props.dispatch(getData(buildApiUrl({
         selectedDimensions,
         dataSetId,
+        baseApiUrl: 'http://stats.oecd.org/sdmx-json',
       })));
     }
   }
 
   handleMultiDimensionSelect = (options, dimensionIndex) => {
-    console.log(options);
+    // console.log(options);
     const ids = options.map((option) => {
       return option.value;
     });
@@ -106,6 +108,7 @@ class Data extends Component {
       this.props.dispatch(getData(buildApiUrl({
         selectedDimensions,
         dataSetId,
+        baseApiUrl: 'http://stats.oecd.org/sdmx-json',
       })));
     }
   }

@@ -1,8 +1,5 @@
-import { createStore, applyMiddleware } from 'redux'
-import thunkMiddleware from 'redux-thunk'
-import axios from 'axios';
-
-import { buildDataSetApiUrl, getDefaultDimensions, buildApiUrl } from './utils';
+import { createStore, applyMiddleware } from 'redux';
+import thunkMiddleware from 'redux-thunk';
 
 export const reducer = (state = {
   isLoading: false,
@@ -30,7 +27,6 @@ export const reducer = (state = {
     case 'GET_DATASET_SUCCESS':
 
       console.log('GET_DATASET_SUCCESS');
-      // console.log(action.dataSet);
       const displayDimensions = action.dimensions.filter(({ id }) => {
         return id !== 'TIME_PERIOD';
       })
@@ -90,68 +86,6 @@ export const reducer = (state = {
 
     default:
       return state
-  }
-}
-
-export const getDataSet = (id) => {
-  return async (dispatch) => {
-    dispatch({
-      type: 'GET_DATASET_LOADING',
-    });
-
-    try {
-      // Get dataSet metadata
-      const dataSetResult = await axios.get(buildDataSetApiUrl(id));
-      const dataSet = dataSetResult.data.structure;
-      const dimensions = dataSet.dimensions.observation;
-      const selectedDimensions = getDefaultDimensions(dimensions, id);
-
-      dispatch({
-        type: 'GET_DATASET_SUCCESS',
-        id,
-        dataSet,
-        dimensions,
-        selectedDimensions,
-      });
-
-      // Get data
-      const dataResult = await axios.get(buildApiUrl({
-        selectedDimensions,
-        dataSetId: id,
-      }));
-
-      dispatch({
-        type: 'GET_DATA_SUCCESS',
-        data: dataResult.data,
-      })
-    } catch(e) {
-      console.log(e);
-      dispatch({
-        type: 'GET_DATASET_FAILED',
-      })
-    }
-  }
-}
-
-export const getData = (url) => {
-  return async (dispatch) => {
-    dispatch({
-      type: 'GET_DATA_LOADING',
-    });
-
-    // Fetch
-    try {
-      const result = await axios.get(url);
-
-      dispatch({
-        type: 'GET_DATA_SUCCESS',
-        data: result.data,
-      })
-    } catch(e) {
-      dispatch({
-        type: 'GET_DATA_FAILED',
-      })
-    }
   }
 }
 
