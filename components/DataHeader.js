@@ -298,9 +298,17 @@ class DataHeader extends Component {
                 opacity: 0.3;
               }
 
-              & h5 i {
-                color: white;
-                background-color: ${blueGrey['700']};
+              & h5 {
+                & i {
+                  color: white;
+                  background-color: ${blueGrey['700']};
+                  transition: 0.3s;
+                }
+
+                & span {
+                  transition: 0.3s;
+                  opacity: 0.3;
+                }
               }
             }
 
