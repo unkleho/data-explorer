@@ -97,8 +97,8 @@ class DataHeader extends Component {
                   key={`dimension-box-${i}`}
                 >
                   <h5 onClick={() => onMainDimensionSelect(i)}>
-                    <i className="material-icons">&#xE24B;</i>
-                    {dimension.name}
+                    <span>{dimension.name}</span>
+                    <i className="material-icons">compare_arrows</i>
                   </h5>
 
                   <Select
@@ -263,16 +263,18 @@ class DataHeader extends Component {
 
             & h5 {
               cursor: pointer;
-              display: inline-block;
-              background-color: ${blueGrey['100']};
-              padding: 0.5em;
-              border-radius: 4px;
+              display: flex;
+              width: 100%;
+              align-items: baseline;
+              justify-content: space-between;
 
               & i {
-                display: none;
-                opacity: 0.5;
+                border-radius: 4px;
+                background-color: ${blueGrey['100']};
                 font-size: 1.2em;
-                margin-right: 0.5em;
+                padding: 0.2em;
+                margin-right: 0;
+                align-self: flex-end;
               }
 
               &:hover {
@@ -305,13 +307,16 @@ class DataHeader extends Component {
 
             & h1 {
               display: flex;
-              /*align-items: baseline;*/
+              align-items: center;
               font-size: 0.8em;
               text-transform: uppercase;
 
               & i {
-                font-size: 1em;
+                font-size: 1.2em;
                 margin-right: 0.5em;
+                padding: 0.2em;
+                background-color: ${blueGrey['100']};
+                border-radius: 4px;
               }
             }
           }
