@@ -48,7 +48,7 @@ class Data extends Component {
   static async getInitialProps ({ query: { id = null, source }, isServer, store }) {
     // Work out if custom default dataSet exists
     const defaultId = allData[source].defaultDataSetId;
-    const newId = id || defaultId || allData[source].dataSets.children[0].id;    
+    const newId = id || defaultId || allData[source].dataSets.children[0].id;
 
     // TODO: Let's do this properly hey... get it from 'data'
     // if (!id && source === 'ABS') {
@@ -75,6 +75,7 @@ class Data extends Component {
   }
 
   handleDimensionSelect = async (options, dimensionIndex) => {
+    console.log(this.props.source);
     let ids = [];
     ids[0] = options.value;
     // console.log(options);
@@ -86,11 +87,12 @@ class Data extends Component {
       // Update selectedDimensions array with selected dimensionId
       selectedDimensions[dimensionIndex] = ids;
 
-      this.props.dispatch(getData(buildApiUrl({
-        selectedDimensions,
-        dataSetId,
-        baseApiUrl: 'http://stats.oecd.org/sdmx-json',
-      })));
+      // this.props.dispatch(getData(buildApiUrl({
+      //   selectedDimensions,
+      //   dataSetId,
+      //   baseApiUrl: 'http://stats.oecd.org/sdmx-json',
+      // })));
+      this.props.dispatch(getData(selectedDimensions, dataSetId, this.props.source));
     }
 
     // Cool little script for html multi select
@@ -112,11 +114,12 @@ class Data extends Component {
       // Update selectedDimensions array with selected dimensionId
       selectedDimensions[dimensionIndex] = ids;
 
-      this.props.dispatch(getData(buildApiUrl({
-        selectedDimensions,
-        dataSetId,
-        baseApiUrl: 'http://stats.oecd.org/sdmx-json',
-      })));
+      // this.props.dispatch(getData(buildApiUrl({
+      //   selectedDimensions,
+      //   dataSetId,
+      //   baseApiUrl: 'http://stats.oecd.org/sdmx-json',
+      // })));
+      this.props.dispatch(getData(selectedDimensions, dataSetId, this.props.source));
     }
   }
 
@@ -127,28 +130,24 @@ class Data extends Component {
   }
 
   handleMainDimensionIdSelect = (id, dimensionId) => {
+    console.log('handleMainDimensionIdSelect');
+    // TODO: May be not used - cleanup
     // this.props.dispatch(selectMainDimensionId(id, dimensionId));
+    const selectedDimensions = this.props.selectedDimensions.map((selectedDimension, i) => {
+      if (i === dimensionId) {
+        return toggleArrayItem(selectedDimension, id);
+      } else {
+        return selectedDimension;
+      }
+    });
 
-    this.props.dispatch(getData(buildApiUrl({
-      selectedDimensions: this.props.selectedDimensions.map((selectedDimension, i) => {
-        if (i === dimensionId) {
-          return toggleArrayItem(selectedDimension, id);
-        } else {
-          return selectedDimension;
-        }
-      }),
-      dataSetId: this.props.id,
-    })));
+    this.props.dispatch(getData(selectedDimensions, this.props.id, this.props.source));
   }
 
   handleMainDimensionSelect = (mainDimensionIndex) => {
     const defaultDimensions = getDefaultDimensions(this.props.dimensions, this.props.id);
 
-    this.props.dispatch(getData(buildApiUrl({
-      selectedDimensions: defaultDimensions,
-      dataSetId: this.props.id,
-    })));
-
+    this.props.dispatch(getData(defaultDimensions, this.props.id, this.props.source));
     this.props.dispatch({
       type: 'SELECT_MAIN_DIMENSION',
       mainDimensionIndex,

@@ -76,7 +76,9 @@ export const getDataSet = (id, source) => {
   }
 }
 
-export const getData = (url) => {
+export const getData = (selectedDimensions, dataSetId, source) => {
+  const baseApiUrl = allData[source].apiUrl;
+
   return async (dispatch) => {
     dispatch({
       type: 'GET_DATA_LOADING',
@@ -84,7 +86,11 @@ export const getData = (url) => {
 
     // Fetch
     try {
-      const result = await axios.get(url);
+      const result = await axios.get(buildApiUrl({
+        selectedDimensions,
+        dataSetId,
+        baseApiUrl,
+      }));
 
       dispatch({
         type: 'GET_DATA_SUCCESS',

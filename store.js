@@ -54,6 +54,7 @@ export const reducer = (state = {
 
     case 'GET_DATA_LOADING':
 
+      console.log('GET_DATA_LOADING');
       return {
         ...state,
         isLoading: true,
