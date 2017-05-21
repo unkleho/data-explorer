@@ -265,7 +265,7 @@ class DataHeader extends Component {
               cursor: pointer;
               display: flex;
               width: 100%;
-              align-items: baseline;
+              align-items: center;
               justify-content: space-between;
 
               & i {
@@ -292,7 +292,16 @@ class DataHeader extends Component {
             }
 
             &.is-selected {
-              opacity: 0.3;
+              /*opacity: 0.3;*/
+
+              & .Select--single {
+                opacity: 0.3;
+              }
+
+              & h5 i {
+                color: white;
+                background-color: ${blueGrey['700']};
+              }
             }
 
             @media(min-width: 32em) {
@@ -315,7 +324,8 @@ class DataHeader extends Component {
                 font-size: 1.2em;
                 margin-right: 0.5em;
                 padding: 0.2em;
-                background-color: ${blueGrey['100']};
+                background-color: ${blueGrey['700']};
+                color: white;
                 border-radius: 4px;
               }
             }
