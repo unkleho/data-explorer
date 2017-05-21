@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 import Page from '../components/Page';
 import { buildDataSets } from '../utils';
-import dataSetsRaw from '../data/dataSets';
+import dataSetsRaw from '../data';
 
 const dataSets = buildDataSets(dataSetsRaw);
 
