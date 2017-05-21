@@ -10,7 +10,7 @@ import { blueGrey300 } from '../styles/variables';
 class Header extends Component {
 
   static propTypes = {
-    source: PropTypes.string,
+    sourceId: PropTypes.string,
   }
 
   constructor() {
@@ -19,9 +19,9 @@ class Header extends Component {
     this.state = {
       isMenuActive: false,
       sources: [
-        { title: 'ABS', source: 'ABS' },
-        { title: 'OECD', source: 'OECD' },
-        { title: 'UNESCO', source: 'UNESCO' },
+        { title: 'ABS', id: 'ABS' },
+        { title: 'OECD', id: 'OECD' },
+        { title: 'UNESCO', id: 'UNESCO' },
       ]
     };
   }
@@ -38,7 +38,7 @@ class Header extends Component {
 
   render() {
     const {
-      source,
+      sourceId,
     } = this.props;
 
     const {
@@ -49,7 +49,7 @@ class Header extends Component {
     return (
       <header className={`${isMenuActive && 'is-active'}`}>
         <div className="logo">
-          <span className="logo__abs">{source}</span>
+          <span className="logo__abs">{sourceId}</span>
             &nbsp;<span className="logo__text">Data Explorer</span>
             &nbsp;<span style={{ fontSize: '0.6em', opacity: '0.7' }}>BETA</span>
             &nbsp;
@@ -66,13 +66,12 @@ class Header extends Component {
                 <li
                   // onClick={() => Router.push(`/data?source=${s.source}`)}
                   onClick={this.handleMenuToggle}
-                  className={s.source === source && 'is-active'}
+                  className={s.id === sourceId && 'is-active'}
                 >
                   <Link
-                    href={`/data?source=${s.source}`}
+                    href={`/data?sourceId=${s.id}`}
                   >
-                    <a
-                    >{s.title}</a>
+                    <a>{s.title}</a>
                   </Link>
                 </li>
               )

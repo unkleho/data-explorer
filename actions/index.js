@@ -1,13 +1,15 @@
 import axios from 'axios';
 
-import { buildDataSets } from '../utils';
-
 import allData from '../data';
+import {
+  buildDataSets,
+  buildDataSetApiUrl,
+  getDefaultDimensions,
+  buildApiUrl,
+} from '../utils';
 
-import { buildDataSetApiUrl, getDefaultDimensions, buildApiUrl } from '../utils';
-
-export const getDataSets = (source) => {
-  const dataSets = buildDataSets(allData[source].dataSets); // List of DataSets
+export const getDataSets = (sourceId) => {
+  const dataSets = buildDataSets(allData[sourceId].dataSets); // List of DataSets
 
   return (dispatch) => {
     dispatch({
@@ -18,8 +20,8 @@ export const getDataSets = (source) => {
       dispatch({
         type: 'GET_DATASETS_SUCCESS',
         dataSets,
-        source: source,
-        sourceTitle: source,
+        sourceId: sourceId,
+        sourceTitle: sourceId,
       })
     } catch(e) {
       console.log(e);
@@ -31,8 +33,8 @@ export const getDataSets = (source) => {
   }
 }
 
-export const getDataSet = (id, source) => {
-  const baseApiUrl = allData[source].apiUrl;
+export const getDataSet = (id, sourceId) => {
+  const baseApiUrl = allData[sourceId].apiUrl;
 
   return async (dispatch) => {
     dispatch({
@@ -76,8 +78,8 @@ export const getDataSet = (id, source) => {
   }
 }
 
-export const getData = (selectedDimensions, dataSetId, source) => {
-  const baseApiUrl = allData[source].apiUrl;
+export const getData = (selectedDimensions, dataSetId, sourceId) => {
+  const baseApiUrl = allData[sourceId].apiUrl;
 
   return async (dispatch) => {
     dispatch({

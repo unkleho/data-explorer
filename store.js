@@ -6,6 +6,7 @@ export const reducer = (state = {
   isMenuActive: true,
   mainDimensionIndex: 0,
 }, action) => {
+
   switch (action.type) {
 
     case 'GET_DATASETS_SUCCESS':
@@ -13,7 +14,7 @@ export const reducer = (state = {
       console.log('GET_DATASETS_SUCCESS');
       return {
         ...state,
-        source: action.source,
+        sourceId: action.sourceId,
         sourceTitle: action.sourceTitle,
         dataSets: action.dataSets,
       }
@@ -72,7 +73,6 @@ export const reducer = (state = {
     case 'GET_DATA_SUCCESS':
 
       console.log('GET_DATA_SUCCESS');
-      // console.log(action.data);
       return {
         ...state,
         isLoading: false,
@@ -82,6 +82,7 @@ export const reducer = (state = {
 
     case 'SELECT_MAIN_DIMENSION':
 
+      console.log('SELECT_MAIN_DIMENSION');
       return {
         ...state,
         mainDimensionIndex: action.mainDimensionIndex,
@@ -89,8 +90,8 @@ export const reducer = (state = {
       }
 
     case 'TOGGLE_MENU':
-      console.log('TOGGLE_MENU', !state.isMenuActive);
 
+      console.log('TOGGLE_MENU', !state.isMenuActive);
       return {
         ...state,
         isMenuActive: !state.isMenuActive,
@@ -106,12 +107,12 @@ export const initStore = (initialState) => {
 }
 
 function toggleArrayItem(a, v) {
-    var i = a.indexOf(v);
-    if (i === -1) {
-      a.push(v);
-    } else {
-      a.splice(i,1);
-    }
+  var i = a.indexOf(v);
+  if (i === -1) {
+    a.push(v);
+  } else {
+    a.splice(i,1);
+  }
 
-    return a;
+  return a;
 }

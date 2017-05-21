@@ -121,7 +121,7 @@ class DataHeader extends Component {
         </div>
 
         <div className="main-dimension-box">
-          <h1><i className="material-icons">&#xE24B;</i> {mainDimension.name}</h1>
+          <h1><i className="material-icons">compare_arrows</i> {mainDimension.name}</h1>
 
           <Select
             name="form-field-name"
@@ -159,7 +159,7 @@ class DataHeader extends Component {
             & h1 {
               cursor: pointer;
               font-size: 2em;
-              color: ${blueGrey['700']};
+              color: ${blueGrey['600']};
               margin-top: 0;
               margin-bottom: 0;
 

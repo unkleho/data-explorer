@@ -36,6 +36,10 @@ class Data extends Component {
 
   static propTypes = {
     id: PropTypes.string,
+    query: PropTypes.shape({
+      id: PropTypes.string,
+      sourceId: PropTypes.string,
+    })
   }
 
   constructor() {
@@ -45,37 +49,25 @@ class Data extends Component {
     };
   }
 
-  static async getInitialProps ({ query: { id = null, source }, isServer, store }) {
+  static async getInitialProps ({ query: { id = null, sourceId }, isServer, store }) {
     // Work out if custom default dataSet exists
-    const defaultId = allData[source].defaultDataSetId;
-    const newId = id || defaultId || allData[source].dataSets.children[0].id;
+    const defaultId = allData[sourceId].defaultDataSetId;
+    const newId = id || defaultId || allData[sourceId].dataSets.children[0].id;
 
-    // TODO: Let's do this properly hey... get it from 'data'
-    // if (!id && source === 'ABS') {
-    //   newId = 'LF';
-    // } else if (!id && source === 'OECD') {
-    //   newId = 'SNA_TABLE1';
-    // } else if (!id && source === 'UNESCO') {
-    //   newId = 'DEMO_DS';
-    // } else {
-    //   newId = id;
-    // }
-
-    await store.dispatch(getDataSets(source));
-    await store.dispatch(getDataSet(newId, source));
+    await store.dispatch(getDataSets(sourceId));
+    await store.dispatch(getDataSet(newId, sourceId));
 
     return {
       id: newId,
-      source,
+      sourceId,
     }
   }
 
   handleDataSetSelect = (id) => {
-    Router.push(`/data?id=${id}&source=${this.props.source}`);
+    Router.push(`/data?id=${id}&sourceId=${this.props.sourceId}`);
   }
 
   handleDimensionSelect = async (options, dimensionIndex) => {
-    console.log(this.props.source);
     let ids = [];
     ids[0] = options.value;
     // console.log(options);
@@ -87,12 +79,7 @@ class Data extends Component {
       // Update selectedDimensions array with selected dimensionId
       selectedDimensions[dimensionIndex] = ids;
 
-      // this.props.dispatch(getData(buildApiUrl({
-      //   selectedDimensions,
-      //   dataSetId,
-      //   baseApiUrl: 'http://stats.oecd.org/sdmx-json',
-      // })));
-      this.props.dispatch(getData(selectedDimensions, dataSetId, this.props.source));
+      this.props.dispatch(getData(selectedDimensions, dataSetId, this.props.sourceId));
     }
 
     // Cool little script for html multi select
@@ -114,12 +101,7 @@ class Data extends Component {
       // Update selectedDimensions array with selected dimensionId
       selectedDimensions[dimensionIndex] = ids;
 
-      // this.props.dispatch(getData(buildApiUrl({
-      //   selectedDimensions,
-      //   dataSetId,
-      //   baseApiUrl: 'http://stats.oecd.org/sdmx-json',
-      // })));
-      this.props.dispatch(getData(selectedDimensions, dataSetId, this.props.source));
+      this.props.dispatch(getData(selectedDimensions, dataSetId, this.props.sourceId));
     }
   }
 
@@ -141,13 +123,13 @@ class Data extends Component {
       }
     });
 
-    this.props.dispatch(getData(selectedDimensions, this.props.id, this.props.source));
+    this.props.dispatch(getData(selectedDimensions, this.props.id, this.props.sourceId));
   }
 
   handleMainDimensionSelect = (mainDimensionIndex) => {
     const defaultDimensions = getDefaultDimensions(this.props.dimensions, this.props.id);
 
-    this.props.dispatch(getData(defaultDimensions, this.props.id, this.props.source));
+    this.props.dispatch(getData(defaultDimensions, this.props.id, this.props.sourceId));
     this.props.dispatch({
       type: 'SELECT_MAIN_DIMENSION',
       mainDimensionIndex,
@@ -162,6 +144,7 @@ class Data extends Component {
     };
 
     const {
+      sourceTitle,
       dataSet,
       dataSets,
       dimensions,
@@ -207,14 +190,6 @@ class Data extends Component {
           />
         )}
 
-        {/* <DataAside
-          mainDimensionIndex={mainDimensionIndex || 0}
-          selectedDimensions={selectedDimensions}
-          dimensions={dimensions}
-          onMainDimensionIdSelect={this.handleMainDimensionIdSelect}
-          onMainDimensionSelect={this.handleMainDimensionSelect}
-        ></DataAside> */}
-
         <main className="content">
           <Measure
             onMeasure={(dimensions) => {
@@ -226,47 +201,6 @@ class Data extends Component {
                 <div className="overlay" onClick={this.handleMenuClick}>
                 </div>
               )}
-
-              {/* <div className="content-header">
-                <button className="" onClick={this.handleMenuClick}>Menu</button>
-
-                <div className="content-header__id">{this.props.id}</div>
-                <h3 className="content-header__title">{dataSet && dataSet.name}</h3>
-
-                <div className="content-header__dimensions">
-                  {selectedDimensions && dimensions && dimensions.map((dimension, i) => {
-                    const currentDimensionIds = selectedDimensions[i];
-
-                    const results = (dimension.values.filter((item) => {
-                      return currentDimensionIds && currentDimensionIds.indexOf(item.id) > -1 ? true : false;
-                    }));
-
-                    return results && results[0] && (
-                      <div className="content-header__dimension">
-                        <span className="content-header__dimension__name">
-                          {dimension.name}
-                        </span>
-                        <span className="content-header__dimension__current">
-                          {results.map((result, i) => {
-                            const legendLabel = results.length > 1 ? (
-                              <span style={{
-                                display: 'inline-block',
-                                backgroundColor: colors[i],
-                                width: '1em',
-                                height: '1em',
-                                marginRight: '0.2em',
-                              }}></span>
-                            ) : '';
-                            return (
-                              <span>{i > 0 && `, `}{legendLabel}{result.name}</span>
-                            )
-                          })}
-                        </span>
-                      </div>
-                    )
-                  })}
-                </div>
-              </div> */}
 
               {(typeof window !== 'undefined' && this.state.dimensions) ? (
                 <div className="content">
@@ -290,23 +224,10 @@ class Data extends Component {
             </div>
           </Measure>
 
-          <p style={{ fontSize: '0.6em', float: 'right' }}>Source: Australian Bureau of Statistics</p>
+          <p style={{ fontSize: '0.6em', float: 'right' }}>Source: {sourceTitle}</p>
         </main>
 
         <style jsx>{`
-          /*.overlay {
-            position: absolute;
-            z-index: 50;
-            background-color: white;
-            opacity: 0.5;
-            width: 100%;
-            height: 100%;
-
-            @media(min-width: 32em) {
-              display: none;
-            }
-          }*/
-
           main {
             width: 100%;
             line-height: 1.27777778em;
