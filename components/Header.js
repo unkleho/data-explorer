@@ -48,40 +48,44 @@ class Header extends Component {
 
     return (
       <header className={`${isMenuActive && 'is-active'}`}>
-        <div className="logo">
-          <span className="logo__abs">{sourceId}</span>
-            &nbsp;<span className="logo__text">Data Explorer</span>
-            &nbsp;<span style={{ fontSize: '0.6em', opacity: '0.7' }}>BETA</span>
-            &nbsp;
-            <i
-              className="material-icons arrow"
-              onClick={this.handleMenuToggle}
-            >{isMenuActive ? 'keyboard_arrow_up' : 'keyboard_arrow_down'}</i>
-        </div>
 
-        <div className={`menu ${isMenuActive && 'is-active'}`}>
-          <ul>
-            {sources.map((s) => {
-              return (
-                <li
-                  // onClick={() => Router.push(`/data?source=${s.source}`)}
-                  onClick={this.handleMenuToggle}
-                  className={s.id === sourceId && 'is-active'}
-                >
-                  <Link
-                    href={`/data?sourceId=${s.id}`}
+        <div className="container">
+
+          <div className="logo">
+            <span className="logo__abs">{sourceId}</span>
+              &nbsp;<span className="logo__text">Data Explorer</span>
+              &nbsp;<span style={{ fontSize: '0.6em', opacity: '0.7' }}>BETA</span>
+              &nbsp;
+              <i
+                className="material-icons arrow"
+                onClick={this.handleMenuToggle}
+              >{isMenuActive ? 'keyboard_arrow_up' : 'keyboard_arrow_down'}</i>
+          </div>
+
+          <div className={`menu ${isMenuActive && 'is-active'}`}>
+            <ul>
+              {sources.map((s) => {
+                return (
+                  <li
+                    // onClick={() => Router.push(`/data?source=${s.source}`)}
+                    onClick={this.handleMenuToggle}
+                    className={s.id === sourceId && 'is-active'}
                   >
-                    <a>{s.title}</a>
-                  </Link>
-                </li>
-              )
-            })}
-          </ul>
+                    <Link
+                      href={`/data?sourceId=${s.id}`}
+                    >
+                      <a>{s.title}</a>
+                    </Link>
+                  </li>
+                )
+              })}
+            </ul>
+          </div>
+
         </div>
 
         <style jsx>{`
           header {
-            padding-left: 1em;
             background-color: ${blueGrey['700']};
             color: white;
             height: 2.95em;
@@ -100,6 +104,7 @@ class Header extends Component {
           .logo {
             font-size: 1em;
             line-height: 3;
+            margin-left: 1em;
             display: flex;
             align-items: baseline;
           }

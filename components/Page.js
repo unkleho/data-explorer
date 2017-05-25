@@ -162,6 +162,11 @@ class Page extends Component {
             text-decoration: underline;
           }
 
+          .container {
+            max-width: 70em;
+            margin: 0 auto;
+          }
+
           .content-header {
             padding-top: 1.8em;
             margin-bottom: 1em;

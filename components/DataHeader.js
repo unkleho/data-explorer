@@ -62,81 +62,94 @@ class DataHeader extends Component {
       <aside className={`box`}>
 
         <div className={`data-set-box ${this.state.showDataSetSelector ? 'is-open' : ''}`}>
-          <div className="data-set-box__id">{dataSet && dataSet.id}</div>
-          <h1
-            className="data-set-box__title" onClick={this.handleDataSetTitleClick}
-          >
-            {dataSet && dataSet.title} {this.state.showDataSetSelector ? (
-              <span>Close <i className="material-icons">&#xE5D8;</i></span>
-            ) : (
-              <span>Change <i className="material-icons">&#xE5DB;</i></span>
-            )}
-          </h1>
 
-          {this.state.showDataSetSelector && (
-            <DataSetSelector
-              isActive={this.state.showDataSetSelector}
-              selectedId={dataSet.id}
-              dataSets={dataSets}
-              onDataSetSelect={this.handleDataSetSelect}
-            />
-          )}
+          <div className="container">
+
+            <div className="data-set-box__inside">
+
+              <div className="data-set-box__id">{dataSet && dataSet.id}</div>
+              <h1
+                className="data-set-box__title" onClick={this.handleDataSetTitleClick}
+              >
+                {dataSet && dataSet.title} {this.state.showDataSetSelector ? (
+                  <span>Close <i className="material-icons">&#xE5D8;</i></span>
+                ) : (
+                  <span>Change <i className="material-icons">&#xE5DB;</i></span>
+                )}
+              </h1>
+
+              {this.state.showDataSetSelector && (
+                <DataSetSelector
+                  isActive={this.state.showDataSetSelector}
+                  selectedId={dataSet.id}
+                  dataSets={dataSets}
+                  onDataSetSelect={this.handleDataSetSelect}
+                />
+              )}
+
+            </div>
+
+          </div>
+
         </div>
 
-        <div className="dimension-boxes">
-          {/* <i className="material-icons">filter_list</i> */}
+        <div className="container">
 
-          {selectedDimensions && dimensions && dimensions.map((dimension, i) => {
-            const options = dimension.values;
-            const currentDimensionIds = selectedDimensions[i];
+          <div className="dimension-boxes">
 
-            if (dimension.id !== 'FREQUENCY') {
-              return (
-                <div
-                  className={`dimension-box ${i === mainDimensionIndex ? 'is-selected' : ''}`}
-                  key={`dimension-box-${i}`}
-                >
-                  <h5 onClick={() => onMainDimensionSelect(i)}>
-                    <span>{dimension.name}</span>
-                    <i className="material-icons">compare_arrows</i>
-                  </h5>
+            {selectedDimensions && dimensions && dimensions.map((dimension, i) => {
+              const options = dimension.values;
+              const currentDimensionIds = selectedDimensions[i];
 
-                  <Select
-                    name="form-field-name"
-                    value={currentDimensionIds.length === 1 ? currentDimensionIds[0] : currentDimensionIds}
-                    clearable={false}
-                    searchable={false}
-                    options={options.map((option) => {
-                      return {
-                        label: option.name,
-                        value: option.id,
-                      }
-                    })}
-                    onChange={(options) => this.handleDimensionSelect(options, i)}
-                  />
-                </div>
-              );
-            }
-          })}
-        </div>
+              if (dimension.id !== 'FREQUENCY') {
+                return (
+                  <div
+                    className={`dimension-box ${i === mainDimensionIndex ? 'is-selected' : ''}`}
+                    key={`dimension-box-${i}`}
+                  >
+                    <h5 onClick={() => onMainDimensionSelect(i)}>
+                      <span>{dimension.name}</span>
+                      <i className="material-icons">compare_arrows</i>
+                    </h5>
 
-        <div className="main-dimension-box">
-          <h1><i className="material-icons">compare_arrows</i> {mainDimension.name}</h1>
-
-          <Select
-            name="form-field-name"
-            value={selectedDimensions[mainDimensionIndex]}
-            clearable={false}
-            multi={true}
-            options={mainDimension.values.map((option) => {
-              return {
-                label: option.name,
-                value: option.id,
+                    <Select
+                      name="form-field-name"
+                      value={currentDimensionIds.length === 1 ? currentDimensionIds[0] : currentDimensionIds}
+                      clearable={false}
+                      searchable={false}
+                      options={options.map((option) => {
+                        return {
+                          label: option.name,
+                          value: option.id,
+                        }
+                      })}
+                      onChange={(options) => this.handleDimensionSelect(options, i)}
+                    />
+                  </div>
+                );
               }
             })}
-            onChange={(options) => this.handleMultiDimensionSelect(options, mainDimensionIndex)}
-            // valueComponent={CustomValueComponent}
-          />
+          </div>
+
+          <div className="main-dimension-box">
+            <h1><i className="material-icons">compare_arrows</i> Compare: {mainDimension.name}</h1>
+
+            <Select
+              name="form-field-name"
+              value={selectedDimensions[mainDimensionIndex]}
+              clearable={false}
+              multi={true}
+              options={mainDimension.values.map((option) => {
+                return {
+                  label: option.name,
+                  value: option.id,
+                }
+              })}
+              onChange={(options) => this.handleMultiDimensionSelect(options, mainDimensionIndex)}
+              // valueComponent={CustomValueComponent}
+            />
+          </div>
+
         </div>
 
         <style jsx>{`
@@ -153,7 +166,7 @@ class DataHeader extends Component {
           }
 
           .data-set-box {
-            padding: 1em;
+            padding: 1em 0;
             background-color: #F5F7F8;
 
             & h1 {
@@ -185,6 +198,11 @@ class DataHeader extends Component {
               height: 20em;
             }
           }
+
+            .data-set-box__inside {
+              padding-left: 1em;
+              padding-right: 1em;
+            }
 
             .data-set-box__id {
               color: ${blueGrey['400']};

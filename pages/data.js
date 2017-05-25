@@ -49,7 +49,7 @@ class Data extends Component {
     };
   }
 
-  static async getInitialProps ({ query: { id = null, sourceId }, isServer, store }) {
+  static async getInitialProps ({ query: { id = null, sourceId = 'ABS' }, isServer, store }) {
     // Work out if custom default dataSet exists
     const defaultId = allData[sourceId].defaultDataSetId;
     const newId = id || defaultId || allData[sourceId].dataSets.children[0].id;
@@ -190,7 +190,7 @@ class Data extends Component {
           />
         )}
 
-        <main className="content">
+        <main className="content container">
           <Measure
             onMeasure={(dimensions) => {
               this.setState({ dimensions });
@@ -224,7 +224,10 @@ class Data extends Component {
             </div>
           </Measure>
 
-          <p style={{ fontSize: '0.6em', float: 'right' }}>Source: {sourceTitle}</p>
+          <p style={{ fontSize: '0.6em', float: 'right', textAlign: 'right' }}>
+            Source: {sourceTitle}<br/>
+            Disclaimer: This website is in active development. Charts may not be accurate.
+          </p>
         </main>
 
         <style jsx>{`
