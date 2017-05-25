@@ -139,7 +139,7 @@ class DataHeader extends Component {
               value={selectedDimensions[mainDimensionIndex]}
               clearable={false}
               multi={true}
-              options={mainDimension.values.map((option) => {
+              options={mainDimension && mainDimension.values.map((option) => {
                 return {
                   label: option.name,
                   value: option.id,

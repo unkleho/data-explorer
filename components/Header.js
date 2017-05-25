@@ -65,17 +65,20 @@ class Header extends Component {
           <div className={`menu ${isMenuActive && 'is-active'}`}>
             <ul>
               {sources.map((s) => {
+                // const idParam = s.id === 'UNESCO' ? '&id=DEMO_DS' : '';
+
                 return (
                   <li
-                    // onClick={() => Router.push(`/data?source=${s.source}`)}
                     onClick={this.handleMenuToggle}
                     className={s.id === sourceId && 'is-active'}
                   >
-                    <Link
-                      href={`/data?sourceId=${s.id}`}
-                    >
-                      <a>{s.title}</a>
-                    </Link>
+                    {/* <Link
+                      href={`/data?sourceId=${s.id}${idParam}`}
+                    > */}
+                      <a
+                        href={`/data?sourceId=${s.id}`}
+                      >{s.title}</a>
+                    {/* </Link> */}
                   </li>
                 )
               })}
