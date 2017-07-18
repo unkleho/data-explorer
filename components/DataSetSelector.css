@@ -1,0 +1,35 @@
+.box {
+  margin-top: 1em;
+  /*display: none;*/
+  /*position: absolute;*/
+  /*padding: 1em;
+  background-color: white;
+  overflow-x: auto;
+  height: 90%;
+  width: 90%;
+  z-index: 100;*/
+  /*margin-right: 1em;*/
+}
+
+/*.box.is-active {
+  display: block;
+}*/
+
+.title {
+  display: block;
+  padding: 0.2em;
+  cursor: pointer;
+
+  &:hover {
+    /*color: ${deepOrange['700']};*/
+  }
+}
+
+.title.is-active {
+  /*background-color: ${deepOrange['500']};*/
+  color: white;
+
+  &:hover {
+    color: white;
+  }
+}

@@ -94,56 +94,6 @@ class DataAside extends Component {
         </div> */}
 
         <style jsx>{`
-          @lost gutter 0;
-
-          aside {
-            background-color: #ECEFF1;
-            height: calc(100vh - 3em);
-            overflow-x: auto;
-          }
-
-          .dimension-title {
-            position: sticky;
-            top: 0;
-            background-color: ${blueGrey['200']};
-            /*margin-bottom: 0.4em;*/
-            margin-left: -1em;
-            margin-right: -1em;
-            padding: 0.5em 1em;
-          }
-
-          .main-dimension-box {
-            padding: 0 1em 1em;
-
-            @media(min-width: 32em) {
-              lost-column: 1/4;
-            }
-          }
-
-            .main-dimension-box__header {
-              margin-bottom: 1em;
-            }
-
-          button {
-            border: none;
-            display: block;
-            text-align: left;
-            text-transform: capitalize;
-            font-size: 0.7em;
-            width: 100%;
-            padding: 0.5em;
-            border-radius: 4px;
-            background-color: white;
-            margin-bottom: 0.5em;
-
-            &:first-child {
-              margin-top: 0.4em;
-            }
-
-            &.active {
-              color: white;
-            }
-          }
         `}</style>
       </aside>
     )
