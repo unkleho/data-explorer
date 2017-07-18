@@ -1,6 +1,8 @@
-import { Component, PropTypes } from 'react';
-import { blueGrey } from 'material-colors';
+import { Component } from 'react';
+import PropTypes from 'prop-types';
+// import { blueGrey } from 'material-colors';
 
+import styles from './DataAside.css';
 import { colors } from '../styles/variables';
 
 class DataAside extends Component {
@@ -24,13 +26,13 @@ class DataAside extends Component {
 
   render() {
     const {
-      mainDimensionIndex,
+      // mainDimensionIndex,
       dimensions,
       selectedDimensions,
       onMainDimensionIdSelect,
     } = this.props;
 
-    const mainDimension = dimensions[mainDimensionIndex];
+    // const mainDimension = dimensions[mainDimensionIndex];
 
     return (
       <aside className="main-dimension-box">
@@ -93,8 +95,7 @@ class DataAside extends Component {
           })}
         </div> */}
 
-        <style jsx>{`
-        `}</style>
+        <style jsx>{styles}</style>
       </aside>
     )
   }

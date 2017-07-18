@@ -106,13 +106,13 @@ export const initStore = (initialState) => {
   return createStore(reducer, initialState, applyMiddleware(thunkMiddleware))
 }
 
-function toggleArrayItem(a, v) {
-  var i = a.indexOf(v);
-  if (i === -1) {
-    a.push(v);
-  } else {
-    a.splice(i,1);
-  }
-
-  return a;
-}
+// function toggleArrayItem(a, v) {
+//   var i = a.indexOf(v);
+//   if (i === -1) {
+//     a.push(v);
+//   } else {
+//     a.splice(i,1);
+//   }
+//
+//   return a;
+// }

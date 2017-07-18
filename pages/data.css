@@ -5,7 +5,7 @@ main {
   padding-right: calc(1.27777778em * 1);
   background-color: white;
 
-  @media(min-width: 32em) {
+  @media (min-width: 32em) {
     /*lost-column: 3/4;*/
 
     padding-left: calc(1.27777778em * 2);
@@ -22,7 +22,7 @@ main {
   top: 0;
   left: 0;
   display: flex;
-  background-color: rgba(0,0,0,0.05);
+  background-color: rgba(0, 0, 0, 0.05);
   justify-content: center;
   align-items: center;
   width: 100%;

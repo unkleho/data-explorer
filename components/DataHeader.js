@@ -1,9 +1,10 @@
-import { Component, PropTypes } from 'react';
-import { blueGrey } from 'material-colors';
+import { Component } from 'react';
+// import PropTypes from 'prop-types';
+// import { blueGrey } from 'material-colors';
 import Select from 'react-select';
-import Router from 'next/router';
 
-import { blueGrey50, blueGrey100, blueGrey300, blueGrey700, deepOrange600, colors } from '../styles/variables';
+import styles from './DataHeader.css';
+// import { blueGrey50, blueGrey100, blueGrey300, blueGrey700, deepOrange600, colors } from '../styles/variables';
 import DataSetSelector from '../components/DataSetSelector';
 
 class DataHeader extends Component {
@@ -45,16 +46,16 @@ class DataHeader extends Component {
       selectedDimensions,
       dimensions,
       mainDimensionIndex = 0,
-      onDataSetSelect,
-      onDimensionSelect,
-      onMainDimensionIdSelect,
+      // onDataSetSelect,
+      // onDimensionSelect,
+      // onMainDimensionIdSelect,
       onMainDimensionSelect,
-      onMultiDimensionSelect,
+      // onMultiDimensionSelect,
     } = this.props;
 
     const dataSet = dataSets.filter(dataSet => dataSet.id === id)[0];
     const mainDimension = dimensions[mainDimensionIndex];
-    const displayDimensions = dimensions.filter((dimension, i) => i !== mainDimensionIndex);
+    // const displayDimensions = dimensions.filter((dimension, i) => i !== mainDimensionIndex);
     // console.log(selectedDimensions);
     // console.table(displayDimensions);
 
@@ -127,6 +128,8 @@ class DataHeader extends Component {
                     />
                   </div>
                 );
+              } else {
+                return null;
               }
             })}
           </div>
@@ -152,8 +155,7 @@ class DataHeader extends Component {
 
         </div>
 
-        <style jsx>{`
-        `}</style>
+        <style jsx>{styles}</style>
 
       </aside>
     )

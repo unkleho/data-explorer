@@ -1,11 +1,11 @@
-import { Component, PropTypes } from 'react';
+import { Component } from 'react';
+import PropTypes from 'prop-types';
 import withRedux from 'next-redux-wrapper';
-import Router from 'next/router';
-import Link from 'next/link';
-import { blueGrey, orange } from 'material-colors';
+// import Link from 'next/link';
+// import { blueGrey, orange } from 'material-colors';
 
 import { initStore } from '../store';
-import { blueGrey300 } from '../styles/variables';
+// import { blueGrey300 } from '../styles/variables';
 
 class Header extends Component {
 
@@ -22,7 +22,7 @@ class Header extends Component {
         { title: 'ABS', id: 'ABS' },
         { title: 'OECD', id: 'OECD' },
         { title: 'UNESCO', id: 'UNESCO' },
-      ]
+      ],
     };
   }
 

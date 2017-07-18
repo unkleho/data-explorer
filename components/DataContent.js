@@ -1,12 +1,9 @@
-import { Component, PropTypes } from 'react';
+import { Component } from 'react';
+import PropTypes from 'prop-types';
 import {
-  VictoryZoomContainer,
-  VictoryBrushContainer,
-  VictoryAxis,
   VictoryChart,
   VictoryLine,
   VictoryPie,
-  VictoryArea,
 } from 'victory';
 
 import { colors } from '../styles/variables';
@@ -42,7 +39,7 @@ class Content extends Component {
       chartType,
       theme,
       width,
-      height,
+      // height,
       chartStyle,
       colourMap,
     } = this.props;
@@ -70,7 +67,7 @@ class Content extends Component {
                         data: {
                           stroke: colourMap[i] && colors[colourMap[i].colour],
                           // fill: colors[i],
-                        }
+                        },
                       }}
                       data={data}
                     />
@@ -90,8 +87,8 @@ class Content extends Component {
                     const i = d.eventKey;
                     return colourMap[i] && colors[colourMap[i].colour];
                     // return colors[d.eventKey]
-                  }
-                }
+                  },
+                },
               }}
               labels={(d) => {
                 return colourMap[d.eventKey] && colourMap[d.eventKey].name;

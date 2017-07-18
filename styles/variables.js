@@ -1,4 +1,4 @@
-import { cyan, orange, purple, yellow, red, blue, green } from 'material-colors';
+import { cyan, orange, purple, yellow, blue, green } from 'material-colors';
 
 // Colors
 export const yellow200 = "#FFF59D";
@@ -33,5 +33,5 @@ export const padding = 8;
 export const baseProps = {
   width: 350,
   height: 350,
-  padding: 50
+  padding: 50,
 };

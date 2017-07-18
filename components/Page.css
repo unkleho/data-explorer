@@ -1,10 +1,4 @@
-html {
-  box-sizing: border-box;
-}
-
-*, *:before, *:after {
-  box-sizing: inherit;
-}
+@import '../styles/base.css';
 
 body {
   position: relative;
@@ -13,9 +7,11 @@ body {
   margin: 0;
   font-size: 18px;
   line-height: 23px;
-  color: ${blueGrey700};
+
+  /*color: ${blueGrey700};*/
 
   background-color: white;
+
   /*// letter-spacing: -0.03em;*/
 }
 
@@ -55,11 +51,10 @@ h3, .h3 {
   font-size: 1em;
   line-height: 1.4em;
   margin-top: 0.79310345em;
-  margin-bottom: 0em;
+  margin-bottom: 0;
   max-width: 20em;
-  // text-align: center;
 
-  @media(min-width: 32em) {
+  @media (min-width: 32em) {
     font-size: 2em;
   }
 }
@@ -84,13 +79,13 @@ h5, .h5 {
 }
 
 p, ul, ol, pre, table, blockquote {
-  margin-top: 0em;
+  margin-top: 0;
   margin-bottom: 1.27777778em;
 }
 
 ul ul, ol ol, ul ol, ol ul {
-  margin-top: 0em;
-  margin-bottom: 0em;
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
 /* Let's make sure all's aligned */
@@ -125,7 +120,8 @@ select {
 
 a:link, a:visited {
   text-decoration: none;
-  color: ${blueGrey['700']};
+
+  /*color: ${blueGrey['700']};*/
 }
 
 a:hover, a:active {

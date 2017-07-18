@@ -1,29 +1,29 @@
-import { Component, PropTypes } from 'react';
+import { Component } from 'react';
+import PropTypes from 'prop-types';
 import Router from 'next/router';
-import Head from 'next/head';
 import Measure from 'react-measure';
-import Select from 'react-select';
 import withRedux from 'next-redux-wrapper';
-import { blueGrey } from 'material-colors';
+// import { blueGrey } from 'material-colors';
 
+import styles from './data.css';
 import Page from '../components/Page';
-import LoadingBar from '../components/LoadingBar';
+// import LoadingBar from '../components/LoadingBar';
 import DataContent from '../components/DataContent';
 import DataHeader from '../components/DataHeader';
-import DataAside from '../components/DataAside';
+// import DataAside from '../components/DataAside';
 // import Modal from '../components/Modal';
 import theme from '../styles/victoryTheme';
-import { colors } from '../styles/variables';
+// import { colors } from '../styles/variables';
 import { initStore } from '../store';
 import {
   getDataSets,
   getDataSet,
   getData,
-  selectMainDimensionId,
+  // selectMainDimensionId,
 } from '../actions';
 import {
   buildVictoryData,
-  buildApiUrl,
+  // buildApiUrl,
   getTimePeriods,
   getChartType,
   toggleArrayItem,
@@ -39,7 +39,7 @@ class Data extends Component {
     query: PropTypes.shape({
       id: PropTypes.string,
       sourceId: PropTypes.string,
-    })
+    }),
   }
 
   constructor() {
@@ -140,12 +140,12 @@ class Data extends Component {
   render() {
     const chartStyle = {
       parent: {
-      }
+      },
     };
 
     const {
       sourceTitle,
-      dataSet,
+      // dataSet,
       dataSets,
       dimensions,
       isLoaded,
@@ -230,8 +230,7 @@ class Data extends Component {
           </p>
         </main>
 
-        <style jsx>{`
-        `}</style>
+        <style jsx>{styles}</style>
       </Page>
     );
   }

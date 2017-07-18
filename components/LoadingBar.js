@@ -1,4 +1,4 @@
-const LoadingBar = ({}) => {
+const LoadingBar = () => {
   return (
     <div>
       <p>Loading</p>

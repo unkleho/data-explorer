@@ -1,16 +1,13 @@
-import { Component, PropTypes } from 'react';
-import Router from 'next/router';
+import { Component } from 'react';
+// import PropTypes from 'prop-types';
 import Head from 'next/head';
-import { blueGrey } from 'material-colors';
+// import { blueGrey } from 'material-colors';
 
+import styles from './Page.css';
 import Header from '../components/Header';
-import { blueGrey50, blueGrey100, blueGrey300, blueGrey700, deepOrange600 } from '../styles/variables';
+// import { blueGrey50, blueGrey100, blueGrey300, blueGrey700, deepOrange600 } from '../styles/variables';
 
 class Page extends Component {
-
-  constructor() {
-    super();
-  }
 
   render() {
     return (
@@ -27,8 +24,7 @@ class Page extends Component {
         <Header />
         {this.props.children}
 
-        <style jsx global>{`
-        `}</style>
+        <style jsx global>{styles}</style>
       </div>
     );
   }

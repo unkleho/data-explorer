@@ -1,8 +1,6 @@
-import { Component, PropTypes } from 'react';
-import { blueGrey, deepOrange } from 'material-colors';
+import { Component } from 'react';
+import PropTypes from 'prop-types';
 import Select from 'react-select';
-
-import { colors } from '../styles/variables';
 
 class DataSetSelector extends Component {
   static propTypes = {
@@ -10,11 +8,6 @@ class DataSetSelector extends Component {
     selectedId: PropTypes.string,
     handleDataSetSelect: PropTypes.func,
     isActive: PropTypes.bool,
-  }
-
-  constructor() {
-    super();
-
   }
 
   componentDidMount() {

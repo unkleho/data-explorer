@@ -2,7 +2,7 @@
  * ABS Data Utilities
  * -------------------------------------------------------------------------- */
 
-import dataSets from '../data/absDataSets';
+// import dataSets from '../data/absDataSets';
 // import dataSets from '../data/oecdDataSets';
 
 // API UTILITIES
@@ -100,7 +100,7 @@ export function getDefaultDimensions(dimensions, id, dataSetDefaultDimensions) {
 
 export function getById(items, id) {
   const result = items.filter((item) => {
-    return item.id == id;
+    return item.id === id;
   });
 
   if (result.length > 0) {
@@ -143,7 +143,7 @@ export function createDate(dateString) {
     } else {
       // Assume it is monthly...
       // TODO: Best to get frequency argument to make sure
-      month = parseInt(suffix);
+      month = parseInt(suffix, 10);
     }
   }
 
@@ -213,7 +213,7 @@ export function buildLineChartData(observations, timePeriods) {
   Object.keys(observations).forEach(function(key, i) {
     const value = observations[key][0];
     const resultIndex = Math.floor(i/timePeriods.length);
-    const showLabel = i % timePeriods.length === Math.floor(timePeriods.length / 2);
+    // const showLabel = i % timePeriods.length === Math.floor(timePeriods.length / 2);
 
     const timePeriodKey = getTimePeriodKey(key, timePeriods);
 
