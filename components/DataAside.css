@@ -11,7 +11,7 @@ aside {
 .dimension-title {
   position: sticky;
   top: 0;
-  /*background-color: ${blueGrey['200']};*/
+  color: var(--colour-primary-200);
   background-color: var(--md-blue-grey-200);
 
   /*margin-bottom: 0.4em;*/

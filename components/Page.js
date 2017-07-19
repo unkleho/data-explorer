@@ -4,6 +4,7 @@ import Head from 'next/head';
 // import { blueGrey } from 'material-colors';
 
 import styles from './Page.css';
+import baseStyles from '../styles/base.css';
 import Header from '../components/Header';
 // import { blueGrey50, blueGrey100, blueGrey300, blueGrey700, deepOrange600 } from '../styles/variables';
 
@@ -25,6 +26,7 @@ class Page extends Component {
         {this.props.children}
 
         <style jsx global>{styles}</style>
+        <style jsx global>{baseStyles}</style>
       </div>
     );
   }

@@ -1,3 +1,5 @@
+@import './config.css';
+
 :root {
   /*
    * VARIABLES
@@ -6,11 +8,6 @@
   /*
    * Colours
    * ------------------------------------------------------------------------ */
-
-  --colour-primary: blue;
-  --colour-secondary: green;
-  --colour-tertiary: yellow;
-  --colour-highlight: red;
 
   /* Primary */
   --colour-primary-dark: color(var(--colour-primary) shade(10%));

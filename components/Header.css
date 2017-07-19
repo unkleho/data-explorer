@@ -1,5 +1,7 @@
+@import '../styles/variables.css';
+
 header {
-  /*background-color: ${blueGrey['700']};*/
+  background-color: var(--md-blue-grey-700);
   color: white;
   height: 2.95em;
   transition: 0.3s;
@@ -41,9 +43,7 @@ a:link, a:visited {
 }
 
 .menu {
-  /*display: none;*/
-
-  /*background-color: ${blueGrey['600']};*/
+  background-color: var(--colour-primary-600);
 
   & ul {
     display: flex;
@@ -60,7 +60,7 @@ a:link, a:visited {
     padding-right: 1em;
 
     &.is-active {
-      /*background-color: ${orange['900']};*/
+      background-color: var(--colour-highlight-900);
     }
   }
 

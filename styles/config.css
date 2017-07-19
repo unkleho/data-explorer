@@ -1,0 +1,34 @@
+@import 'material-colors/dist/colors.var.css';
+
+:root {
+  /*
+   * CONFIG VARIABLES
+   * ======================================================================== */
+
+  --colour-primary: var(--md-blue-grey-500);
+  --colour-secondary: green;
+  --colour-tertiary: yellow;
+  --colour-highlight: red;
+
+  --colour-primary-50: var(--md-blue-grey-50);
+  --colour-primary-100: var(--md-blue-grey-100);
+  --colour-primary-200: var(--md-blue-grey-200);
+  --colour-primary-300: var(--md-blue-grey-300);
+  --colour-primary-400: var(--md-blue-grey-400);
+  --colour-primary-500: var(--md-blue-grey-500);
+  --colour-primary-600: var(--md-blue-grey-600);
+  --colour-primary-700: var(--md-blue-grey-700);
+  --colour-primary-800: var(--md-blue-grey-800);
+  --colour-primary-900: var(--md-blue-grey-900);
+
+  --colour-highlight-50: var(--md-orange-50);
+  --colour-highlight-100: var(--md-orange-100);
+  --colour-highlight-200: var(--md-orange-200);
+  --colour-highlight-300: var(--md-orange-300);
+  --colour-highlight-400: var(--md-orange-400);
+  --colour-highlight-500: var(--md-orange-500);
+  --colour-highlight-600: var(--md-orange-600);
+  --colour-highlight-700: var(--md-orange-700);
+  --colour-highlight-800: var(--md-orange-800);
+  --colour-highlight-900: var(--md-orange-900);
+}

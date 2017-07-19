@@ -1,9 +1,9 @@
 import { Component } from 'react';
 import PropTypes from 'prop-types';
 import withRedux from 'next-redux-wrapper';
-// import Link from 'next/link';
 // import { blueGrey, orange } from 'material-colors';
 
+import styles from './Header.css';
 import { initStore } from '../store';
 // import { blueGrey300 } from '../styles/variables';
 
@@ -87,8 +87,7 @@ class Header extends Component {
 
         </div>
 
-        <style jsx>{`
-        `}</style>
+        <style jsx>{styles}</style>
       </header>
     )
   }
