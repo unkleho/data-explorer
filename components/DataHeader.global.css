@@ -1,0 +1,21 @@
+@import '../styles/variables.css';
+
+.Select-value {
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+.Select-menu-outer {
+  font-size: 14px;
+  line-height: 16px;
+}
+
+.Select--multi .Select-value {
+  background-color: var(--colour-primary-300);
+  color: white;
+  border: none;
+}
+
+.Select--multi .Select-value-icon {
+  border-right: 1px solid white;
+}

@@ -4,7 +4,8 @@ import { Component } from 'react';
 import Select from 'react-select';
 
 import styles from './DataHeader.css';
-// import { blueGrey50, blueGrey100, blueGrey300, blueGrey700, deepOrange600, colors } from '../styles/variables';
+import globalStyles from './DataHeader.global.css';
+import { blueGrey700, colors } from '../styles/variables';
 import DataSetSelector from '../components/DataSetSelector';
 
 class DataHeader extends Component {
@@ -156,6 +157,37 @@ class DataHeader extends Component {
         </div>
 
         <style jsx>{styles}</style>
+        <style jsx global>{globalStyles}</style>
+        <style jsx global>{`
+          .Select--multi .Select-value:nth-child(1) {
+            background-color: ${colors[0]};
+          }
+
+          .Select--multi .Select-value:nth-child(2) {
+            background-color: ${colors[1]};
+          }
+
+          .Select--multi .Select-value:nth-child(3) {
+            background-color: ${colors[2]};
+          }
+
+          .Select--multi .Select-value:nth-child(4) {
+            background-color: ${colors[3]};
+          }
+
+          .Select--multi .Select-value:nth-child(5) {
+            background-color: ${colors[4]};
+          }
+
+          .Select--multi .Select-value:nth-child(6) {
+            background-color: ${colors[5]};
+            color: ${blueGrey700}
+          }
+
+          .Select--multi .Select-value:nth-child(7) {
+            background-color: ${colors[6]};
+          }
+        `}</style>
 
       </aside>
     )

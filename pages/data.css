@@ -1,15 +1,14 @@
+@import '../styles/variables.css';
+
 main {
   width: 100%;
-  line-height: 1.27777778em;
-  padding-left: calc(1.27777778em * 1);
-  padding-right: calc(1.27777778em * 1);
+  padding-left: calc(var(--spacing-md) * 1);
+  padding-right: calc(var(--spacing-md) * 2);
   background-color: white;
 
   @media (min-width: 32em) {
-    /*lost-column: 3/4;*/
-
-    padding-left: calc(1.27777778em * 2);
-    padding-right: calc(1.27777778em * 3);
+    padding-left: calc(var(--spacing-md) * 2);
+    padding-right: calc(var(--spacing-md) * 3);
   }
 }
 
