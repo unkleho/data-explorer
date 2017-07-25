@@ -89,7 +89,7 @@ class Data extends Component {
 
       // Update selectedDimensions array with selected dimensionId
       selectedDimensions[dimensionIndex] = ids;
-      Router.push(`/data?id=${dataSetId}&sourceId=${this.props.sourceId}&selectedDimensions=${JSON.stringify(selectedDimensions)}`);
+      Router.push(`/data?id=${dataSetId}&sourceId=${this.props.sourceId}&selectedDimensions=${JSON.stringify(selectedDimensions)}&mainDimensionIndex=${this.props.mainDimensionIndex}`);
 
       // this.props.dispatch(getData(selectedDimensions, dataSetId, this.props.sourceId));
     }
@@ -119,12 +119,6 @@ class Data extends Component {
     }
   }
 
-  handleMenuClick = (event) => {
-    this.props.dispatch({
-      type: 'TOGGLE_MENU',
-    })
-  }
-
   handleMainDimensionSelect = (mainDimensionIndex) => {
     const defaultDimensions = getDefaultDimensions(this.props.dimensions, this.props.id);
 
@@ -136,6 +130,12 @@ class Data extends Component {
     //   mainDimensionIndex,
     //   selectedDimensions: defaultDimensions,
     // })
+  }
+
+  handleMenuClick = (event) => {
+    this.props.dispatch({
+      type: 'TOGGLE_MENU',
+    })
   }
 
   // TODO: May be not used - cleanup
