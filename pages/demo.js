@@ -1,14 +1,13 @@
 import Link from 'next/link';
 
-import Page from '../components/Page';
+import Page from '../components/App';
 import { buildDataSets } from '../utils';
 import dataSetsRaw from '../data';
 
 const dataSets = buildDataSets(dataSetsRaw);
 
 export default () => (
-  <Page>
-
+  <App>
     <ul>
       {dataSets.map((dataSet,i) => {
         return (
@@ -20,5 +19,5 @@ export default () => (
         )
       })}
     </ul>
-  </Page>
+  </App>
 )
