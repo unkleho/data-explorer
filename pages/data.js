@@ -113,7 +113,9 @@ class Data extends Component {
       // Update selectedDimensions array with selected dimensionId
       selectedDimensions[dimensionIndex] = ids;
 
-      this.props.dispatch(getData(selectedDimensions, dataSetId, this.props.sourceId));
+      Router.push(`/data?id=${dataSetId}&sourceId=${this.props.sourceId}&selectedDimensions=${JSON.stringify(selectedDimensions)}&mainDimensionIndex=${this.props.mainDimensionIndex}`);
+
+      // this.props.dispatch(getData(selectedDimensions, dataSetId, this.props.sourceId));
     }
   }
 
@@ -121,6 +123,19 @@ class Data extends Component {
     this.props.dispatch({
       type: 'TOGGLE_MENU',
     })
+  }
+
+  handleMainDimensionSelect = (mainDimensionIndex) => {
+    // const defaultDimensions = getDefaultDimensions(this.props.dimensions, this.props.id);
+
+    Router.push(`/data?id=${this.props.id}&sourceId=${this.props.sourceId}&selectedDimensions=${JSON.stringify(this.props.selectedDimensions)}&mainDimensionIndex=${mainDimensionIndex}`);
+
+    // this.props.dispatch(getData(defaultDimensions, this.props.id, this.props.sourceId));
+    // this.props.dispatch({
+    //   type: 'SELECT_MAIN_DIMENSION',
+    //   mainDimensionIndex,
+    //   selectedDimensions: defaultDimensions,
+    // })
   }
 
   // TODO: May be not used - cleanup
@@ -136,19 +151,6 @@ class Data extends Component {
     });
 
     this.props.dispatch(getData(selectedDimensions, this.props.id, this.props.sourceId));
-  }
-
-  handleMainDimensionSelect = (mainDimensionIndex) => {
-    // const defaultDimensions = getDefaultDimensions(this.props.dimensions, this.props.id);
-
-    Router.push(`/data?id=${this.props.id}&sourceId=${this.props.sourceId}&selectedDimensions=${JSON.stringify(this.props.selectedDimensions)}&mainDimensionIndex=${mainDimensionIndex}`);
-
-    // this.props.dispatch(getData(defaultDimensions, this.props.id, this.props.sourceId));
-    // this.props.dispatch({
-    //   type: 'SELECT_MAIN_DIMENSION',
-    //   mainDimensionIndex,
-    //   selectedDimensions: defaultDimensions,
-    // })
   }
 
   render() {
