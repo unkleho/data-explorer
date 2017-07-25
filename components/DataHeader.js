@@ -1,5 +1,5 @@
 import { Component } from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 // import { blueGrey } from 'material-colors';
 import Select from 'react-select';
 
@@ -9,6 +9,10 @@ import { blueGrey700, colors } from '../styles/variables';
 import DataSetSelector from '../components/DataSetSelector';
 
 class DataHeader extends Component {
+
+  static propTypes = {
+    mainDimensionIndex: PropTypes.number,
+  }
 
   constructor() {
     super();

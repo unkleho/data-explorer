@@ -20,7 +20,7 @@ import {
   getTimePeriods,
   getChartType,
   toggleArrayItem,
-  getDefaultDimensions,
+  // getDefaultDimensions,
   getDimensionColourMap,
 } from '../utils';
 import allData from '../data';
@@ -46,6 +46,8 @@ class Data extends Component {
     query: {
       id = null,
       sourceId = 'ABS',
+      selectedDimensions = null,
+      mainDimensionIndex = null,
     },
     isServer,
     store,
@@ -53,9 +55,18 @@ class Data extends Component {
     // Work out if custom default dataSet exists
     const defaultId = allData[sourceId].defaultDataSetId;
     const newId = id || defaultId || allData[sourceId].dataSets.children[0].id;
+    selectedDimensions = selectedDimensions ? JSON.parse(selectedDimensions) : null;
 
     await store.dispatch(getDataSets(sourceId));
-    await store.dispatch(getDataSet(newId, sourceId));
+    await store.dispatch(getDataSet(newId, sourceId, selectedDimensions));
+
+    if (mainDimensionIndex !== null) {
+      store.dispatch({
+        type: 'SELECT_MAIN_DIMENSION',
+        mainDimensionIndex,
+        selectedDimensions,
+      });
+    }
 
     return {
       id: newId,
@@ -78,8 +89,9 @@ class Data extends Component {
 
       // Update selectedDimensions array with selected dimensionId
       selectedDimensions[dimensionIndex] = ids;
+      Router.push(`/data?id=${dataSetId}&sourceId=${this.props.sourceId}&selectedDimensions=${JSON.stringify(selectedDimensions)}`);
 
-      this.props.dispatch(getData(selectedDimensions, dataSetId, this.props.sourceId));
+      // this.props.dispatch(getData(selectedDimensions, dataSetId, this.props.sourceId));
     }
 
     // Cool little script for html multi select
@@ -111,9 +123,9 @@ class Data extends Component {
     })
   }
 
+  // TODO: May be not used - cleanup
   handleMainDimensionIdSelect = (id, dimensionId) => {
     console.log('handleMainDimensionIdSelect');
-    // TODO: May be not used - cleanup
     // this.props.dispatch(selectMainDimensionId(id, dimensionId));
     const selectedDimensions = this.props.selectedDimensions.map((selectedDimension, i) => {
       if (i === dimensionId) {
@@ -127,14 +139,16 @@ class Data extends Component {
   }
 
   handleMainDimensionSelect = (mainDimensionIndex) => {
-    const defaultDimensions = getDefaultDimensions(this.props.dimensions, this.props.id);
+    // const defaultDimensions = getDefaultDimensions(this.props.dimensions, this.props.id);
 
-    this.props.dispatch(getData(defaultDimensions, this.props.id, this.props.sourceId));
-    this.props.dispatch({
-      type: 'SELECT_MAIN_DIMENSION',
-      mainDimensionIndex,
-      selectedDimensions: defaultDimensions,
-    })
+    Router.push(`/data?id=${this.props.id}&sourceId=${this.props.sourceId}&selectedDimensions=${JSON.stringify(this.props.selectedDimensions)}&mainDimensionIndex=${mainDimensionIndex}`);
+
+    // this.props.dispatch(getData(defaultDimensions, this.props.id, this.props.sourceId));
+    // this.props.dispatch({
+    //   type: 'SELECT_MAIN_DIMENSION',
+    //   mainDimensionIndex,
+    //   selectedDimensions: defaultDimensions,
+    // })
   }
 
   render() {
@@ -155,9 +169,11 @@ class Data extends Component {
       isMenuActive,
       url,
     } = this.props;
-    const mainDimensionIndex = this.props.mainDimensionIndex || 0;
+    const mainDimensionIndex = parseInt(this.props.mainDimensionIndex, 10) || 0;
     const mainDimension = dimensions[mainDimensionIndex];
     const selectedMainDimension = selectedDimensions[mainDimensionIndex];
+
+    // console.log(mainDimension);
 
     // let colourMap;
     const colourMap = getDimensionColourMap(selectedMainDimension, mainDimension.values);

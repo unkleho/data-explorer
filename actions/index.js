@@ -34,8 +34,9 @@ export const getDataSets = (sourceId) => {
   }
 }
 
-export const getDataSet = (id, sourceId) => {
+export const getDataSet = (id, sourceId, selectedDimensions) => {
   const baseApiUrl = allData[sourceId].apiUrl;
+  console.log(selectedDimensions);
 
   return async (dispatch) => {
     dispatch({
@@ -45,18 +46,18 @@ export const getDataSet = (id, sourceId) => {
     try {
       // Get dataSet metadata
       const dataSetResult = await axios.get(buildDataSetApiUrl(id, baseApiUrl));
-      console.log(buildDataSetApiUrl(id, baseApiUrl));
+      // console.log(buildDataSetApiUrl(id, baseApiUrl));
 
       const dataSet = dataSetResult.data.structure;
       const dimensions = dataSet.dimensions.observation;
-      const selectedDimensions = getDefaultDimensions(dimensions, id);
+      // const selectedDimensions = getDefaultDimensions(dimensions, id);
 
       dispatch({
         type: 'GET_DATASET_SUCCESS',
         id,
         dataSet,
         dimensions,
-        selectedDimensions,
+        selectedDimensions: selectedDimensions || getDefaultDimensions(dimensions, id),
       });
 
       // Get data
