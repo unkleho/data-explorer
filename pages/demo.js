@@ -1,6 +1,6 @@
 import Link from 'next/link';
 
-import Page from '../components/App';
+import App from '../components/App';
 import { buildDataSets } from '../utils';
 import dataSetsRaw from '../data';
 
