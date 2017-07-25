@@ -50,14 +50,14 @@ export const getDataSet = (id, sourceId, selectedDimensions) => {
 
       const dataSet = dataSetResult.data.structure;
       const dimensions = dataSet.dimensions.observation;
-      // const selectedDimensions = getDefaultDimensions(dimensions, id);
+      selectedDimensions = selectedDimensions || getDefaultDimensions(dimensions, id);
 
       dispatch({
         type: 'GET_DATASET_SUCCESS',
         id,
         dataSet,
         dimensions,
-        selectedDimensions: selectedDimensions || getDefaultDimensions(dimensions, id),
+        selectedDimensions,
       });
 
       // Get data

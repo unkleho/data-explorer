@@ -20,7 +20,7 @@ import {
   getTimePeriods,
   getChartType,
   toggleArrayItem,
-  // getDefaultDimensions,
+  getDefaultDimensions,
   getDimensionColourMap,
 } from '../utils';
 import allData from '../data';
@@ -126,9 +126,9 @@ class Data extends Component {
   }
 
   handleMainDimensionSelect = (mainDimensionIndex) => {
-    // const defaultDimensions = getDefaultDimensions(this.props.dimensions, this.props.id);
+    const defaultDimensions = getDefaultDimensions(this.props.dimensions, this.props.id);
 
-    Router.push(`/data?id=${this.props.id}&sourceId=${this.props.sourceId}&selectedDimensions=${JSON.stringify(this.props.selectedDimensions)}&mainDimensionIndex=${mainDimensionIndex}`);
+    Router.push(`/data?id=${this.props.id}&sourceId=${this.props.sourceId}&selectedDimensions=${JSON.stringify(defaultDimensions)}&mainDimensionIndex=${mainDimensionIndex}`);
 
     // this.props.dispatch(getData(defaultDimensions, this.props.id, this.props.sourceId));
     // this.props.dispatch({
