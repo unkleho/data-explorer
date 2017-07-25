@@ -6,7 +6,7 @@ import withRedux from 'next-redux-wrapper';
 // import { blueGrey } from 'material-colors';
 
 import styles from './data.css';
-import Page from '../components/Page';
+import App from '../components/App';
 // import LoadingBar from '../components/LoadingBar';
 import DataContent from '../components/DataContent';
 import DataHeader from '../components/DataHeader';
@@ -153,6 +153,7 @@ class Data extends Component {
       data,
       selectedDimensions,
       isMenuActive,
+      url,
     } = this.props;
     const mainDimensionIndex = this.props.mainDimensionIndex || 0;
     const mainDimension = dimensions[mainDimensionIndex];
@@ -173,7 +174,7 @@ class Data extends Component {
     }
 
     return (
-      <Page>
+      <App url={url}>
 
         {isMenuActive && (
           <DataHeader
@@ -231,7 +232,7 @@ class Data extends Component {
         </main>
 
         <style jsx>{styles}</style>
-      </Page>
+      </App>
     );
   }
 }

@@ -1,14 +1,34 @@
 import { Component } from 'react';
 // import PropTypes from 'prop-types';
 import Head from 'next/head';
-// import { blueGrey } from 'material-colors';
 
 import styles from './Page.css';
 import baseStyles from '../styles/base.css';
 import Header from '../components/Header';
-// import { blueGrey50, blueGrey100, blueGrey300, blueGrey700, deepOrange600 } from '../styles/variables';
+import { initGA, logPageView, logEvent } from '../lib/analytics';
 
 class Page extends Component {
+
+  componentDidMount () {
+    if (!window.GA_INITIALIZED) {
+      initGA();
+      window.GA_INITIALIZED = true;
+    }
+
+    const { sourceId, id } = this.props.url.query;
+
+    logPageView();
+    // TODO: Generalise this!
+    logEvent(`${sourceId} - ${id}`, 'Select Dataset');
+  }
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.url.query !== this.props.url.query) {
+      const { sourceId, id } = this.props.url.query;
+
+      logEvent(`${sourceId} - ${id}`, 'Select Dataset');
+    }
+  }
 
   render() {
     return (

@@ -71,6 +71,7 @@ class Header extends Component {
                   <li
                     onClick={this.handleMenuToggle}
                     className={s.id === sourceId && 'is-active'}
+                    key={s.id}
                   >
                     {/* <Link
                       href={`/data?sourceId=${s.id}${idParam}`}
