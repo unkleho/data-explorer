@@ -3,27 +3,20 @@ import PropTypes from 'prop-types';
 import Router from 'next/router';
 import Measure from 'react-measure';
 import withRedux from 'next-redux-wrapper';
-// import { blueGrey } from 'material-colors';
 
 import styles from './data.css';
 import App from '../components/App';
-// import LoadingBar from '../components/LoadingBar';
 import DataContent from '../components/DataContent';
 import DataHeader from '../components/DataHeader';
-// import DataAside from '../components/DataAside';
-// import Modal from '../components/Modal';
 import theme from '../styles/victoryTheme';
-// import { colors } from '../styles/variables';
 import { initStore } from '../store';
 import {
   getDataSets,
   getDataSet,
   getData,
-  // selectMainDimensionId,
 } from '../actions';
 import {
   buildVictoryData,
-  // buildApiUrl,
   getTimePeriods,
   getChartType,
   toggleArrayItem,
@@ -49,7 +42,14 @@ class Data extends Component {
     };
   }
 
-  static async getInitialProps ({ query: { id = null, sourceId = 'ABS' }, isServer, store }) {
+  static async getInitialProps ({
+    query: {
+      id = null,
+      sourceId = 'ABS',
+    },
+    isServer,
+    store,
+  }) {
     // Work out if custom default dataSet exists
     const defaultId = allData[sourceId].defaultDataSetId;
     const newId = id || defaultId || allData[sourceId].dataSets.children[0].id;

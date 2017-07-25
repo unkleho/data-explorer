@@ -7,6 +7,7 @@ import {
   getDefaultDimensions,
   buildApiUrl,
 } from '../utils';
+import { logEvent } from '../lib/analytics';
 
 export const getDataSets = (sourceId) => {
   const dataSets = buildDataSets(allData[sourceId].dataSets); // List of DataSets
@@ -93,11 +94,16 @@ export const getData = (selectedDimensions, dataSetId, sourceId) => {
         dataSetId,
         baseApiUrl,
       }));
+      const dimensionsString = JSON.stringify(selectedDimensions);
 
       dispatch({
         type: 'GET_DATA_SUCCESS',
         data: result.data,
-      })
+      });
+
+      console.log(JSON.stringify(selectedDimensions));
+
+      logEvent(sourceId, 'Select Dimension', `${dataSetId} - ${dimensionsString}`);
     } catch(e) {
       dispatch({
         type: 'GET_DATA_FAILED',

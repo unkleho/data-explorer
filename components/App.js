@@ -23,14 +23,14 @@ class Page extends Component {
 
     logPageView();
     // TODO: Generalise this!
-    logEvent(`${sourceId} - ${id}`, 'Select Dataset');
+    logEvent(sourceId, 'Select Dataset', id);
   }
 
   componentDidUpdate(prevProps) {
     if (prevProps.url.query !== this.props.url.query) {
       const { sourceId, id } = this.props.url.query;
 
-      logEvent(`${sourceId} - ${id}`, 'Select Dataset');
+      logEvent(sourceId, 'Select Dataset', id);
     }
   }
 
