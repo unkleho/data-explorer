@@ -3,8 +3,7 @@ import PropTypes from 'prop-types';
 
 import styles from './example-page.css';
 import withData, { createApolloReduxStore } from '../lib/withData';
-import App from '../components/App';
-import Header from '../components/Header';
+import ExampleApp from '../components/examples/ExampleApp';
 import ExampleComponent from '../components/examples/ExampleComponent';
 import { exampleAction } from '../actions/exampleActions';
 
@@ -33,20 +32,26 @@ class ExamplePage extends Component {
   render() {
     const {
       id,
-      url,
     } = this.props;
 
     const sizes = ['xxs', 'xs', 'sm', 'md', 'lg', 'xlg', 'xxlg'];
     const colours = ['primary', 'secondary', 'tertiary', 'highlight'];
 
     return(
-      <App>
+      <ExampleApp>
 
-        <Header pathname={url.pathname}></Header>
+        <h1 className="title">Example Page <span>{id}</span></h1>
+        <h2>Heading 2</h2>
+        <h3>Heading 3</h3>
+        <h4>Heading 4</h4>
+        <h5>Heading 5</h5>
 
-        <h1 className="title">Page <span>{id}</span></h1>
+        <p>Tacos activated charcoal put a bird on it fashion axe salvia taxidermy subway tile health goth. Gentrify tote bag selfies celiac, hell of scenester mixtape deep v pug typewriter live-edge activated charcoal cornhole hammock jianbing. Food truck four loko synth irony lomo meggings.</p>
+
+        <p>Etsy typewriter yr waistcoat. Slow-carb keytar tumblr hoodie. Umami actually stumptown, kogi vaporware put a bird on it williamsburg brunch truffaut church-key tumeric.</p>
 
         <h2>Style Guide</h2>
+
         <h3>Type Scale</h3>
         {sizes.map(size => (
           <p className={`font-size-${size}`} key={`font-size-${size}`}>{`font-size-${size}`}</p>
@@ -75,7 +80,7 @@ class ExamplePage extends Component {
 
         <style jsx>{styles}</style>
 
-      </App>
+      </ExampleApp>
     )
   }
 

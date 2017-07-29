@@ -27,7 +27,7 @@ body::after {
 
 h1, .h1 {
   font-family: 'Roboto', sans-serif;
-  font-size: 4.22222222em;
+  font-size: var(--font-size-xlg);
   line-height: 1.21052632em;
   margin-top: 0.30263158em;
   margin-bottom: 0.60526316em;

@@ -1,0 +1,5 @@
+@import '../../styles/variables.css';
+
+.example-app {
+  padding: var(--spacing-md);
+}

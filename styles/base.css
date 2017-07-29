@@ -13,10 +13,41 @@ html {
   box-sizing: inherit;
 }
 
-* {
-  /*font-family: Helvetica, Arial, sans-serif;*/
+body {
+  position: relative;
+  font-family: 'Roboto', sans-serif;
+  font-size: 18px;
+  margin: 0;
+  color: var(--colour-primary);
+  background-color: white;
 }
 
-body {
-  color: var(--colour-primary);
+h1, .h1 {
+  font-size: var(--font-size-xxlg);
+}
+
+h2, .h2 {
+  font-size: var(--font-size-xlg);
+}
+
+h3, .h3 {
+  font-size: var(--font-size-lg);
+}
+
+h4, .h4 {
+  font-size: var(--font-size-md);
+}
+
+h5, .h5 {
+  font-size: var(--font-size-sm);
+}
+
+a:link, a:visited {
+  text-decoration: none;
+
+  color: var(--colour-highlight-500);
+}
+
+a:hover, a:active {
+  text-decoration: underline;
 }
