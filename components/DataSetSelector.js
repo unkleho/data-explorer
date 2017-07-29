@@ -2,6 +2,8 @@ import { Component } from 'react';
 import PropTypes from 'prop-types';
 import Select from 'react-select';
 
+import styles from './DataSetSelector.css';
+
 class DataSetSelector extends Component {
   static propTypes = {
     dataSets: PropTypes.array,
@@ -39,7 +41,7 @@ class DataSetSelector extends Component {
 
     return (
       <div
-        className={`box ${isActive ? 'is-active' : ''}`}
+        className={`data-set-selector box ${isActive ? 'is-active' : ''}`}
         // ref={(box) => { this.box = box; }}
         ref="box"
       >
@@ -72,8 +74,7 @@ class DataSetSelector extends Component {
           )
         })} */}
 
-        <style jsx>{`
-        `}</style>
+        <style jsx>{styles}</style>
       </div>
     )
   }

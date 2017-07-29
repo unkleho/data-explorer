@@ -1,3 +1,5 @@
+@import '../styles/variables.css';
+
 .box {
   margin-top: 1em;
 
@@ -25,11 +27,12 @@
   cursor: pointer;
 
   &:hover {
-    /*color: ${deepOrange['700']};*/
+    color: var(--colour-highlight);
   }
 }
 
 .title.is-active {
+  background-color: var(--colour-highlight);
   /*background-color: ${deepOrange['500']};*/
   color: white;
 

@@ -61,7 +61,7 @@ class Header extends Component {
           </div>
 
           <div className={`menu ${isMenuActive && 'is-active'}`}>
-            <ul>
+            <ul role="menu">
               {sources.map((s) => {
                 // const idParam = s.id === 'UNESCO' ? '&id=DEMO_DS' : '';
 

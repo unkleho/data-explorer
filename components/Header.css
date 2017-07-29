@@ -27,8 +27,6 @@ a:link, a:visited {
 .logo__abs {
   font-family: 'Roboto';
   font-weight: 700;
-
-  /*color: #00796B;*/
 }
 
 .logo__text {
@@ -55,7 +53,6 @@ a:link, a:visited {
   }
 
   & li {
-    /*margin-right: 1.5em;*/
     padding-left: 1em;
     padding-right: 1em;
 

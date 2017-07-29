@@ -14,7 +14,6 @@ aside {
   color: var(--colour-primary-200);
   background-color: var(--md-blue-grey-200);
 
-  /*margin-bottom: 0.4em;*/
   margin-left: -1em;
   margin-right: -1em;
   padding: 0.5em 1em;
@@ -23,7 +22,7 @@ aside {
 .main-dimension-box {
   padding: 0 1em 1em;
 
-  @media (min-width: 32em) {
+  @media (--screen-sm) {
     lost-column: 1/4;
   }
 }

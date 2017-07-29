@@ -55,10 +55,14 @@
   --font-size-sm: calc(var(--font-size-md) / var(--font-scale));
   --font-size-xs: calc(var(--font-size-sm) / var(--font-scale));
   --font-size-xxs: calc(var(--font-size-xs) / var(--font-scale));
+  --font-size-xxxs: calc(var(--font-size-xxs) / var(--font-scale));
+  --font-size-xxxxs: calc(var(--font-size-xxxs) / var(--font-scale));
 
   --font-size-lg: calc(var(--font-scale) * var(--font-size-md));
   --font-size-xlg: calc(var(--font-scale) * var(--font-size-lg));
   --font-size-xxlg: calc(var(--font-scale) * var(--font-size-xlg));
+  --font-size-xxxlg: calc(var(--font-scale) * var(--font-size-xxlg));
+  --font-size-xxxxlg: calc(var(--font-scale) * var(--font-size-xxxlg));
 
   /*
    * Spacing
@@ -70,10 +74,14 @@
   --spacing-sm: calc(var(--spacing-md) / var(--spacing-scale));
   --spacing-xs: calc(var(--spacing-sm) / var(--spacing-scale));
   --spacing-xxs: calc(var(--spacing-xs) / var(--spacing-scale));
+  --spacing-xxxs: calc(var(--spacing-xxs) / var(--spacing-scale));
+  --spacing-xxxxs: calc(var(--spacing-xxxs) / var(--spacing-scale));
 
   --spacing-lg: calc(var(--spacing-scale) * var(--spacing-md));
   --spacing-xlg: calc(var(--spacing-scale) * var(--spacing-lg));
   --spacing-xxlg: calc(var(--spacing-scale) * var(--spacing-xlg));
+  --spacing-xxxlg: calc(var(--spacing-scale) * var(--spacing-xxlg));
+  --spacing-xxxxlg: calc(var(--spacing-scale) * var(--spacing-xxxlg));
 
   /*
    * Custom Media Queries
