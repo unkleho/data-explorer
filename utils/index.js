@@ -1,3 +1,37 @@
+// @flow
+
+type SdmxData = {
+  headers: {
+    id: string,
+    links: Array<any>,
+    prepared: string, // Date
+    sender: {
+      id: string,
+      name: string,
+    },
+    test: boolean,
+  },
+  dataSets: Array<any>,
+  structure: {
+    annotations: Array<any>,
+    attributes: {
+      dataSet: Array<any>,
+      observation: Array<any>,
+      series: Array<any>,
+      description: string,
+    },
+    dimensions: {
+      observation: Array<any>,
+    },
+    links: Array<any>,
+    name: string,
+  },
+}
+
+export function buildTableData(data: SdmxData) {
+  console.log(data);
+}
+
 /*
  * ABS Data Utilities
  * -------------------------------------------------------------------------- */
@@ -8,12 +42,12 @@
 // API UTILITIES
 
 // Get API URL for specific data set
-export function buildDataSetApiUrl(key, baseApiUrl) {
+export function buildDataSetApiUrl(key: string, baseApiUrl: string) {
   return `${baseApiUrl}/metadata/${key}/all`;
 }
 
 // Build the dimensions as a string for API URL
-export function buildDimensionsApiUrl(selectedDimensions) {
+export function buildDimensionsApiUrl(selectedDimensions: Array<any>) {
   let result = selectedDimensions.reduce((prev, ids) => {
     const idString = ids.reduce((prev, id) => {
       return `${prev}${id}+`;
@@ -47,7 +81,7 @@ export function buildDataSets(data) {
 }
 
 // Get array of dimension ids, used for creating initial API call.
-export function getDefaultDimensions(dimensions, id, dataSetDefaultDimensions) {
+export function getDefaultDimensions(dimensions: Array<any>, id: string, dataSetDefaultDimensions: Array<any>) {
   if (typeof window !== 'undefined') {
     console.table(dimensions);
   }
@@ -98,7 +132,7 @@ export function getDefaultDimensions(dimensions, id, dataSetDefaultDimensions) {
   }
 }
 
-export function getById(items, id) {
+export function getById(items: Array<any>, id: string) {
   const result = items.filter((item) => {
     return item.id === id;
   });
@@ -110,12 +144,12 @@ export function getById(items, id) {
   }
 }
 
-export function getDimensionsConfig(data) {
+export function getDimensionsConfig(data: SdmxData) {
   return data.structure.dimensions.observation;
 }
 
 // Create date from TIME_PERIOD
-export function createDate(dateString) {
+export function createDate(dateString: string) {
   let year;
   let month = 0;
   let day = 1;
@@ -153,11 +187,11 @@ export function createDate(dateString) {
   return result;
 }
 
-export function getObservations(data) {
+export function getObservations(data: SdmxData) {
   return data.dataSets[0].observations;
 }
 
-export function getTimePeriods(data) {
+export function getTimePeriods(data: SdmxData) {
   let result = data.structure.dimensions.observation.filter((obs) => {
     return obs.id === 'TIME_PERIOD';
   });
@@ -165,7 +199,7 @@ export function getTimePeriods(data) {
   return result && result[0] && result[0].values;
 }
 
-export function getName(data) {
+export function getName(data: SdmxData) {
   return data.structure.name;
 }
 
@@ -173,7 +207,7 @@ export function getName(data) {
  * Victory Chart Utilities
  * -------------------------------------------------------------------------- */
 
-export function buildVictoryData(data) {
+export function buildVictoryData(data: SdmxData) {
   // Dataset
   const observations = getObservations(data);
   // console.log(observations);
@@ -194,7 +228,7 @@ export function buildVictoryData(data) {
   }
 }
 
-export function getChartType(periods) {
+export function getChartType(periods: number) {
   let chartType;
 
   if (periods > 1) {
@@ -206,7 +240,7 @@ export function getChartType(periods) {
   return chartType;
 }
 
-export function buildLineChartData(observations, timePeriods) {
+export function buildLineChartData(observations, timePeriods: Array<any>) {
   let result = [];
 
   // Loop through massive glob of flat data and build multi-dimensional array
@@ -232,7 +266,7 @@ export function buildLineChartData(observations, timePeriods) {
 }
 
 // Get last key
-export function getTimePeriodKey(observationKey, timePeriods) {
+export function getTimePeriodKey(observationKey: string, timePeriods) {
   // Break key in array to get dimensions
   const dimensions = observationKey.split(':');
   const timePeriodIndex = dimensions.length - 1;
@@ -252,7 +286,7 @@ export function buildPieChartData(observations, dimensionsConfig) {
   })
 }
 
-export function getDimensionColourMap(selectedDimension, values, colors) {
+export function getDimensionColourMap(selectedDimension, values: Array<any>) {
   const result = [];
 
   values.forEach((value) => {
@@ -269,13 +303,13 @@ export function getDimensionColourMap(selectedDimension, values, colors) {
   return result;
 }
 
-export function toggleArrayItem(a, v) {
-    var i = a.indexOf(v);
-    if (i === -1) {
-      a.push(v);
-    } else {
-      a.splice(i,1);
-    }
+export function toggleArrayItem(a: Array<any>, v: any) {
+  var i = a.indexOf(v);
+  if (i === -1) {
+    a.push(v);
+  } else {
+    a.splice(i,1);
+  }
 
-    return a;
+  return a;
 }

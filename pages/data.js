@@ -6,8 +6,9 @@ import withRedux from 'next-redux-wrapper';
 
 import styles from './data.css';
 import App from '../components/App';
-import DataContent from '../components/DataContent';
 import DataHeader from '../components/DataHeader';
+import DataContent from '../components/DataContent';
+import DataTable from '../components/DataTable';
 import theme from '../styles/victoryTheme';
 import { initStore } from '../store';
 import {
@@ -17,6 +18,7 @@ import {
 } from '../actions';
 import {
   buildVictoryData,
+  buildTableData,
   getTimePeriods,
   getChartType,
   toggleArrayItem,
@@ -180,15 +182,17 @@ class Data extends Component {
     // let colourMap;
     const colourMap = getDimensionColourMap(selectedMainDimension, mainDimension.values);
 
-    let victoryData = [];
+    let victoryData, tableData = [];
     let chartType;
 
     if (isLoaded && data) {
       // Work out chart type based on data
       const timePeriods = getTimePeriods(data);
       victoryData = buildVictoryData(data);
+      tableData = buildTableData(data);
       chartType = getChartType(timePeriods && timePeriods.length);
       // console.log('chartType: ' + chartType);
+      // console.table(victoryData);
     }
 
     return (
@@ -234,6 +238,10 @@ class Data extends Component {
                     height={this.state.dimensions.height}
                     chartType={chartType}
                     colourMap={colourMap}
+                  />
+
+                  <DataTable
+                    data={tableData}
                   />
                 </div>
               ) : (
