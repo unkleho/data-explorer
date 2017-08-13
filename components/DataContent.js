@@ -65,7 +65,8 @@ class Content extends Component {
                     <VictoryLine
                       style={{
                         data: {
-                          stroke: colourMap[i] && colors[colourMap[i].colour],
+                          stroke: colors[i],
+                          // stroke: colourMap[i] && colors[colourMap[i].colour],
                           // fill: colors[i],
                         },
                       }}

@@ -175,12 +175,12 @@ class Data extends Component {
     } = this.props;
     const mainDimensionIndex = parseInt(this.props.mainDimensionIndex, 10) || 0;
     const mainDimension = dimensions[mainDimensionIndex];
-    const selectedMainDimension = selectedDimensions[mainDimensionIndex];
+    const selectedMainDimensionValues = selectedDimensions[mainDimensionIndex];
 
     // console.log(mainDimension);
 
     // let colourMap;
-    const colourMap = getDimensionColourMap(selectedMainDimension, mainDimension.values);
+    const colourMap = getDimensionColourMap(selectedMainDimensionValues, mainDimension.values);
 
     let victoryData, tableData = [];
     let chartType;
@@ -188,7 +188,7 @@ class Data extends Component {
     if (isLoaded && data) {
       // Work out chart type based on data
       const timePeriods = getTimePeriods(data);
-      victoryData = buildVictoryData(data);
+      victoryData = buildVictoryData(data, mainDimensionIndex, selectedMainDimensionValues);
       tableData = buildTableData(data);
       chartType = getChartType(timePeriods && timePeriods.length);
       // console.log('chartType: ' + chartType);

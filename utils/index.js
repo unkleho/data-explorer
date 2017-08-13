@@ -1,9 +1,32 @@
 // @flow
 
+// type SdmxDataDataSet = {
+//   action: string,
+//   observations: any, // Hash Map { 0:0:0:0: [1, 0, null] }
+// }
+
+// type SdmxDataAnnotation = {
+//   text: string,
+//   title: string,
+//   uri: string,
+// }
+
+// type SdmxDataStructureObservation = {
+//   id: string,
+//   name: string,
+//   values: {
+//     id: string,
+//     name: string,
+//   }[]
+// }
+
 type SdmxData = {
   headers: {
     id: string,
-    links: Array<any>,
+    link: {
+      href: string,
+      rel: string,
+    }[],
     prepared: string, // Date
     sender: {
       id: string,
@@ -11,25 +34,50 @@ type SdmxData = {
     },
     test: boolean,
   },
-  dataSets: Array<any>,
+  dataSets: {
+    action: string,
+    observations: any, // Hash Map { 0:0:0:0: [1, 0, null] }
+  }[],
   structure: {
-    annotations: Array<any>,
+    annotations: {
+      text: string,
+      title: string,
+      uri: string,
+    }[],
     attributes: {
-      dataSet: Array<any>,
-      observation: Array<any>,
-      series: Array<any>,
+      dataSet: Array<any>, // Empty
+      observation: {
+        id: string,
+        name: string,
+        values: {
+          id: string,
+          name: string,
+        }[]
+      }[],
+      series: Array<any>, // Empty
       description: string,
     },
     dimensions: {
-      observation: Array<any>,
+      observation: {
+        id: string,
+        keyPosition: 0,
+        name: string,
+        values: { // Use this for fixing line chart colour bug!
+          id: string,
+          name: string,
+        }[]
+      }[],
     },
-    links: Array<any>,
+    links: {
+      href: string,
+      rel: string,
+    },
     name: string,
   },
 }
 
 export function buildTableData(data: SdmxData) {
-  console.log(data);
+  // console.log(data.dataSets);
 }
 
 /*
@@ -187,8 +235,23 @@ export function createDate(dateString: string) {
   return result;
 }
 
-export function getObservations(data: SdmxData) {
-  return data.dataSets[0].observations;
+export function getObservations(data: SdmxData, mainDimensionIndex: number, selectedValues: Array<any>) {
+  // console.log('structure');
+  // console.log(data.structure.dimensions.observation[mainDimensionIndex].values);
+  const rawObservations = data.dataSets[0].observations;
+
+  // const observationsPerValue = rawObservations.length/(rawSelectedValues.length);
+  // console.log(rawObservations);
+
+  // Divide up rawObservations based on rawSelectedValues
+  // const dividedObservations = rawSelectedValues.map((value, i) => {
+  //   return {
+  //     id: value.id,
+  //     observations: rawObservations.slice(),
+  //   }
+  // })
+
+  return rawObservations;
 }
 
 export function getTimePeriods(data: SdmxData) {
@@ -207,25 +270,50 @@ export function getName(data: SdmxData) {
  * Victory Chart Utilities
  * -------------------------------------------------------------------------- */
 
-export function buildVictoryData(data: SdmxData) {
+export function buildVictoryData(data: SdmxData, mainDimensionIndex: number, selectedValues: Array<any>) {
+  // console.log('mainDimensionIndex', 'selectedValues');
+  // console.log(mainDimensionIndex, selectedValues);
   // Dataset
-  const observations = getObservations(data);
+  const observations = getObservations(data, mainDimensionIndex, selectedValues);
   // console.log(observations);
   const timePeriods = getTimePeriods(data);
   // console.log(timePeriods.length);
   const dimensionsConfig = getDimensionsConfig(data);
-  // console.log(dimensionsConfig);
+  // console.log('SdmxData');
+  // console.log(data);
   // console.log('timePeriods:' + timePeriods);
   const chartType = getChartType(timePeriods && timePeriods.length);
   // const chartType = 'line';
+  const rawSelectedValues = data.structure.dimensions.observation[mainDimensionIndex].values.map(value => value.id);
 
   if (chartType === 'line') {
-    return buildLineChartData(observations, timePeriods);
+    return reorderLineChartData(buildLineChartData(observations, timePeriods), selectedValues, rawSelectedValues);
   } else if (chartType === 'pie') {
     return buildPieChartData(observations, dimensionsConfig);
   } else {
     return [];
   }
+}
+
+/*
+When multiple values are selected in a dimension, SDMX API orders the dimensions in it's own way eg. http://stat.data.abs.gov.au/sdmx-json/data/CONFINEMENTS_NUPTIALITY/13.2.1+2+3+4.A/all?detail=Full&dimensionAtObservation=AllDimensions returns the data NOT in the 1+2+3+4 order. It actually orders by 1, 2, 4, 3. Very annoying, so we have to reorder the observations accordingly.
+*/
+function reorderLineChartData(data, selectedValues, rawSelectedValues) {
+  let reorderedData = [];
+  // console.log('reorderLineChartData');
+  // console.log('selectedValues');
+  // console.log(selectedValues);
+  // console.log('rawSelectedValues');
+  // console.log(rawSelectedValues);
+  // console.log(data);
+
+  // Loop through user selected values in dimension. Find corresponding value in rawSelectedValues and get index. Use index to select data array to reorder.
+  selectedValues.forEach(value => {
+    const rawIndex = rawSelectedValues.indexOf(value);
+    reorderedData.push(data[rawIndex]);
+  })
+
+  return reorderedData;
 }
 
 export function getChartType(periods: number) {
@@ -241,6 +329,8 @@ export function getChartType(periods: number) {
 }
 
 export function buildLineChartData(observations, timePeriods: Array<any>) {
+  // console.log('buildLineChartData');
+  // console.log(timePeriods);
   let result = [];
 
   // Loop through massive glob of flat data and build multi-dimensional array
