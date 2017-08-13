@@ -287,7 +287,7 @@ export function buildVictoryData(data: SdmxData, mainDimensionIndex: number, sel
   const rawSelectedValues = data.structure.dimensions.observation[mainDimensionIndex].values.map(value => value.id);
 
   if (chartType === 'line') {
-    return reorderLineChartData(buildLineChartData(observations, timePeriods), selectedValues, rawSelectedValues);
+    return buildLineChartData(observations, timePeriods, selectedValues, rawSelectedValues);
   } else if (chartType === 'pie') {
     return buildPieChartData(observations, dimensionsConfig);
   } else {
@@ -328,7 +328,7 @@ export function getChartType(periods: number) {
   return chartType;
 }
 
-export function buildLineChartData(observations, timePeriods: Array<any>) {
+export function buildLineChartData(observations, timePeriods: Array<any>, selectedValues, rawSelectedValues) {
   // console.log('buildLineChartData');
   // console.log(timePeriods);
   let result = [];
@@ -352,7 +352,7 @@ export function buildLineChartData(observations, timePeriods: Array<any>) {
     })
   });
 
-  return result;
+  return reorderLineChartData(result, selectedValues, rawSelectedValues);
 }
 
 // Get last key
