@@ -271,28 +271,45 @@ export function getName(data: SdmxData) {
  * -------------------------------------------------------------------------- */
 
 export function buildVictoryData(data: SdmxData, mainDimensionIndex: number, selectedValues: Array<any>) {
+
   // console.log('mainDimensionIndex', 'selectedValues');
   // console.log(mainDimensionIndex, selectedValues);
-  // Dataset
-  const observations = getObservations(data, mainDimensionIndex, selectedValues);
-  // console.log(observations);
-  const timePeriods = getTimePeriods(data);
-  // console.log(timePeriods.length);
-  const dimensionsConfig = getDimensionsConfig(data);
-  // console.log('SdmxData');
-  // console.log(data);
-  // console.log('timePeriods:' + timePeriods);
-  const chartType = getChartType(timePeriods && timePeriods.length);
-  // const chartType = 'line';
-  const rawSelectedValues = data.structure.dimensions.observation[mainDimensionIndex].values.map(value => value.id);
+  const totalObservations = Object.keys(data.dataSets[0].observations).length;
 
-  if (chartType === 'line') {
-    return buildLineChartData(observations, timePeriods, selectedValues, rawSelectedValues);
-  } else if (chartType === 'pie') {
-    return buildPieChartData(observations, dimensionsConfig);
+  if (totalObservations) {
+
+    // Dataset
+    const observations = getObservations(data, mainDimensionIndex, selectedValues);
+    // console.log(observations);
+    const timePeriods = getTimePeriods(data);
+    // console.log(timePeriods.length);
+    const dimensionsConfig = getDimensionsConfig(data);
+    // console.log('SdmxData');
+    // console.log('timePeriods:' + timePeriods);
+    const chartType = getChartType(timePeriods && timePeriods.length);
+    // const chartType = 'line';
+    const rawSelectedValues = data.structure.dimensions.observation[mainDimensionIndex].values.map(value => value.id);
+
+    if (chartType === 'line') {
+
+      return buildLineChartData(observations, timePeriods, selectedValues, rawSelectedValues);
+
+    } else if (chartType === 'pie') {
+
+      return buildPieChartData(observations, dimensionsConfig);
+      
+    } else {
+
+      return [];
+
+    }
+
   } else {
+
     return [];
+
   }
+
 }
 
 /*
