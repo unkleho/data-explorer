@@ -297,7 +297,7 @@ export function buildVictoryData(data: SdmxData, mainDimensionIndex: number, sel
     } else if (chartType === 'pie') {
 
       return buildPieChartData(observations, dimensionsConfig);
-      
+
     } else {
 
       return [];
@@ -327,7 +327,11 @@ function reorderLineChartData(data, selectedValues, rawSelectedValues) {
   // Loop through user selected values in dimension. Find corresponding value in rawSelectedValues and get index. Use index to select data array to reorder.
   selectedValues.forEach(value => {
     const rawIndex = rawSelectedValues.indexOf(value);
-    reorderedData.push(data[rawIndex]);
+
+    // Only push to array if data is available
+    if (rawIndex !== -1) {
+      reorderedData.push(data[rawIndex]);
+    }
   })
 
   return reorderedData;
@@ -368,6 +372,8 @@ export function buildLineChartData(observations, timePeriods: Array<any>, select
       // label: resultIndex,
     })
   });
+
+  // return result;
 
   return reorderLineChartData(result, selectedValues, rawSelectedValues);
 }
