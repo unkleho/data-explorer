@@ -1,6 +1,7 @@
 import absDataSets from './absDataSets';
 import oecdDataSets from './oecdDataSets';
 import unescoDataSets from './unescoDataSets';
+import ukdsDataSets from './ukdsDataSets';
 
 const allData = {
   ABS: {
@@ -14,6 +15,12 @@ const allData = {
     dataSets: oecdDataSets,
     defaultDataSetId: 'SNA_TABLE1',
     apiUrl: 'http://stats.oecd.org/sdmx-json',
+  },
+  UKDS: {
+    name: 'United Kingdom Data Service',
+    dataSets: ukdsDataSets,
+    defaultDataSetId: 'TABLE5',
+    apiUrl: 'https://stats.ukdataservice.ac.uk/sdmx-json',
   },
   UNESCO: {
     name: 'United Nations Educational, Scientific and Cultural Organization',
