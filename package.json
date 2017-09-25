@@ -41,6 +41,7 @@
     "material-colors": "^1.2.5",
     "next": "latest",
     "next-redux-wrapper": "^1.0.0",
+    "next-routes": "^1.0.40",
     "normalize.css": "^7.0.0",
     "path-match": "^1.2.4",
     "postcss-cssnext": "^3.0.0",
