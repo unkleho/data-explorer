@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 import Head from 'next/head';
 
 import styles from './App.css';
-import baseStyles from '../styles/base.css';
-import Header from '../components/Header';
-import { initGA, logPageView, logEvent } from '../lib/analytics';
+import baseStyles from '../../styles/base.css';
+import Header from '../Header';
+import { initGA, logPageView, logEvent } from '../../lib/analytics';
 
 class App extends Component {
 

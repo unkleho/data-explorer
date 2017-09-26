@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 // import { blueGrey } from 'material-colors';
 
 import styles from './DataAside.css';
-import { colors } from '../styles/variables';
+import { colors } from '../../styles/variables';
 
 class DataAside extends Component {
   static propTypes = {

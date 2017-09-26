@@ -1,29 +1,46 @@
-const { createServer } = require('http');
-const { parse } = require('url');
+require('dotenv').config();
+
+const express = require('express');
 const next = require('next');
-const pathMatch = require('path-match');
+const proxy = require('http-proxy-middleware');
 
 const dev = process.env.NODE_ENV !== 'production' && !process.env.NOW;
 const app = next({ dev });
-const handle = app.getRequestHandler();
-const route = pathMatch();
-const match = route('/example-page/:id');
+const routes = require('./routes');
+// const proxyRoutes = require('./routes/proxyRoutes');
+const handler = routes.getRequestHandler(app);
 
-app.prepare()
-.then(() => {
-  createServer((req, res) => {
-    const { pathname } = parse(req.url);
-    const params = match(pathname);
+console.log('----------------------------------');
+console.log('Environment Variables:');
+console.log('----------------------------------');
+console.log(`PORT=${process.env.PORT}`);
+console.log('----------------------------------');
 
-    if (params === false) {
-      handle(req, res);
-      return;
-    }
+const port = process.env.PORT || 3000;
 
-    app.render(req, res, '/example-page', params);
+app
+  .prepare()
+  .then(() => {
+    const server = express();
+
+    // Proxy external apps
+    // Object.keys(proxyRoutes).forEach((route) => {
+    //   server.use(proxy(route, proxyRoutes[route]));
+    // });
+
+    // server.get('/example-page/:id', (req, res) => {
+    //   const mergedQuery = Object.assign({}, req.query, req.params)
+    //   return app.render(req, res, '/example-page', mergedQuery);
+    // })
+
+    server.all('*', (req, res) => handler(req, res));
+
+    server.listen(port, err => {
+      if (err) throw err;
+      console.log(`> Ready on http://localhost:${port}`);
+    });
   })
-  .listen(process.env.PORT || 3000, (err) => {
-    if (err) throw err;
-    console.log(`> Ready on http://localhost:${process.env.PORT}`);
-  })
-});
+  .catch(ex => {
+    console.error(ex.stack);
+    process.exit(1);
+  });

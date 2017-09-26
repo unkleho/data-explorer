@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import withRedux from 'next-redux-wrapper';
 
 import styles from './Header.css';
-import { initStore } from '../store';
+import { initStore } from '../../store';
 
 class Header extends Component {
 

@@ -5,8 +5,8 @@ import Select from 'react-select';
 
 import styles from './DataHeader.css';
 import globalStyles from './DataHeader.global.css';
-import { blueGrey700, colors } from '../styles/variables';
-import DataSetSelector from '../components/DataSetSelector';
+import { blueGrey700, colors } from '../../styles/variables';
+import DataSetSelector from '../DataSetSelector';
 
 class DataHeader extends Component {
 

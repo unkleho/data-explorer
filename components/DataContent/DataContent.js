@@ -6,7 +6,7 @@ import {
   VictoryPie,
 } from 'victory';
 
-import { colors } from '../styles/variables';
+import { colors } from '../../styles/variables';
 
 class Content extends Component {
   static propTypes = {
