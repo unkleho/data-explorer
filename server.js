@@ -7,7 +7,7 @@ const proxy = require('http-proxy-middleware');
 const dev = process.env.NODE_ENV !== 'production' && !process.env.NOW;
 const app = next({ dev });
 const routes = require('./routes');
-// const proxyRoutes = require('./routes/proxyRoutes');
+const proxyRoutes = require('./routes/proxyRoutes');
 const handler = routes.getRequestHandler(app);
 
 console.log('----------------------------------');
@@ -23,10 +23,38 @@ app
   .then(() => {
     const server = express();
 
+    // server.use('/api/abs', proxy({
+    //   target: 'http://stat.data.abs.gov.au',
+    //   pathRewrite: {
+    //     '^/api/abs' : '/sdmx-json',
+    //   },
+    // }));
+
+    // server.use('/api/oecd/', proxy({
+    //   target: 'http://stats.oecd.org/sdmx-json',
+    //   pathRewrite: {
+    //     '^/api/oecd/sdmx-json/' : '/sdmx-json/',
+    //   },
+    // }));
+    //
+    // server.use('/api/ukds/', proxy({
+    //   target: 'https://stats.ukdataservice.ac.uk/sdmx-json',
+    //   pathRewrite: {
+    //     '^/api/ukds/sdmx-json/' : '/sdmx-json/',
+    //   },
+    // }));
+    //
+    // server.use('/api/ukds/', proxy({
+    //   target: 'https://stats.ukdataservice.ac.uk/sdmx-json',
+    //   pathRewrite: {
+    //     '^/api/ukds/sdmx-json/' : '/sdmx-json/',
+    //   },
+    // }));
+
     // Proxy external apps
-    // Object.keys(proxyRoutes).forEach((route) => {
-    //   server.use(proxy(route, proxyRoutes[route]));
-    // });
+    Object.keys(proxyRoutes).forEach((route) => {
+      server.use(route, proxy(proxyRoutes[route]));
+    });
 
     // server.get('/example-page/:id', (req, res) => {
     //   const mergedQuery = Object.assign({}, req.query, req.params)

@@ -1,21 +1,31 @@
 // External apps to proxy
 module.exports = {
-  // TODO: Function to redirect /XXXX to /XXXX/, otherwise WP redirects it.
-  '/abs/sdmx-json/': {
-    target: 'http://stat.data.abs.gov.au/sdmx-json/',
-    // changeOrigin: true,
-    proxyReqPathResolver(req) {
-      console.log(req);
-      const reqPath = url.parse(req.url).path;
-      return ['/sdmx-json', reqPath].join('/');
-    }
+  '/api/abs': {
+    target: 'http://stat.data.abs.gov.au',
+    changeOrigin: true,
+    pathRewrite: {
+      '^/api/abs': '/sdmx-json',
+    },
+  },
+  '/api/oecd': {
+    target: 'http://stats.oecd.org',
+    changeOrigin: true,
+    pathRewrite: {
+      '^/api/oecd': '/sdmx-json',
+    },
+  },
+  '/api/ukds': {
+    target: 'https://stats.ukdataservice.ac.uk',
+    changeOrigin: true,
+    pathRewrite: {
+      '^/api/ukds': '/sdmx-json',
+    },
+  },
+  '/api/unesco': {
+    target: 'http://data.uis.unesco.org',
+    changeOrigin: true,
+    pathRewrite: {
+      '^/api/unesco' : '/sdmx-json',
+    },
   },
 };
-
-// const proxyPath = '/other/path'
-// app.use('/somePath', proxy('http://other.server/other/path', {
-//     proxyReqPathResolver(req) {
-//         const reqPath = url.parse(req.url).path;
-//         return [proxyPath, reqPath].join('/');
-//     }
-// }));
