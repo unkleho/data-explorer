@@ -14,6 +14,7 @@ console.log('----------------------------------');
 console.log('Environment Variables:');
 console.log('----------------------------------');
 console.log(`PORT=${process.env.PORT}`);
+console.log(`NOW_URL=${process.env.NOW_URL}`);
 console.log('----------------------------------');
 
 const port = process.env.PORT || 3000;
@@ -22,34 +23,6 @@ app
   .prepare()
   .then(() => {
     const server = express();
-
-    // server.use('/api/abs', proxy({
-    //   target: 'http://stat.data.abs.gov.au',
-    //   pathRewrite: {
-    //     '^/api/abs' : '/sdmx-json',
-    //   },
-    // }));
-
-    // server.use('/api/oecd/', proxy({
-    //   target: 'http://stats.oecd.org/sdmx-json',
-    //   pathRewrite: {
-    //     '^/api/oecd/sdmx-json/' : '/sdmx-json/',
-    //   },
-    // }));
-    //
-    // server.use('/api/ukds/', proxy({
-    //   target: 'https://stats.ukdataservice.ac.uk/sdmx-json',
-    //   pathRewrite: {
-    //     '^/api/ukds/sdmx-json/' : '/sdmx-json/',
-    //   },
-    // }));
-    //
-    // server.use('/api/ukds/', proxy({
-    //   target: 'https://stats.ukdataservice.ac.uk/sdmx-json',
-    //   pathRewrite: {
-    //     '^/api/ukds/sdmx-json/' : '/sdmx-json/',
-    //   },
-    // }));
 
     // Proxy external apps
     Object.keys(proxyRoutes).forEach((route) => {
