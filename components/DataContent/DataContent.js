@@ -35,6 +35,7 @@ class Content extends Component {
 
   render() {
     const {
+      isLoading,
       victoryData,
       chartType,
       theme,
@@ -44,7 +45,7 @@ class Content extends Component {
       colourMap,
     } = this.props;
 
-    // console.log(colourMap);
+    console.log(victoryData.length);
 
     return (
       <div>
@@ -98,7 +99,11 @@ class Content extends Component {
             />
           )
         ) : (
-          <p><br/>Sorry! No data available, try changing a dimension or choose another data set.</p>
+            <p>
+              {!isLoading && (
+                <span><br/>Sorry! No data available, try changing a dimension or choose another data set.</span>
+              )}
+            </p>
         )}
       </div>
     )

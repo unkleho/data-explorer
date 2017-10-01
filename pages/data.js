@@ -231,6 +231,7 @@ class Data extends Component {
                     <p className="loading">Loading</p>
                   )}
                   <DataContent
+                    isLoading={isLoading}
                     victoryData={victoryData}
                     chartStyle={chartStyle}
                     theme={theme}
