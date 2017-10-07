@@ -1,11 +1,9 @@
 import App from '../components/App';
-import Header from '../components/Header';
 
 import withData from '../lib/withData';
 
 export default withData((props) => (
-  <App>
-    <Header pathname={props.url.pathname} />
+  <App url={props.url}>
     <article>
       <h1>The Idea Behind This Example</h1>
       <p>

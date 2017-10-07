@@ -14,6 +14,7 @@ console.log('----------------------------------');
 console.log('Environment Variables:');
 console.log('----------------------------------');
 console.log(`PORT=${process.env.PORT}`);
+console.log(`GRAPHQL_URL=${process.env.GRAPHQL_URL}`);
 console.log(`NOW_URL=${process.env.NOW_URL}`);
 console.log('----------------------------------');
 
