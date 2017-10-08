@@ -3,13 +3,13 @@ import { gql, graphql } from 'react-apollo';
 
 import withData from '../lib/withData';
 
-const AboutPage = ((props) => (
+const AboutPage = (props) => (
   <App url={props.url}>
     <article>
       <h1>The Idea Behind This Example</h1>
     </article>
   </App>
-))
+);
 
 const allObjects = gql`
   query {
