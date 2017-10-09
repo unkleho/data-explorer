@@ -1,27 +1,35 @@
 @import '../../styles/variables.css';
 
 header {
-  background-color: var(--md-blue-grey-700);
-  color: white;
-  height: 2.95em;
+  /*background-color: var(--md-blue-grey-700);*/
+  background-color: white;
+  color: var(--md-blue-grey-600);
+  /*height: 2.95em;*/
   transition: 0.3s;
   overflow: hidden;
+  font-size: var(--font-size-sm);
 
-  &.is-active {
+  /*&.is-active {
     height: 5.9em;
-  }
+  }*/
 }
 
 a:link, a:visited {
-  color: white;
+  /*color: white;*/
+  color: var(--colour-primary-600);
+}
+
+.container {
+  display: flex;
 }
 
 .logo {
-  font-size: 1em;
-  line-height: 3;
-  margin-left: 1em;
   display: flex;
   align-items: baseline;
+  line-height: 3;
+  margin-left: var(--spacing-lg);
+  padding-right: 1em;
+  border-right: 1px solid var(--colour-primary-50);
 }
 
 .logo__abs {
@@ -31,7 +39,7 @@ a:link, a:visited {
 
 .logo__text {
   font-family: 'Roboto';
-  font-weight: 100;
+  font-weight: 400;
   font-size: 1em;
 }
 
@@ -41,7 +49,7 @@ a:link, a:visited {
 }
 
 .menu {
-  background-color: var(--colour-primary-600);
+  /*background-color: var(--colour-primary-600);*/
 
   & ul {
     display: flex;
@@ -57,7 +65,11 @@ a:link, a:visited {
     padding-right: 1em;
 
     &.is-active {
-      background-color: var(--colour-highlight-900);
+      /*background-color: var(--colour-primary-500);*/
+
+      & a {
+        color: var(--colour-highlight);
+      }
     }
   }
 
