@@ -1,7 +1,7 @@
 import { Component } from 'react';
 import PropTypes from 'prop-types';
-import Router from 'next/router';
-// import { Router } from '../routes';
+// import Router from 'next/router';
+import { Router } from '../routes';
 import Measure from 'react-measure';
 import withRedux from 'next-redux-wrapper';
 
@@ -83,8 +83,8 @@ class Data extends Component {
   }
 
   handleDataSetSelect = (id) => {
-    Router.push(`/${this.props.orgSlug}?id=${id}`);
-    // Router.pushRoute(`/${this.props.orgSlug}/${this.props.id}`);
+    // Router.push(`/${this.props.orgSlug}?id=${id}`);
+    Router.pushRoute(`/${this.props.orgSlug}/${id}`);
   }
 
   handleDimensionSelect = async (options, dimensionIndex) => {
@@ -98,7 +98,9 @@ class Data extends Component {
 
       // Update selectedDimensions array with selected dimensionId
       selectedDimensions[dimensionIndex] = ids;
-      Router.push(`/${this.props.orgSlug}?id=${dataSetId}&selectedDimensions=${JSON.stringify(selectedDimensions)}&mainDimensionIndex=${this.props.mainDimensionIndex}`);
+      // Router.push(`/${this.props.orgSlug}?id=${dataSetId}&selectedDimensions=${JSON.stringify(selectedDimensions)}&mainDimensionIndex=${this.props.mainDimensionIndex}`);
+
+      Router.pushRoute(`/${this.props.orgSlug}/${dataSetId}?selectedDimensions=${JSON.stringify(selectedDimensions)}&mainDimensionIndex=${this.props.mainDimensionIndex}`);
 
       // this.props.dispatch(getData(selectedDimensions, dataSetId, this.props.sourceId));
     }
@@ -122,7 +124,9 @@ class Data extends Component {
       // Update selectedDimensions array with selected dimensionId
       selectedDimensions[dimensionIndex] = ids;
 
-      Router.push(`/${this.props.orgSlug}?id=${dataSetId}&selectedDimensions=${JSON.stringify(selectedDimensions)}&mainDimensionIndex=${this.props.mainDimensionIndex}`);
+      // Router.push(`/${this.props.orgSlug}?id=${dataSetId}&selectedDimensions=${JSON.stringify(selectedDimensions)}&mainDimensionIndex=${this.props.mainDimensionIndex}`);
+
+      Router.push(`/${this.props.orgSlug}/${dataSetId}?selectedDimensions=${JSON.stringify(selectedDimensions)}&mainDimensionIndex=${this.props.mainDimensionIndex}`);
 
       // this.props.dispatch(getData(selectedDimensions, dataSetId, this.props.sourceId));
     }
