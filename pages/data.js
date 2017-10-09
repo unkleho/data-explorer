@@ -126,7 +126,7 @@ class Data extends Component {
 
       // Router.push(`/${this.props.orgSlug}?id=${dataSetId}&selectedDimensions=${JSON.stringify(selectedDimensions)}&mainDimensionIndex=${this.props.mainDimensionIndex}`);
 
-      Router.push(`/${this.props.orgSlug}/${dataSetId}?selectedDimensions=${JSON.stringify(selectedDimensions)}&mainDimensionIndex=${this.props.mainDimensionIndex}`);
+      Router.pushRoute(`/${this.props.orgSlug}/${dataSetId}?selectedDimensions=${JSON.stringify(selectedDimensions)}&mainDimensionIndex=${this.props.mainDimensionIndex}`);
 
       // this.props.dispatch(getData(selectedDimensions, dataSetId, this.props.sourceId));
     }
@@ -135,7 +135,7 @@ class Data extends Component {
   handleMainDimensionSelect = (mainDimensionIndex) => {
     const defaultDimensions = getDefaultDimensions(this.props.dimensions, this.props.id);
 
-    Router.push(`/${this.props.orgSlug}?id=${this.props.id}&selectedDimensions=${JSON.stringify(defaultDimensions)}&mainDimensionIndex=${mainDimensionIndex}`);
+    Router.pushRoute(`/${this.props.orgSlug}/${this.props.id}?selectedDimensions=${JSON.stringify(defaultDimensions)}&mainDimensionIndex=${mainDimensionIndex}`);
 
     // this.props.dispatch(getData(defaultDimensions, this.props.id, this.props.sourceId));
     // this.props.dispatch({
