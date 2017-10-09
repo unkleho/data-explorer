@@ -17,10 +17,10 @@ class Header extends Component {
     this.state = {
       isMenuActive: false,
       sources: [
-        { title: 'ABS', id: 'ABS' },
-        { title: 'OECD', id: 'OECD' },
-        { title: 'UKDS', id: 'UKDS' },
-        { title: 'UNESCO', id: 'UNESCO' },
+        { title: 'ABS', id: 'ABS', slug: 'abs' },
+        { title: 'OECD', id: 'OECD', slug: 'oecd' },
+        { title: 'UKDS', id: 'UKDS', slug: 'ukds' },
+        { title: 'UNESCO', id: 'UNESCO', slug: 'unesco' },
       ],
     };
   }

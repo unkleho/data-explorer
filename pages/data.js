@@ -14,14 +14,14 @@ import { initStore } from '../store';
 import {
   getDataSets,
   getDataSet,
-  getData,
+  // getData,
 } from '../actions';
 import {
   buildVictoryData,
   buildTableData,
   getTimePeriods,
   getChartType,
-  toggleArrayItem,
+  // toggleArrayItem,
   getDefaultDimensions,
   getDimensionColourMap,
 } from '../utils';
@@ -35,6 +35,7 @@ class Data extends Component {
       id: PropTypes.string,
       sourceId: PropTypes.string,
     }),
+    orgId: PropTypes.string,
   }
 
   constructor() {
@@ -53,14 +54,17 @@ class Data extends Component {
     },
     isServer,
     store,
+    pathname,
   }) {
+    const orgId = getOrgId(pathname) || sourceId;
+
     // Work out if custom default dataSet exists
-    const defaultId = allData[sourceId].defaultDataSetId;
-    const newId = id || defaultId || allData[sourceId].dataSets.children[0].id;
+    const defaultId = allData[orgId].defaultDataSetId;
+    const newId = id || defaultId || allData[orgId].dataSets.children[0].id;
     selectedDimensions = selectedDimensions ? JSON.parse(selectedDimensions) : null;
 
-    await store.dispatch(getDataSets(sourceId));
-    await store.dispatch(getDataSet(newId, sourceId, selectedDimensions));
+    await store.dispatch(getDataSets(orgId));
+    await store.dispatch(getDataSet(newId, orgId, selectedDimensions));
 
     if (mainDimensionIndex !== null) {
       store.dispatch({
@@ -72,12 +76,13 @@ class Data extends Component {
 
     return {
       id: newId,
-      sourceId,
+      orgId,
+      orgSlug: orgId.toLowerCase(),
     }
   }
 
   handleDataSetSelect = (id) => {
-    Router.push(`/data?id=${id}&sourceId=${this.props.sourceId}`);
+    Router.push(`/${this.props.orgSlug}?id=${id}`);
   }
 
   handleDimensionSelect = async (options, dimensionIndex) => {
@@ -91,7 +96,7 @@ class Data extends Component {
 
       // Update selectedDimensions array with selected dimensionId
       selectedDimensions[dimensionIndex] = ids;
-      Router.push(`/data?id=${dataSetId}&sourceId=${this.props.sourceId}&selectedDimensions=${JSON.stringify(selectedDimensions)}&mainDimensionIndex=${this.props.mainDimensionIndex}`);
+      Router.push(`/${this.props.orgSlug}?id=${dataSetId}&selectedDimensions=${JSON.stringify(selectedDimensions)}&mainDimensionIndex=${this.props.mainDimensionIndex}`);
 
       // this.props.dispatch(getData(selectedDimensions, dataSetId, this.props.sourceId));
     }
@@ -115,7 +120,7 @@ class Data extends Component {
       // Update selectedDimensions array with selected dimensionId
       selectedDimensions[dimensionIndex] = ids;
 
-      Router.push(`/data?id=${dataSetId}&sourceId=${this.props.sourceId}&selectedDimensions=${JSON.stringify(selectedDimensions)}&mainDimensionIndex=${this.props.mainDimensionIndex}`);
+      Router.push(`/${this.props.orgSlug}?id=${dataSetId}&selectedDimensions=${JSON.stringify(selectedDimensions)}&mainDimensionIndex=${this.props.mainDimensionIndex}`);
 
       // this.props.dispatch(getData(selectedDimensions, dataSetId, this.props.sourceId));
     }
@@ -124,7 +129,7 @@ class Data extends Component {
   handleMainDimensionSelect = (mainDimensionIndex) => {
     const defaultDimensions = getDefaultDimensions(this.props.dimensions, this.props.id);
 
-    Router.push(`/data?id=${this.props.id}&sourceId=${this.props.sourceId}&selectedDimensions=${JSON.stringify(defaultDimensions)}&mainDimensionIndex=${mainDimensionIndex}`);
+    Router.push(`/${this.props.orgSlug}?id=${this.props.id}&selectedDimensions=${JSON.stringify(defaultDimensions)}&mainDimensionIndex=${mainDimensionIndex}`);
 
     // this.props.dispatch(getData(defaultDimensions, this.props.id, this.props.sourceId));
     // this.props.dispatch({
@@ -141,19 +146,19 @@ class Data extends Component {
   }
 
   // TODO: May be not used - cleanup
-  handleMainDimensionIdSelect = (id, dimensionId) => {
-    console.log('handleMainDimensionIdSelect');
-    // this.props.dispatch(selectMainDimensionId(id, dimensionId));
-    const selectedDimensions = this.props.selectedDimensions.map((selectedDimension, i) => {
-      if (i === dimensionId) {
-        return toggleArrayItem(selectedDimension, id);
-      } else {
-        return selectedDimension;
-      }
-    });
-
-    this.props.dispatch(getData(selectedDimensions, this.props.id, this.props.sourceId));
-  }
+  // handleMainDimensionIdSelect = (id, dimensionId) => {
+  //   console.log('handleMainDimensionIdSelect');
+  //   // this.props.dispatch(selectMainDimensionId(id, dimensionId));
+  //   const selectedDimensions = this.props.selectedDimensions.map((selectedDimension, i) => {
+  //     if (i === dimensionId) {
+  //       return toggleArrayItem(selectedDimension, id);
+  //     } else {
+  //       return selectedDimension;
+  //     }
+  //   });
+  //
+  //   this.props.dispatch(getData(selectedDimensions, this.props.id, this.props.sourceId));
+  // }
 
   render() {
     const chartStyle = {
@@ -262,6 +267,10 @@ class Data extends Component {
       </App>
     );
   }
+}
+
+function getOrgId(pathname) {
+  return pathname !== '/data' ? pathname.replace('/', '').toUpperCase() : undefined;
 }
 
 function mapStateToProps(state) {
