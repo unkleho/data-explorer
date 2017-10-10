@@ -92,6 +92,7 @@
 
   /* 768px Small screen / tablet */
   @custom-media --screen-sm (min-width: 48em);
+  @custom-media --screen-max-sm (max-width: 48em);
 
   /* 1024px Medium screen / desktop */
   @custom-media --screen-md (min-width: 64em);

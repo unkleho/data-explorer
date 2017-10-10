@@ -62,12 +62,17 @@ class Header extends Component {
               >{isMenuActive ? 'keyboard_arrow_up' : 'keyboard_arrow_down'}</i> */}
           </div>
 
-          <div className="menu">
+          <button
+            className="menu-icon material-icons"
+            onClick={this.handleMenuToggle}
+          >menu</button>
+
+          <div className={`menu ${this.state.isMenuActive && 'is-active'}`}>
             <ul role="menu">
               {sources.map((s) => {
                 return (
                   <li
-                    onClick={this.handleMenuToggle}
+                    // onClick={this.handleMenuToggle}
                     className={s.id === sourceId && 'is-active'}
                     key={s.id}
                   >

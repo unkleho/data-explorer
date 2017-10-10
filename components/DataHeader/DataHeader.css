@@ -12,10 +12,14 @@
 
   & h1 {
     cursor: pointer;
-    font-size: var(--font-size-xxlg);
+    font-size: var(--font-size-lg);
     color: var(--colour-primary-600);
     margin-top: 0;
     margin-bottom: 0;
+
+    @media (--screen-sm) {
+      font-size: var(--font-size-xxlg);
+    }
 
     & span {
       display: inline-block;
@@ -47,8 +51,12 @@
 
   .data-set-box__id {
     color: var(--colour-primary-400);
-    font-size: var(--spacing-sm);
+    font-size: var(--font-size-xs);
     opacity: 0.6;
+
+    @media (--screen-sm) {
+      font-size: var(--font-size-sm);
+    }
   }
 
 .dimension-boxes {

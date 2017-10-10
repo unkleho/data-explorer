@@ -21,6 +21,11 @@ a:link, a:visited {
 
 .container {
   display: flex;
+  justify-content: space-between;
+
+  @media (--screen-sm) {
+    justify-content: flex-start;
+  }
 }
 
 .logo {
@@ -29,7 +34,7 @@ a:link, a:visited {
   line-height: 3;
   margin-left: var(--spacing-lg);
   padding-right: 1em;
-  border-right: 1px solid var(--colour-primary-50);
+  /*border-right: 1px solid var(--colour-primary-50);*/
 }
 
 .logo__abs {
@@ -48,8 +53,22 @@ a:link, a:visited {
   cursor: pointer;
 }
 
+.menu-icon {
+  margin-right: var(--spacing-xxxs);
+  color: var(--colour-primary-400);
+
+  @media (--screen-sm) {
+    display: none;
+  }
+}
+
 .menu {
   /*background-color: var(--colour-primary-600);*/
+  display: none;
+
+  @media (--screen-sm) {
+    display: block;
+  }
 
   & ul {
     display: flex;
@@ -73,7 +92,25 @@ a:link, a:visited {
     }
   }
 
-  /*&.is-active {
+  &.is-active {
+
+    @media (--screen-max-sm) {
+      position: absolute;
+      z-index: 10;
       display: block;
-    }*/
+      width: 100%;
+      top: 2.95em;
+
+      & ul {
+        display: block;
+        flex-direction: column;
+        background-color: var(--colour-primary-50);
+        width: 100%;
+
+        & li {
+          padding-left: var(--spacing-lg);
+        }
+      }
+    }
+  }
 }
