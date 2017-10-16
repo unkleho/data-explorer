@@ -32,8 +32,11 @@ a:link, a:visited {
   display: flex;
   align-items: baseline;
   line-height: 3;
-  margin-left: var(--spacing-lg);
   padding-right: 1em;
+  padding-left: var(--spacing-lg);
+  margin-left: 0;
+  color: white;
+  background-color: var(--colour-primary-700);
   /*border-right: 1px solid var(--colour-primary-50);*/
 }
 
