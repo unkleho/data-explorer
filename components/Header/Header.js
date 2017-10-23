@@ -22,6 +22,7 @@ class Header extends Component {
         { title: 'OECD', id: 'OECD', slug: 'oecd' },
         { title: 'UKDS', id: 'UKDS', slug: 'ukds' },
         { title: 'UNESCO', id: 'UNESCO', slug: 'unesco' },
+        { title: 'ABOUT', id: 'ABOUT', slug: 'about' },
       ],
     };
   }
@@ -38,7 +39,7 @@ class Header extends Component {
 
   render() {
     const {
-      sourceId,
+      pathname,
     } = this.props;
 
     const {
@@ -73,7 +74,7 @@ class Header extends Component {
                 return (
                   <li
                     // onClick={this.handleMenuToggle}
-                    className={s.id === sourceId && 'is-active'}
+                    className={s.slug === pathname.substr(1) && 'is-active'}
                     key={s.id}
                   >
                     <Link

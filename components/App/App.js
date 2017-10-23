@@ -38,7 +38,7 @@ class App extends Component {
     return (
       <div>
         <Head>
-          <title>ABS Data Explorer</title>
+          <title>Data Explorer</title>
           <meta name="viewport" content="initial-scale=1.0, width=device-width" />
           <link href="https://fonts.googleapis.com/css?family=Droid+Serif:400,400i,700,700i|Roboto:100,100i,300,300i,400,400i,500,500i,700,900" rel="stylesheet" />
           <link rel="stylesheet" href="https://unpkg.com/react-select/dist/react-select.css" />
@@ -46,7 +46,7 @@ class App extends Component {
           <link rel="stylesheet" href="https://unpkg.com/react-select/dist/react-select.css" />
         </Head>
 
-        <Header />
+        <Header pathname={this.props.url.pathname} />
         {this.props.children}
 
         <style jsx global>{styles}</style>

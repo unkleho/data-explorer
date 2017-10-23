@@ -93,6 +93,27 @@ a:link, a:visited {
         color: var(--colour-highlight);
       }
     }
+
+    &:last-child {
+      margin-top: var(--spacing-sm);
+
+      @media (--screen-sm) {
+        margin-top: 0;
+      }
+
+      & a {
+        border-top: 1px solid var(--colour-primary-100);
+        padding-top: var(--spacing-sm);
+
+        @media (--screen-sm) {
+          padding-top: 0;
+          padding-left: var(--spacing-lg);
+          border-left: 1px solid var(--colour-primary-50);
+          border-top: none;
+          /*color: var(--colour-primary-500);*/
+        }
+      }
+    }
   }
 
   &.is-active {
