@@ -17,6 +17,7 @@ body {
   position: relative;
   font-family: 'Roboto', sans-serif;
   font-size: 18px;
+  line-height: 1.6em;
   margin: 0;
   color: var(--colour-primary);
   background-color: white;
