@@ -41,7 +41,7 @@ class App extends Component {
         <Head>
           <title>Data Explorer</title>
           <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-          <link href="https://fonts.googleapis.com/css?family=Droid+Serif:400,400i,700,700i|Roboto:100,100i,300,300i,400,400i,500,500i,700,900" rel="stylesheet" />
+          {/* <link href="https://fonts.googleapis.com/css?family=Droid+Serif:400,400i,700,700i|Roboto:100,100i,300,300i,400,400i,500,500i,700,900" rel="stylesheet" />           */}
           <link rel="stylesheet" href="https://unpkg.com/react-select/dist/react-select.css" />
           <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
           <link rel="stylesheet" href="https://unpkg.com/react-select/dist/react-select.css" />

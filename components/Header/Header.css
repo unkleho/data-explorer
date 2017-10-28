@@ -41,12 +41,12 @@ a:link, a:visited {
 }
 
 .logo__abs {
-  font-family: 'Roboto';
+  font-family: var(--font-primary);
   font-weight: 700;
 }
 
 .logo__text {
-  font-family: 'Roboto';
+  font-family: var(--font-primary);
   font-weight: 600;
   font-size: 1em;
 }

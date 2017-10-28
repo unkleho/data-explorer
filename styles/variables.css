@@ -112,4 +112,10 @@
   --container-width-md: 1024px;
   --container-width-lg: 1440px;
   --container-width-xlg: 1920px;
+
+  /*
+   * Font
+   * ------------------------------------------------------------------------ */
+
+  --font-primary: 'Inter UI', sans-serif;
 }
