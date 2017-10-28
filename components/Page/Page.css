@@ -1,6 +1,16 @@
 @import '../../styles/variables.css';
 
+header {
+  background-color: var(--colour-primary-50);
+  padding: var(--spacing-xxlg);
+
+  & h1 {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+}
+
 article {
-  max-width: 30em;
-  margin: 0 auto;
+  /*max-width: 30em;*/
+  /*margin: 0 auto;*/
 }

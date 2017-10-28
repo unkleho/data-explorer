@@ -1,4 +1,4 @@
-@import './base.css';
+@import './variables.css';
 
 /*
  * HELPERS
@@ -15,18 +15,22 @@
   margin: 0 auto;
 }
 
+.container--xs {
+  max-width: var(--container-width-xs);
+}
+
 .container--sm {
-  max-width: $container-width-sm;
+  max-width: var(--container-width-sm);
 }
 
 .container--md {
-  max-width: $container-width-md;
+  max-width: var(--container-width-md);
 }
 
 .container--lg {
-  max-width: $container-width-lg;
+  max-width: var(--container-width-lg);
 }
 
 .container--xlg {
-  max-width: $container-width-xlg;
+  max-width: var(--container-width-xlg);
 }

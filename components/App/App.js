@@ -4,6 +4,7 @@ import Head from 'next/head';
 
 import styles from './App.css';
 import baseStyles from '../../styles/base.css';
+import helpersStyles from '../../styles/helpers.css';
 import Header from '../Header';
 import { initGA, logPageView, logEvent } from '../../lib/analytics';
 
@@ -51,6 +52,7 @@ class App extends Component {
 
         <style jsx global>{styles}</style>
         <style jsx global>{baseStyles}</style>
+        <style jsx global>{helpersStyles}</style>
       </div>
     );
   }

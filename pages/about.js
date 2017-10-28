@@ -7,8 +7,7 @@ import withData from '../lib/withData';
 
 const AboutPage = (props) => (
   <App url={props.url}>
-    <Page>
-      <h1>About</h1>
+    <Page title="About">
       <p>Data Explorer is an interactive platform for visualising global public data. Using this tool, journalists and researchers can explore vast datasets from the Australian Bureau of Statistics, UNESCO, UK Data Service and the European Union, finding hidden trends that aren’t apparent when looking at the raw numbers.</p>
 
       <p>Data Explorer was one of five projects chosen to receive funding from the Walkley Media Incubator and Innovation Fund in 2017. The project was awarded the Innovation in Data prize, with funding of $10,000 sponsored by iSentia. Funding will go towards website hosting, UX research, design and development.</p>

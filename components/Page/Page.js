@@ -1,15 +1,28 @@
 import { Component } from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
 import styles from './Page.css';
 
 class Page extends Component {
 
+  static propTypes = {
+    title: PropTypes.string,
+  }
+
   render() {
     return (
       <article>
-        {this.props.children}
-        <style jsx global>{styles}</style>
+        <header>
+          <div className="container container--xs">
+            <h1>{this.props.title}</h1>
+          </div>
+        </header>
+
+        <div className="container container--xs">
+          {this.props.children}
+        </div>
+
+        <style jsx>{styles}</style>
       </article>
     );
   }
