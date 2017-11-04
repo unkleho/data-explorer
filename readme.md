@@ -2,7 +2,11 @@
 
 # Deployment
 
-
+```
+$ npm run deploy
+# Check website
+$ now alias [url] dataexplorer.co
+```
 
 ## Based on nextjs-postcss branch
 https://github.com/almeynman/nextjs-postcss
