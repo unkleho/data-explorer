@@ -45,7 +45,7 @@ class Content extends Component {
       colourMap,
     } = this.props;
 
-    console.log(victoryData.length);
+    // console.log(victoryData.length);
 
     return (
       <div>

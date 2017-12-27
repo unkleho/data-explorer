@@ -1,11 +1,12 @@
 import { Component } from 'react';
 import PropTypes from 'prop-types';
-// import Router from 'next/router';
 import { Router } from '../routes';
 import Measure from 'react-measure';
 import withRedux from 'next-redux-wrapper';
+import { gql, graphql } from 'react-apollo';
 
 import styles from './data.css';
+import withData from '../lib/withData';
 import App from '../components/App';
 import DataHeader from '../components/DataHeader';
 import DataContent from '../components/DataContent';
@@ -175,7 +176,8 @@ class Data extends Component {
     const {
       sourceTitle,
       // dataSet,
-      dataSets,
+      // dataSets,
+      organisation,
       dimensions,
       isLoaded,
       isLoading,
@@ -187,7 +189,10 @@ class Data extends Component {
     const mainDimensionIndex = parseInt(this.props.mainDimensionIndex, 10) || 0;
     const mainDimension = dimensions[mainDimensionIndex];
     const selectedMainDimensionValues = selectedDimensions[mainDimensionIndex];
+    const dataSets = organisation.dataSets;
 
+    // console.log(this.props.organisation.dataSets);
+    // console.log(dataSets);
     // console.log(mainDimension);
 
     // let colourMap;
@@ -285,5 +290,40 @@ function mapStateToProps(state) {
   }
 }
 
+const query = gql`
+  query getOrganisation($id: String!) {
+    organisation: Organisation(organisationId: $id) {
+      organisationId
+      title
+      dataSets {
+        id: dataSetId
+        title
+      }
+    }
+  }
+`;
 
-export default withRedux(initStore, mapStateToProps)(Data);
+export default withData(graphql(query, {
+  options: ({ url: { pathname } }) => {
+    const id = pathname.substr(1).toUpperCase();
+
+    return {
+      variables: {
+        id: id,
+      },
+    };
+  },
+  props: ({ data }) => {
+    // console.log(data);
+    return {
+      ...data,
+      organisation: {
+        ...data.organisation,
+        dataSets: data.organisation.dataSets.map(dataSet => ({
+          ...dataSet,
+          id: dataSet.id.replace(`${data.organisation.organisationId}__`, ''),
+        })),
+      },
+    };
+  },
+})(withRedux(initStore, mapStateToProps)(Data)));

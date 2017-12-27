@@ -1,23 +1,56 @@
+import { Component } from 'react';
 import Link from 'next/link';
+import { gql, graphql } from 'react-apollo';
 
 import App from '../components/App';
-import { buildDataSets } from '../utils';
-import dataSetsRaw from '../data';
+import withData from '../lib/withData';
+// import { buildDataSets } from '../utils';
+// import { allData } from '../data';
 
-const dataSets = buildDataSets(dataSetsRaw);
+// const dataSets = buildDataSets(dataSetsRaw);
 
-export default () => (
-  <App>
-    <ul>
-      {dataSets.map((dataSet,i) => {
-        return (
-          <li key={`dataSet-${i}`}>
-            <Link href={`/data?id=${dataSet.id}`} as={`/data/${dataSet.id}`}>
-              <a>{dataSet.title}</a>
-            </Link>
-          </li>
-        )
-      })}
-    </ul>
-  </App>
-)
+class Demo extends Component {
+
+  render() {
+    // console.log();
+    return (
+      <App url={this.props.url}>
+        <ul>
+          {this.props.organisations && this.props.organisations.map((organisation, i) => {
+            return (
+              <li key={`organisation-${i}`}>
+                <Link href={`/${organisation.organisationId.toLowerCase()}`} as={`/${organisation.organisationId.toLowerCase()}`}>
+                  <a>{organisation.title}</a>
+                </Link>
+
+                <ul>{organisation.dataSets.map(dataSet => (
+                  <li>{dataSet.title}</li>
+                ))}</ul>
+              </li>
+            )
+          })}
+        </ul>
+      </App>
+    );
+  }
+
+}
+
+const query = gql`
+  query {
+    organisations: allOrganisations {
+      organisationId
+      title
+      dataSets {
+        title
+      }
+    }
+  }
+`;
+
+export default withData(graphql(query, {
+  props: (({ data }) => {
+    // console.log(data);
+    return data;
+  }),
+})(Demo));

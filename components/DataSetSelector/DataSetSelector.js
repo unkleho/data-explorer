@@ -39,6 +39,8 @@ class DataSetSelector extends Component {
       dataSets,
     } = this.props;
 
+    console.log(dataSets);
+
     return (
       <div
         className={`data-set-selector box ${isActive ? 'is-active' : ''}`}
