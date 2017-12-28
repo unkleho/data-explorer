@@ -62,6 +62,7 @@ class Data extends Component {
 
     // Work out if custom default dataSet exists
     const defaultId = allData[orgId].defaultDataSetId;
+    // const defaultId = organisation && organisation.defaultDataSet.originalId;
     const newId = id || defaultId || allData[orgId].dataSets.children[0].id;
     selectedDimensions = selectedDimensions ? JSON.parse(selectedDimensions) : null;
 
@@ -152,21 +153,6 @@ class Data extends Component {
     })
   }
 
-  // TODO: May be not used - cleanup
-  // handleMainDimensionIdSelect = (id, dimensionId) => {
-  //   console.log('handleMainDimensionIdSelect');
-  //   // this.props.dispatch(selectMainDimensionId(id, dimensionId));
-  //   const selectedDimensions = this.props.selectedDimensions.map((selectedDimension, i) => {
-  //     if (i === dimensionId) {
-  //       return toggleArrayItem(selectedDimension, id);
-  //     } else {
-  //       return selectedDimension;
-  //     }
-  //   });
-  //
-  //   this.props.dispatch(getData(selectedDimensions, this.props.id, this.props.sourceId));
-  // }
-
   render() {
     const chartStyle = {
       parent: {
@@ -225,7 +211,6 @@ class Data extends Component {
             onDimensionSelect={this.handleDimensionSelect}
             onMultiDimensionSelect={this.handleMultiDimensionSelect}
             onMainDimensionSelect={this.handleMainDimensionSelect}
-            onMainDimensionIdSelect={this.handleMainDimensionIdSelect}
           />
         )}
 
@@ -299,6 +284,9 @@ const query = gql`
         id: dataSetId
         title
       }
+      defaultDataSet {
+        originalId
+      }
     }
   }
 `;
@@ -314,14 +302,15 @@ export default withData(graphql(query, {
     };
   },
   props: ({ data }) => {
-    // console.log(data);
+    const { organisation } = data;
     return {
       ...data,
       organisation: {
-        ...data.organisation,
-        dataSets: data.organisation.dataSets.map(dataSet => ({
+        ...organisation,
+        // defaultDataSetId: organisation.defaultDataSet.originalId,
+        dataSets: organisation.dataSets.map(dataSet => ({
           ...dataSet,
-          id: dataSet.id.replace(`${data.organisation.organisationId}__`, ''),
+          id: dataSet.id.replace(`${organisation.organisationId}__`, ''),
         })),
       },
     };
