@@ -58,7 +58,7 @@ class DataHeader extends Component {
       // onMultiDimensionSelect,
     } = this.props;
 
-    const dataSet = dataSets.filter(dataSet => dataSet.id === id)[0];
+    const dataSet = dataSets && dataSets.filter(dataSet => dataSet.id === id)[0];
     const mainDimension = dimensions[mainDimensionIndex];
     // const displayDimensions = dimensions.filter((dimension, i) => i !== mainDimensionIndex);
     // console.log(selectedDimensions);

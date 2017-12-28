@@ -175,7 +175,7 @@ class Data extends Component {
     const mainDimensionIndex = parseInt(this.props.mainDimensionIndex, 10) || 0;
     const mainDimension = dimensions[mainDimensionIndex];
     const selectedMainDimensionValues = selectedDimensions[mainDimensionIndex];
-    const dataSets = organisation.dataSets;
+    const dataSets = organisation && organisation.dataSets;
 
     // console.log(this.props.organisation.dataSets);
     // console.log(dataSets);
@@ -308,7 +308,7 @@ export default withData(graphql(query, {
       organisation: {
         ...organisation,
         // defaultDataSetId: organisation.defaultDataSet.originalId,
-        dataSets: organisation.dataSets.map(dataSet => ({
+        dataSets: organisation && organisation.dataSets.map(dataSet => ({
           ...dataSet,
           id: dataSet.id.replace(`${organisation.organisationId}__`, ''),
         })),
