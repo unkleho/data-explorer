@@ -1,19 +1,16 @@
 import { Component } from 'react';
-import Link from 'next/link';
 import { gql, graphql } from 'react-apollo';
 
 import App from '../components/App';
+import Link from '../components/Link';
 import withData from '../lib/withData';
-// import { buildDataSets } from '../utils';
-// import { allData } from '../data';
-
-// const dataSets = buildDataSets(dataSetsRaw);
 
 class Demo extends Component {
 	render() {
 		// console.log();
 		return (
 			<App url={this.props.url}>
+				<h1>DataSets</h1>
 				<ul>
 					{this.props.organisations &&
 						this.props.organisations.map((organisation, i) => {
@@ -31,7 +28,10 @@ class Demo extends Component {
 									<ul>
 										{organisation.dataSets.map((dataSet) => (
 											<li>
-												<Link href={`/${orgId}/${dataSet.originalId}`}>
+												<Link
+													route={`/${orgId}/${dataSet.originalId}`}
+													prefetch
+												>
 													<a>{dataSet.title}</a>
 												</Link>
 											</li>
@@ -48,10 +48,10 @@ class Demo extends Component {
 
 const query = gql`
 	query {
-		organisations: allOrganisations {
+		allOrganisations {
 			organisationId
 			title
-			dataSets {
+			dataSets(last: 10) {
 				title
 				originalId
 			}
@@ -62,8 +62,13 @@ const query = gql`
 export default withData(
 	graphql(query, {
 		props: ({ data }) => {
-			// console.log(data);
-			return data;
+			console.log('demo');
+			console.log(data);
+
+			return {
+				organisations: data.allOrganisations,
+				...data,
+			};
 		},
 	})(Demo),
 );
