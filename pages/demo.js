@@ -34,6 +34,22 @@ class Demo extends Component {
 												>
 													<a>{dataSet.title}</a>
 												</Link>
+
+												<ul>
+													{dataSet.dimensions.map((dimension) => (
+														<li>
+															{dimension.name}
+
+															<ul>
+																{dimension.dimensionValues.map(
+																	(dimensionValue) => (
+																		<li>{dimensionValue.name}</li>
+																	),
+																)}
+															</ul>
+														</li>
+													))}
+												</ul>
 											</li>
 										))}
 									</ul>
@@ -51,9 +67,15 @@ const query = gql`
 		allOrganisations {
 			organisationId
 			title
-			dataSets(last: 10) {
+			dataSets(last: 5) {
 				title
 				originalId
+				dimensions {
+					name
+					dimensionValues {
+						name
+					}
+				}
 			}
 		}
 	}
@@ -62,7 +84,7 @@ const query = gql`
 export default withData(
 	graphql(query, {
 		props: ({ data }) => {
-			console.log('demo');
+			// console.log('demo');
 			console.log(data);
 
 			return {
