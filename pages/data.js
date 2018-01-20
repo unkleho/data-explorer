@@ -239,7 +239,6 @@ class Data extends Component {
 						onMainDimensionSelect={this.handleMainDimensionSelect}
 					/>
 				)}
-
 				<main className="content container">
 					<Measure
 						onMeasure={(dimensions) => {
@@ -282,7 +281,6 @@ class Data extends Component {
 						accurate.
 					</p>
 				</main>
-
 				<style jsx>{styles}</style>
 			</App>
 		);
@@ -302,8 +300,8 @@ function mapStateToProps(state) {
 }
 
 const query = gql`
-	query getOrganisation($id: String!) {
-		organisation: Organisation(organisationId: $id) {
+	query getOrganisation($organisationId: String!, $dataSetId: String!) {
+		organisation: Organisation(organisationId: $organisationId) {
 			organisationId
 			title
 			dataSets {
@@ -314,24 +312,39 @@ const query = gql`
 				originalId
 			}
 		}
+		dataSet: allDataSets(filter: { originalId: $dataSetId }) {
+			title
+			dimensions {
+				name
+				keyPosition
+				dimensionId
+				originalId
+			}
+		}
 	}
 `;
 
 export default withData(
 	graphql(query, {
 		options: ({ url: { pathname } }) => {
-			const id = pathname.substr(1).toUpperCase();
+			const organisationId = pathname.substr(1).toUpperCase();
+			const dataSetId = 'AMLPS_RESP_2017';
 
 			return {
 				variables: {
-					id: id,
+					organisationId,
+					dataSetId,
 				},
 			};
 		},
 		props: ({ data }) => {
-			const { organisation } = data;
+			const { organisation, dataSet } = data;
+
+			console.log(data.dataSet[0]);
+
 			return {
 				...data,
+				dataSet: dataSet && dataSet[0],
 				organisation: {
 					...organisation,
 					// defaultDataSetId: organisation.defaultDataSet.originalId,
