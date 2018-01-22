@@ -183,7 +183,7 @@ class Data extends Component {
 			dataSet, // From GraphCool
 			// dataSets,
 			organisation, // From GraphCool
-			dimensions,
+			// dimensions,
 			isLoaded,
 			isLoading,
 			data,
@@ -194,7 +194,7 @@ class Data extends Component {
 
 		// All dataSets within organisation
 		const dataSets = organisation && organisation.dataSets;
-		// const dimensions = dataSet && dataSet.dimensions;
+		const dimensions = dataSet && dataSet.dimensions;
 
 		console.log('render()');
 		// console.log(dataSet);
@@ -356,7 +356,15 @@ export default withData(
 		props: ({ data }) => {
 			const { organisation, dataSet } = data;
 
-      // console.log(dataSet[0]);
+
+      // dataSet[0] && console.table(dataSet[0].dimensions[2].values);
+
+      // console.log(data && dataSet && dataSet[0].dimensions[2].values);
+
+      // if (dataSet[0]) {
+      //   console.log(data.dataSet[0]);
+      //   console.log(dataSet[0]);
+      // }
 
 			return {
 				...data,

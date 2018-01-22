@@ -67,7 +67,7 @@ const query = gql`
 		allOrganisations {
 			organisationId
 			title
-			dataSets(last: 5) {
+			dataSets(filter: { originalId: "LF" }) {
 				title
 				originalId
 				dimensions {
