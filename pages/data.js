@@ -180,9 +180,9 @@ class Data extends Component {
 
 		const {
 			sourceTitle,
-			// dataSet,
+			dataSet, // From GraphCool
 			// dataSets,
-			organisation,
+			organisation, // From GraphCool
 			dimensions,
 			isLoaded,
 			isLoading,
@@ -191,14 +191,24 @@ class Data extends Component {
 			isMenuActive,
 			url,
 		} = this.props;
+
+		// All dataSets within organisation
+		const dataSets = organisation && organisation.dataSets;
+		// const dimensions = dataSet && dataSet.dimensions;
+
+		console.log('render()');
+		// console.log(dataSet);
+		// console.table(dimensions);
+		// console.table(dataSet.dimensions);
+		// console.log(mainDimensionIndex);
+
+		// Index of currently selected dimension
 		const mainDimensionIndex = parseInt(this.props.mainDimensionIndex, 10) || 0;
+		// Currently selected dimension
 		const mainDimension = dimensions[mainDimensionIndex];
 		const selectedMainDimensionValues = selectedDimensions[mainDimensionIndex];
-		const dataSets = organisation && organisation.dataSets;
 
 		// console.log(this.props.organisation.dataSets);
-		// console.log(dataSets);
-		// console.log(mainDimension);
 
 		// let colourMap;
 		const colourMap = getDimensionColourMap(
@@ -318,7 +328,12 @@ const query = gql`
 				name
 				keyPosition
 				dimensionId
-				originalId
+				id: originalId
+				values: dimensionValues {
+          dimensionValueId
+					name
+					id: originalId
+				}
 			}
 		}
 	}
@@ -326,25 +341,29 @@ const query = gql`
 
 export default withData(
 	graphql(query, {
-		options: ({ url: { pathname } }) => {
+		options: ({
+			url: { pathname, query: { id, selectedDimensions, mainDimensionIndex } },
+		}) => {
 			const organisationId = pathname.substr(1).toUpperCase();
-			const dataSetId = 'AMLPS_RESP_2017';
 
 			return {
 				variables: {
 					organisationId,
-					dataSetId,
+					dataSetId: id,
 				},
 			};
 		},
 		props: ({ data }) => {
 			const { organisation, dataSet } = data;
 
-			console.log(data.dataSet[0]);
+      // console.log(dataSet[0]);
 
 			return {
 				...data,
-				dataSet: dataSet && dataSet[0],
+				dataSet: dataSet && dataSet[0] && {
+          ...dataSet[0],
+          dimensions: dataSet[0].dimensions.slice(0, -1),
+        },
 				organisation: {
 					...organisation,
 					// defaultDataSetId: organisation.defaultDataSet.originalId,

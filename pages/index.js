@@ -1,17 +1,13 @@
 import { Component } from 'react';
-// import Router from 'next/router';
 
 class Home extends Component {
-  componentDidMount() {
-    // Router.push(`/data?id=LF`);
-    window.location.replace('/data?id=LF&sourceId=ABS');
-  }
+	componentDidMount() {
+		window.location.replace('/abs');
+	}
 
-  render() {
-    return (
-      <div></div>
-    )
-  }
+	render() {
+		return <div />;
+	}
 }
 
 export default Home;
