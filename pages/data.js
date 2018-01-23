@@ -198,7 +198,7 @@ class Data extends Component {
 
 		console.log('render()');
 		// console.log(dataSet);
-		// console.table(dimensions);
+		console.table(dimensions);
 		// console.table(dataSet.dimensions);
 		// console.log(mainDimensionIndex);
 
@@ -322,7 +322,7 @@ const query = gql`
 				originalId
 			}
 		}
-		dataSet: allDataSets(filter: { originalId: $dataSetId }) {
+		dataSet: allDataSets(filter: { dataSetId: $dataSetId }) {
 			title
 			dimensions {
 				name
@@ -345,18 +345,20 @@ export default withData(
 			url: { pathname, query: { id, selectedDimensions, mainDimensionIndex } },
 		}) => {
 			const organisationId = pathname.substr(1).toUpperCase();
+      const dataSetId = `${organisationId}__${id}`;
+      console.log(dataSetId);
 
 			return {
 				variables: {
 					organisationId,
-					dataSetId: id,
+					dataSetId,
 				},
 			};
 		},
 		props: ({ data }) => {
 			const { organisation, dataSet } = data;
 
-
+      // console.log(data);
       // dataSet[0] && console.table(dataSet[0].dimensions[2].values);
 
       // console.log(data && dataSet && dataSet[0].dimensions[2].values);
