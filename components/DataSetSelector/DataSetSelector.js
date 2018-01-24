@@ -35,7 +35,7 @@ class DataSetSelector extends Component {
 	render() {
 		const { isActive, selectedId, dataSets } = this.props;
 
-		// console.log(dataSets);
+		console.log(dataSets);
 
 		return (
 			<div
@@ -50,7 +50,7 @@ class DataSetSelector extends Component {
 					options={dataSets.map((option) => {
 						return {
 							label: option.title,
-							value: option.id,
+							value: option.originalId,
 						};
 					})}
 					openOnFocus

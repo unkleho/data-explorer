@@ -234,6 +234,8 @@ class Data extends Component {
 			// console.table(victoryData);
 		}
 
+		console.log(dataSets);
+
 		return (
 			<App url={url}>
 				{isMenuActive && (
@@ -312,10 +314,13 @@ function mapStateToProps(state) {
 const query = gql`
 	query getOrganisation($organisationId: String!, $dataSetId: String!) {
 		organisation: Organisation(organisationId: $organisationId) {
+			id
 			organisationId
 			title
 			dataSets {
-				id: dataSetId
+				id
+				originalId
+				dataSetId
 				title
 			}
 			defaultDataSet {
@@ -323,16 +328,19 @@ const query = gql`
 			}
 		}
 		dataSet: allDataSets(filter: { dataSetId: $dataSetId }) {
+			id
 			title
 			dimensions {
+				id
 				name
 				keyPosition
 				dimensionId
-				id: originalId
+				originalId
 				values: dimensionValues {
-          dimensionValueId
+					id
+					dimensionValueId
 					name
-					id: originalId
+					originalId
 				}
 			}
 		}
@@ -342,11 +350,14 @@ const query = gql`
 export default withData(
 	graphql(query, {
 		options: ({
-			url: { pathname, query: { id = 'LF', selectedDimensions, mainDimensionIndex } },
+			url: {
+				pathname,
+				query: { id = 'LF', selectedDimensions, mainDimensionIndex },
+			},
 		}) => {
 			const organisationId = pathname.substr(1).toUpperCase();
-      const dataSetId = `${organisationId}__${id}`;
-      console.log(dataSetId);
+			const dataSetId = `${organisationId}__${id}`;
+			console.log(dataSetId);
 
 			return {
 				variables: {
@@ -358,22 +369,23 @@ export default withData(
 		props: ({ data }) => {
 			const { organisation, dataSet } = data;
 
-      // console.log(data);
-      // dataSet[0] && console.table(dataSet[0].dimensions[2].values);
+			console.log(data);
+			// dataSet[0] && console.table(dataSet[0].dimensions[2].values);
 
-      // console.log(data && dataSet && dataSet[0].dimensions[2].values);
+			// console.log(data && dataSet && dataSet[0].dimensions[2].values);
 
-      // if (dataSet[0]) {
-      //   console.log(data.dataSet[0]);
-      //   console.log(dataSet[0]);
-      // }
+			// if (dataSet[0]) {
+			//   console.log(data.dataSet[0]);
+			//   console.log(dataSet[0]);
+			// }
 
 			return {
 				...data,
-				dataSet: dataSet && dataSet[0] && {
-          ...dataSet[0],
-          dimensions: dataSet[0].dimensions.slice(0, -1),
-        },
+				dataSet: dataSet &&
+					dataSet[0] && {
+						...dataSet[0],
+						dimensions: dataSet[0].dimensions.slice(0, -1),
+					},
 				organisation: {
 					...organisation,
 					// defaultDataSetId: organisation.defaultDataSet.originalId,
@@ -381,7 +393,7 @@ export default withData(
 						organisation &&
 						organisation.dataSets.map((dataSet) => ({
 							...dataSet,
-							id: dataSet.id.replace(`${organisation.organisationId}__`, ''),
+							// id: dataSet._id.replace(`${organisation.organisationId}__`, ''),
 						})),
 				},
 			};

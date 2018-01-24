@@ -10,8 +10,9 @@ import DataSetSelector from '../DataSetSelector';
 
 class DataHeader extends Component {
 	static propTypes = {
+		dataSets: PropTypes.array,
 		mainDimensionIndex: PropTypes.number,
-    dimensions: PropTypes.array,
+		dimensions: PropTypes.array,
 	};
 
 	constructor() {
@@ -58,8 +59,10 @@ class DataHeader extends Component {
 			// onMultiDimensionSelect,
 		} = this.props;
 
+		console.log(id);
+
 		const dataSet =
-			dataSets && dataSets.filter((dataSet) => dataSet.id === id)[0];
+			dataSets && dataSets.filter((dataSet) => dataSet.originalId === id)[0];
 		const mainDimension = dimensions[mainDimensionIndex];
 		// const displayDimensions = dimensions.filter((dimension, i) => i !== mainDimensionIndex);
 		// console.log(selectedDimensions);
@@ -74,7 +77,9 @@ class DataHeader extends Component {
 				>
 					<div className="container">
 						<div className="data-set-box__inside">
-							<div className="data-set-box__id">{dataSet && dataSet.id}</div>
+							<div className="data-set-box__id">
+								{dataSet && dataSet.originalId}
+							</div>
 							<h1
 								className="data-set-box__title"
 								onClick={this.handleDataSetTitleClick}
@@ -94,7 +99,7 @@ class DataHeader extends Component {
 							{this.state.showDataSetSelector && (
 								<DataSetSelector
 									isActive={this.state.showDataSetSelector}
-									selectedId={dataSet.id}
+									selectedId={dataSet.originalId}
 									dataSets={dataSets}
 									onDataSetSelect={this.handleDataSetSelect}
 								/>
@@ -136,7 +141,7 @@ class DataHeader extends Component {
 												options={options.map((option) => {
 													return {
 														label: option.name,
-														value: option.id,
+														value: option.originalId,
 													};
 												})}
 												onChange={(options) =>
@@ -167,7 +172,7 @@ class DataHeader extends Component {
 								mainDimension.values.map((option) => {
 									return {
 										label: option.name,
-										value: option.id,
+										value: option.originalId,
 									};
 								})
 							}
@@ -180,7 +185,11 @@ class DataHeader extends Component {
 				</div>
 
 				<style jsx>{styles}</style>
-				<style jsx global>{globalStyles}</style>
+				<style jsx global>
+					{`
+						${globalStyles};
+					`}
+				</style>
 				<style jsx global>{`
 					.Select--multi .Select-value:nth-child(1) {
 						background-color: ${colors[0]};

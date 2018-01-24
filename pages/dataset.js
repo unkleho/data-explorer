@@ -4,25 +4,21 @@ import { gql, graphql } from 'react-apollo';
 import withData from '../lib/withData';
 
 class DatasetPage extends Component {
+	render() {
+		const { dataSets } = this.props;
 
-  render() {
-    const {
-      dataSets,
-    } = this.props;
-
-    return (
-      <div>{dataSets && dataSets[0].dimensions.map(dimension => (
-        <li>{dimension.name}
-          <ul>
-            {dimension.values.map((value) => (
-              <li>{value.name}</li>
-            ))}
-          </ul>
-        </li>
-      ))}</div>
-    )
-  }
-
+		return (
+			<div>
+				{dataSets &&
+					dataSets[0].dimensions.map((dimension) => (
+						<li>
+							{dimension.name}
+							<ul>{dimension.values.map((value) => <li>{value.name}</li>)}</ul>
+						</li>
+					))}
+			</div>
+		);
+	}
 }
 
 const query = gql`
@@ -39,16 +35,19 @@ const query = gql`
 		# 	}
 		# }
 		dataSets: allDataSets(filter: { dataSetId: "ABS__LF" }) {
+			id
 			title
 			dimensions {
+				id
 				name
 				keyPosition
 				dimensionId
-				id: originalId
+				originalId
 				values: dimensionValues {
-          dimensionValueId
+					id
+					dimensionValueId
 					name
-					id: originalId
+					originalId
 				}
 			}
 		}
@@ -57,7 +56,7 @@ const query = gql`
 
 export default withData(
 	graphql(query, {
-    // options: () => {
+		// options: () => {
 		// 	return {
 		// 		variables: {
 		// 			organisationId: 'ABS',
@@ -66,10 +65,10 @@ export default withData(
 		// 	};
 		// },
 		props: ({ data }) => {
-      console.log(data.dataSets && data.dataSets[0].dimensions[2]);
+			console.log(data.dataSets && data.dataSets[0].dimensions[2]);
 
 			return {
-        ...data,
+				...data,
 			};
 		},
 	})(DatasetPage),
