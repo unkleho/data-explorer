@@ -342,7 +342,7 @@ const query = gql`
 export default withData(
 	graphql(query, {
 		options: ({
-			url: { pathname, query: { id, selectedDimensions, mainDimensionIndex } },
+			url: { pathname, query: { id = 'LF', selectedDimensions, mainDimensionIndex } },
 		}) => {
 			const organisationId = pathname.substr(1).toUpperCase();
       const dataSetId = `${organisationId}__${id}`;
