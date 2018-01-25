@@ -196,24 +196,15 @@ class Data extends Component {
 		const dataSets = organisation && organisation.dataSets;
 		const dimensions = dataSet && dataSet.dimensions;
 
-		console.log('render()');
-		// console.log(dataSet);
-		console.table(dimensions);
-		// console.table(dataSet.dimensions);
-		// console.log(mainDimensionIndex);
-
 		// Index of currently selected dimension
 		const mainDimensionIndex = parseInt(this.props.mainDimensionIndex, 10) || 0;
 		// Currently selected dimension
-		const mainDimension = dimensions[mainDimensionIndex];
+		const mainDimension = dimensions && dimensions[mainDimensionIndex];
 		const selectedMainDimensionValues = selectedDimensions[mainDimensionIndex];
 
-		// console.log(this.props.organisation.dataSets);
-
-		// let colourMap;
 		const colourMap = getDimensionColourMap(
 			selectedMainDimensionValues,
-			mainDimension.values,
+			mainDimension && mainDimension.values,
 		);
 
 		let victoryData,
@@ -233,8 +224,6 @@ class Data extends Component {
 			// console.log('chartType: ' + chartType);
 			// console.table(victoryData);
 		}
-
-		console.log(dataSets);
 
 		return (
 			<App url={url}>
@@ -324,7 +313,22 @@ const query = gql`
 				title
 			}
 			defaultDataSet {
+				id
 				originalId
+				title
+				dimensions {
+					id
+					name
+					keyPosition
+					dimensionId
+					originalId
+					values: dimensionValues {
+						id
+						dimensionValueId
+						name
+						originalId
+					}
+				}
 			}
 		}
 		dataSet: allDataSets(filter: { dataSetId: $dataSetId }) {
@@ -350,14 +354,10 @@ const query = gql`
 export default withData(
 	graphql(query, {
 		options: ({
-			url: {
-				pathname,
-				query: { id = 'LF', selectedDimensions, mainDimensionIndex },
-			},
+			url: { pathname, query: { id, selectedDimensions, mainDimensionIndex } },
 		}) => {
 			const organisationId = pathname.substr(1).toUpperCase();
 			const dataSetId = `${organisationId}__${id}`;
-			console.log(dataSetId);
 
 			return {
 				variables: {
@@ -367,35 +367,34 @@ export default withData(
 			};
 		},
 		props: ({ data }) => {
-			const { organisation, dataSet } = data;
+			const { organisation, dataSet, loading } = data;
 
-			console.log(data);
-			// dataSet[0] && console.table(dataSet[0].dimensions[2].values);
+			if (!loading) {
+				// Use organisation's default if can't find dataSet
+				const newDataSet =
+					dataSet.length > 0 ? dataSet[0] : organisation.defaultDataSet;
 
-			// console.log(data && dataSet && dataSet[0].dimensions[2].values);
-
-			// if (dataSet[0]) {
-			//   console.log(data.dataSet[0]);
-			//   console.log(dataSet[0]);
-			// }
+				return {
+					...data,
+					dataSet: newDataSet && {
+						...newDataSet,
+						dimensions: newDataSet.dimensions.slice(0, -1),
+					},
+					organisation: {
+						...organisation,
+						// defaultDataSetId: organisation.defaultDataSet.originalId,
+						dataSets:
+							organisation &&
+							organisation.dataSets.map((dataSet) => ({
+								...dataSet,
+								// id: dataSet._id.replace(`${organisation.organisationId}__`, ''),
+							})),
+					},
+				};
+			}
 
 			return {
 				...data,
-				dataSet: dataSet &&
-					dataSet[0] && {
-						...dataSet[0],
-						dimensions: dataSet[0].dimensions.slice(0, -1),
-					},
-				organisation: {
-					...organisation,
-					// defaultDataSetId: organisation.defaultDataSet.originalId,
-					dataSets:
-						organisation &&
-						organisation.dataSets.map((dataSet) => ({
-							...dataSet,
-							// id: dataSet._id.replace(`${organisation.organisationId}__`, ''),
-						})),
-				},
 			};
 		},
 	})(withRedux(initStore, mapStateToProps)(Data)),

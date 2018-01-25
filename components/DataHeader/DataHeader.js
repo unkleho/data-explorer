@@ -59,14 +59,12 @@ class DataHeader extends Component {
 			// onMultiDimensionSelect,
 		} = this.props;
 
-		console.log(id);
-
 		const dataSet =
 			dataSets && dataSets.filter((dataSet) => dataSet.originalId === id)[0];
-		const mainDimension = dimensions[mainDimensionIndex];
-		// const displayDimensions = dimensions.filter((dimension, i) => i !== mainDimensionIndex);
-		// console.log(selectedDimensions);
-		// console.table(displayDimensions);
+		const mainDimension = dimensions && dimensions[mainDimensionIndex];
+
+		console.log('DataHeader');
+		console.log(dimensions);
 
 		return (
 			<aside className={`box`}>
@@ -116,7 +114,7 @@ class DataHeader extends Component {
 								const options = dimension.values;
 								const currentDimensionIds = selectedDimensions[i];
 
-								if (dimension.id !== 'FREQUENCY') {
+								if (dimension && dimension.id !== 'FREQUENCY') {
 									return (
 										<div
 											className={`dimension-box ${
@@ -132,6 +130,7 @@ class DataHeader extends Component {
 											<Select
 												name="form-field-name"
 												value={
+													currentDimensionIds &&
 													currentDimensionIds.length === 1
 														? currentDimensionIds[0]
 														: currentDimensionIds
@@ -159,7 +158,7 @@ class DataHeader extends Component {
 					<div className="main-dimension-box">
 						<h1>
 							<i className="material-icons">compare_arrows</i> Compare:{' '}
-							{mainDimension.name}
+							{mainDimension && mainDimension.name}
 						</h1>
 
 						<Select
@@ -185,11 +184,8 @@ class DataHeader extends Component {
 				</div>
 
 				<style jsx>{styles}</style>
-				<style jsx global>
-					{`
-						${globalStyles};
-					`}
-				</style>
+				{/* prettier-ignore */}
+				<style jsx global>{globalStyles}</style>
 				<style jsx global>{`
 					.Select--multi .Select-value:nth-child(1) {
 						background-color: ${colors[0]};
