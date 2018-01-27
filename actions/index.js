@@ -36,7 +36,6 @@ export const getDataSets = (sourceId) => {
 
 export const getDataSet = (id, sourceId, selectedDimensions) => {
 	const baseApiUrl = allData[sourceId].apiUrl;
-	console.log(selectedDimensions);
 
 	return async (dispatch) => {
 		dispatch({

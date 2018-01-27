@@ -14,7 +14,7 @@ import DataTable from '../components/DataTable';
 import theme from '../styles/victoryTheme';
 import { initStore } from '../store';
 import {
-	getDataSets,
+	// getDataSets,
 	getDataSet,
 	// getData,
 } from '../actions';
@@ -45,35 +45,41 @@ class Data extends Component {
 		this.state = {};
 	}
 
-	static async getInitialProps({
-		query: {
-			id = null,
-			sourceId = 'ABS',
-			selectedDimensions = null,
-			mainDimensionIndex = null,
-		},
-		isServer,
-		store,
-		pathname,
-	}) {
+	static async getInitialProps(props) {
+		const {
+			query: {
+				id = null,
+				sourceId = 'ABS',
+				selectedDimensions = null,
+				mainDimensionIndex = null,
+			},
+			isServer,
+			store,
+			pathname,
+		} = props;
+
+		// console.log(props);
+		// console.log(store.getState());
+
 		const orgId = getOrgId(pathname) || sourceId;
 
 		// Work out if custom default dataSet exists
 		const defaultId = allData[orgId].defaultDataSetId;
-		// const defaultId = organisation && organisation.defaultDataSet.originalId;
 		const newId = id || defaultId || allData[orgId].dataSets.children[0].id;
-		selectedDimensions = selectedDimensions
+
+		// Parse selectedDimensions from URL
+		const selectedDimensionsNew = selectedDimensions
 			? JSON.parse(selectedDimensions)
 			: null;
 
-		await store.dispatch(getDataSets(orgId));
-		await store.dispatch(getDataSet(newId, orgId, selectedDimensions));
+		// Get dataSet metadata and observations data
+		await store.dispatch(getDataSet(newId, orgId, selectedDimensionsNew));
 
 		if (mainDimensionIndex !== null) {
 			store.dispatch({
 				type: 'SELECT_MAIN_DIMENSION',
 				mainDimensionIndex,
-				selectedDimensions,
+				selectedDimensions: selectedDimensionsNew,
 			});
 		}
 

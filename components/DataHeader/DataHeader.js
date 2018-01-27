@@ -63,8 +63,8 @@ class DataHeader extends Component {
 			dataSets && dataSets.filter((dataSet) => dataSet.originalId === id)[0];
 		const mainDimension = dimensions && dimensions[mainDimensionIndex];
 
-		console.log('DataHeader');
-		console.log(dimensions);
+		// console.log('DataHeader');
+		// console.log(dimensions);
 
 		return (
 			<aside className={`box`}>
