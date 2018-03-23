@@ -1,8 +1,8 @@
 import { Component } from 'react';
 import PropTypes from 'prop-types';
-import withRedux from 'next-redux-wrapper';
+import { connect } from 'react-redux';
 
-import styles from './Header.css';
+import './Header.css';
 import { initStore } from '../../store';
 import Link from '../../components/Link';
 
@@ -89,7 +89,7 @@ class Header extends Component {
 					</div>
 				</div>
 
-				<style jsx>{styles}</style>
+				{/* <style jsx>{styles}</style> */}
 			</header>
 		);
 	}
@@ -101,4 +101,4 @@ function mapStateToProps(state) {
 	};
 }
 
-export default withRedux(initStore, mapStateToProps)(Header);
+export default connect(initStore, mapStateToProps)(Header);

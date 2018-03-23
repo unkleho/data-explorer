@@ -1,49 +1,45 @@
-const fs = require('fs')
+require('dotenv').config();
+// eslint-disable-line
+const webpack = require('webpack');
 const StyleLintPlugin = require('stylelint-webpack-plugin');
 // const FlowBabelWebpackPlugin = require('flow-babel-webpack-plugin');
 
-module.exports = {
-  webpack: (config, { dev }) => {
-    config.plugins = config.plugins.filter(
-      (plugin) => (plugin.constructor.name !== 'UglifyJsPlugin')
-    )
+const withCSS = require('@zeit/next-css');
 
-    if (dev) {
-      config.plugins.push(new StyleLintPlugin({
-        configFile: './.stylelintrc.js',
-        files: ['**/*.css'],
-        emitErrors: false,
-      }));
+module.exports = withCSS({
+	webpack: (config, { dev }) => {
+		const customConfig = {
+			...config,
+		};
 
-      // FIXME: Getting hot-reloader errors if Flow catches something
-      // Commented for now
-      // config.plugins.push(new FlowBabelWebpackPlugin());      
-    }
+		customConfig.plugins = config.plugins.filter(
+			(plugin) => plugin.constructor.name !== 'UglifyJsPlugin',
+		);
 
-    config.module.rules.push(
-      {
-        test: /\.css$/,
-        use: [
-          {
-            loader: 'emit-file-loader',
-            options: {
-              name: 'dist/[path][name].[ext]'
-            }
-          },
-        ]
-      },
-      {
-        test: /\.css$/,
-        use: ["babel-loader", "raw-loader", "postcss-loader"]
-      },
-      {
-        enforce: "pre",
-        test: /\.js$/,
-        exclude: /node_modules/,
-        loader: "eslint-loader",
-      }
-    )
+		// Environment variables
+		customConfig.plugins.push(new webpack.EnvironmentPlugin(process.env));
 
-    return config
-  }
-}
+		if (dev) {
+			config.plugins.push(
+				new StyleLintPlugin({
+					configFile: './.stylelintrc.js',
+					files: ['**/*.css'],
+					emitErrors: false,
+				}),
+			);
+
+			// FIXME: Getting hot-reloader errors if Flow catches something
+			// Commented for now
+			// config.plugins.push(new FlowBabelWebpackPlugin());
+
+			customConfig.module.rules.push({
+				enforce: 'pre',
+				test: /\.js$/,
+				exclude: /node_modules/,
+				loader: 'eslint-loader',
+			});
+		}
+
+		return customConfig;
+	},
+});

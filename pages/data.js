@@ -5,13 +5,13 @@ import Measure from 'react-measure';
 import withRedux from 'next-redux-wrapper';
 import { gql, graphql } from 'react-apollo';
 
-import styles from './data.css';
+import './data.css';
 import withData from '../lib/withData';
 import App from '../components/App';
 import DataHeader from '../components/DataHeader';
 import DataContent from '../components/DataContent';
 import DataTable from '../components/DataTable';
-import theme from '../styles/victoryTheme';
+// import theme from '../styles/victoryTheme';
 import { initStore } from '../store';
 import {
 	// getDataSets,
@@ -260,18 +260,19 @@ class Data extends Component {
 							{typeof window !== 'undefined' && this.state.dimensions ? (
 								<div className="content">
 									{isLoading && <p className="loading">Loading</p>}
+
 									<DataContent
 										isLoading={isLoading}
 										victoryData={victoryData}
 										chartStyle={chartStyle}
-										theme={theme}
+										// theme={theme}
 										width={this.state.dimensions.width}
 										height={this.state.dimensions.height}
 										chartType={chartType}
 										colourMap={colourMap}
 									/>
 
-									<DataTable data={tableData} />
+									{/* <DataTable data={tableData} /> */}
 								</div>
 							) : (
 								<p>
@@ -288,7 +289,8 @@ class Data extends Component {
 						accurate.
 					</p>
 				</main>
-				<style jsx>{styles}</style>
+
+				{/* <style jsx>{styles}</style> */}
 			</App>
 		);
 	}

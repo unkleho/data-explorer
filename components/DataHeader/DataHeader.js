@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 // import { blueGrey } from 'material-colors';
 import Select from 'react-select';
 
-import styles from './DataHeader.css';
-import globalStyles from './DataHeader.global.css';
+import './DataHeader.css';
+import './DataHeader.global.css';
 import { blueGrey700, colors } from '../../styles/variables';
 import DataSetSelector from '../DataSetSelector';
 
@@ -183,9 +183,9 @@ class DataHeader extends Component {
 					</div>
 				</div>
 
-				<style jsx>{styles}</style>
+				{/* <style jsx>{styles}</style> */}
 				{/* prettier-ignore */}
-				<style jsx global>{globalStyles}</style>
+				{/* <style jsx global>{globalStyles}</style> */}
 				<style jsx global>{`
 					.Select--multi .Select-value:nth-child(1) {
 						background-color: ${colors[0]};
