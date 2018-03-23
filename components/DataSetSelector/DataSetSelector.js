@@ -2,7 +2,7 @@ import { Component } from 'react';
 import PropTypes from 'prop-types';
 import Select from 'react-select';
 
-import styles from './DataSetSelector.css';
+import './DataSetSelector.css';
 
 class DataSetSelector extends Component {
 	static propTypes = {
@@ -69,8 +69,6 @@ class DataSetSelector extends Component {
             >{dataSet.title}</a>
           )
         })} */}
-
-				<style jsx>{styles}</style>
 			</div>
 		);
 	}

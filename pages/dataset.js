@@ -1,7 +1,7 @@
 import { Component } from 'react';
 import { gql, graphql } from 'react-apollo';
 
-import withData from '../lib/withData';
+import withApollo from '../lib/withApollo';
 
 class DatasetPage extends Component {
 	render() {
@@ -54,7 +54,7 @@ const query = gql`
 	}
 `;
 
-export default withData(
+export default withApollo(
 	graphql(query, {
 		// options: () => {
 		// 	return {

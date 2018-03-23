@@ -71,7 +71,9 @@ class Header extends Component {
 								return (
 									<li
 										// onClick={this.handleMenuToggle}
-										className={s.slug === pathname.substr(1) && 'is-active'}
+										className={
+											s.slug === pathname.substr(1) ? 'is-active' : undefined
+										}
 										key={s.id}
 									>
 										<Link href={`/${s.slug}`}>

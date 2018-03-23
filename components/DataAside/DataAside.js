@@ -2,69 +2,77 @@ import { Component } from 'react';
 import PropTypes from 'prop-types';
 // import { blueGrey } from 'material-colors';
 
-import styles from './DataAside.css';
+import './DataAside.css';
 import { colors } from '../../styles/variables';
 
 class DataAside extends Component {
-  static propTypes = {
-    dimensions: PropTypes.array,
-  }
+	static propTypes = {
+		dimensions: PropTypes.array,
+	};
 
-  constructor() {
-    super();
+	constructor() {
+		super();
 
-    this.state = {};
-  }
+		this.state = {};
+	}
 
-  handleMainDimensionSelect = (event) => {
-    const id = event.target.value;
-    // Work out new index
-    const index = this.props.dimensions.findIndex(dimension => dimension.id === id);
-    // console.log('handleMainDimensionSelect', id);
-    this.props.onMainDimensionSelect(index);
-  }
+	handleMainDimensionSelect = (event) => {
+		const id = event.target.value;
+		// Work out new index
+		const index = this.props.dimensions.findIndex(
+			(dimension) => dimension.id === id,
+		);
+		// console.log('handleMainDimensionSelect', id);
+		this.props.onMainDimensionSelect(index);
+	};
 
-  render() {
-    const {
-      // mainDimensionIndex,
-      dimensions,
-      selectedDimensions,
-      onMainDimensionIdSelect,
-    } = this.props;
+	render() {
+		const {
+			// mainDimensionIndex,
+			dimensions,
+			selectedDimensions,
+			onMainDimensionIdSelect,
+		} = this.props;
 
-    // const mainDimension = dimensions[mainDimensionIndex];
+		// const mainDimension = dimensions[mainDimensionIndex];
 
-    return (
-      <aside className="main-dimension-box">
-        {dimensions.map((dimension, dimensionIndex) => {
-          return (
-            <div>
-              <div className="dimension-title">
-                {dimension.name}
-              </div>
+		return (
+			<aside className="main-dimension-box">
+				{dimensions.map((dimension, dimensionIndex) => {
+					return (
+						<div>
+							<div className="dimension-title">{dimension.name}</div>
 
-              <div className="dimension-buttons">
-                {dimension.values.map((value) => {
-                  const selectedDimension = selectedDimensions[dimensionIndex];
-                  const selectedDimensionId = selectedDimension.indexOf(value.id);
-                  const isActive = selectedDimensionId === -1 ? false : true;
+							<div className="dimension-buttons">
+								{dimension.values.map((value) => {
+									const selectedDimension = selectedDimensions[dimensionIndex];
+									const selectedDimensionId = selectedDimension.indexOf(
+										value.id,
+									);
+									const isActive = selectedDimensionId === -1 ? false : true;
 
-                  return (
-                    <button
-                      className={isActive && 'active'}
-                      style={{
-                        backgroundColor: selectedDimensionId > -1 && colors[selectedDimensionId],
-                      }}
-                      onClick={() => onMainDimensionIdSelect(value.id, dimensionIndex)}
-                    >{value.name}</button>
-                  )
-                })}
-              </div>
-            </div>
-          )
-        })}
+									return (
+										<button
+											className={isActive && 'active'}
+											style={{
+												backgroundColor:
+													selectedDimensionId > -1 &&
+													colors[selectedDimensionId],
+											}}
+											onClick={() =>
+												onMainDimensionIdSelect(value.id, dimensionIndex)
+											}
+										>
+											{value.name}
+										</button>
+									);
+								})}
+							</div>
+						</div>
+					);
+				})}
 
-        {/* <div className="main-dimension-box__header">
+				{/* <div className="main-dimension-box__header">
           <select
             value={mainDimension && mainDimension.id}
             onChange={(event) => this.handleMainDimensionSelect(event)}
@@ -94,11 +102,9 @@ class DataAside extends Component {
             )
           })}
         </div> */}
-
-        <style jsx>{styles}</style>
-      </aside>
-    )
-  }
+			</aside>
+		);
+	}
 }
 
 export default DataAside;

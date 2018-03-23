@@ -3,15 +3,16 @@ import PropTypes from 'prop-types';
 import { Router } from '../routes';
 import Measure from 'react-measure';
 import withRedux from 'next-redux-wrapper';
-import { gql, graphql } from 'react-apollo';
+import gql from 'graphql-tag';
+import { graphql } from 'react-apollo';
 
 import './data.css';
-import withData from '../lib/withData';
+import withApollo from '../lib/withApollo';
 import App from '../components/App';
 import DataHeader from '../components/DataHeader';
 import DataContent from '../components/DataContent';
 import DataTable from '../components/DataTable';
-// import theme from '../styles/victoryTheme';
+import theme from '../styles/victoryTheme';
 import { initStore } from '../store';
 import {
 	// getDataSets,
@@ -53,7 +54,7 @@ class Data extends Component {
 				selectedDimensions = null,
 				mainDimensionIndex = null,
 			},
-			isServer,
+			// isServer,
 			store,
 			pathname,
 		} = props;
@@ -265,14 +266,14 @@ class Data extends Component {
 										isLoading={isLoading}
 										victoryData={victoryData}
 										chartStyle={chartStyle}
-										// theme={theme}
+										theme={theme}
 										width={this.state.dimensions.width}
 										height={this.state.dimensions.height}
 										chartType={chartType}
 										colourMap={colourMap}
 									/>
 
-									{/* <DataTable data={tableData} /> */}
+									<DataTable data={tableData} />
 								</div>
 							) : (
 								<p>
@@ -359,7 +360,7 @@ const query = gql`
 	}
 `;
 
-export default withData(
+export default withApollo(
 	graphql(query, {
 		options: ({
 			url: { pathname, query: { id, selectedDimensions, mainDimensionIndex } },

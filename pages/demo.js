@@ -3,7 +3,7 @@ import { gql, graphql } from 'react-apollo';
 
 import App from '../components/App';
 import Link from '../components/Link';
-import withData from '../lib/withData';
+import withApollo from '../lib/withApollo';
 
 class Demo extends Component {
 	render() {
@@ -81,7 +81,7 @@ const query = gql`
 	}
 `;
 
-export default withData(
+export default withApollo(
 	graphql(query, {
 		props: ({ data }) => {
 			// console.log('demo');
