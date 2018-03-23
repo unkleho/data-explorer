@@ -7,55 +7,71 @@
  * ========================================================================== */
 
 html {
-  box-sizing: border-box;
+	box-sizing: border-box;
 }
 
-*, *::before, *::after {
-  box-sizing: inherit;
+*,
+*::before,
+*::after {
+	box-sizing: inherit;
 }
 
 body {
-  position: relative;
-  /*font-family: 'Roboto', sans-serif;*/
-  font-family: 'Inter UI', sans-serif;
-  letter-spacing: -0.01em;
-  font-size: 18px;
-  line-height: 1.6em;
-  margin: 0;
-  color: var(--colour-primary);
-  background-color: white;
+	position: relative;
+	/*font-family: 'Roboto', sans-serif;*/
+	font-family: 'Inter UI', sans-serif;
+	letter-spacing: -0.01em;
+	font-size: 18px;
+	line-height: 1.6em;
+	margin: 0;
+	color: var(--colour-primary);
+	background-color: white;
 }
 
-h1, .h1 {
-  font-size: var(--font-size-xxlg);
+h1,
+.h1 {
+	font-size: var(--font-size-xxlg);
 }
 
-h2, .h2 {
-  font-size: var(--font-size-xlg);
+h2,
+.h2 {
+	font-size: var(--font-size-xlg);
 }
 
-h3, .h3 {
-  font-size: var(--font-size-lg);
+h3,
+.h3 {
+	font-size: var(--font-size-lg);
 }
 
-h4, .h4 {
-  font-size: var(--font-size-md);
+h4,
+.h4 {
+	font-size: var(--font-size-md);
 }
 
-h5, .h5 {
-  font-size: var(--font-size-sm);
+h5,
+.h5 {
+	font-size: var(--font-size-sm);
 }
 
-a:link, a:visited {
-  text-decoration: none;
+a:link,
+a:visited {
+	text-decoration: none;
 
-  color: var(--colour-highlight-500);
+	color: var(--colour-highlight-500);
 }
 
-a:hover, a:active {
-  text-decoration: underline;
+a:hover,
+a:active {
+	text-decoration: underline;
 }
 
-ul[role="menu"] {
-  margin: 0;
+ul[role='menu'] {
+	margin: 0;
+}
+
+button {
+	background-color: transparent;
+	border: none;
+	border-radius: 0;
+	-webkit-appearance: none;
 }

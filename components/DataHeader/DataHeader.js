@@ -1,6 +1,5 @@
 import { Component } from 'react';
 import PropTypes from 'prop-types';
-// import { blueGrey } from 'material-colors';
 import Select from 'react-select';
 
 import './DataHeader.css';
@@ -67,7 +66,7 @@ class DataHeader extends Component {
 		// console.log(dimensions);
 
 		return (
-			<aside className={`box`}>
+			<aside>
 				<div
 					className={`data-set-box ${
 						this.state.showDataSetSelector ? 'is-open' : ''
