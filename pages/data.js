@@ -247,7 +247,7 @@ class Data extends Component {
 						onMainDimensionSelect={this.handleMainDimensionSelect}
 					/>
 				)}
-				<main className="content container">
+				<main className="content container container--lg">
 					<Measure
 						onMeasure={(dimensions) => {
 							this.setState({ dimensions });
@@ -290,8 +290,6 @@ class Data extends Component {
 						accurate.
 					</p>
 				</main>
-
-				{/* <style jsx>{styles}</style> */}
 			</App>
 		);
 	}
@@ -363,7 +361,10 @@ const query = gql`
 export default withApollo(
 	graphql(query, {
 		options: ({
-			url: { pathname, query: { id, selectedDimensions, mainDimensionIndex } },
+			url: {
+				pathname,
+				query: { id, selectedDimensions, mainDimensionIndex },
+			},
 		}) => {
 			const organisationId = pathname.substr(1).toUpperCase();
 			const dataSetId = `${organisationId}__${id}`;

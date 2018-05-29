@@ -3,7 +3,7 @@
 header {
 	display: flex;
 	justify-content: space-between;
-	background-color: var(--md-blue-grey-600);
+	background-color: var(--colour-primary-400);
 	color: var(--md-blue-grey-600);
 	transition: 0.3s;
 	overflow: hidden;
@@ -22,7 +22,7 @@ a:visited {
 .logo {
 	display: flex;
 	align-items: baseline;
-	line-height: 3;
+	line-height: 5;
 	padding-right: 1em;
 	padding-left: var(--spacing-lg);
 	margin-left: 0;
@@ -70,7 +70,7 @@ a:visited {
 		margin-bottom: 0;
 		padding-left: 0;
 		list-style: none;
-		line-height: 3;
+		line-height: 5;
 	}
 
 	& li {

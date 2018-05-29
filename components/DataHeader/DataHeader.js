@@ -68,17 +68,17 @@ class DataHeader extends Component {
 		return (
 			<aside>
 				<div
-					className={`data-set-box ${
+					className={`data-header ${
 						this.state.showDataSetSelector ? 'is-open' : ''
 					}`}
 				>
-					<div className="container">
-						<div className="data-set-box__inside">
-							<div className="data-set-box__id">
+					<div className="container container--lg">
+						<div className="data-header__inside">
+							<div className="data-header__id">
 								{dataSet && dataSet.originalId}
 							</div>
 							<h1
-								className="data-set-box__title"
+								className="data-header__title"
 								onClick={this.handleDataSetTitleClick}
 							>
 								{dataSet && dataSet.title}{' '}
@@ -105,7 +105,7 @@ class DataHeader extends Component {
 					</div>
 				</div>
 
-				<div className="container">
+				<div className="container container--lg">
 					<div className="dimension-boxes">
 						{selectedDimensions &&
 							dimensions &&
@@ -182,9 +182,6 @@ class DataHeader extends Component {
 					</div>
 				</div>
 
-				{/* <style jsx>{styles}</style> */}
-				{/* prettier-ignore */}
-				{/* <style jsx global>{globalStyles}</style> */}
 				<style jsx global>{`
 					.Select--multi .Select-value:nth-child(1) {
 						background-color: ${colors[0]};

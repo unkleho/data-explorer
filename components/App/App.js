@@ -36,7 +36,7 @@ class App extends Component {
 
 	render() {
 		return (
-			<div>
+			<div className="app">
 				<Head>
 					<title>Data Explorer</title>
 					<meta
@@ -52,18 +52,11 @@ class App extends Component {
 						href="https://fonts.googleapis.com/icon?family=Material+Icons"
 						rel="stylesheet"
 					/>
-					<link
-						rel="stylesheet"
-						href="https://unpkg.com/react-select/dist/react-select.css"
-					/>
 				</Head>
 
 				<Header pathname={this.props.url.pathname} />
-				{this.props.children}
 
-				{/* <style jsx global>{styles}</style>
-        <style jsx global>{baseStyles}</style>
-        <style jsx global>{helpersStyles}</style> */}
+				{this.props.children}
 			</div>
 		);
 	}
