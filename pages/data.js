@@ -9,8 +9,8 @@ import { graphql } from 'react-apollo';
 import './data.css';
 import withApollo from '../lib/withApollo';
 import App from '../components/App';
-import DataHeader from '../components/DataHeader';
-import DataContent from '../components/DataContent';
+import ChartHeader from '../components/ChartHeader';
+import ChartContent from '../components/ChartContent';
 import DataTable from '../components/DataTable';
 import theme from '../styles/victoryTheme';
 import { initStore } from '../store';
@@ -59,9 +59,6 @@ class Data extends Component {
 			pathname,
 		} = props;
 
-		// console.log(props);
-		// console.log(store.getState());
-
 		const orgId = getOrgId(pathname) || sourceId;
 
 		// Work out if custom default dataSet exists
@@ -98,7 +95,6 @@ class Data extends Component {
 	handleDimensionSelect = async (options, dimensionIndex) => {
 		let ids = [];
 		ids[0] = options.value;
-		// console.log(options);
 
 		if (ids.length > 0) {
 			const selectedDimensions = this.props.selectedDimensions;
@@ -235,7 +231,7 @@ class Data extends Component {
 		return (
 			<App url={url}>
 				{isMenuActive && (
-					<DataHeader
+					<ChartHeader
 						id={this.props.id}
 						dataSets={dataSets}
 						selectedDimensions={selectedDimensions}
@@ -262,7 +258,7 @@ class Data extends Component {
 								<div className="content">
 									{isLoading && <p className="loading">Loading</p>}
 
-									<DataContent
+									<ChartContent
 										isLoading={isLoading}
 										victoryData={victoryData}
 										chartStyle={chartStyle}

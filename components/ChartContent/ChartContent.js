@@ -15,6 +15,13 @@ class Content extends Component {
 		colourMap: PropTypes.array,
 	};
 
+	static defaultProps = {
+		chartType: 'line',
+		chartStyle: {
+			parent: {},
+		},
+	};
+
 	constructor() {
 		super();
 
@@ -40,8 +47,6 @@ class Content extends Component {
 			chartStyle,
 			colourMap,
 		} = this.props;
-
-		// console.log(victoryData.length);
 
 		return (
 			<div>

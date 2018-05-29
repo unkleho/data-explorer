@@ -2,12 +2,12 @@ import { Component } from 'react';
 import PropTypes from 'prop-types';
 import Select from 'react-select';
 
-import './DataHeader.css';
-import './DataHeader.global.css';
+import './ChartHeader.css';
+import './ChartHeader.global.css';
 import { blueGrey700, colors } from '../../styles/variables';
 import DataSetSelector from '../DataSetSelector';
 
-class DataHeader extends Component {
+class ChartHeader extends Component {
 	static propTypes = {
 		dataSets: PropTypes.array,
 		mainDimensionIndex: PropTypes.number,
@@ -51,19 +51,12 @@ class DataHeader extends Component {
 			selectedDimensions,
 			dimensions,
 			mainDimensionIndex = 0,
-			// onDataSetSelect,
-			// onDimensionSelect,
-			// onMainDimensionIdSelect,
 			onMainDimensionSelect,
-			// onMultiDimensionSelect,
 		} = this.props;
 
 		const dataSet =
 			dataSets && dataSets.filter((dataSet) => dataSet.originalId === id)[0];
 		const mainDimension = dimensions && dimensions[mainDimensionIndex];
-
-		// console.log('DataHeader');
-		// console.log(dimensions);
 
 		return (
 			<aside>
@@ -217,4 +210,4 @@ class DataHeader extends Component {
 	}
 }
 
-export default DataHeader;
+export default ChartHeader;

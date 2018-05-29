@@ -6,6 +6,7 @@ import './App.css';
 import '../../styles/base.css';
 import '../../styles/helpers.css';
 import Header from '../Header';
+import WithDimensions from '../WithDimensions';
 import { initGA, logPageView, logEvent } from '../../lib/analytics';
 
 class App extends Component {
@@ -53,10 +54,13 @@ class App extends Component {
 						rel="stylesheet"
 					/>
 				</Head>
-
 				<Header pathname={this.props.url.pathname} />
 
-				{this.props.children}
+				<WithDimensions>
+					{({ width, height }) => {
+						return this.props.children({ width, height });
+					}}
+				</WithDimensions>
 			</div>
 		);
 	}
