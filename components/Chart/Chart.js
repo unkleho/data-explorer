@@ -1,12 +1,11 @@
 import { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Router } from '../../routes';
-// import withRedux from 'next-redux-wrapper';
 
 import './Chart.css';
 import ChartHeader from '../ChartHeader';
 import ChartContent from '../ChartContent';
-// import { initStore } from '../store';
+import ChartFooter from '../ChartFooter';
 import {
 	buildVictoryData,
 	getDefaultDimensions,
@@ -18,6 +17,7 @@ class Chart extends Component {
 	static propTypes = {
 		isLoading: PropTypes.bool,
 		orgSlug: PropTypes.string.isRequired,
+		orgTitle: PropTypes.string,
 		dataSetId: PropTypes.string.isRequired,
 		data: PropTypes.object,
 		dataSets: PropTypes.array.isRequired,
@@ -107,6 +107,7 @@ class Chart extends Component {
 			selectedDimensions,
 			width,
 			height,
+			orgTitle,
 		} = this.props;
 
 		const selectedMainDimensionValues = selectedDimensions[mainDimensionIndex];
@@ -147,6 +148,8 @@ class Chart extends Component {
 						// chartType={chartType}
 						colourMap={colourMap}
 					/>
+
+					<ChartFooter orgTitle={orgTitle} />
 				</main>
 			</div>
 		);

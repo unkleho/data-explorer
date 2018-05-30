@@ -78,11 +78,11 @@ class Data extends Component {
 
 	render() {
 		const {
+			isLoading, // From GraphCool
 			orgSlug,
-			sourceTitle,
-			dataSet, // From GraphCool
+			// dataSet, // From GraphCool
 			organisation, // From GraphCool
-			isLoading,
+			dimensions,
 			data,
 			selectedDimensions,
 			url,
@@ -90,7 +90,8 @@ class Data extends Component {
 
 		// All dataSets within organisation
 		const dataSets = organisation && organisation.dataSets;
-		const dimensions = dataSet && dataSet.dimensions;
+		const orgTitle = organisation && organisation.title;
+		// const dimensions = dataSet && dataSet.dimensions;
 
 		// Index of currently selected dimension
 		const mainDimensionIndex = parseInt(this.props.mainDimensionIndex, 10) || 0;
@@ -103,6 +104,7 @@ class Data extends Component {
 							<Chart
 								isLoading={isLoading} // TODO: Is this needed???
 								orgSlug={orgSlug}
+								orgTitle={orgTitle}
 								dataSetId={this.props.id}
 								dataSets={dataSets}
 								selectedDimensions={selectedDimensions}
@@ -112,19 +114,6 @@ class Data extends Component {
 								width={width}
 								height={height}
 							/>
-
-							<p
-								style={{
-									fontSize: '0.6em',
-									float: 'right',
-									textAlign: 'right',
-								}}
-							>
-								Source: {sourceTitle}
-								<br />
-								Disclaimer: This website is in active development. Charts may
-								not be accurate.
-							</p>
 						</Fragment>
 					);
 				}}
@@ -162,34 +151,35 @@ const query = gql`
 				originalId
 				title
 				dimensions {
-					id
+					_id: id
 					name
 					keyPosition
 					dimensionId
-					originalId
+					id: originalId
 					values: dimensionValues {
-						id
+						_id: id
 						dimensionValueId
 						name
-						originalId
+						id: originalId
 					}
 				}
 			}
 		}
+		# TODO: Remove this, but keep for now, seems to affect dataSet title for some reason
 		dataSet: allDataSets(filter: { dataSetId: $dataSetId }) {
 			id
 			title
 			dimensions {
-				id
+				_id: id
 				name
 				keyPosition
 				dimensionId
-				originalId
+				id: originalId
 				values: dimensionValues {
-					id
+					_id: id
 					dimensionValueId
 					name
-					originalId
+					id: originalId
 				}
 			}
 		}
@@ -216,6 +206,8 @@ export default withApollo(
 		},
 		props: ({ data }) => {
 			const { organisation, dataSet, loading } = data;
+
+			// console.log(data);
 
 			if (!loading) {
 				// Use organisation's default if can't find dataSet

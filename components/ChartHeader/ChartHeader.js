@@ -132,7 +132,9 @@ class ChartHeader extends Component {
 												options={options.map((option) => {
 													return {
 														label: option.name,
-														value: option.originalId,
+														value: option.id,
+														// TODO: Need to decide on whether to use originalId or id
+														// value: option.originalId,
 													};
 												})}
 												onChange={(options) =>
@@ -163,7 +165,8 @@ class ChartHeader extends Component {
 								mainDimension.values.map((option) => {
 									return {
 										label: option.name,
-										value: option.originalId,
+										value: option.id,
+										// value: option.originalId,
 									};
 								})
 							}

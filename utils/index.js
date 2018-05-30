@@ -140,9 +140,15 @@ export function getDefaultDimensions(
 	}
 	let result = [];
 
+	console.log('getDefaultDimensions');
+
+	console.log(dimensions);
+
 	dimensions.forEach((dimension) => {
 		const { id, values } = dimension;
 		let defaultId = values[0].id;
+		console.log(defaultId);
+
 		let dimensionIds = [];
 
 		if (id !== 'TIME_PERIOD') {
