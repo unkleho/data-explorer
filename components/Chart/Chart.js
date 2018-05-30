@@ -20,7 +20,7 @@ class Chart extends Component {
 		orgTitle: PropTypes.string,
 		dataSetId: PropTypes.string.isRequired,
 		data: PropTypes.object,
-		dataSets: PropTypes.array.isRequired,
+		dataSets: PropTypes.array,
 		dimensions: PropTypes.array,
 		selectedDimensions: PropTypes.array,
 		mainDimensionIndex: PropTypes.number,

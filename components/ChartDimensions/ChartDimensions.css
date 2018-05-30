@@ -1,4 +1,83 @@
 @import '../../styles/variables.css';
 
-/* .chart-dimensions {
-} */
+.chart-dimensions {
+	display: flex;
+	flex-direction: column;
+	padding: 1em;
+	background-color: white;
+
+	& i {
+		margin-right: 1em;
+	}
+
+	@media (--screen-sm) {
+		flex-direction: row;
+	}
+}
+
+.chart-dimensions__dimension {
+	flex: 1;
+	margin-right: 0;
+	margin-bottom: 1em;
+
+	& h5 {
+		display: flex;
+		font-size: var(--font-size-xs);
+		margin-top: 0;
+		margin-bottom: var(--spacing-xs);
+		text-transform: uppercase;
+		font-weight: 400;
+		cursor: pointer;
+		width: 100%;
+		align-items: center;
+		justify-content: space-between;
+
+		& i {
+			border-radius: 4px;
+			background-color: var(--colour-primary-100);
+			font-size: 1.2em;
+			padding: 0.2em;
+			margin-right: 0;
+			align-self: flex-end;
+		}
+
+		&:hover {
+			/*color: ${deepOrange600};*/
+
+			& i {
+				opacity: 1;
+			}
+		}
+	}
+
+	&:last-child {
+		margin-right: 0;
+		margin-bottom: 0;
+	}
+
+	&.is-selected {
+		/*opacity: 0.3;*/
+
+		& .Select--single {
+			opacity: 0.3;
+		}
+
+		& h5 {
+			& i {
+				color: white;
+				background-color: var(--colour-primary-700);
+				transition: 0.3s;
+			}
+
+			& span {
+				transition: 0.3s;
+				opacity: 0.3;
+			}
+		}
+	}
+
+	@media (--screen-sm) {
+		margin-right: 1em;
+		margin-bottom: 0;
+	}
+}

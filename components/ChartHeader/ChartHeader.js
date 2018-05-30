@@ -4,6 +4,7 @@ import Select from 'react-select';
 
 import './ChartHeader.css';
 import './ChartHeader.global.css';
+import ChartDimensions from '../ChartDimensions';
 import { blueGrey700, colors } from '../../styles/variables';
 import DataSetSelector from '../DataSetSelector';
 
@@ -51,6 +52,7 @@ class ChartHeader extends Component {
 			selectedDimensions,
 			dimensions,
 			mainDimensionIndex = 0,
+			onDimensionSelect,
 			onMainDimensionSelect,
 		} = this.props;
 
@@ -61,17 +63,17 @@ class ChartHeader extends Component {
 		return (
 			<aside>
 				<div
-					className={`data-header ${
+					className={`chart-header ${
 						this.state.showDataSetSelector ? 'is-open' : ''
 					}`}
 				>
 					<div className="container container--lg">
-						<div className="data-header__inside">
-							<div className="data-header__id">
+						<div className="chart-header__inside">
+							<div className="chart-header__id">
 								{dataSet && dataSet.originalId}
 							</div>
 							<h1
-								className="data-header__title"
+								className="chart-header__title"
 								onClick={this.handleDataSetTitleClick}
 							>
 								{dataSet && dataSet.title}{' '}
@@ -99,57 +101,15 @@ class ChartHeader extends Component {
 				</div>
 
 				<div className="container container--lg">
-					<div className="dimension-boxes">
-						{selectedDimensions &&
-							dimensions &&
-							dimensions.map((dimension, i) => {
-								const options = dimension.values;
-								const currentDimensionIds = selectedDimensions[i];
+					<ChartDimensions
+						dimensions={dimensions}
+						selectedDimensions={selectedDimensions}
+						mainDimensionIndex={mainDimensionIndex}
+						onDimensionSelect={onDimensionSelect}
+						onMainDimensionSelect={onMainDimensionSelect}
+					/>
 
-								if (dimension && dimension.id !== 'FREQUENCY') {
-									return (
-										<div
-											className={`dimension-box ${
-												i === mainDimensionIndex ? 'is-selected' : ''
-											}`}
-											key={`dimension-box-${i}`}
-										>
-											<h5 onClick={() => onMainDimensionSelect(i)}>
-												<span>{dimension.name}</span>
-												<i className="material-icons">compare_arrows</i>
-											</h5>
-
-											<Select
-												name="form-field-name"
-												value={
-													currentDimensionIds &&
-													currentDimensionIds.length === 1
-														? currentDimensionIds[0]
-														: currentDimensionIds
-												}
-												clearable={false}
-												searchable={false}
-												options={options.map((option) => {
-													return {
-														label: option.name,
-														value: option.id,
-														// TODO: Need to decide on whether to use originalId or id
-														// value: option.originalId,
-													};
-												})}
-												onChange={(options) =>
-													this.handleDimensionSelect(options, i)
-												}
-											/>
-										</div>
-									);
-								} else {
-									return null;
-								}
-							})}
-					</div>
-
-					<div className="main-dimension-box">
+					<div className="chart-header__main-dimension">
 						<h1>
 							<i className="material-icons">compare_arrows</i> Compare:{' '}
 							{mainDimension && mainDimension.name}
