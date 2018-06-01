@@ -119,6 +119,8 @@ class Chart extends Component {
 			selectedMainDimensionValues,
 		);
 
+		console.log(victoryData);
+
 		const colourMap = getDimensionColourMap(
 			selectedMainDimensionValues,
 			mainDimension && mainDimension.values,
