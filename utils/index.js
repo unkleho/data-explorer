@@ -129,67 +129,114 @@ export function buildDataSets(data) {
 	});
 }
 
-// Get array of dimension ids, used for creating initial API call.
-export function getDefaultDimensions(
-	dimensions: Array<any>,
-	id: string,
-	dataSetDefaultDimensions: Array<any>,
-) {
-	if (typeof window !== 'undefined') {
-		console.table(dimensions);
-	}
+// ---------------------------------------------------
+// Copied from data-explorer-graphql/lib
+// Can't get field to return nested array in Prisma,
+// so here we are
+// ---------------------------------------------------
+
+// Get an array of default dimensions, used for creating initial API call.
+// TODO: Set up global defaults
+export function getDefaultDimensions(dimensions) {
 	let result = [];
 
-	console.log('getDefaultDimensions');
+	dimensions
+		// Filter out time period
+		.filter((dimension) => dimension.slug !== 'TIME_PERIOD')
+		.forEach((dimension) => {
+			const { slug, values } = dimension;
+			const defaultSlug = values[0].slug;
 
-	console.log(dimensions);
+			let dimensionSlugs = [];
 
-	dimensions.forEach((dimension) => {
-		const { id, values } = dimension;
-		let defaultId = values[0].id;
-		console.log(defaultId);
-
-		let dimensionIds = [];
-
-		if (id !== 'TIME_PERIOD') {
-			if (id === 'REGION' || id === 'STATE') {
+			if (slug === 'REGION' || slug === 'STATE') {
 				// Select Australia first rather than a state
-				dimensionIds.push(getIdByName(values, 'Australia') || defaultId);
-				// } else if (id === 'SEX') {
-				//   // Select Persons rather than Male or Female
-				//   dimensiondIds.push(getIdByName(values, 'Persons') || defaultId);
+				dimensionSlugs.push(getSlugByName(values, 'Australia') || defaultSlug);
 			} else {
-				dimensionIds.push(defaultId);
+				dimensionSlugs.push(defaultSlug);
 			}
-		}
 
-		if (dimensionIds.length > 0) {
-			result.push(dimensionIds);
-		}
-	});
-
-	// Work out if dataSet has default dimensions
-	// TODO: Re-enable this!
-	// const dataSet = getById(dataSets.children, id);
-	// if (dataSet.defaultDimensions && dataSet.defaultDimensions.length > 0) {
-	//   // TODO: Smarter merging needed, just replacing right now.
-	//   result = dataSet.defaultDimensions;
-	// }
+			result.push(dimensionSlugs);
+		});
 
 	return result;
 
-	function getIdByName(values, name) {
+	function getSlugByName(values, name) {
 		const result = values.filter((value) => {
 			return value.name === name;
 		});
 
 		if (result.length === 1) {
-			return result[0].id;
+			return result[0].slug;
 		} else {
 			return undefined;
 		}
 	}
 }
+
+// --------------------------------------------------------------
+
+// Get array of dimension ids, used for creating initial API call.
+// export function getDefaultDimensions(
+// 	dimensions: Array<any>,
+// 	id: string,
+// 	dataSetDefaultDimensions: Array<any>,
+// ) {
+// 	if (typeof window !== 'undefined') {
+// 		console.table(dimensions);
+// 	}
+// 	let result = [];
+
+// 	// console.log('getDefaultDimensions');
+
+// 	// console.log(dimensions);
+
+// 	dimensions.forEach((dimension) => {
+// 		const { id, values } = dimension;
+// 		let defaultId = values[0].id;
+// 		console.log(defaultId);
+
+// 		let dimensionIds = [];
+
+// 		if (id !== 'TIME_PERIOD') {
+// 			if (id === 'REGION' || id === 'STATE') {
+// 				// Select Australia first rather than a state
+// 				dimensionIds.push(getIdByName(values, 'Australia') || defaultId);
+// 				// } else if (id === 'SEX') {
+// 				//   // Select Persons rather than Male or Female
+// 				//   dimensiondIds.push(getIdByName(values, 'Persons') || defaultId);
+// 			} else {
+// 				dimensionIds.push(defaultId);
+// 			}
+// 		}
+
+// 		if (dimensionIds.length > 0) {
+// 			result.push(dimensionIds);
+// 		}
+// 	});
+
+// 	// Work out if dataSet has default dimensions
+// 	// TODO: Re-enable this!
+// 	// const dataSet = getById(dataSets.children, id);
+// 	// if (dataSet.defaultDimensions && dataSet.defaultDimensions.length > 0) {
+// 	//   // TODO: Smarter merging needed, just replacing right now.
+// 	//   result = dataSet.defaultDimensions;
+// 	// }
+
+// 	return result;
+
+// 	function getIdByName(values, name) {
+// 		const result = values.filter((value) => {
+// 			return value.name === name;
+// 		});
+
+// 		if (result.length === 1) {
+// 			return result[0].id;
+// 		} else {
+// 			return undefined;
+// 		}
+// 	}
+// }
 
 export function getById(items: Array<any>, id: string) {
 	const result = items.filter((item) => {

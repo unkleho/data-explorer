@@ -106,7 +106,7 @@ export const getData = (selectedDimensions, dataSetId, sourceId) => {
 				data: result.data,
 			});
 
-			console.log(JSON.stringify(selectedDimensions));
+			// console.log(JSON.stringify(selectedDimensions));
 
 			logEvent(
 				sourceId,

@@ -16,9 +16,9 @@ import theme from '../../styles/victoryTheme';
 class Chart extends Component {
 	static propTypes = {
 		isLoading: PropTypes.bool,
-		orgSlug: PropTypes.string.isRequired,
+		orgSlug: PropTypes.string,
 		orgTitle: PropTypes.string,
-		dataSetId: PropTypes.string.isRequired,
+		dataSetSlug: PropTypes.string,
 		data: PropTypes.object,
 		dataSets: PropTypes.array,
 		dimensions: PropTypes.array,
@@ -27,6 +27,19 @@ class Chart extends Component {
 		width: PropTypes.number,
 		height: PropTypes.number,
 	};
+
+	static defaultProps = {
+		dataSetSlug: '',
+		dataSets: [],
+	};
+
+	constructor() {
+		super();
+
+		this.state = {
+			victoryData: [],
+		};
+	}
 
 	handleDataSetSelect = (id) => {
 		Router.pushRoute(`/${this.props.orgSlug}/${id}`);
@@ -38,7 +51,7 @@ class Chart extends Component {
 
 		if (ids.length > 0) {
 			const selectedDimensions = this.props.selectedDimensions;
-			const dataSetId = this.props.dataSetId;
+			const dataSetSlug = this.props.dataSetSlug;
 
 			// Update selectedDimensions array with selected dimensionId
 			selectedDimensions[dimensionIndex] = ids;
@@ -46,7 +59,7 @@ class Chart extends Component {
 			Router.pushRoute(
 				`/${
 					this.props.orgSlug
-				}/${dataSetId}?selectedDimensions=${JSON.stringify(
+				}/${dataSetSlug}?selectedDimensions=${JSON.stringify(
 					selectedDimensions,
 				)}&mainDimensionIndex=${this.props.mainDimensionIndex}`,
 			);
@@ -66,7 +79,7 @@ class Chart extends Component {
 
 		if (ids.length > 0) {
 			const selectedDimensions = this.props.selectedDimensions;
-			const dataSetId = this.props.dataSetId;
+			const dataSetSlug = this.props.dataSetSlug;
 
 			// Update selectedDimensions array with selected dimensionId
 			selectedDimensions[dimensionIndex] = ids;
@@ -74,7 +87,7 @@ class Chart extends Component {
 			Router.pushRoute(
 				`/${
 					this.props.orgSlug
-				}/${dataSetId}?selectedDimensions=${JSON.stringify(
+				}/${dataSetSlug}?selectedDimensions=${JSON.stringify(
 					selectedDimensions,
 				)}&mainDimensionIndex=${this.props.mainDimensionIndex}`,
 			);
@@ -84,22 +97,39 @@ class Chart extends Component {
 	handleMainDimensionSelect = (mainDimensionIndex) => {
 		const defaultDimensions = getDefaultDimensions(
 			this.props.dimensions,
-			this.props.dataSetId,
+			this.props.dataSetSlug,
 		);
 
 		Router.pushRoute(
 			`/${this.props.orgSlug}/${
-				this.props.dataSetId
+				this.props.dataSetSlug
 			}?selectedDimensions=${JSON.stringify(
 				defaultDimensions,
 			)}&mainDimensionIndex=${mainDimensionIndex}`,
 		);
 	};
 
+	componentDidUpdate(prevProps, prevState) {
+		if (prevProps.data !== this.props.data) {
+			const mainDimension =
+				this.props.dimensions &&
+				this.props.dimensions[this.props.mainDimensionIndex];
+			const victoryData = buildChartData(
+				this.props.data,
+				mainDimension,
+				this.props.selectedDimensions[this.props.mainDimensionIndex],
+			);
+
+			this.setState({
+				victoryData,
+			});
+		}
+	}
+
 	render() {
 		const {
 			isLoading,
-			dataSetId,
+			dataSetSlug,
 			data,
 			dataSets,
 			dimensions,
@@ -110,26 +140,16 @@ class Chart extends Component {
 			orgTitle,
 		} = this.props;
 
-		const selectedMainDimensionValues = selectedDimensions[mainDimensionIndex];
 		const mainDimension = dimensions && dimensions[mainDimensionIndex];
-
-		const victoryData = buildVictoryData(
-			data,
-			mainDimensionIndex,
-			selectedMainDimensionValues,
-		);
-
-		console.log(victoryData);
-
-		const colourMap = getDimensionColourMap(
-			selectedMainDimensionValues,
-			mainDimension && mainDimension.values,
-		);
+		// const colourMap = getDimensionColourMap(
+		// 	selectedMainDimensionValues,
+		// 	mainDimension && mainDimension.values,
+		// );
 
 		return (
 			<div className="chart">
 				<ChartHeader
-					id={dataSetId}
+					dataSetSlug={dataSetSlug}
 					dataSets={dataSets}
 					selectedDimensions={selectedDimensions}
 					dimensions={dimensions}
@@ -141,15 +161,17 @@ class Chart extends Component {
 				/>
 
 				<main className="content container container--lg">
-					<ChartContent
-						isLoading={isLoading}
-						victoryData={victoryData}
-						theme={theme}
-						width={width}
-						height={height}
-						// chartType={chartType}
-						colourMap={colourMap}
-					/>
+					{this.state.victoryData.length > 0 && (
+						<ChartContent
+							isLoading={isLoading}
+							victoryData={this.state.victoryData}
+							theme={theme}
+							width={width}
+							height={height}
+							chartType={'line'}
+							// colourMap={colourMap}
+						/>
+					)}
 
 					<ChartFooter orgTitle={orgTitle} />
 				</main>
@@ -159,3 +181,27 @@ class Chart extends Component {
 }
 
 export default Chart;
+
+// Build data for Victory Chart
+// TODO: Move to own lib
+const buildChartData = (
+	data = [],
+	mainDimension,
+	selectedMainDimensions = [],
+) => {
+	const dimensionSlug = mainDimension && mainDimension.slug;
+
+	// Loop through selectedMainDimensions to build multi-dimensional array
+	return selectedMainDimensions.map((dimensionValue) => {
+		return data
+			.filter((d) => {
+				return d.dimensions[dimensionSlug] === dimensionValue;
+			})
+			.map((d) => {
+				return {
+					x: new Date(d.date),
+					y: d.value,
+				};
+			});
+	});
+};

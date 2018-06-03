@@ -30,12 +30,17 @@ class ChartDimensions extends Component {
 		return (
 			<div className="chart-dimensions">
 				{dimensions
-					.filter((dimension) => dimension.id !== 'FREQUENCY')
+					// Filter out any unwanted dimensions
+					// TODO: Maybe do this higher up in data
+					.filter(
+						(dimension) =>
+							dimension.slug !== 'FREQUENCY' &&
+							dimension.slug !== 'TIME_PERIOD',
+					)
 					.map((dimension, i) => {
 						const options = dimension.values;
 						const currentDimensionIds = selectedDimensions[i];
 
-						// if (dimension && dimension.id !== 'FREQUENCY') {
 						return (
 							<div
 								className={`chart-dimensions__dimension ${
@@ -60,18 +65,13 @@ class ChartDimensions extends Component {
 									options={options.map((option) => {
 										return {
 											label: option.name,
-											value: option.id,
-											// TODO: Need to decide on whether to use originalId or id
-											// value: option.originalId,
+											value: option.slug,
 										};
 									})}
 									onChange={(options) => onDimensionSelect(options, i)}
 								/>
 							</div>
 						);
-						// } else {
-						// 	return null;
-						// }
 					})}
 			</div>
 		);

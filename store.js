@@ -5,7 +5,7 @@ export const reducer = (
 	state = {
 		isLoading: false,
 		isMenuActive: true,
-		mainDimensionIndex: 0,
+		// mainDimensionIndex: 0,
 	},
 	action,
 ) => {

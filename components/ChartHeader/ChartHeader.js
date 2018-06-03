@@ -10,9 +10,20 @@ import DataSetSelector from '../DataSetSelector';
 
 class ChartHeader extends Component {
 	static propTypes = {
-		dataSets: PropTypes.array,
-		mainDimensionIndex: PropTypes.number,
+		dataSetSlug: PropTypes.string.isRequired,
+		dataSets: PropTypes.array.isRequired,
 		dimensions: PropTypes.array,
+		selectedDimensions: PropTypes.array,
+		mainDimensionIndex: PropTypes.number,
+		onDataSetSelect: PropTypes.func,
+		onDimensionSelect: PropTypes.func,
+		onMultiDimensionSelect: PropTypes.func,
+		onMainDimensionSelect: PropTypes.func,
+	};
+
+	static defaultProps = {
+		selectedDimensions: [],
+		mainDimensionIndex: 0,
 	};
 
 	constructor() {
@@ -47,20 +58,21 @@ class ChartHeader extends Component {
 
 	render() {
 		const {
-			id,
+			dataSetSlug,
 			dataSets,
 			selectedDimensions,
 			dimensions,
-			mainDimensionIndex = 0,
+			mainDimensionIndex,
 			onDimensionSelect,
 			onMainDimensionSelect,
 		} = this.props;
 
+		// Get current dataSet
 		const dataSet =
-			dataSets && dataSets.filter((dataSet) => dataSet.originalId === id)[0];
+			dataSets && dataSets.filter((dataSet) => dataSet.slug === dataSetSlug)[0];
 		const mainDimension = dimensions && dimensions[mainDimensionIndex];
 
-		return (
+		return dataSet ? (
 			<aside>
 				<div
 					className={`chart-header ${
@@ -69,14 +81,12 @@ class ChartHeader extends Component {
 				>
 					<div className="container container--lg">
 						<div className="chart-header__inside">
-							<div className="chart-header__id">
-								{dataSet && dataSet.originalId}
-							</div>
+							<div className="chart-header__id">{dataSet.slug}</div>
 							<h1
 								className="chart-header__title"
 								onClick={this.handleDataSetTitleClick}
 							>
-								{dataSet && dataSet.title}{' '}
+								{dataSet.title}{' '}
 								{this.state.showDataSetSelector ? (
 									<span>
 										Close <i className="material-icons">&#xE5D8;</i>
@@ -125,15 +135,13 @@ class ChartHeader extends Component {
 								mainDimension.values.map((option) => {
 									return {
 										label: option.name,
-										value: option.id,
-										// value: option.originalId,
+										value: option.slug,
 									};
 								})
 							}
 							onChange={(options) =>
 								this.handleMultiDimensionSelect(options, mainDimensionIndex)
 							}
-							// valueComponent={CustomValueComponent}
 						/>
 					</div>
 				</div>
@@ -169,7 +177,7 @@ class ChartHeader extends Component {
 					}
 				`}</style>
 			</aside>
-		);
+		) : null;
 	}
 }
 

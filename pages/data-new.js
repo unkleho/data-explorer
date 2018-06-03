@@ -11,15 +11,28 @@ import Chart from '../components/Chart';
 import { initStore } from '../store';
 import { getDataSet } from '../actions';
 import allData from '../data';
+import { getDefaultDimensions } from '../utils';
+import { select } from 'async';
 
 class Data extends Component {
 	static propTypes = {
-		id: PropTypes.string,
-		query: PropTypes.shape({
-			id: PropTypes.string,
-			sourceId: PropTypes.string,
+		selectedDimensions: PropTypes.array,
+		organisation: PropTypes.shape({
+			title: PropTypes.string,
 		}),
-		orgId: PropTypes.string,
+		// query: PropTypes.shape({
+		// 	id: PropTypes.string,
+		// 	sourceId: PropTypes.string,
+		// }),
+	};
+
+	static defaultProps = {
+		selectedDimensions: undefined,
+		organisation: {},
+		dataSet: {
+			dimensions: [],
+		},
+		mainDimensionIndex: 0,
 	};
 
 	constructor() {
@@ -28,47 +41,60 @@ class Data extends Component {
 		this.state = {};
 	}
 
-	static async getInitialProps(props) {
-		const {
-			query: {
-				id = null,
-				sourceId = 'ABS',
-				selectedDimensions = null,
-				mainDimensionIndex = null,
-			},
-			// isServer,
-			store,
-			pathname,
-		} = props;
-
-		const orgId = getOrgId(pathname) || sourceId;
-
-		// Work out if custom default dataSet exists
-		const defaultId = allData[orgId].defaultDataSetId;
-		const newId = id || defaultId || allData[orgId].dataSets.children[0].id;
-
-		// Parse selectedDimensions from URL
-		const selectedDimensionsNew = selectedDimensions
-			? JSON.parse(selectedDimensions)
-			: null;
-
-		// Get dataSet metadata and observations data
-		await store.dispatch(getDataSet(newId, orgId, selectedDimensionsNew));
-
-		if (mainDimensionIndex !== null) {
-			store.dispatch({
-				type: 'SELECT_MAIN_DIMENSION',
-				mainDimensionIndex,
-				selectedDimensions: selectedDimensionsNew,
-			});
-		}
+	static getInitialProps(props) {
+		const { query: { selectedDimensions, mainDimensionIndex } } = props;
 
 		return {
-			id: newId,
-			orgId,
-			orgSlug: orgId.toLowerCase(),
+			// Convert these url params from strings
+			selectedDimensions: selectedDimensions && JSON.parse(selectedDimensions),
+			mainDimensionIndex:
+				typeof mainDimensionIndex === 'string'
+					? parseInt(mainDimensionIndex, 10)
+					: mainDimensionIndex,
 		};
 	}
+
+	// static async getInitialProps(props) {
+	// 	const {
+	// 		query: {
+	// 			id = null,
+	// 			sourceId = 'ABS',
+	// 			selectedDimensions = null,
+	// 			mainDimensionIndex = null,
+	// 		},
+	// 		// isServer,
+	// 		store,
+	// 		pathname,
+	// 	} = props;
+
+	// 	const orgId = getOrgId(pathname) || sourceId;
+
+	// 	// Work out if custom default dataSet exists
+	// 	const defaultId = allData[orgId].defaultDataSetId;
+	// 	const newId = id || defaultId || allData[orgId].dataSets.children[0].id;
+
+	// 	// Parse selectedDimensions from URL
+	// 	const selectedDimensionsNew = selectedDimensions
+	// 		? JSON.parse(selectedDimensions)
+	// 		: null;
+
+	// 	// Get dataSet metadata and observations data
+	// 	await store.dispatch(getDataSet(newId, orgId, selectedDimensionsNew));
+
+	// 	if (mainDimensionIndex !== null) {
+	// 		store.dispatch({
+	// 			type: 'SELECT_MAIN_DIMENSION',
+	// 			mainDimensionIndex,
+	// 			selectedDimensions: selectedDimensionsNew,
+	// 		});
+	// 	}
+
+	// 	return {
+	// 		id: newId,
+	// 		orgId,
+	// 		orgSlug: orgId.toLowerCase(),
+	// 	};
+	// }
 
 	handleMenuClick = (event) => {
 		this.props.dispatch({
@@ -78,23 +104,19 @@ class Data extends Component {
 
 	render() {
 		const {
-			isLoading, // From GraphCool
-			orgSlug,
-			// dataSet, // From GraphCool
-			organisation, // From GraphCool
-			dimensions,
-			data,
-			selectedDimensions,
+			// Prisma
+			isLoading,
+			dataSet,
+			organisation,
+			// URL
 			url,
+			selectedDimensions,
+			mainDimensionIndex,
 		} = this.props;
 
-		// All dataSets within organisation
-		const dataSets = organisation && organisation.dataSets;
-		const orgTitle = organisation && organisation.title;
-		// const dimensions = dataSet && dataSet.dimensions;
-
-		// Index of currently selected dimension
-		const mainDimensionIndex = parseInt(this.props.mainDimensionIndex, 10) || 0;
+		// Assign consts.
+		const { dataSets, title: orgTitle } = organisation;
+		const { dimensions, data } = dataSet;
 
 		return (
 			<App url={url}>
@@ -102,12 +124,14 @@ class Data extends Component {
 					return (
 						<Fragment>
 							<Chart
-								isLoading={isLoading} // TODO: Is this needed???
-								orgSlug={orgSlug}
+								isLoading={isLoading}
+								orgSlug={'ABS'}
 								orgTitle={orgTitle}
-								dataSetId={this.props.id}
+								dataSetSlug={dataSet.slug}
 								dataSets={dataSets}
-								selectedDimensions={selectedDimensions}
+								selectedDimensions={
+									selectedDimensions || getDefaultDimensions(dimensions)
+								}
 								dimensions={dimensions}
 								mainDimensionIndex={mainDimensionIndex}
 								data={data}
@@ -135,53 +159,40 @@ function mapStateToProps(state) {
 }
 
 const query = gql`
-	query getOrganisation($organisationId: String!, $dataSetId: String!) {
-		organisation: Organisation(organisationId: $organisationId) {
-			id
-			organisationId
+	query getOrganisation(
+		$orgSlug: String!
+		$selectedDimensions: [[String!]!]
+		$dataSetSlug: String!
+	) {
+		organisation(identifier: $orgSlug) {
+			identifier
 			title
 			dataSets {
-				id
-				originalId
-				dataSetId
+				slug
 				title
-			}
-			defaultDataSet {
-				id
-				originalId
-				title
-				dimensions {
-					_id: id
-					name
-					keyPosition
-					dimensionId
-					id: originalId
-					values: dimensionValues {
-						_id: id
-						dimensionValueId
-						name
-						id: originalId
-					}
-				}
 			}
 		}
-		# TODO: Remove this, but keep for now, seems to affect dataSet title for some reason
-		dataSet: allDataSets(filter: { dataSetId: $dataSetId }) {
-			id
+		dataSet(
+			slug: $dataSetSlug
+			orgSlug: $orgSlug
+			selectedDimensions: $selectedDimensions
+		) {
+			slug
 			title
 			dimensions {
-				_id: id
 				name
-				keyPosition
-				dimensionId
-				id: originalId
-				values: dimensionValues {
-					_id: id
-					dimensionValueId
+				slug
+				values {
 					name
-					id: originalId
+					slug
 				}
 			}
+			data {
+				date
+				value
+				dimensions
+			}
+			# observations
 		}
 	}
 `;
@@ -189,51 +200,22 @@ const query = gql`
 export default withApollo(
 	graphql(query, {
 		options: ({
-			url: {
-				pathname,
-				query: { id, selectedDimensions, mainDimensionIndex },
-			},
+			url: { pathname, query: { dataSetSlug = 'LF', selectedDimensions = [] } },
 		}) => {
-			const organisationId = pathname.substr(1).toUpperCase();
-			const dataSetId = `${organisationId}__${id}`;
+			// Work out orgSlug from URL
+			const orgSlug = pathname.substr(1).toUpperCase();
 
 			return {
 				variables: {
-					organisationId,
-					dataSetId,
+					orgSlug: 'ABS',
+					selectedDimensions: JSON.parse(selectedDimensions),
+					dataSetSlug,
 				},
 			};
 		},
 		props: ({ data }) => {
-			const { organisation, dataSet, loading } = data;
-
-			// console.log(data);
-
-			if (!loading) {
-				// Use organisation's default if can't find dataSet
-				const newDataSet =
-					dataSet.length > 0 ? dataSet[0] : organisation.defaultDataSet;
-
-				return {
-					...data,
-					dataSet: newDataSet && {
-						...newDataSet,
-						dimensions: newDataSet.dimensions.slice(0, -1),
-					},
-					organisation: {
-						...organisation,
-						// defaultDataSetId: organisation.defaultDataSet.originalId,
-						dataSets:
-							organisation &&
-							organisation.dataSets.map((dataSet) => ({
-								...dataSet,
-								// id: dataSet._id.replace(`${organisation.organisationId}__`, ''),
-							})),
-					},
-				};
-			}
-
 			return {
+				isLoading: data.loading,
 				...data,
 			};
 		},
