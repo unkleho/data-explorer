@@ -17,10 +17,15 @@ class Header extends Component {
 		this.state = {
 			isMenuActive: false,
 			sources: [
-				{ title: 'ABS', id: 'ABS', slug: 'abs' },
-				{ title: 'OECD', id: 'OECD', slug: 'oecd' },
-				{ title: 'UKDS', id: 'UKDS', slug: 'ukds' },
-				{ title: 'UNESCO', id: 'UNESCO', slug: 'unesco' },
+				{ title: 'ABS', id: 'ABS', slug: 'abs', dataSetSlug: 'LF' },
+				{ title: 'OECD', id: 'OECD', slug: 'oecd', dataSetSlug: 'SNA_TABLE1' },
+				{ title: 'UKDS', id: 'UKDS', slug: 'ukds', dataSetSlug: 'TABLE5' },
+				{
+					title: 'UNESCO',
+					id: 'UNESCO',
+					slug: 'unesco',
+					dataSetSlug: 'DEMO_DS',
+				},
 				{ title: 'ABOUT', id: 'ABOUT', slug: 'about' },
 			],
 		};
@@ -73,7 +78,11 @@ class Header extends Component {
 									}
 									key={s.id}
 								>
-									<Link href={`/${s.slug}`}>
+									<Link
+										href={`/${s.slug}${
+											s.dataSetSlug ? `/${s.dataSetSlug}` : ''
+										}`}
+									>
 										<a>{s.title}</a>
 									</Link>
 								</li>

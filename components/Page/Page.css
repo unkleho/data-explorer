@@ -1,6 +1,6 @@
 @import '../../styles/variables.css';
 
-header {
+/* header {
   background-color: var(--colour-primary-50);
   padding: var(--spacing-xxlg);
 
@@ -8,9 +8,9 @@ header {
     margin-top: 0;
     margin-bottom: 0;
   }
-}
+} */
 
 article {
-  /*max-width: 30em;*/
-  /*margin: 0 auto;*/
+	/*max-width: 30em;*/
+	/*margin: 0 auto;*/
 }

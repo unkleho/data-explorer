@@ -3,7 +3,7 @@ import { gql, graphql } from 'react-apollo';
 import App from '../components/App';
 import Page from '../components/Page';
 
-import withData from '../lib/withData';
+import withApollo from '../lib/withApollo';
 
 const AboutPage = (props) => (
 	<App url={props.url}>
@@ -105,7 +105,7 @@ const allObjects = gql`
 
 // The `graphql` wrapper executes a GraphQL query and makes the results
 // available on the `data` prop of the wrapped component (ExamplePage)
-export default withData(
+export default withApollo(
 	graphql(allObjects, {
 		props: ({ data }) => {
 			console.log('about');

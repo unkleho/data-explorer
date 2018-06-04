@@ -2,7 +2,7 @@ import { Component } from 'react';
 
 class Home extends Component {
 	componentDidMount() {
-		window.location.replace('/abs');
+		window.location.replace('/abs/LF');
 	}
 
 	render() {

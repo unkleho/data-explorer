@@ -1,3 +1,3 @@
-import Data from './data-new';
+import Data from './data';
 
 export default Data;

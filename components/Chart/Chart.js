@@ -1,16 +1,12 @@
 import { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Router } from '../../routes';
 
 import './Chart.css';
+import { Router } from '../../routes';
 import ChartHeader from '../ChartHeader';
 import ChartContent from '../ChartContent';
 import ChartFooter from '../ChartFooter';
-import {
-	buildVictoryData,
-	getDefaultDimensions,
-	getDimensionColourMap,
-} from '../../utils';
+import { getDefaultDimensions } from '../../utils';
 import theme from '../../styles/victoryTheme';
 
 class Chart extends Component {
@@ -19,7 +15,7 @@ class Chart extends Component {
 		orgSlug: PropTypes.string,
 		orgTitle: PropTypes.string,
 		dataSetSlug: PropTypes.string,
-		data: PropTypes.object,
+		data: PropTypes.array,
 		dataSets: PropTypes.array,
 		dimensions: PropTypes.array,
 		selectedDimensions: PropTypes.array,
@@ -42,7 +38,7 @@ class Chart extends Component {
 	}
 
 	handleDataSetSelect = (id) => {
-		Router.pushRoute(`/${this.props.orgSlug}/${id}`);
+		Router.pushRoute(`/${this.props.orgSlug.toLowerCase()}/${id}`);
 	};
 
 	handleDimensionSelect = async (options, dimensionIndex) => {
@@ -57,9 +53,7 @@ class Chart extends Component {
 			selectedDimensions[dimensionIndex] = ids;
 
 			Router.pushRoute(
-				`/${
-					this.props.orgSlug
-				}/${dataSetSlug}?selectedDimensions=${JSON.stringify(
+				`/${this.props.orgSlug.toLowerCase()}/${dataSetSlug}?selectedDimensions=${JSON.stringify(
 					selectedDimensions,
 				)}&mainDimensionIndex=${this.props.mainDimensionIndex}`,
 			);
@@ -85,9 +79,7 @@ class Chart extends Component {
 			selectedDimensions[dimensionIndex] = ids;
 
 			Router.pushRoute(
-				`/${
-					this.props.orgSlug
-				}/${dataSetSlug}?selectedDimensions=${JSON.stringify(
+				`/${this.props.orgSlug.toLowerCase()}/${dataSetSlug}?selectedDimensions=${JSON.stringify(
 					selectedDimensions,
 				)}&mainDimensionIndex=${this.props.mainDimensionIndex}`,
 			);
@@ -101,7 +93,7 @@ class Chart extends Component {
 		);
 
 		Router.pushRoute(
-			`/${this.props.orgSlug}/${
+			`/${this.props.orgSlug.toLowerCase()}/${
 				this.props.dataSetSlug
 			}?selectedDimensions=${JSON.stringify(
 				defaultDimensions,
@@ -110,14 +102,19 @@ class Chart extends Component {
 	};
 
 	componentDidUpdate(prevProps, prevState) {
-		if (prevProps.data !== this.props.data) {
-			const mainDimension =
-				this.props.dimensions &&
-				this.props.dimensions[this.props.mainDimensionIndex];
+		const {
+			data,
+			mainDimensionIndex,
+			dimensions,
+			selectedDimensions,
+		} = this.props;
+
+		if (prevProps.data !== data) {
+			const mainDimension = dimensions && dimensions[mainDimensionIndex];
 			const victoryData = buildChartData(
-				this.props.data,
+				data,
 				mainDimension,
-				this.props.selectedDimensions[this.props.mainDimensionIndex],
+				selectedDimensions[mainDimensionIndex],
 			);
 
 			this.setState({
@@ -130,7 +127,6 @@ class Chart extends Component {
 		const {
 			isLoading,
 			dataSetSlug,
-			data,
 			dataSets,
 			dimensions,
 			mainDimensionIndex,
@@ -140,7 +136,8 @@ class Chart extends Component {
 			orgTitle,
 		} = this.props;
 
-		const mainDimension = dimensions && dimensions[mainDimensionIndex];
+		const { victoryData } = this.state;
+
 		// const colourMap = getDimensionColourMap(
 		// 	selectedMainDimensionValues,
 		// 	mainDimension && mainDimension.values,
@@ -161,10 +158,10 @@ class Chart extends Component {
 				/>
 
 				<main className="content container container--lg">
-					{this.state.victoryData.length > 0 && (
+					{victoryData.length > 0 && (
 						<ChartContent
 							isLoading={isLoading}
-							victoryData={this.state.victoryData}
+							victoryData={victoryData}
 							theme={theme}
 							width={width}
 							height={height}

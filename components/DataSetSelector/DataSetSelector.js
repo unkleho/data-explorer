@@ -48,7 +48,7 @@ class DataSetSelector extends Component {
 					options={dataSets.map((option) => {
 						return {
 							label: option.title,
-							value: option.originalId,
+							value: option.slug,
 						};
 					})}
 					openOnFocus
