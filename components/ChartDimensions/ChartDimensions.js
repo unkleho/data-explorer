@@ -40,6 +40,7 @@ class ChartDimensions extends Component {
 					.map((dimension, i) => {
 						const options = dimension.values;
 						const currentDimensionIds = selectedDimensions[i];
+						const value = currentDimensionIds[0];
 
 						return (
 							<div
@@ -55,11 +56,7 @@ class ChartDimensions extends Component {
 
 								<Select
 									name="form-field-name"
-									value={
-										currentDimensionIds && currentDimensionIds.length === 1
-											? currentDimensionIds[0]
-											: currentDimensionIds
-									}
+									value={value}
 									clearable={false}
 									searchable={false}
 									options={options.map((option) => {
