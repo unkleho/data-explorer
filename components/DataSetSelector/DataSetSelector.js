@@ -7,22 +7,22 @@ import './DataSetSelector.css';
 class DataSetSelector extends Component {
 	static propTypes = {
 		dataSets: PropTypes.array,
-		selectedId: PropTypes.string,
+		selectedSlug: PropTypes.string,
 		handleDataSetSelect: PropTypes.func,
 		isActive: PropTypes.bool,
 	};
 
 	componentDidMount() {
-		// console.log(this.props.selectedId);
+		// console.log(this.props.selectedSlug);
 		// console.log('componentDidMount');
 		// not working
-		// this.refs[this.props.selectedId].scrollIntoView({ block: 'end', behaviour: 'smooth' });
+		// this.refs[this.props.selectedSlug].scrollIntoView({ block: 'end', behaviour: 'smooth' });
 	}
 
 	componentDidUpdate(prevProps) {
 		// TODO: Probably needs condition
-		// if (prevProps.selectedId !== this.props.selectedId) {
-		// this.refs[this.props.selectedId].scrollIntoView({ block: 'end', behaviour: 'smooth' });
+		// if (prevProps.selectedSlug !== this.props.selectedSlug) {
+		// this.refs[this.props.selectedSlug].scrollIntoView({ block: 'end', behaviour: 'smooth' });
 		// }
 	}
 
@@ -33,7 +33,7 @@ class DataSetSelector extends Component {
 	};
 
 	render() {
-		const { isActive, selectedId, dataSets } = this.props;
+		const { isActive, selectedSlug, dataSets } = this.props;
 
 		return (
 			<div
@@ -43,7 +43,7 @@ class DataSetSelector extends Component {
 			>
 				<Select
 					name="form-field-name"
-					value={selectedId}
+					value={selectedSlug}
 					clearable={false}
 					options={dataSets.map((option) => {
 						return {
@@ -65,7 +65,7 @@ class DataSetSelector extends Component {
               // onClick={() => this.props.onDataSetSelect(dataSet.id)}
               onClick={() => this.handleDataSetSelect(id, i)}
               ref={id}
-              className={`title ${selectedId === id ? 'is-active' : ''}`}
+              className={`title ${selectedSlug === id ? 'is-active' : ''}`}
             >{dataSet.title}</a>
           )
         })} */}

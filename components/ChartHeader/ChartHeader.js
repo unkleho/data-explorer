@@ -73,51 +73,49 @@ class ChartHeader extends Component {
 		const mainDimension = dimensions && dimensions[mainDimensionIndex];
 
 		return dataSet ? (
-			<aside>
-				<div
-					className={`chart-header ${
-						this.state.showDataSetSelector ? 'is-open' : ''
-					}`}
-				>
-					<div className="container container--lg">
-						<div className="chart-header__inside">
-							<div className="chart-header__id">{dataSet.slug}</div>
-							<h1
-								className="chart-header__title"
-								onClick={this.handleDataSetTitleClick}
-							>
-								{dataSet.title}{' '}
-								{this.state.showDataSetSelector ? (
-									<span>
-										Close <i className="material-icons">&#xE5D8;</i>
-									</span>
-								) : (
-									<span>
-										Change <i className="material-icons">&#xE5DB;</i>
-									</span>
-								)}
-							</h1>
-
-							{this.state.showDataSetSelector && (
-								<DataSetSelector
-									isActive={this.state.showDataSetSelector}
-									selectedId={dataSet.originalId}
-									dataSets={dataSets}
-									onDataSetSelect={this.handleDataSetSelect}
-								/>
-							)}
-						</div>
-					</div>
-				</div>
-
+			<div
+				className={`chart-header ${
+					this.state.showDataSetSelector ? 'is-open' : ''
+				}`}
+			>
 				<div className="container container--lg">
-					<ChartDimensions
-						dimensions={dimensions}
-						selectedDimensions={selectedDimensions}
-						mainDimensionIndex={mainDimensionIndex}
-						onDimensionSelect={onDimensionSelect}
-						onMainDimensionSelect={onMainDimensionSelect}
-					/>
+					<div className="chart-header__inside">
+						<div className="chart-header__slug">{dataSet.slug}</div>
+						<h1
+							className="chart-header__title"
+							onClick={this.handleDataSetTitleClick}
+						>
+							{dataSet.title}{' '}
+							{this.state.showDataSetSelector ? (
+								<span>
+									Close <i className="material-icons">&#xE5D8;</i>
+								</span>
+							) : (
+								<span>
+									Change <i className="material-icons">&#xE5DB;</i>
+								</span>
+							)}
+						</h1>
+
+						{this.state.showDataSetSelector && (
+							<DataSetSelector
+								isActive={this.state.showDataSetSelector}
+								selectedSlug={dataSet.slug}
+								dataSets={dataSets}
+								onDataSetSelect={this.handleDataSetSelect}
+							/>
+						)}
+					</div>
+
+					<div className="chart-header__chart-dimensions">
+						<ChartDimensions
+							dimensions={dimensions}
+							selectedDimensions={selectedDimensions}
+							mainDimensionIndex={mainDimensionIndex}
+							onDimensionSelect={onDimensionSelect}
+							onMainDimensionSelect={onMainDimensionSelect}
+						/>
+					</div>
 
 					<div className="chart-header__main-dimension">
 						<h1>
@@ -143,6 +141,35 @@ class ChartHeader extends Component {
 								this.handleMultiDimensionSelect(options, mainDimensionIndex)
 							}
 						/>
+					</div>
+
+					<div className="chart-header__selected-dimensions">
+						<div className="chart-header__selected-dimensions__title">
+							{dimensions
+								.filter(
+									(dimension) =>
+										dimension.slug !== 'FREQUENCY' &&
+										dimension.slug !== 'TIME_PERIOD',
+								)
+								.map((dimension, i) => {
+									// Similar code in ChartDimensions, make it a function?
+									const dimensionValueSlug = selectedDimensions[i][0];
+									const value = dimension.values.filter((v) => {
+										return v.slug === dimensionValueSlug;
+									})[0];
+
+									// TODO: Work out dimensions.length more elegantly
+									const commaOrStop = dimensions.length - 3 === i ? '.' : ', ';
+
+									return (
+										<span>
+											{value.name}
+											{commaOrStop}
+										</span>
+									);
+								})}
+						</div>
+						<button className="material-icons">edit</button>
 					</div>
 				</div>
 
@@ -176,7 +203,7 @@ class ChartHeader extends Component {
 						background-color: ${colors[6]};
 					}
 				`}</style>
-			</aside>
+			</div>
 		) : null;
 	}
 }

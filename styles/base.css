@@ -22,7 +22,7 @@ body {
 	font-family: 'Inter UI', sans-serif;
 	letter-spacing: -0.01em;
 	font-size: 18px;
-	line-height: 1.6em;
+	line-height: 1.6;
 	margin: 0;
 	color: var(--colour-primary);
 	background-color: white;

@@ -1,42 +1,24 @@
 @import '../../styles/variables.css';
 
-.box {
-  margin-top: 1em;
-
-  /*display: none;*/
-
-  /*position: absolute;*/
-
-  /*padding: 1em;
-  background-color: white;
-  overflow-x: auto;
-  height: 90%;
-  width: 90%;
-  z-index: 100;*/
-
-  /*margin-right: 1em;*/
+.data-set-selector {
 }
 
-/*.box.is-active {
-  display: block;
-}*/
+.data-set-selector__title {
+	display: block;
+	padding: 0.2em;
+	cursor: pointer;
 
-.title {
-  display: block;
-  padding: 0.2em;
-  cursor: pointer;
-
-  &:hover {
-    color: var(--colour-highlight);
-  }
+	&:hover {
+		color: var(--colour-highlight);
+	}
 }
 
-.title.is-active {
-  background-color: var(--colour-highlight);
-  /*background-color: ${deepOrange['500']};*/
-  color: white;
+.data-set-selector__title.is-active {
+	background-color: var(--colour-highlight);
+	/*background-color: ${deepOrange['500']};*/
+	color: white;
 
-  &:hover {
-    color: white;
-  }
+	&:hover {
+		color: white;
+	}
 }

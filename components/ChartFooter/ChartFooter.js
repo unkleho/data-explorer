@@ -13,13 +13,7 @@ class ChartFooter extends Component {
 
 		return (
 			<div className="chart-footer">
-				<p
-					style={{
-						fontSize: '0.6em',
-						float: 'right',
-						textAlign: 'right',
-					}}
-				>
+				<p>
 					Source: {orgTitle}
 					<br />
 					Disclaimer: This website is in active development. Charts may not be

@@ -157,7 +157,7 @@ class Chart extends Component {
 					onMainDimensionSelect={this.handleMainDimensionSelect}
 				/>
 
-				<main className="content container container--lg">
+				<div className="content container container--lg">
 					{victoryData.length > 0 && (
 						<ChartContent
 							isLoading={isLoading}
@@ -171,7 +171,7 @@ class Chart extends Component {
 					)}
 
 					<ChartFooter orgTitle={orgTitle} />
-				</main>
+				</div>
 			</div>
 		);
 	}

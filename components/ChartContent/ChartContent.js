@@ -48,6 +48,8 @@ class Content extends Component {
 			colourMap,
 		} = this.props;
 
+		const chartHeight = width < 768 ? 250 : 400;
+
 		return (
 			<div>
 				{victoryData && victoryData.length > 0 ? (
@@ -55,10 +57,10 @@ class Content extends Component {
 						<div>
 							<VictoryChart
 								theme={theme}
-								padding={{ top: 30, left: 60, right: 0, bottom: 60 }}
+								padding={{ top: 0, left: 0, right: 0, bottom: 30 }}
 								animate={{ duration: 500 }}
 								width={width}
-								height={400}
+								height={chartHeight}
 								scale={{ x: 'time' }}
 								style={chartStyle}
 							>

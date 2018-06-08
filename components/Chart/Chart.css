@@ -1,4 +1,6 @@
 @import '../../styles/variables.css';
 
-/* .chart {
-} */
+.chart {
+	padding-left: var(--font-size-md);
+	padding-right: var(--font-size-md);
+}

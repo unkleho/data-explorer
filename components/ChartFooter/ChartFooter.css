@@ -1,4 +1,7 @@
 @import '../../styles/variables.css';
 
-/* .chart-footer {
-} */
+.chart-footer {
+	text-align: right;
+	font-size: var(--font-size-xs);
+	line-height: 1.4em;
+}
