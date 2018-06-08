@@ -79,7 +79,7 @@ class Header extends Component {
 									key={s.id}
 								>
 									<Link
-										href={`/${s.slug}${
+										route={`/${s.slug}${
 											s.dataSetSlug ? `/${s.dataSetSlug}` : ''
 										}`}
 									>

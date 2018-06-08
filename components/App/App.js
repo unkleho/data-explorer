@@ -6,11 +6,13 @@ import './App.css';
 import '../../styles/base.css';
 import '../../styles/helpers.css';
 import Header from '../Header';
+import LoadingBar from '../LoadingBar';
 import WithDimensions from '../WithDimensions';
 import { initGA, logPageView, logEvent } from '../../lib/analytics';
 
 class App extends Component {
 	static propTypes = {
+		isLoading: PropTypes.bool,
 		url: PropTypes.object,
 	};
 
@@ -36,6 +38,8 @@ class App extends Component {
 	}
 
 	render() {
+		const { isLoading } = this.props;
+
 		return (
 			<div className="app">
 				<Head>
@@ -54,6 +58,8 @@ class App extends Component {
 						rel="stylesheet"
 					/>
 				</Head>
+
+				<LoadingBar isLoading={isLoading} />
 				<Header pathname={this.props.url.pathname} />
 
 				<WithDimensions>

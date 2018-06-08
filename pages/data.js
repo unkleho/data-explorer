@@ -102,7 +102,7 @@ class Data extends Component {
 	render() {
 		const {
 			// Prisma
-			isLoading,
+			loading: isLoading,
 			dataSet,
 			organisation,
 			// URL
@@ -116,7 +116,7 @@ class Data extends Component {
 		const { dimensions, data } = dataSet;
 
 		return (
-			<App url={url}>
+			<App url={url} isLoading={isLoading}>
 				{({ width, height }) => {
 					return (
 						<Fragment>
@@ -207,8 +207,9 @@ export default withApollo(
 			};
 		},
 		props: ({ data }) => {
+			// console.log(data.loading);
 			return {
-				isLoading: data.loading,
+				// isLoading: data.loading,
 				...data,
 			};
 		},

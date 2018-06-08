@@ -7,9 +7,9 @@
 
 	/* --colour-primary: var(--md-blue-grey-500); */
 	--colour-primary: var(--md-indigo-500);
-	--colour-secondary: green;
-	--colour-tertiary: yellow;
-	--colour-highlight: red;
+	--colour-secondary: var(--md-green-500);
+	--colour-tertiary: var(--md-yellow-500);
+	--colour-highlight: var(--md-orange-500);
 
 	--colour-primary-50: var(--md-indigo-50);
 	--colour-primary-100: var(--md-indigo-100);

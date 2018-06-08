@@ -1,21 +1,13 @@
-const LoadingBar = () => {
-  return (
-    <div>
-      <p>Loading</p>
+import './LoadingBar.css';
 
-      <style jsx>
-        {`
-          div {
-            position: absolute;
-            top: 0.8em;
-            right: 1em;
-            opacity: 0.5;
-            color: white;
-          }
-        `}
-      </style>
-    </div>
-  )
-}
+const LoadingBar = ({ isLoading }) => {
+	return isLoading ? (
+		<div className="loading-bar">
+			<div className="loading-bar__bar" />
+			<div className="loading-bar__bar" />
+			<div className="loading-bar__bar" />
+		</div>
+	) : null;
+};
 
 export default LoadingBar;
