@@ -11,6 +11,7 @@ class ChartDimensions extends Component {
 		mainDimensionIndex: PropTypes.number,
 		onDimensionSelect: PropTypes.func,
 		onMainDimensionSelect: PropTypes.func,
+		onCloseClick: PropTypes.func,
 	};
 
 	static defaultProps = {
@@ -25,10 +26,17 @@ class ChartDimensions extends Component {
 			mainDimensionIndex,
 			onDimensionSelect,
 			onMainDimensionSelect,
+			onCloseClick,
 		} = this.props;
 
 		return (
 			<div className="chart-dimensions">
+				<header className="chart-dimensions__header">
+					<h1>Dimensions</h1>{' '}
+					<button className="button material-icons" onClick={onCloseClick}>
+						close
+					</button>
+				</header>
 				{dimensions
 					// Filter out any unwanted dimensions
 					// TODO: Maybe do this higher up in data

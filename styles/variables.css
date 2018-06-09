@@ -9,7 +9,8 @@
    * Colours
    * ------------------------------------------------------------------------ */
 
-	/* Black */
+	/* Black/White */
+	--colour-white: #FFFFFF;
 	--colour-black: var(--md-grey-900);
 	--colour-grey: var(--md-grey-500);
 	--colour-grey-dark: var(--md-grey-600);

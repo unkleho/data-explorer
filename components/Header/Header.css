@@ -1,6 +1,6 @@
 @import '../../styles/variables.css';
 
-header {
+.header {
 	display: flex;
 	justify-content: space-between;
 	background-color: var(--colour-primary-400);

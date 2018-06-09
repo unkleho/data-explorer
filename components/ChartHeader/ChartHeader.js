@@ -5,6 +5,8 @@ import Select from 'react-select';
 import './ChartHeader.css';
 import './ChartHeader.global.css';
 import ChartDimensions from '../ChartDimensions';
+import ChartSelectedDimensions from '../ChartSelectedDimensions';
+import Overlay from '../Overlay';
 import { blueGrey700, colors } from '../../styles/variables';
 import DataSetSelector from '../DataSetSelector';
 
@@ -31,6 +33,7 @@ class ChartHeader extends Component {
 
 		this.state = {
 			showDataSetSelector: false,
+			showSelectedDimensionsMenu: false,
 		};
 	}
 
@@ -56,6 +59,12 @@ class ChartHeader extends Component {
 		this.props.onMultiDimensionSelect(options, selectedDimensionIndex);
 	};
 
+	handleSelectedDimensionsToggle = () => {
+		this.setState({
+			showSelectedDimensionsMenu: !this.state.showSelectedDimensionsMenu,
+		});
+	};
+
 	render() {
 		const {
 			dataSetSlug,
@@ -78,6 +87,11 @@ class ChartHeader extends Component {
 					this.state.showDataSetSelector ? 'is-open' : ''
 				}`}
 			>
+				<Overlay
+					isActive={this.state.showSelectedDimensionsMenu}
+					onClick={this.handleSelectedDimensionsToggle}
+				/>
+
 				<div className="container container--lg">
 					<div className="chart-header__inside">
 						<div className="chart-header__slug">{dataSet.slug}</div>
@@ -107,19 +121,24 @@ class ChartHeader extends Component {
 						)}
 					</div>
 
-					<div className="chart-header__chart-dimensions">
+					<div
+						className={`chart-header__chart-dimensions ${
+							this.state.showSelectedDimensionsMenu ? 'is-active' : ''
+						}`}
+					>
 						<ChartDimensions
 							dimensions={dimensions}
 							selectedDimensions={selectedDimensions}
 							mainDimensionIndex={mainDimensionIndex}
 							onDimensionSelect={onDimensionSelect}
 							onMainDimensionSelect={onMainDimensionSelect}
+							onCloseClick={this.handleSelectedDimensionsToggle}
 						/>
 					</div>
 
 					<div className="chart-header__main-dimension">
 						<h1>
-							<i className="material-icons">compare_arrows</i> Compare:{' '}
+							{/* <i className="material-icons">compare_arrows</i> Compare:{' '} */}
 							{mainDimension && mainDimension.name}
 						</h1>
 
@@ -143,33 +162,12 @@ class ChartHeader extends Component {
 						/>
 					</div>
 
-					<div className="chart-header__selected-dimensions">
-						<div className="chart-header__selected-dimensions__title">
-							{dimensions
-								.filter(
-									(dimension) =>
-										dimension.slug !== 'FREQUENCY' &&
-										dimension.slug !== 'TIME_PERIOD',
-								)
-								.map((dimension, i) => {
-									// Similar code in ChartDimensions, make it a function?
-									const dimensionValueSlug = selectedDimensions[i][0];
-									const value = dimension.values.filter((v) => {
-										return v.slug === dimensionValueSlug;
-									})[0];
-
-									// TODO: Work out dimensions.length more elegantly
-									const commaOrStop = dimensions.length - 3 === i ? '.' : ', ';
-
-									return (
-										<span>
-											{value.name}
-											{commaOrStop}
-										</span>
-									);
-								})}
-						</div>
-						<button className="material-icons">edit</button>
+					<div className="chart-header__chart-selected-dimensions">
+						<ChartSelectedDimensions
+							dimensions={dimensions}
+							selectedDimensions={selectedDimensions}
+							onEditClick={this.handleSelectedDimensionsToggle}
+						/>
 					</div>
 				</div>
 

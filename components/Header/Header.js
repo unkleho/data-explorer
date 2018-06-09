@@ -48,7 +48,7 @@ class Header extends Component {
 		} = this.state;
 
 		return (
-			<header>
+			<header className="header">
 				<div className="logo">
 					{/* <span className="logo__abs">{sourceId}</span> */}
 					<span className="logo__text">Data Explorer</span>

@@ -9,28 +9,32 @@
  * -------------------------------------------------------------------------- */
 
 .container {
-  lost-utility: clearfix;
+	lost-utility: clearfix;
 
-  width: 100%;
-  margin: 0 auto;
+	width: 100%;
+	margin: 0 auto;
 }
 
 .container--xs {
-  max-width: var(--container-width-xs);
+	max-width: var(--container-width-xs);
 }
 
 .container--sm {
-  max-width: var(--container-width-sm);
+	max-width: var(--container-width-sm);
 }
 
 .container--md {
-  max-width: var(--container-width-md);
+	max-width: var(--container-width-md);
 }
 
 .container--lg {
-  max-width: var(--container-width-lg);
+	max-width: var(--container-width-lg);
 }
 
 .container--xlg {
-  max-width: var(--container-width-xlg);
+	max-width: var(--container-width-xlg);
+}
+
+.button {
+	color: var(--colour-primary);
 }

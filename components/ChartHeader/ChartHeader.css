@@ -34,10 +34,14 @@
 		font-weight: normal;
 		color: white;
 		background-color: var(--colour-primary);
-		font-size: var(--font-size-xxxxs);
+		font-size: var(--font-size-xxxs);
 		line-height: 1;
 		padding: 0.5em 1em;
 		border-radius: 4px;
+
+		@media (--screen-md) {
+			font-size: var(--font-size-xxxxs);
+		}
 
 		& i {
 			font-size: 1em;
@@ -63,17 +67,24 @@
 }
 
 .chart-header__chart-dimensions {
-	display: none;
+	position: absolute;
+	left: 0;
+	top: 0;
+	z-index: 10;
+	width: 80%;
+	height: 100%;
+	transform: translateX(-100%);
+	transition: 0.3s;
+	background-color: white;
+
+	&.is-active {
+		transform: translateX(0);
+	}
 }
 
-.chart-header__selected-dimensions {
-	display: flex;
-	margin-top: var(--spacing-lg);
-	margin-bottom: var(--spacing-sm);
-	font-size: var(--font-size-sm);
-
-	& button {
-		color: var(--colour-primary);
+.chart-header__chart-selected-dimensions {
+	@media (--screen-sm) {
+		display: none;
 	}
 }
 
