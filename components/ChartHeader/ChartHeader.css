@@ -80,6 +80,12 @@
 	&.is-active {
 		transform: translateX(0);
 	}
+
+	@media (--screen-sm) {
+		position: relative;
+		width: 100%;
+		transform: none;
+	}
 }
 
 .chart-header__chart-selected-dimensions {
