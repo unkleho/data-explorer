@@ -10,6 +10,9 @@ import App from '../components/App';
 import Chart from '../components/Chart';
 import { initStore } from '../store';
 import { getDefaultDimensions } from '../utils';
+import { encodeDecodeUrlParams } from '../lib/encodeDecode';
+
+const { decode } = encodeDecodeUrlParams;
 
 class Data extends Component {
 	static propTypes = {
@@ -39,59 +42,23 @@ class Data extends Component {
 	}
 
 	static getInitialProps(props) {
-		const { query: { selectedDimensions, mainDimensionIndex } } = props;
+		const {
+			query: { selectedDimensions, mainDimensionIndex, encodedParams },
+		} = props;
 
 		return {
 			// Convert these url params from strings
-			selectedDimensions: selectedDimensions && JSON.parse(selectedDimensions),
+			// selectedDimensions: selectedDimensions && JSON.parse(selectedDimensions),
+			selectedDimensions: buildSelectedDimensions(
+				selectedDimensions,
+				encodedParams,
+			),
 			mainDimensionIndex:
 				typeof mainDimensionIndex === 'string'
 					? parseInt(mainDimensionIndex, 10)
 					: mainDimensionIndex,
 		};
 	}
-
-	// static async getInitialProps(props) {
-	// 	const {
-	// 		query: {
-	// 			id = null,
-	// 			sourceId = 'ABS',
-	// 			selectedDimensions = null,
-	// 			mainDimensionIndex = null,
-	// 		},
-	// 		// isServer,
-	// 		store,
-	// 		pathname,
-	// 	} = props;
-
-	// 	const orgId = getOrgId(pathname) || sourceId;
-
-	// 	// Work out if custom default dataSet exists
-	// 	const defaultId = allData[orgId].defaultDataSetId;
-	// 	const newId = id || defaultId || allData[orgId].dataSets.children[0].id;
-
-	// 	// Parse selectedDimensions from URL
-	// 	const selectedDimensionsNew = selectedDimensions
-	// 		? JSON.parse(selectedDimensions)
-	// 		: null;
-
-	// 	// Get dataSet metadata and observations data
-	// 	await store.dispatch(getDataSet(newId, orgId, selectedDimensionsNew));
-
-	// 	if (mainDimensionIndex !== null) {
-	// 		store.dispatch({
-	// 			type: 'SELECT_MAIN_DIMENSION',
-	// 			mainDimensionIndex,
-	// 			selectedDimensions: selectedDimensionsNew,
-	// 		});
-	// 	}
-
-	// 	return {
-	// 		id: newId,
-	// 		orgId,
-	// 		orgSlug: orgId.toLowerCase(),
-	// 	};
-	// }
 
 	handleMenuClick = (event) => {
 		this.props.dispatch({
@@ -191,23 +158,35 @@ const query = gql`
 export default withApollo(
 	graphql(query, {
 		options: ({
-			url: { pathname, query: { dataSetSlug, selectedDimensions } },
+			url: {
+				pathname,
+				query: { dataSetSlug, selectedDimensions, encodedParams },
+			},
 		}) => {
 			// Work out orgSlug from URL
-			const orgSlug = pathname.substr(1).toUpperCase();
+			const orgSlug = pathname
+				.substr(1)
+				.toUpperCase()
+				// NOTE: Need to use page component with encoded-params suffix, so we need to remove it to get org slug.
+				.replace('-ENCODED-PARAMS', '');
+
+			console.log(typeof encodedParams === 'string');
+			console.log(decode(encodedParams).selectedDimensions);
+			// console.log(decode(encodedParams).selectedDimensions);
 
 			return {
 				variables: {
 					orgSlug,
-					selectedDimensions: selectedDimensions
-						? JSON.parse(selectedDimensions)
-						: [],
+					selectedDimensions: buildSelectedDimensions(
+						selectedDimensions,
+						encodedParams,
+					),
 					dataSetSlug,
 				},
 			};
 		},
 		props: ({ data }) => {
-			// console.log(data.loading);
+			// console.log(data);
 			return {
 				// isLoading: data.loading,
 				...data,
@@ -215,3 +194,14 @@ export default withApollo(
 		},
 	})(withRedux(initStore, mapStateToProps)(Data)),
 );
+
+function buildSelectedDimensions(selectedDimensions, encodedParams) {
+	// if (typeof encodedParams === 'string') {
+	//   decode(encodedParams).selectedDimensions
+	// } else if {
+	//
+	// }
+	return typeof encodedParams === 'string'
+		? decode(encodedParams).selectedDimensions
+		: selectedDimensions ? JSON.parse(selectedDimensions) : [];
+}

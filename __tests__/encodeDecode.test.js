@@ -1,14 +1,15 @@
 import { buildEncodeDecode } from '../lib/encodeDecode';
 
 describe('Encoding/Decoding', () => {
+	// Build encode and decode from inferred json
 	const { encode, decode } = buildEncodeDecode({
 		selectedDimensions: [['0'], ['0', '1'], ['M']],
 		mainDimensionIndex: 0,
 	});
 
-	const base64String = 'BgQCMQIwAAICMAACAk0AAAA-';
+	const base64String = 'DAQCMAIxAAICMQACAjEAAggxNTk5AAIEMTAAAgJNAAAA';
 	const json = {
-		selectedDimensions: [['1', '0'], ['0'], ['M']],
+		selectedDimensions: [['0', '1'], ['1'], ['1'], ['1599'], ['10'], ['M']],
 		mainDimensionIndex: 0,
 	};
 

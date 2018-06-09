@@ -8,6 +8,9 @@ import ChartContent from '../ChartContent';
 import ChartFooter from '../ChartFooter';
 import { getDefaultDimensions } from '../../utils';
 import theme from '../../styles/victoryTheme';
+import { encodeDecodeUrlParams } from '../../lib/encodeDecode';
+
+const { encode } = encodeDecodeUrlParams;
 
 class Chart extends Component {
 	static propTypes = {
@@ -37,8 +40,8 @@ class Chart extends Component {
 		};
 	}
 
-	handleDataSetSelect = (id) => {
-		Router.pushRoute(`/${this.props.orgSlug.toLowerCase()}/${id}`);
+	handleDataSetSelect = (dataSetSlug) => {
+		Router.pushRoute(`/${this.props.orgSlug.toLowerCase()}/${dataSetSlug}`);
 	};
 
 	handleDimensionSelect = async (options, dimensionIndex) => {
@@ -52,11 +55,17 @@ class Chart extends Component {
 			// Update selectedDimensions array with selected dimensionId
 			selectedDimensions[dimensionIndex] = ids;
 
-			Router.pushRoute(
-				`/${this.props.orgSlug.toLowerCase()}/${dataSetSlug}?selectedDimensions=${JSON.stringify(
-					selectedDimensions,
-				)}&mainDimensionIndex=${this.props.mainDimensionIndex}`,
-			);
+			// Router.pushRoute(
+			// 	`/${this.props.orgSlug.toLowerCase()}/${dataSetSlug}?selectedDimensions=${JSON.stringify(
+			// 		selectedDimensions,
+			// 	)}&mainDimensionIndex=${this.props.mainDimensionIndex}`,
+			// );
+
+			console.log(encode(selectedDimensions));
+
+			// Router.pushRoute(
+			// 	`/${this.props.orgSlug.toLowerCase()}/${encode(selectedDimensions)}`,
+			// );
 		}
 
 		// Cool little script for html multi select
