@@ -2,9 +2,11 @@
 
 .chart-selected-dimensions {
 	display: flex;
-	margin-top: var(--spacing-lg);
-	margin-bottom: var(--spacing-sm);
+	/* margin-top: var(--spacing-lg); */
+	/* margin-bottom: var(--spacing-sm); */
+	font-weight: 500;
 	font-size: var(--font-size-sm);
+	line-height: 1.4;
 
 	& button {
 		color: var(--colour-primary);

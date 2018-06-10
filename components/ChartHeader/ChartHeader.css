@@ -11,18 +11,19 @@
 	/* margin-bottom: var(--font-size-md); */
 	/* background-color: var(--colour-primary-50); */
 
-	&.is-open {
+	/* &.is-open {
 		height: 20em;
-	}
+	} */
 }
 
 .chart-header__title {
-	cursor: pointer;
-	font-size: var(--font-size-lg);
-	color: var(--colour-black);
-	opacity: 0.7;
 	margin-top: 0;
 	margin-bottom: 0;
+	cursor: pointer;
+	font-size: var(--font-size-lg);
+	line-height: 1.55;
+	color: var(--colour-grey-darkest);
+	opacity: 1;
 
 	@media (--screen-sm) {
 		font-size: var(--font-size-xxlg);
@@ -31,15 +32,15 @@
 	/* Change Button */
 	& span {
 		display: inline-block;
+		padding: 0.5em 1em;
 		font-weight: normal;
 		color: white;
-		background-color: var(--colour-primary);
+		background-color: var(--colour-primary-600);
 		font-size: var(--font-size-xxxs);
 		line-height: 1;
-		padding: 0.5em 1em;
 		border-radius: 4px;
 
-		@media (--screen-md) {
+		@media (--screen-sm) {
 			font-size: var(--font-size-xxxxs);
 		}
 
@@ -59,7 +60,8 @@
 .chart-header__slug {
 	color: var(--colour-primary-400);
 	font-size: var(--font-size-xs);
-	opacity: 0.6;
+	line-height: 1.7;
+	opacity: 0.9;
 
 	@media (--screen-sm) {
 		font-size: var(--font-size-sm);
@@ -85,6 +87,7 @@
 		position: relative;
 		width: 100%;
 		transform: none;
+		z-index: 1;
 	}
 }
 
@@ -96,12 +99,15 @@
 
 .chart-header__main-dimension {
 	background-color: white;
-	/* padding: 0 1em 1em; */
+	margin-bottom: var(--spacing-xxs);
 
 	& h1 {
 		display: flex;
+		margin-top: var(--spacing-lg);
+		margin-bottom: var(--spacing-xs);
 		align-items: center;
 		font-size: var(--spacing-sm);
+		line-height: 1.35;
 		text-transform: uppercase;
 
 		& i {

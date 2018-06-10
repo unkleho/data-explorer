@@ -6,6 +6,7 @@ export default class MyDocument extends Document {
 			<html>
 				<Head>
 					<link rel="stylesheet" href="/_next/static/style.css" />
+					{/* <link rel="stylesheet" href="//basehold.it/18" /> */}
 				</Head>
 				<body>
 					<Main />

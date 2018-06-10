@@ -13,12 +13,7 @@ class ChartFooter extends Component {
 
 		return (
 			<div className="chart-footer">
-				<p>
-					Source: {orgTitle}
-					<br />
-					Disclaimer: This website is in active development. Charts may not be
-					accurate.
-				</p>
+				<p>Source: {orgTitle}</p>
 			</div>
 		);
 	}

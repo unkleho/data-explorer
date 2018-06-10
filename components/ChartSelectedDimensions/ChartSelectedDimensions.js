@@ -33,7 +33,7 @@ class ChartSelectedDimensions extends Component {
 							const commaOrStop = dimensions.length - 3 === i ? '.' : ', ';
 
 							return (
-								<span>
+								<span key={`chart-selected-dimensions-title-${dimension.slug}`}>
 									{value.name}
 									{commaOrStop}
 								</span>

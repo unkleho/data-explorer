@@ -10,9 +10,6 @@ import App from '../components/App';
 import Chart from '../components/Chart';
 import { initStore } from '../store';
 import { getDefaultDimensions } from '../utils';
-import { encodeDecodeUrlParams } from '../lib/encodeDecode';
-
-const { decode } = encodeDecodeUrlParams;
 
 class Data extends Component {
 	static propTypes = {
@@ -42,17 +39,11 @@ class Data extends Component {
 	}
 
 	static getInitialProps(props) {
-		const {
-			query: { selectedDimensions, mainDimensionIndex, encodedParams },
-		} = props;
+		const { query: { selectedDimensions, mainDimensionIndex } } = props;
 
 		return {
 			// Convert these url params from strings
-			// selectedDimensions: selectedDimensions && JSON.parse(selectedDimensions),
-			selectedDimensions: buildSelectedDimensions(
-				selectedDimensions,
-				encodedParams,
-			),
+			selectedDimensions: selectedDimensions && JSON.parse(selectedDimensions),
 			mainDimensionIndex:
 				typeof mainDimensionIndex === 'string'
 					? parseInt(mainDimensionIndex, 10)
@@ -164,23 +155,14 @@ export default withApollo(
 			},
 		}) => {
 			// Work out orgSlug from URL
-			const orgSlug = pathname
-				.substr(1)
-				.toUpperCase()
-				// NOTE: Need to use page component with encoded-params suffix, so we need to remove it to get org slug.
-				.replace('-ENCODED-PARAMS', '');
-
-			console.log(typeof encodedParams === 'string');
-			console.log(decode(encodedParams).selectedDimensions);
-			// console.log(decode(encodedParams).selectedDimensions);
+			const orgSlug = pathname.substr(1).toUpperCase();
 
 			return {
 				variables: {
 					orgSlug,
-					selectedDimensions: buildSelectedDimensions(
-						selectedDimensions,
-						encodedParams,
-					),
+					selectedDimensions: selectedDimensions
+						? JSON.parse(selectedDimensions)
+						: [],
 					dataSetSlug,
 				},
 			};
@@ -188,20 +170,8 @@ export default withApollo(
 		props: ({ data }) => {
 			// console.log(data);
 			return {
-				// isLoading: data.loading,
 				...data,
 			};
 		},
 	})(withRedux(initStore, mapStateToProps)(Data)),
 );
-
-function buildSelectedDimensions(selectedDimensions, encodedParams) {
-	// if (typeof encodedParams === 'string') {
-	//   decode(encodedParams).selectedDimensions
-	// } else if {
-	//
-	// }
-	return typeof encodedParams === 'string'
-		? decode(encodedParams).selectedDimensions
-		: selectedDimensions ? JSON.parse(selectedDimensions) : [];
-}

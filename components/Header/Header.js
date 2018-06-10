@@ -60,6 +60,8 @@ class Header extends Component {
               >{isMenuActive ? 'keyboard_arrow_up' : 'keyboard_arrow_down'}</i> */}
 				</div>
 
+				<div className="header__title">{pathname.substr(1)}</div>
+
 				<button
 					className="menu-icon material-icons"
 					onClick={this.handleMenuToggle}
@@ -88,11 +90,11 @@ class Header extends Component {
 								</li>
 							);
 						})}
-						<li>
+						{/* <li>
 							<Link to="/demo">
 								<a>Demo</a>
 							</Link>
-						</li>
+						</li> */}
 					</ul>
 				</div>
 			</header>

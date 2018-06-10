@@ -1,6 +1,8 @@
 @import '../../styles/variables.css';
 
 .data-set-selector {
+	position: relative;
+	z-index: 2;
 }
 
 .data-set-selector__title {

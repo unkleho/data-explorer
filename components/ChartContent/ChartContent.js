@@ -44,7 +44,7 @@ class Content extends Component {
 			theme,
 			width,
 			// height,
-			chartStyle,
+			// chartStyle,
 			colourMap,
 		} = this.props;
 
@@ -57,12 +57,12 @@ class Content extends Component {
 						<div>
 							<VictoryChart
 								theme={theme}
-								padding={{ top: 0, left: 0, right: 0, bottom: 30 }}
+								padding={{ top: 0, left: 70, right: 0, bottom: 30 }}
 								animate={{ duration: 500 }}
 								width={width}
 								height={chartHeight}
 								scale={{ x: 'time' }}
-								style={chartStyle}
+								// style={chartStyle}
 							>
 								{victoryData.map((data, i) => {
 									return (
