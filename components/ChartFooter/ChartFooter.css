@@ -1,7 +1,12 @@
 @import '../../styles/variables.css';
 
 .chart-footer {
-	text-align: right;
+	text-align: left;
 	font-size: var(--font-size-xs);
-	line-height: 1.4em;
+	line-height: var(--line-height-xs);
+	color: var(--colour-grey);
+
+	@media (--screen-sm) {
+		margin-top: var(--spacing-xlg);
+	}
 }

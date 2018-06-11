@@ -8,6 +8,7 @@
 
 html {
 	box-sizing: border-box;
+	height: 100%;
 }
 
 *,
@@ -18,14 +19,14 @@ html {
 
 body {
 	position: relative;
-	/*font-family: 'Roboto', sans-serif;*/
-	font-family: 'Inter UI', sans-serif;
+	height: 100%;
+	margin: 0;
+	background-color: white;
+	font-family: var(--font-primary);
 	letter-spacing: -0.01em;
 	font-size: 18px;
-	line-height: 1.6;
-	margin: 0;
+	line-height: 1;
 	color: var(--colour-primary);
-	background-color: white;
 }
 
 h1,

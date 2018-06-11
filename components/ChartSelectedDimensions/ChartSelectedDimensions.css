@@ -6,7 +6,7 @@
 	/* margin-bottom: var(--spacing-sm); */
 	font-weight: 500;
 	font-size: var(--font-size-sm);
-	line-height: 1.4;
+	line-height: 1.35;
 
 	& button {
 		color: var(--colour-primary);

@@ -76,6 +76,16 @@
 	--font-size-xxxxlg: calc(var(--font-scale) * var(--font-size-xxxlg));
 
 	/*
+   * Line Heights (used with font sizes to ensure baseline grid is aligned)
+   * ------------------------------------------------------------------------ */
+
+	--line-height-xs: 1.7;
+	--line-height-sm: 1.35;
+	--line-height-md: 1;
+	--line-height-lg: 1.55;
+	--line-height-xxlg: 1.37;
+
+	/*
    * Spacing
    * ------------------------------------------------------------------------ */
 
