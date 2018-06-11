@@ -1,8 +1,4 @@
 {
-  "name": "data-explorer",
-  "dotenv": ".env.production",
-  "file": [
-    ".env.production"
-  ],
-  "public": false
+	"name": "data-explorer",
+	"public": false
 }

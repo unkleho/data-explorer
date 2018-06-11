@@ -59,7 +59,7 @@ class ChartDimensions extends Component {
 							>
 								<h5 onClick={() => onMainDimensionSelect(i)}>
 									<span>{dimension.name}</span>
-									<i className="material-icons">compare_arrows</i>
+									<i className="material-icons">timeline</i>
 								</h5>
 
 								<Select

@@ -26,6 +26,10 @@
 	color: white;
 	background-color: var(--colour-primary-700);
 	border-right: 1px solid var(--colour-primary-200);
+
+	@media (--screen-sm) {
+		border-right: none;
+	}
 }
 
 .logo__abs {
@@ -96,16 +100,16 @@
 			color: var(--colour-white);
 
 			@media (--screen-sm) {
-				color: var(--colour-primary-600);
+				color: var(--colour-primary-300);
 				font-size: var(--spacing-sm);
 			}
 		}
 
 		&.is-active {
-			background-color: var(--colour-primary-900);
+			background-color: var(--colour-white);
 
 			& a {
-				color: var(--colour-white);
+				color: var(--colour-primary);
 				font-weight: bolder;
 				opacity: 1;
 			}

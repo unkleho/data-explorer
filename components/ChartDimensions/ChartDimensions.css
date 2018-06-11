@@ -56,7 +56,7 @@
 
 		& i {
 			border-radius: 4px;
-			background-color: var(--colour-primary-100);
+			background-color: var(--colour-primary-50);
 			font-size: var(--font-size-lg);
 			padding: 0.181em;
 			margin-right: 0;

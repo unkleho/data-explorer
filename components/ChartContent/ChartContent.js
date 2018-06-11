@@ -1,6 +1,7 @@
 import { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { VictoryChart, VictoryLine, VictoryPie } from 'victory';
+import memoizeOne from 'memoize-one';
 
 import './ChartContent.css';
 import { colors } from '../../styles/variables';
@@ -21,6 +22,7 @@ class Content extends Component {
 		chartStyle: {
 			parent: {},
 		},
+		victoryData: [],
 	};
 
 	constructor() {
@@ -37,6 +39,18 @@ class Content extends Component {
 		this.setState({ zoomDomain: domain });
 	}
 
+	// Work out max by flattening array, then spreading into max func.
+	getMaxY = memoizeOne(
+		(victoryData) =>
+			victoryData.length > 0
+				? Math.max(
+						...victoryData
+							.reduce((prev, curr) => prev.concat(curr), [])
+							.map((d) => d.y),
+				  )
+				: null,
+	);
+
 	render() {
 		const {
 			isLoading,
@@ -50,6 +64,10 @@ class Content extends Component {
 		} = this.props;
 
 		const chartHeight = width < 768 ? 260 : 405;
+		const maxY = this.getMaxY(victoryData);
+
+		// Work out left padding based on number of digits in maxY
+		const paddingLeft = maxY ? Math.ceil(maxY).toString().length * 12 : 70;
 
 		return (
 			<div>
@@ -58,11 +76,14 @@ class Content extends Component {
 						<div>
 							<VictoryChart
 								theme={theme}
-								padding={{ top: 18, left: 70, right: 0, bottom: 32 }}
+								padding={{ top: 18, left: paddingLeft, right: 0, bottom: 32 }}
 								animate={{ duration: 500 }}
 								width={width}
 								height={chartHeight}
 								scale={{ x: 'time' }}
+								domain={{
+									y: [0, maxY],
+								}}
 							>
 								{victoryData.map((data, i) => {
 									return (
