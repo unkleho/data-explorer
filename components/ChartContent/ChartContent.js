@@ -1,7 +1,8 @@
-import { Component } from 'react';
+import { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { VictoryChart, VictoryLine, VictoryPie } from 'victory';
 
+import './ChartContent.css';
 import { colors } from '../../styles/variables';
 
 class Content extends Component {
@@ -47,8 +48,6 @@ class Content extends Component {
 			// chartStyle,
 			colourMap,
 		} = this.props;
-
-		console.log(victoryData);
 
 		const chartHeight = width < 768 ? 260 : 405;
 
@@ -104,14 +103,16 @@ class Content extends Component {
 						/>
 					)
 				) : (
-					<p>
+					<Fragment>
 						{!isLoading && (
-							<span>
-								<br />Sorry! No data available, try changing a dimension or
-								choose another data set.
-							</span>
+							<div className="chart-content__no-data">
+								<p>
+									Sorry! No data available, try changing a dimension or choose
+									another data set.
+								</p>
+							</div>
 						)}
-					</p>
+					</Fragment>
 				)}
 			</div>
 		);

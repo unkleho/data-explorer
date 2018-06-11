@@ -5,31 +5,27 @@
 	justify-content: space-between;
 	align-items: center;
 	overflow: hidden;
-	height: 4em;
+	height: 2em;
 	background-color: var(--colour-primary-700);
 	color: var(--md-blue-grey-600);
 	font-size: var(--font-size-md);
-	transition: 0.3s;
 
 	@media (--screen-sm) {
 		justify-content: flex-start;
 	}
 }
 
-a:link,
-a:visited {
-	color: white;
-}
-
 .logo {
 	display: flex;
 	align-items: baseline;
+	/* height: 2em; */
 	padding-right: 1em;
-	padding-left: var(--spacing-md);
+	padding-left: var(--spacing-lg);
 	margin-left: 0;
+	font-size: var(--font-size-sm);
 	color: white;
 	background-color: var(--colour-primary-700);
-	border-right: 1px solid var(--colour-primary-50);
+	border-right: 1px solid var(--colour-primary-200);
 }
 
 .logo__abs {
@@ -46,7 +42,7 @@ a:visited {
 .header__title {
 	color: var(--colour-white);
 	text-transform: uppercase;
-	letter-spacing: 0.06em;
+	font-weight: bolder;
 
 	@media (--screen-sm) {
 		display: none;
@@ -59,7 +55,7 @@ a:visited {
 }
 
 .menu-icon {
-	margin-right: var(--spacing-xs);
+	margin-right: 0;
 	color: var(--colour-primary-100);
 
 	@media (--screen-sm) {
@@ -74,6 +70,7 @@ a:visited {
 		display: block;
 		flex: 1;
 		margin-left: var(--spacing-xxs);
+		background-color: var(--colour-primary-50);
 	}
 
 	& ul {
@@ -85,13 +82,21 @@ a:visited {
 	}
 
 	& li {
-		padding: 1em;
-		/* letter-spacing: 0.05em; */
+		display: flex;
+		align-items: center;
+		height: 4em;
+		padding: 0 1em;
+		transition: background-color 0.3s;
+
+		@media (--screen-sm) {
+			height: 2em;
+		}
 
 		& a {
-			opacity: 0.8;
+			color: var(--colour-white);
 
 			@media (--screen-sm) {
+				color: var(--colour-primary-600);
 				font-size: var(--spacing-sm);
 			}
 		}
@@ -100,13 +105,14 @@ a:visited {
 			background-color: var(--colour-primary-900);
 
 			& a {
+				color: var(--colour-white);
 				font-weight: bolder;
 				opacity: 1;
 			}
 		}
 
 		&:last-child {
-			border-top: 3px solid var(--colour-primary-400);
+			border-top: 3px solid var(--colour-primary-500);
 
 			@media (--screen-sm) {
 				border-top: none;
@@ -133,16 +139,16 @@ a:visited {
 			z-index: 10;
 			display: block;
 			width: 100%;
-			top: var(--spacing-xxxxlg);
+			top: 2em;
 
 			& ul {
 				display: block;
 				flex-direction: column;
-				background-color: var(--colour-primary);
+				background-color: var(--colour-primary-700);
 				width: 100%;
 
 				& li {
-					padding-left: var(--spacing-lg);
+					padding-left: var(--spacing-md);
 				}
 			}
 		}

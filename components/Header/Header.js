@@ -66,7 +66,7 @@ class Header extends Component {
 					className="menu-icon material-icons"
 					onClick={this.handleMenuToggle}
 				>
-					menu
+					more_vert
 				</button>
 
 				<div className={`menu ${this.state.isMenuActive && 'is-active'}`}>

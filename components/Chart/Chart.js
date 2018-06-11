@@ -158,17 +158,15 @@ class Chart extends Component {
 				/>
 
 				<div className="content container container--lg">
-					{victoryData.length > 0 && (
-						<ChartContent
-							isLoading={isLoading}
-							victoryData={victoryData}
-							theme={theme}
-							width={width}
-							height={height}
-							chartType={'line'}
-							// colourMap={colourMap}
-						/>
-					)}
+					<ChartContent
+						isLoading={isLoading}
+						victoryData={victoryData}
+						theme={theme}
+						width={width}
+						height={height}
+						chartType={'line'}
+						// colourMap={colourMap}
+					/>
 
 					<ChartFooter orgTitle={orgTitle} />
 				</div>
@@ -186,10 +184,15 @@ const buildChartData = (
 	mainDimension,
 	selectedMainDimensions = [],
 ) => {
+	// Check if data is valid
+	if (data.length === 0) {
+		return null;
+	}
+
 	const dimensionSlug = mainDimension && mainDimension.slug;
 
 	// Loop through selectedMainDimensions to build multi-dimensional array
-	return selectedMainDimensions.map((dimensionValue) => {
+	const result = selectedMainDimensions.map((dimensionValue) => {
 		return data
 			.filter((d) => {
 				return d.dimensions[dimensionSlug] === dimensionValue;
@@ -201,4 +204,6 @@ const buildChartData = (
 				};
 			});
 	});
+
+	return result;
 };
