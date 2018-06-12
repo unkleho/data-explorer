@@ -138,7 +138,7 @@ class ChartHeader extends Component {
 
 					<div className="chart-header__main-dimension">
 						<h1>
-							{/* <i className="material-icons">compare_arrows</i> Compare:{' '} */}
+							<i className="material-icons">timeline</i>{' '}
 							{mainDimension && mainDimension.name}
 						</h1>
 
