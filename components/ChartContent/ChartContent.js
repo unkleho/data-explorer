@@ -42,7 +42,7 @@ class Content extends Component {
 	// Work out max by flattening array, then spreading into max func.
 	getMaxY = memoizeOne(
 		(victoryData) =>
-			victoryData.length > 0
+			victoryData && victoryData.length > 0
 				? Math.max(
 						...victoryData
 							.reduce((prev, curr) => prev.concat(curr), [])
@@ -60,7 +60,7 @@ class Content extends Component {
 			width,
 			// height,
 			// chartStyle,
-			colourMap,
+			// colourMap,
 		} = this.props;
 
 		const chartHeight = width < 768 ? 260 : 405;
@@ -73,53 +73,52 @@ class Content extends Component {
 			<div>
 				{victoryData && victoryData.length > 0 ? (
 					chartType === 'line' ? (
-						<div>
-							<VictoryChart
-								theme={theme}
-								padding={{ top: 18, left: paddingLeft, right: 0, bottom: 32 }}
-								animate={{ duration: 500 }}
-								width={width}
-								height={chartHeight}
-								scale={{ x: 'time' }}
-								domain={{
-									y: [0, maxY],
-								}}
-							>
-								{victoryData.map((data, i) => {
-									return (
-										<VictoryLine
-											style={{
-												data: {
-													stroke: colors[i],
-													// stroke: colourMap[i] && colors[colourMap[i].colour],
-													// fill: colors[i],
-												},
-											}}
-											data={data}
-											key={`victory-line-${i}`}
-										/>
-									);
-								})}
-							</VictoryChart>
-						</div>
+						<VictoryChart
+							theme={theme}
+							padding={{ top: 18, left: paddingLeft, right: 0, bottom: 32 }}
+							animate={{ duration: 500 }}
+							width={width}
+							height={chartHeight}
+							scale={{ x: 'time' }}
+							domain={{
+								y: [0, maxY],
+							}}
+						>
+							{victoryData.map((data, i) => {
+								return (
+									<VictoryLine
+										style={{
+											data: {
+												stroke: colors[i],
+												// stroke: colourMap[i] && colors[colourMap[i].colour],
+												// fill: colors[i],
+											},
+										}}
+										data={data}
+										key={`victory-line-${i}`}
+									/>
+								);
+							})}
+						</VictoryChart>
 					) : (
 						<VictoryPie
-							innerRadius={30}
-							height={250}
+							theme={theme}
+							innerRadius={0}
+							height={width < 768 ? 200 : 130}
+							padding={20}
 							data={victoryData}
 							style={{
 								data: {
 									fill: (d) => {
-										// console.log(d);
 										const i = d.eventKey;
-										return colourMap[i] && colors[colourMap[i].colour];
-										// return colors[d.eventKey]
+
+										return colors[i];
 									},
 								},
 							}}
-							labels={(d) => {
-								return colourMap[d.eventKey] && colourMap[d.eventKey].name;
-							}}
+							// labels={(d) => {
+							// 	return colourMap[d.eventKey] && colourMap[d.eventKey].name;
+							// }}
 							animate={{ duration: 500 }}
 						/>
 					)

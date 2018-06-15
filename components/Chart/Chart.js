@@ -111,14 +111,20 @@ class Chart extends Component {
 
 		if (prevProps.data !== data) {
 			const mainDimension = dimensions && dimensions[mainDimensionIndex];
+
+			// Work out chart type
+			const chartType = getChartType(data);
+
 			const victoryData = buildChartData(
 				data,
 				mainDimension,
 				selectedDimensions[mainDimensionIndex],
+				dimensions,
 			);
 
 			this.setState({
 				victoryData,
+				chartType,
 			});
 		}
 	}
@@ -136,13 +142,12 @@ class Chart extends Component {
 			orgTitle,
 		} = this.props;
 
-		const { victoryData } = this.state;
+		const { victoryData, chartType } = this.state;
 
 		// const colourMap = getDimensionColourMap(
 		// 	selectedMainDimensionValues,
 		// 	mainDimension && mainDimension.values,
 		// );
-
 		return (
 			<div className="chart">
 				<ChartHeader
@@ -164,7 +169,7 @@ class Chart extends Component {
 						theme={theme}
 						width={width}
 						height={height}
-						chartType={'line'}
+						chartType={chartType}
 						// colourMap={colourMap}
 					/>
 
@@ -180,6 +185,26 @@ export default Chart;
 // Build data for Victory Chart
 // TODO: Move to own lib
 const buildChartData = (
+	data = [],
+	mainDimension,
+	selectedMainDimensions = [],
+	dimensions,
+) => {
+	const chartType = getChartType(data);
+
+	if (chartType === 'line') {
+		return buildLineChartData(data, mainDimension, selectedMainDimensions);
+	} else if (chartType === 'pie') {
+		return buildPieChartData(
+			data,
+			mainDimension,
+			selectedMainDimensions,
+			dimensions,
+		);
+	}
+};
+
+const buildLineChartData = (
 	data = [],
 	mainDimension,
 	selectedMainDimensions = [],
@@ -206,4 +231,32 @@ const buildChartData = (
 	});
 
 	return result;
+};
+
+const buildPieChartData = (data, mainDimension, selectedMainDimensions) => {
+	const mainDimensionValues = mainDimension.values;
+
+	return data.map((d, i) => {
+		const slug = selectedMainDimensions[i];
+
+		return {
+			x: new Date(d.date),
+			y: d.value,
+			label: mainDimensionValues.filter((value) => value.slug === slug)[0].name,
+		};
+	});
+
+	// return [{ x: null, y: 1000 }, { x: null, y: 2000 }, { x: null, y: 3000 }];
+};
+
+const getChartType = (data) => {
+	if (!data || data.length === 0) {
+		return null;
+	}
+
+	const firstDate = data[0].date;
+
+	return data.length === data.filter((d) => d.date === firstDate).length
+		? 'pie'
+		: 'line';
 };

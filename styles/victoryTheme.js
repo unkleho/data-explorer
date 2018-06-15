@@ -1,6 +1,7 @@
 /*
   "material" theme (VictoryTheme.material)
   Try changing the theme. You could start with `colors` or `fontSize`.
+  https://github.com/FormidableLabs/victory-core/blob/master/src/victory-theme/material.js
 */
 
 import { assign } from 'lodash';
@@ -13,7 +14,7 @@ import {
 	// teal700,
 	// cyan900,
 	colors,
-	blueGrey50,
+	// blueGrey50,
 	// blueGrey300,
 	blueGrey700,
 	grey900,
@@ -36,7 +37,7 @@ const baseLabelStyles = {
 	fontSize,
 	letterSpacing,
 	padding,
-	fill: blueGrey700,
+	fill: primary['500'],
 };
 
 const centeredLabelStyles = assign({ textAnchor: 'middle' }, baseLabelStyles);
@@ -174,13 +175,15 @@ const theme = {
 			style: {
 				data: {
 					padding,
-					stroke: blueGrey50,
-					strokeWidth: 1,
+					// stroke: blueGrey50,
+					// strokeWidth: 1,
 				},
 				labels: assign({}, baseLabelStyles, {
-					padding: 20,
-					stroke: 'transparent',
+					padding: 10,
+					// stroke: 'transparent',
 					strokeWidth: 0,
+					fontSize: 6,
+					fill: grey['700'],
 				}),
 			},
 		},

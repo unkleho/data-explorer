@@ -40,15 +40,16 @@
 
 	& h5 {
 		display: flex;
-		font-size: var(--font-size-xs);
-		margin-top: 0;
-		margin-bottom: var(--spacing-xs);
-		text-transform: uppercase;
-		font-weight: 400;
-		cursor: pointer;
-		width: 100%;
 		align-items: center;
 		justify-content: space-between;
+		width: 100%;
+		margin-top: 0;
+		margin-bottom: var(--spacing-xs);
+		font-size: var(--font-size-xs);
+		font-weight: 400;
+		text-transform: uppercase;
+		color: var(--colour-primary-500);
+		cursor: pointer;
 
 		@media (--screen-sm) {
 			margin-bottom: calc(var(--spacing-xlg) / 2);

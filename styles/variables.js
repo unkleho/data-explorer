@@ -1,4 +1,5 @@
 import {
+	amber,
 	cyan,
 	orange,
 	purple,
@@ -6,6 +7,7 @@ import {
 	blue,
 	green,
 	indigo,
+	pink,
 	grey,
 } from 'material-colors';
 
@@ -22,11 +24,11 @@ export const blueGrey300 = '#90A4AE';
 export const blueGrey700 = '#455A64';
 export const grey900 = '#212121';
 export const colors = [
-	deepOrange600,
-	lightGreen500,
-	cyan['500'],
-	orange['500'],
+	pink['500'],
 	purple['500'],
+	cyan['500'],
+	amber['500'],
+	indigo['500'],
 	yellow['500'],
 	blue['500'],
 	green['500'],
