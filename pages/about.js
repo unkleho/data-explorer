@@ -6,7 +6,7 @@ import App from '../components/App';
 import Page from '../components/Page';
 
 import { initStore } from '../store';
-import withApollo from '../lib/withApollo';
+// import withApollo from '../lib/withApollo';
 
 class AboutPage extends Component {
 	render() {
@@ -14,29 +14,36 @@ class AboutPage extends Component {
 			<App url={this.props.url}>
 				{() => (
 					<Page title="About">
+						<blockquote>
+							We are building an interactive platform for visualising global
+							public data.
+						</blockquote>
 						<p>
-							Data Explorer is an interactive platform for visualising global
-							public data. Using this tool, journalists and researchers can
-							explore vast datasets from the Australian Bureau of Statistics,
-							UNESCO, UK Data Service and the European Union, finding hidden
-							trends that aren’t apparent when looking at the raw numbers.
+							Using <strong>Data Explorer</strong>, journalists and researchers
+							can explore vast datasets from the Australian Bureau of
+							Statistics, UNESCO, UK Data Service and the European Union,
+							finding hidden trends that aren’t apparent when looking at the raw
+							numbers.
 						</p>
-
 						<p>
 							Data Explorer was one of five projects chosen to receive funding
-							from the Walkley Media Incubator and Innovation Fund in 2017. The
-							project was awarded the Innovation in Data prize, with funding of
-							$10,000 sponsored by iSentia. Funding will go towards website
-							hosting, UX research, design and development.
+							from the{' '}
+							<a href="https://medium.com/the-walkley-magazine/what-the-five-2017-walkley-innovation-grantees-are-up-to-abae28ff311f">
+								Walkley Media Incubator and Innovation Fund in 2017
+							</a>. The project was awarded the{' '}
+							<strong>Innovation in Data</strong> prize, with funding of $10,000
+							sponsored by <a href="https://www.isentia.com/">iSentia</a>.
+							Funding will go towards website hosting, UX research, design and
+							development.
 						</p>
-
 						<p>
-							This project is lead by Kaho Cheung, a full stack developer with a
-							deep interest in data and interaction design. He works part-time
-							on Data Explorer while working his day job as a developer for the
-							State Library of NSW’s DX Lab team.
+							This project is lead by{' '}
+							<a href="https://twitter.com/unkleho">Kaho Cheung</a>, a full
+							stack developer with a deep interest in data and interaction
+							design. He works part-time on Data Explorer while working his day
+							job as a developer for the State Library of NSW’s{' '}
+							<a href="https://dxlab.sl.nsw.gov.au">DX Lab</a> innovation team.
 						</p>
-
 						<p>
 							Data Explorer’s aim is to make public data as accessible as
 							possible. For journalists and researchers, this means less data
@@ -45,39 +52,52 @@ class AboutPage extends Component {
 							expert to understand the data. Our broad goal is to demystify the
 							data and improve data literacy over time.
 						</p>
-
 						<p>
 							Data Explorer is currently under active development. We will be
 							posting updates, asking for feedback and conducting beta testing
-							from our Twitter account - @dataexplorerco.
+							from our Twitter account -{' '}
+							<a href="https://twitter.com/dataexplorerco">@dataexplorerco</a>.
 						</p>
-
 						<h2>Technology</h2>
 						<p>
-							At the heart of Data Explorer is the SDMX REST API standard used
-							by several international statistical organisations. Due to this
+							At the heart of Data Explorer is the{' '}
+							<a href="https://sdmx.org/">SDMX REST API</a> standard used by
+							several international statistical organisations. Due to this
 							common format, Data Explorer is able to easily tap into data (and
 							metadata) from the following organisations:
 						</p>
-
 						<ul>
-							<li>Australian Bureau of Statistics</li>
-							<li>OECD</li>
-							<li>UKDS</li>
-							<li>UNESCO</li>
+							<li>
+								<a href="http://www.abs.gov.au">ABS</a>
+							</li>
+							<li>
+								<a href="http://www.oecd.org">OECD</a>
+							</li>
+							<li>
+								<a href="https://www.ukdataservice.ac.uk/">UKDS</a>
+							</li>
+							<li>
+								<a href="https://en.unesco.org/">UNESCO</a>
+							</li>
 						</ul>
-
 						<p>
-							In terms of the Data Explorer application, we are using Node.js to
-							serve an isomorphic (aka universal) Javascript application, using
-							React and Next.js.
+							For the Data Explorer application, we are using Node.js to serve
+							an isomorphic (aka universal) Javascript application, using{' '}
+							<a href="https://reactjs.org">React</a> and{' '}
+							<a href="https://github.com/zeit/next.js/">Next.js</a>.
 						</p>
-
 						<p>
-							The charts are built using a React library called Victory. For
-							hosting, we are using Zeit’s Now service.
+							Sitting between this frontend application and the SDMX data is a
+							powerful <a href="https://api.dataexplorer.co">GraphQL server</a>.
+							While SDMX data requests are live, we do store some data using{' '}
+							<a href="https://prisma.sh">Prisma's</a> GraphQL service.
 						</p>
-
+						<p>
+							The charts are built using a React library called{' '}
+							<a href="https://github.com/FormidableLabs/victory">Victory</a>.
+							For hosting, we are using <a href="https://zeit.co/">Zeit’s</a>{' '}
+							serverless service.
+						</p>
 						<p>
 							Our whole stack is almost all open source. We plan on releasing
 							parts of the Data Explorer platform as open source too.

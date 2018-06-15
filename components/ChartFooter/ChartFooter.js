@@ -11,11 +11,11 @@ class ChartFooter extends Component {
 	render() {
 		const { orgTitle } = this.props;
 
-		return (
+		return orgTitle ? (
 			<div className="chart-footer">
 				<p>Source: {orgTitle}</p>
 			</div>
-		);
+		) : null;
 	}
 }
 

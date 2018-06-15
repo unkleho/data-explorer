@@ -11,7 +11,7 @@ class Page extends Component {
 	render() {
 		return (
 			<article>
-				<header>
+				<header className="page__header">
 					<div className="container container--xs">
 						<h1>{this.props.title}</h1>
 					</div>

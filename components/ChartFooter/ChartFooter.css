@@ -4,9 +4,12 @@
 	text-align: left;
 	font-size: var(--font-size-xs);
 	line-height: var(--line-height-xs);
-	color: var(--colour-grey);
+
+	& p {
+		color: var(--colour-grey);
+	}
 
 	@media (--screen-sm) {
-		margin-top: var(--spacing-xlg);
+		margin-top: var(--spacing-xxlg);
 	}
 }

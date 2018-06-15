@@ -1,14 +1,11 @@
 @import '../../styles/variables.css';
 
-/* header {
-  background-color: var(--colour-primary-50);
-  padding: var(--spacing-xxlg);
-
-  & h1 {
-    margin-top: 0;
-    margin-bottom: 0;
-  }
-} */
+.page__header {
+	display: flex;
+	margin-top: 1em;
+	height: 5em;
+	/* background-color: var(--colour-primary); */
+}
 
 article {
 	/*max-width: 30em;*/

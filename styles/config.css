@@ -9,7 +9,7 @@
 	--colour-primary: var(--md-indigo-500);
 	--colour-secondary: var(--md-red-500);
 	--colour-tertiary: var(--md-yellow-500);
-	--colour-highlight: var(--md-orange-500);
+	--colour-highlight: var(--md-pink-500);
 
 	--colour-primary-50: var(--md-indigo-50);
 	--colour-primary-100: var(--md-indigo-100);
@@ -22,14 +22,14 @@
 	--colour-primary-800: var(--md-indigo-800);
 	--colour-primary-900: var(--md-indigo-900);
 
-	--colour-highlight-50: var(--md-orange-50);
-	--colour-highlight-100: var(--md-orange-100);
-	--colour-highlight-200: var(--md-orange-200);
-	--colour-highlight-300: var(--md-orange-300);
-	--colour-highlight-400: var(--md-orange-400);
-	--colour-highlight-500: var(--md-orange-500);
-	--colour-highlight-600: var(--md-orange-600);
-	--colour-highlight-700: var(--md-orange-700);
-	--colour-highlight-800: var(--md-orange-800);
-	--colour-highlight-900: var(--md-orange-900);
+	--colour-highlight-50: var(--md-pink-50);
+	--colour-highlight-100: var(--md-pink-100);
+	--colour-highlight-200: var(--md-pink-200);
+	--colour-highlight-300: var(--md-pink-300);
+	--colour-highlight-400: var(--md-pink-400);
+	--colour-highlight-500: var(--md-pink-500);
+	--colour-highlight-600: var(--md-pink-600);
+	--colour-highlight-700: var(--md-pink-700);
+	--colour-highlight-800: var(--md-pink-800);
+	--colour-highlight-900: var(--md-pink-900);
 }

@@ -21,6 +21,7 @@
 	margin-bottom: 0;
 	cursor: pointer;
 	font-size: var(--font-size-lg);
+	font-weight: 600;
 	line-height: var(--line-height-lg);
 	color: var(--colour-grey-darkest);
 	opacity: 1;
@@ -111,6 +112,7 @@
 		margin-bottom: var(--spacing-xs);
 		align-items: center;
 		font-size: var(--spacing-sm);
+		font-weight: 500;
 		line-height: var(--line-height-sm);
 		text-transform: uppercase;
 
