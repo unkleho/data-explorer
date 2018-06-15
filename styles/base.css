@@ -45,7 +45,7 @@ h2,
 .h2 {
 	margin: 0;
 	font-size: var(--font-size-xlg);
-	line-height: var(--line-height-xlg);
+	/* line-height: var(--line-height-xlg); */
 	color: var(--colour-primary);
 }
 

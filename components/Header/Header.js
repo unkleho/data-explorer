@@ -24,7 +24,7 @@ class Header extends Component {
 					title: 'UNESCO',
 					id: 'UNESCO',
 					slug: 'unesco',
-					dataSetSlug: 'DEMO_DS',
+					dataSetSlug: 'EDULIT_DS',
 				},
 				{ title: 'ABOUT', id: 'ABOUT', slug: 'about' },
 			],

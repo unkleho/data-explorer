@@ -1,7 +1,8 @@
 import {
 	amber,
 	cyan,
-	orange,
+	// orange,
+	deepOrange,
 	purple,
 	yellow,
 	blue,
@@ -25,12 +26,12 @@ export const blueGrey700 = '#455A64';
 export const grey900 = '#212121';
 export const colors = [
 	pink['500'],
-	purple['500'],
-	cyan['500'],
-	amber['500'],
 	indigo['500'],
-	yellow['500'],
+	deepOrange['500'],
 	blue['500'],
+	purple['500'],
+	amber['500'],
+	yellow['500'],
 	green['500'],
 ];
 export const primary = indigo;

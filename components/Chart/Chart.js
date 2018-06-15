@@ -238,11 +238,13 @@ const buildPieChartData = (data, mainDimension, selectedMainDimensions) => {
 
 	return data.map((d, i) => {
 		const slug = selectedMainDimensions[i];
+		const value = mainDimensionValues.filter((value) => value.slug === slug)[0]
+			.name;
 
 		return {
 			x: new Date(d.date),
 			y: d.value,
-			label: mainDimensionValues.filter((value) => value.slug === slug)[0].name,
+			label: `${value} (${d.value})`,
 		};
 	});
 
