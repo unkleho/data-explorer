@@ -1,8 +1,8 @@
 import {
 	amber,
 	cyan,
-	// orange,
 	deepOrange,
+	deepPurple,
 	purple,
 	yellow,
 	blue,
@@ -10,29 +10,27 @@ import {
 	indigo,
 	pink,
 	grey,
+	// red,
+	lime,
+	teal,
 } from 'material-colors';
 
-// Colors
-export const yellow200 = '#FFF59D';
-export const deepOrange600 = '#F4511E';
-export const lime300 = '#DCE775';
-export const lightGreen500 = '#8BC34A';
-export const teal700 = '#00796B';
-export const cyan900 = '#006064';
-export const blueGrey50 = '#ECEFF1';
-export const blueGrey100 = '#CFD8DC';
-export const blueGrey300 = '#90A4AE';
-export const blueGrey700 = '#455A64';
-export const grey900 = '#212121';
+// TODO: Cleanup!
+
+// Colors array (order is important)
 export const colors = [
 	pink['500'],
-	indigo['500'],
-	deepOrange['500'],
-	blue['500'],
-	purple['500'],
-	amber['500'],
-	yellow['500'],
+	blue['600'],
+	purple['400'],
+	cyan['300'],
 	green['500'],
+	yellow['500'],
+	amber['500'],
+	deepOrange['400'],
+	deepPurple['500'],
+	indigo['500'],
+	teal['500'],
+	lime['500'],
 ];
 export const primary = indigo;
 export { grey };

@@ -12,12 +12,9 @@
 		"flow": "flow",
 		"test": "jest",
 		"test:watch": "jest --watch",
-		"test:lint":
-			"eslint . --ext .js --ext .jsx --ignore-path .gitignore --ignore-pattern dist --cache",
-		"deploy-staging":
-			"now --dotenv=.env.staging && now alias staging.dataexplorer.co",
-		"deploy-production":
-			"now --dotenv=.env.production && now alias dataexplorer.co"
+		"test:lint": "eslint . --ext .js --ext .jsx --ignore-path .gitignore --ignore-pattern dist --cache",
+		"deploy-staging": "now --dotenv=.env.staging && now alias staging.dataexplorer.co",
+		"deploy-production": "now --dotenv=.env.production && now alias dataexplorer.co"
 	},
 	"engines": {
 		"node": "~8.1.4"
@@ -29,6 +26,7 @@
 		"apollo-client-preset": "^1.0.8",
 		"avsc": "^5.3.0",
 		"base64-arraybuffer": "^0.1.5",
+		"csv-express": "^1.2.2",
 		"dotenv": "^4.0.0",
 		"express": "^4.16.3",
 		"graphql": "^0.13.2",
@@ -58,7 +56,9 @@
 		"url": "^0.11.0",
 		"victory": "^0.25.6"
 	},
-	"cacheDirectories": ["nextjs/node_modules"],
+	"cacheDirectories": [
+		"nextjs/node_modules"
+	],
 	"devDependencies": {
 		"babel-eslint": "^7.2.3",
 		"babel-plugin-inline-dotenv": "^1.1.1",

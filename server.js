@@ -3,6 +3,7 @@ require('dotenv').config();
 const express = require('express');
 const next = require('next');
 const proxy = require('http-proxy-middleware');
+const csv = require('csv-express');
 
 const dev = process.env.NODE_ENV !== 'production' && !process.env.NOW;
 const app = next({ dev });
@@ -21,28 +22,32 @@ console.log('----------------------------------');
 const port = process.env.PORT || 3000;
 
 app
-  .prepare()
-  .then(() => {
-    const server = express();
+	.prepare()
+	.then(() => {
+		const server = express();
 
-    // Proxy external apps
-    Object.keys(proxyRoutes).forEach((route) => {
-      server.use(route, proxy(proxyRoutes[route]));
-    });
+		// Proxy external apps
+		Object.keys(proxyRoutes).forEach((route) => {
+			server.use(route, proxy(proxyRoutes[route]));
+		});
 
-    // server.get('/example-page/:id', (req, res) => {
-    //   const mergedQuery = Object.assign({}, req.query, req.params)
-    //   return app.render(req, res, '/example-page', mergedQuery);
-    // })
+		server.get('/csv-test', (req, res) => {
+			res.csv([{ a: 1, b: 2, c: 3 }, { a: 4, b: 5, c: 6 }], true);
+		});
 
-    server.all('*', (req, res) => handler(req, res));
+		// server.get('/example-page/:id', (req, res) => {
+		//   const mergedQuery = Object.assign({}, req.query, req.params)
+		//   return app.render(req, res, '/example-page', mergedQuery);
+		// })
 
-    server.listen(port, err => {
-      if (err) throw err;
-      console.log(`> Ready on http://localhost:${port}`);
-    });
-  })
-  .catch(ex => {
-    console.error(ex.stack);
-    process.exit(1);
-  });
+		server.all('*', (req, res) => handler(req, res));
+
+		server.listen(port, (err) => {
+			if (err) throw err;
+			console.log(`> Ready on http://localhost:${port}`);
+		});
+	})
+	.catch((ex) => {
+		console.error(ex.stack);
+		process.exit(1);
+	});

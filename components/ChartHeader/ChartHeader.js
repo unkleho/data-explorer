@@ -7,7 +7,7 @@ import './ChartHeader.global.css';
 import ChartDimensions from '../ChartDimensions';
 import ChartSelectedDimensions from '../ChartSelectedDimensions';
 import Overlay from '../Overlay';
-import { blueGrey700, colors } from '../../styles/variables';
+import { colors, grey } from '../../styles/variables';
 import DataSetSelector from '../DataSetSelector';
 
 class ChartHeader extends Component {
@@ -194,11 +194,32 @@ class ChartHeader extends Component {
 
 					.Select--multi .Select-value:nth-child(6) {
 						background-color: ${colors[5]};
-						color: ${blueGrey700};
+						color: ${grey['800']};
 					}
 
 					.Select--multi .Select-value:nth-child(7) {
 						background-color: ${colors[6]};
+						color: ${grey['800']};
+					}
+
+					.Select--multi .Select-value:nth-child(8) {
+						background-color: ${colors[7]};
+					}
+
+					.Select--multi .Select-value:nth-child(9) {
+						background-color: ${colors[8]};
+					}
+
+					.Select--multi .Select-value:nth-child(10) {
+						background-color: ${colors[9]};
+					}
+
+					.Select--multi .Select-value:nth-child(11) {
+						background-color: ${colors[10]};
+					}
+
+					.Select--multi .Select-value:nth-child(12) {
+						background-color: ${colors[11]};
 					}
 				`}</style>
 			</div>

@@ -7,17 +7,7 @@
 import { assign } from 'lodash';
 import {
 	// Colours
-	// yellow200,
-	deepOrange600,
-	// lime300,
-	// lightGreen500,
-	// teal700,
-	// cyan900,
 	colors,
-	// blueGrey50,
-	// blueGrey300,
-	blueGrey700,
-	grey900,
 	primary,
 	grey,
 
@@ -53,7 +43,7 @@ const theme = {
 		{
 			style: {
 				data: {
-					fill: grey900,
+					// fill: grey900,
 				},
 				labels: centeredLabelStyles,
 			},
@@ -101,7 +91,7 @@ const theme = {
 		{
 			style: {
 				data: {
-					fill: blueGrey700,
+					// fill: blueGrey700,
 					padding,
 					stroke: 'transparent',
 					strokeWidth: 0,
@@ -116,13 +106,13 @@ const theme = {
 		{
 			style: {
 				data: {
-					stroke: blueGrey700,
+					// stroke: blueGrey700,
 				},
 				labels: centeredLabelStyles,
 			},
 			candleColors: {
 				positive: '#ffffff',
-				negative: blueGrey700,
+				// negative: blueGrey700,
 			},
 		},
 		baseProps,
@@ -134,7 +124,7 @@ const theme = {
 				data: {
 					fill: 'transparent',
 					opacity: 1,
-					stroke: blueGrey700,
+					// stroke: blueGrey700,
 					strokeWidth: 2,
 				},
 				labels: assign({}, centeredLabelStyles, {
@@ -157,7 +147,7 @@ const theme = {
 				data: {
 					fill: 'transparent',
 					opacity: 1,
-					stroke: deepOrange600,
+					// stroke: deepOrange600,
 					strokeWidth: 2,
 				},
 				labels: assign({}, baseLabelStyles, {
@@ -193,7 +183,7 @@ const theme = {
 		{
 			style: {
 				data: {
-					fill: blueGrey700,
+					// fill: blueGrey700,
 					opacity: 1,
 					stroke: 'transparent',
 					strokeWidth: 0,
@@ -221,7 +211,7 @@ const theme = {
 				},
 				labels: centeredLabelStyles,
 				flyout: {
-					stroke: blueGrey700,
+					// stroke: blueGrey700,
 					strokeWidth: 1,
 					fill: '#f0f0f0',
 				},
