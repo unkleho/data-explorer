@@ -165,6 +165,7 @@ class ChartHeader extends Component {
 					<div className="chart-header__chart-selected-dimensions">
 						<ChartSelectedDimensions
 							dimensions={dimensions}
+							mainDimensionIndex={mainDimensionIndex}
 							selectedDimensions={selectedDimensions}
 							onEditClick={this.handleSelectedDimensionsToggle}
 						/>
@@ -186,6 +187,7 @@ class ChartHeader extends Component {
 
 					.Select--multi .Select-value:nth-child(4) {
 						background-color: ${colors[3]};
+						color: ${grey['800']};
 					}
 
 					.Select--multi .Select-value:nth-child(5) {
@@ -194,7 +196,6 @@ class ChartHeader extends Component {
 
 					.Select--multi .Select-value:nth-child(6) {
 						background-color: ${colors[5]};
-						color: ${grey['800']};
 					}
 
 					.Select--multi .Select-value:nth-child(7) {

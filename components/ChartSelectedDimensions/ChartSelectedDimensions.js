@@ -3,48 +3,53 @@ import PropTypes from 'prop-types';
 
 import './ChartSelectedDimensions.css';
 
+// TODO: Make this receive only on prop, rather than 3!
+
 class ChartSelectedDimensions extends Component {
 	static propTypes = {
 		selectedDimensions: PropTypes.array,
 		dimensions: PropTypes.array,
+		mainDimensionIndex: PropTypes.number,
 		onEditClick: PropTypes.func,
 	};
 
 	render() {
-		const { selectedDimensions, dimensions, onEditClick } = this.props;
+		const {
+			selectedDimensions,
+			dimensions,
+			mainDimensionIndex,
+			onEditClick,
+		} = this.props;
 
-		const filteredDimensions = dimensions.filter(
-			(dimension) =>
-				dimension.slug !== 'FREQUENCY' && dimension.slug !== 'TIME_PERIOD',
+		// Filter out mainDimension
+		const filteredSelectedDimensions = selectedDimensions.filter(
+			(d, i) => i !== mainDimensionIndex,
 		);
+
+		// Filter out FREQ and TIME_PERIOD and mainDimension
+		const filteredDimensions = dimensions
+			.filter(
+				(dimension) =>
+					dimension.slug !== 'FREQUENCY' && dimension.slug !== 'TIME_PERIOD',
+			)
+			.filter((dimension, i) => mainDimensionIndex !== i);
 
 		const dimensionsString = filteredDimensions
 			.map((dimension, i) => {
 				// Similar code in ChartDimensions, make it a function?
-				const dimensionValueSlug = selectedDimensions[i][0];
+				const dimensionValueSlug = filteredSelectedDimensions[i][0];
 				const value = dimension.values.filter((v) => {
 					return v.slug === dimensionValueSlug;
 				})[0];
 
-				console.log(filteredDimensions.length - 1, i);
-
-				// const commaOrStop = filteredDimensions.length - 1 === i ? '.' : '';
-
 				return `${value.name}`;
-				// return (
-				// 	<span key={`chart-selected-dimensions-title-${dimension.slug}`}>
-				// 		{value.name}
-				// 		{commaOrStop}
-				// 	</span>
-				// );
 			})
-			.toString('. ');
+			.join(', ');
 
 		return (
 			<div className="chart-selected-dimensions">
 				<div className="chart-selected-dimensions__title" />
-				{dimensionsString}
-
+				{dimensionsString}.
 				<button className="material-icons" onClick={onEditClick}>
 					edit
 				</button>
