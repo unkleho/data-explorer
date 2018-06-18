@@ -10,6 +10,7 @@ const app = next({ dev });
 const routes = require('./routes');
 const proxyRoutes = require('./routes/proxyRoutes');
 const handler = routes.getRequestHandler(app);
+const buildDownload = require('./lib/download.js');
 
 console.log('----------------------------------');
 console.log('Environment Variables:');
@@ -31,8 +32,15 @@ app
 			server.use(route, proxy(proxyRoutes[route]));
 		});
 
-		server.get('/csv-test', (req, res) => {
-			res.csv([{ a: 1, b: 2, c: 3 }, { a: 4, b: 5, c: 6 }], true);
+		server.get('/download', async (req, res) => {
+			try {
+				const result = await buildDownload(req.query);
+				console.log(result);
+				res.csv(result, true);
+			} catch (e) {
+				console.log(e);
+			}
+			// res.csv([{ a: 1, b: 2, c: 3 }, { a: 4, b: 5, c: 6 }], true);
 		});
 
 		// server.get('/example-page/:id', (req, res) => {

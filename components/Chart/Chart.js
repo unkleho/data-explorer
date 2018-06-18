@@ -139,6 +139,7 @@ class Chart extends Component {
 			selectedDimensions,
 			width,
 			height,
+			orgSlug,
 			orgTitle,
 		} = this.props;
 
@@ -173,7 +174,12 @@ class Chart extends Component {
 						// colourMap={colourMap}
 					/>
 
-					<ChartFooter orgTitle={orgTitle} />
+					<ChartFooter
+						orgTitle={orgTitle}
+						orgSlug={orgSlug}
+						dataSetSlug={dataSetSlug}
+						selectedDimensions={selectedDimensions}
+					/>
 				</div>
 			</div>
 		);
