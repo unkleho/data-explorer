@@ -10,8 +10,8 @@
 		"start": "node server.js -p $PORT",
 		"heroku-postbuild": "next build",
 		"flow": "flow",
-		"test": "jest",
-		"test:watch": "jest --watch",
+		"test": "node -r dotenv/config ./node_modules/.bin/jest --forceExit --runInBand",
+		"test:watch": "node -r dotenv/config ./node_modules/.bin/jest --watch",
 		"test:lint": "eslint . --ext .js --ext .jsx --ignore-path .gitignore --ignore-pattern dist --cache",
 		"deploy-staging": "now --dotenv=.env.staging && now alias staging.dataexplorer.co",
 		"deploy-production": "now --dotenv=.env.production && now alias dataexplorer.co"

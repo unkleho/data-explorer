@@ -34,6 +34,8 @@ app
 
 		server.get('/download', async (req, res) => {
 			try {
+				console.log(req.query);
+
 				const result = await buildDownload(req.query);
 				console.log(result);
 				res.csv(result, true);

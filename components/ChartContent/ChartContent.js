@@ -1,6 +1,12 @@
 import { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
-import { VictoryChart, VictoryLine, VictoryPie } from 'victory';
+import {
+	VictoryChart,
+	VictoryLine,
+	VictoryPie,
+	VictoryTooltip,
+	VictoryVoronoiContainer,
+} from 'victory';
 import memoizeOne from 'memoize-one';
 
 import './ChartContent.css';
@@ -83,6 +89,7 @@ class Content extends Component {
 							domain={{
 								y: [0, maxY],
 							}}
+							containerComponent={<VictoryVoronoiContainer />}
 						>
 							{victoryData.map((data, i) => {
 								return (
@@ -95,6 +102,7 @@ class Content extends Component {
 											},
 										}}
 										data={data}
+										labelComponent={<VictoryTooltip />}
 										key={`victory-line-${i}`}
 									/>
 								);

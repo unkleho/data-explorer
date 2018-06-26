@@ -232,6 +232,7 @@ const buildLineChartData = (
 				return {
 					x: new Date(d.date),
 					y: d.value,
+					// label: d.value,
 				};
 			});
 	});
