@@ -11,6 +11,6 @@
 	& button {
 		color: var(--colour-primary);
 		background-color: var(--colour-primary-50);
-		border-radius: var(--border-radius);
+		border-radius: var(--border-radius-sm);
 	}
 }

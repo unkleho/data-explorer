@@ -39,7 +39,9 @@ class Data extends Component {
 	}
 
 	static getInitialProps(props) {
-		const { query: { selectedDimensions, mainDimensionIndex } } = props;
+		const {
+			query: { selectedDimensions, mainDimensionIndex },
+		} = props;
 
 		return {
 			// Convert these url params from strings

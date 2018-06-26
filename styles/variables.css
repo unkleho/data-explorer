@@ -10,7 +10,7 @@
    * ------------------------------------------------------------------------ */
 
 	/* Black/White */
-	--colour-white: #FFFFFF;
+	--colour-white: #ffffff;
 	--colour-black: var(--md-grey-900);
 	--colour-grey: var(--md-grey-500);
 	--colour-grey-dark: var(--md-grey-600);
@@ -144,5 +144,6 @@
    * Border
    * ------------------------------------------------------------------------ */
 
+	--border-radius-sm: 2px;
 	--border-radius: 3px;
 }
