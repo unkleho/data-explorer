@@ -54,7 +54,8 @@ class DataSetSelector extends Component {
 						};
 					})}
 					openOnFocus={true}
-					autofocus={true}
+					autoFocus={true}
+					closeOnSelect={false}
 					// autofocus={width > 768 ? true : false}
 					searchable={true}
 					onChange={(option) => this.handleDataSetSelect(option.value)}

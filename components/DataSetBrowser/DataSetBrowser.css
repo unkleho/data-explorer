@@ -1,4 +1,14 @@
 @import '../../styles/variables.css';
 
-/* .data-set-browser {
-} */
+.data-set-browser {
+	height: 10em;
+	overflow: auto;
+
+	& ul {
+		padding-left: 0;
+	}
+
+	& li {
+		list-style: none;
+	}
+}

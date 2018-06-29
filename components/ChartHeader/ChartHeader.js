@@ -67,6 +67,14 @@ class ChartHeader extends Component {
 		});
 	};
 
+	handleDataSetBrowserChange = (event) => {
+		this.setState({
+			showDataSetSelector: false,
+		});
+
+		this.props.onDataSetSelect(event.slug);
+	};
+
 	render() {
 		const {
 			dataSetSlug,
@@ -76,7 +84,7 @@ class ChartHeader extends Component {
 			mainDimensionIndex,
 			onDimensionSelect,
 			onMainDimensionSelect,
-			width,
+			// width,
 		} = this.props;
 
 		// Get current dataSet
@@ -115,16 +123,19 @@ class ChartHeader extends Component {
 						</h1>
 
 						{this.state.showDataSetSelector && (
-							<DataSetSelector
-								isActive={this.state.showDataSetSelector}
-								selectedSlug={dataSet.slug}
+							// <DataSetSelector
+							// 	isActive={this.state.showDataSetSelector}
+							// 	selectedSlug={dataSet.slug}
+							// 	dataSets={dataSets}
+							// 	onDataSetSelect={this.handleDataSetSelect}
+							// 	width={width}
+							// />
+							<DataSetBrowser
 								dataSets={dataSets}
-								onDataSetSelect={this.handleDataSetSelect}
-								width={width}
+								onChange={this.handleDataSetBrowserChange}
+								selectedSlug={dataSetSlug}
 							/>
 						)}
-
-						<DataSetBrowser dataSets={dataSets} />
 					</div>
 
 					<div
