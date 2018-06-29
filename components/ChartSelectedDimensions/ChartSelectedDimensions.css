@@ -2,13 +2,13 @@
 
 .chart-selected-dimensions {
 	display: flex;
-	/* margin-top: var(--spacing-lg); */
-	/* margin-bottom: var(--spacing-sm); */
+	align-items: center;
 	font-weight: 500;
 	font-size: var(--font-size-sm);
 	line-height: 1.35;
 
 	& button {
+		margin-left: var(--spacing-sm);
 		color: var(--colour-primary);
 		background-color: var(--colour-primary-50);
 		border-radius: var(--border-radius);

@@ -21,6 +21,7 @@ class ChartHeader extends Component {
 		onDimensionSelect: PropTypes.func,
 		onMultiDimensionSelect: PropTypes.func,
 		onMainDimensionSelect: PropTypes.func,
+		width: PropTypes.number,
 	};
 
 	static defaultProps = {
@@ -74,6 +75,7 @@ class ChartHeader extends Component {
 			mainDimensionIndex,
 			onDimensionSelect,
 			onMainDimensionSelect,
+			width,
 		} = this.props;
 
 		// Get current dataSet
@@ -117,6 +119,7 @@ class ChartHeader extends Component {
 								selectedSlug={dataSet.slug}
 								dataSets={dataSets}
 								onDataSetSelect={this.handleDataSetSelect}
+								width={width}
 							/>
 						)}
 					</div>

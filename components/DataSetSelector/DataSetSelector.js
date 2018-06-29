@@ -10,6 +10,7 @@ class DataSetSelector extends Component {
 		selectedSlug: PropTypes.string,
 		handleDataSetSelect: PropTypes.func,
 		isActive: PropTypes.bool,
+		width: PropTypes.number,
 	};
 
 	componentDidMount() {
@@ -33,7 +34,8 @@ class DataSetSelector extends Component {
 	};
 
 	render() {
-		const { isActive, selectedSlug, dataSets } = this.props;
+		const { isActive, selectedSlug, dataSets, width } = this.props;
+		console.log(width);
 
 		return (
 			<div
@@ -51,8 +53,9 @@ class DataSetSelector extends Component {
 							value: option.slug,
 						};
 					})}
-					openOnFocus
+					openOnFocus={true}
 					autofocus={true}
+					// autofocus={width > 768 ? true : false}
 					searchable={true}
 					onChange={(option) => this.handleDataSetSelect(option.value)}
 				/>

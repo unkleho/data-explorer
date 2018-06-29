@@ -161,6 +161,7 @@ class Chart extends Component {
 					onDimensionSelect={this.handleDimensionSelect}
 					onMultiDimensionSelect={this.handleMultiDimensionSelect}
 					onMainDimensionSelect={this.handleMainDimensionSelect}
+					width={width}
 				/>
 
 				<div className="content container container--lg">
