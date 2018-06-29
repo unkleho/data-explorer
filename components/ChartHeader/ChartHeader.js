@@ -9,6 +9,7 @@ import ChartSelectedDimensions from '../ChartSelectedDimensions';
 import Overlay from '../Overlay';
 import { colors, grey } from '../../styles/variables';
 import DataSetSelector from '../DataSetSelector';
+import DataSetBrowser from '../DataSetBrowser';
 
 class ChartHeader extends Component {
 	static propTypes = {
@@ -122,6 +123,8 @@ class ChartHeader extends Component {
 								width={width}
 							/>
 						)}
+
+						<DataSetBrowser dataSets={dataSets} />
 					</div>
 
 					<div
