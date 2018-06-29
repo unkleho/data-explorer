@@ -179,6 +179,7 @@ class Chart extends Component {
 						orgSlug={orgSlug}
 						dataSetSlug={dataSetSlug}
 						selectedDimensions={selectedDimensions}
+						mainDimensionIndex={mainDimensionIndex}
 					/>
 				</div>
 			</div>

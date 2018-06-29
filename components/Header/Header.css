@@ -32,9 +32,12 @@
 	}
 }
 
-.logo__abs {
-	font-family: var(--font-primary);
-	font-weight: 700;
+.logo__svg {
+	background-image: url('/static/data-explorer-logo.svg');
+	background-size: cover;
+	width: 1em;
+	height: 1em;
+	margin-right: 0.3em;
 }
 
 .logo__text {

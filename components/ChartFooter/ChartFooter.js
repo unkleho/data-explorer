@@ -12,10 +12,17 @@ class ChartFooter extends Component {
 	};
 
 	render() {
-		const { orgTitle, orgSlug, dataSetSlug, selectedDimensions } = this.props;
+		const {
+			orgTitle,
+			orgSlug,
+			dataSetSlug,
+			selectedDimensions,
+			mainDimensionIndex,
+		} = this.props;
+
 		const csvUrl = `/download/?format=csv&orgSlug=${orgSlug}&dataSetSlug=${dataSetSlug}&selectedDimensions=${JSON.stringify(
 			selectedDimensions,
-		)}`;
+		)}&mainDimensionIndex=${mainDimensionIndex}`;
 
 		return orgTitle ? (
 			<div className="chart-footer">

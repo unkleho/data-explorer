@@ -34,21 +34,18 @@ app
 
 		server.get('/download', async (req, res) => {
 			try {
-				console.log(req.query);
+				// console.log(req.query);
 
-				const result = await buildDownload(req.query);
-				console.log(result);
+				const result = await buildDownload({
+					...req.query,
+					selectedDimensions: JSON.parse(req.query.selectedDimensions),
+				});
+				// console.log(result);
 				res.csv(result, true);
 			} catch (e) {
 				console.log(e);
 			}
-			// res.csv([{ a: 1, b: 2, c: 3 }, { a: 4, b: 5, c: 6 }], true);
 		});
-
-		// server.get('/example-page/:id', (req, res) => {
-		//   const mergedQuery = Object.assign({}, req.query, req.params)
-		//   return app.render(req, res, '/example-page', mergedQuery);
-		// })
 
 		server.all('*', (req, res) => handler(req, res));
 

@@ -87,8 +87,9 @@ export function buildTableData(data: SdmxData) {
 
 // ---------------------------------------------------
 // Copied from data-explorer-graphql/lib
-// Can't get field to return nested array in Prisma,
-// so here we are
+// Can't get field to return nested array in Prisma, so it is difficult to get selected
+// default dimensions. So we run the same function on the server and client.
+// Very ugly :(
 // ---------------------------------------------------
 
 // Get an array of default dimensions, used for creating initial API call.

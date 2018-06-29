@@ -50,7 +50,7 @@ class Header extends Component {
 		return (
 			<header className="header">
 				<div className="logo">
-					{/* <span className="logo__abs">{sourceId}</span> */}
+					<span className="logo__svg" />
 					<span className="logo__text">Data Explorer</span>
 					&nbsp;<span style={{ fontSize: '0.5em', opacity: '0.7' }}>BETA</span>
 					&nbsp;
@@ -105,4 +105,7 @@ function mapStateToProps(state) {
 	};
 }
 
-export default connect(initStore, mapStateToProps)(Header);
+export default connect(
+	initStore,
+	mapStateToProps,
+)(Header);
