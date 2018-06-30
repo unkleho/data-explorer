@@ -64,7 +64,9 @@ class DataSetBrowser extends Component {
 									.filter(
 										(item) =>
 											!inputValue ||
-											item.title.toLowerCase().includes(inputValue),
+											item.title
+												.toLowerCase()
+												.includes(inputValue.toLowerCase()),
 									)
 									.map((item, index) => (
 										<li
