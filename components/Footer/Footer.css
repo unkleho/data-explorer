@@ -1,0 +1,20 @@
+@import '../../styles/variables.css';
+
+.footer {
+	display: flex;
+	flex-direction: column;
+	margin-top: 2em;
+	padding: var(--spacing-xs) var(--spacing-lg) var(--spacing-xxxxs);
+	background-color: var(--colour-primary-50);
+	text-align: left;
+	font-size: var(--font-size-sm);
+
+	@media (--screen-sm) {
+		flex-direction: row;
+		justify-content: space-between;
+	}
+
+	& p {
+		color: var(--colour-primary);
+	}
+}

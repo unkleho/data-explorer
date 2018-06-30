@@ -8,7 +8,7 @@ import ChartDimensions from '../ChartDimensions';
 import ChartSelectedDimensions from '../ChartSelectedDimensions';
 import Overlay from '../Overlay';
 import { colors, grey } from '../../styles/variables';
-import DataSetSelector from '../DataSetSelector';
+// import DataSetSelector from '../DataSetSelector';
 import DataSetBrowser from '../DataSetBrowser';
 
 class ChartHeader extends Component {

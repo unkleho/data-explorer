@@ -6,6 +6,7 @@ import './App.css';
 import '../../styles/base.css';
 import '../../styles/helpers.css';
 import Header from '../Header';
+import Footer from '../Footer';
 import LoadingBar from '../LoadingBar';
 import WithDimensions from '../WithDimensions';
 import { initGA, logPageView, logEvent } from '../../lib/analytics';
@@ -66,6 +67,8 @@ class App extends Component {
 						return this.props.children({ width, height });
 					}}
 				</WithDimensions>
+
+				<Footer />
 			</div>
 		);
 	}

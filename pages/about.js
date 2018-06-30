@@ -56,7 +56,7 @@ class AboutPage extends Component {
 							Data Explorer is currently under active development. We will be
 							posting updates, asking for feedback and conducting beta testing
 							from our Twitter account -{' '}
-							<a href="https://twitter.com/dataexplorerco">@dataexplorerco</a>.
+							<a href="https://twitter.com/dataexplorerio">@dataexplorerio</a>.
 						</p>
 						<h2>Technology</h2>
 						<p>

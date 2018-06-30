@@ -26,7 +26,11 @@ class ChartFooter extends Component {
 
 		return orgTitle ? (
 			<div className="chart-footer">
-				<p>Source: {orgTitle}</p>
+				<p>
+					Source: {orgTitle}
+					<br /> Disclaimer: This website is still in beta, charts may not be
+					accurate.
+				</p>
 				<p>
 					<a href={csvUrl} className="button">
 						Download CSV
