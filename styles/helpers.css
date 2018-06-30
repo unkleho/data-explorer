@@ -36,5 +36,22 @@
 }
 
 .button {
-	color: var(--colour-primary);
+	display: inline-block;
+	padding: 0.5em 1em;
+	font-weight: normal;
+	color: white;
+	background-color: var(--colour-primary-600);
+	font-size: var(--font-size-md);
+	line-height: 1;
+	border-radius: var(--border-radius);
+
+	&:link,
+	&:visited {
+		color: white;
+		text-decoration: none;
+	}
+
+	&:hover {
+		background-color: var(--colour-highlight);
+	}
 }

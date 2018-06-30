@@ -1,14 +1,50 @@
 @import '../../styles/variables.css';
 
 .data-set-browser {
-	height: 10em;
-	overflow: auto;
+	margin-top: var(--spacing-xs);
+	border: 1px solid var(--colour-primary-50);
+	border-radius: var(--border-radius);
 
 	& ul {
-		padding-left: 0;
+		display: block;
+		height: 12em;
+		margin: 0;
+		overflow: auto;
+		padding: 0;
+		/* border-bottom-left-radius: var(--border-radius);
+		border-bottom-right-radius: var(--border-radius); */
+		color: var(--colour-grey-darkest);
 	}
 
 	& li {
 		list-style: none;
+		font-size: var(--font-size-sm);
+		/* margin-bottom: var(--spacing-xs); */
+		padding: var(--spacing-xxxs) var(--spacing-xs);
 	}
+}
+
+.data-set-browser__input {
+	border-top: none;
+	border-left: none;
+	border-right: none;
+	border-bottom: 1px solid var(--colour-primary-50);
+	width: 100%;
+
+	&:focus {
+		outline-width: 0;
+		border: 1px solid var(--colour-primary-300);
+		margin-bottom: -1px;
+		box-shadow: inset 0 0 1px rgba(0, 0, 0, 0.075),
+			0 0 0 3px var(--colour-primary-50);
+	}
+}
+
+.data-set-browser__item--selected {
+	font-weight: 700;
+	color: var(--colour-primary);
+}
+
+.data-set-browser__item--highlighted {
+	background-color: var(--colour-primary-50);
 }

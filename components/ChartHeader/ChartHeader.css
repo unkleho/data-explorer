@@ -26,6 +26,10 @@
 	color: var(--colour-grey-darkest);
 	opacity: 1;
 
+	&:hover {
+		color: var(--colour-primary);
+	}
+
 	@media (--screen-sm) {
 		font-size: var(--font-size-xxlg);
 		line-height: var(--line-height-xxlg);
@@ -33,14 +37,7 @@
 
 	/* Change Button */
 	& span {
-		display: inline-block;
-		padding: 0.5em 1em;
-		font-weight: normal;
-		color: white;
-		background-color: var(--colour-primary-600);
 		font-size: var(--font-size-xxxs);
-		line-height: 1;
-		border-radius: var(--border-radius);
 
 		@media (--screen-sm) {
 			font-size: var(--font-size-xxxxs);
@@ -60,14 +57,13 @@
 }
 
 .chart-header__slug {
-	color: var(--colour-primary-400);
+	color: var(--colour-primary-300);
 	font-size: var(--font-size-xs);
 	line-height: var(--line-height-xs);
-	opacity: 0.9;
 
 	@media (--screen-sm) {
-		font-size: var(--font-size-sm);
-		line-height: var(--line-height-sm);
+		font-size: var(--font-size-xs);
+		line-height: var(--line-height-xs);
 	}
 }
 

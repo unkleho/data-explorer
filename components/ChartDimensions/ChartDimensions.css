@@ -65,9 +65,12 @@
 		}
 
 		&:hover {
+			color: var(--colour-highlight);
+			/* text-decoration: underline; */
 			/*color: ${deepOrange600};*/
 
 			& i {
+				text-decoration: none;
 				opacity: 1;
 			}
 		}

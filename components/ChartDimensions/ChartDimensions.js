@@ -57,7 +57,10 @@ class ChartDimensions extends Component {
 								}`}
 								key={`chart-dimensions__dimension-${i}`}
 							>
-								<h5 onClick={() => onMainDimensionSelect(i)}>
+								<h5
+									onClick={() => onMainDimensionSelect(i)}
+									title="Click to enable comparisons within this dimension"
+								>
 									<span>{dimension.name}</span>
 									<i className="material-icons">timeline</i>
 								</h5>

@@ -1,5 +1,5 @@
 import { Component } from 'react';
-import { findDOMNode } from 'react-dom';
+// import { findDOMNode } from 'react-dom';
 import PropTypes from 'prop-types';
 import Downshift from 'downshift';
 
@@ -13,14 +13,9 @@ class DataSetBrowser extends Component {
 	};
 
 	componentDidMount() {
-		console.log(this.selectedElement.clientHeight);
-		console.log(this.menu.getBoundingClientRect());
-
-		this.menu.scrollTop =
-			this.selectedElement.offsetTop +
-			this.selectedElement.clientHeight -
-			this.menu.offsetHeight;
-		// this.selectedElement.focus();
+		// Ensure selectedItem is scrolled into view
+		this.selectedItem.focus();
+		this.selectedItem.blur();
 	}
 
 	handleChange = (event) => {
@@ -36,12 +31,15 @@ class DataSetBrowser extends Component {
 		const { dataSets: items, selectedSlug } = this.props;
 
 		return (
-			<div className="data-set-browser" ref={(menu) => (this.menu = menu)}>
+			<div className="data-set-browser">
 				<Downshift
 					onChange={this.handleChange}
 					onSubmit={this.handleSubmit}
 					// selectedItem={defaultSelectedItem}
 					// defaultSelectedItem={defaultSelectedItem}
+					defaultHighlightedIndex={items.findIndex(
+						(item) => item.slug === selectedSlug,
+					)}
 					itemToString={(item) => item && item.title}
 				>
 					{({
@@ -55,10 +53,13 @@ class DataSetBrowser extends Component {
 						selectedItem,
 					}) => (
 						<div>
-							<label {...getLabelProps()}>Enter a dataSet</label>
-							<br />
-							<input {...getInputProps()} />
-							<ul {...getMenuProps()}>
+							{/* <label {...getLabelProps()}>Enter a dataSet</label> */}
+							<input {...getInputProps()} className="data-set-browser__input" />
+							<ul
+								{...getMenuProps()}
+								className="data-set-browser__items"
+								ref={(items) => (this.items = items)}
+							>
 								{items
 									.filter(
 										(item) =>
@@ -67,22 +68,30 @@ class DataSetBrowser extends Component {
 									)
 									.map((item, index) => (
 										<li
+											className={`data-set-browser__item ${
+												selectedSlug === item.slug
+													? `data-set-browser__item--selected`
+													: ''
+											} ${
+												highlightedIndex === index
+													? `data-set-browser__item--highlighted`
+													: ''
+											}`}
+											tabIndex={0}
 											ref={
 												selectedSlug === item.slug &&
-												((selectedElement) =>
-													(this.selectedElement = selectedElement))
+												((selectedItem) => (this.selectedItem = selectedItem))
 											}
 											{...getItemProps({
 												key: item.slug,
 												index,
 												item,
-												style: {
-													backgroundColor:
-														highlightedIndex === index ? 'lightgray' : 'white',
-													// fontWeight: selectedItem === item ? 'bold' : 'normal',
-													fontWeight:
-														selectedSlug === item.slug ? 'bold' : 'normal',
-												},
+												// style: {
+												// 	backgroundColor:
+												// 		highlightedIndex === index ? 'lightgray' : 'white',
+												// 	fontWeight:
+												// 		selectedSlug === item.slug ? 'bold' : 'normal',
+												// },
 											})}
 										>
 											{item.title}

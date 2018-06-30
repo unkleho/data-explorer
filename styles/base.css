@@ -91,3 +91,10 @@ blockquote {
 	line-height: var(--line-height-lg);
 	font-weight: 500;
 }
+
+input {
+	padding: var(--spacing-xxs);
+	border: 1px solid var(--colour-primary-50);
+	border-radius: var(--border-radius);
+	color: var(--colour-primary);
+}

@@ -8,6 +8,7 @@
 .Select-menu-outer {
 	font-size: 14px;
 	line-height: 16px;
+	border: 1px solid var(--colour-primary-50);
 }
 
 .Select--multi .Select-value {
@@ -34,4 +35,15 @@
 	border-color: var(--colour-primary-300);
 	box-shadow: inset 0 0 1px rgba(0, 0, 0, 0.075),
 		0 0 0 3px var(--colour-primary-50);
+}
+
+.Select-option {
+	&.is-selected {
+		font-weight: 700;
+		background-color: transparent;
+	}
+
+	&.is-focused {
+		background-color: var(--colour-primary-50);
+	}
 }

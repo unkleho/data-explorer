@@ -28,7 +28,9 @@ class ChartFooter extends Component {
 			<div className="chart-footer">
 				<p>Source: {orgTitle}</p>
 				<p>
-					<a href={csvUrl}>Download CSV</a>
+					<a href={csvUrl} className="button">
+						Download CSV
+					</a>
 				</p>
 			</div>
 		) : null;
