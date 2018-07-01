@@ -9,8 +9,11 @@
 		display: block;
 		height: 12em;
 		margin: 0;
-		overflow: auto;
+		/* overflow: auto; */
+		overflow-y: scroll; /* has to be scroll, not auto */
+		-webkit-overflow-scrolling: touch;
 		padding: 0;
+
 		/* border-bottom-left-radius: var(--border-radius);
 		border-bottom-right-radius: var(--border-radius); */
 		color: var(--colour-grey-darkest);
@@ -20,7 +23,7 @@
 		list-style: none;
 		font-size: var(--font-size-sm);
 		/* margin-bottom: var(--spacing-xs); */
-		padding: var(--spacing-xxxs) var(--spacing-xs);
+		padding: var(--spacing-xs) var(--spacing-xs);
 	}
 }
 

@@ -49,11 +49,12 @@ class ChartDimensions extends Component {
 						const options = dimension.values;
 						const currentDimensionIds = selectedDimensions[i];
 						const value = currentDimensionIds[0];
+						const isSelected = mainDimensionIndex === i;
 
 						return (
 							<div
 								className={`chart-dimensions__dimension ${
-									i === mainDimensionIndex ? 'is-selected' : ''
+									isSelected ? 'is-selected' : ''
 								}`}
 								key={`chart-dimensions__dimension-${i}`}
 							>
@@ -76,6 +77,7 @@ class ChartDimensions extends Component {
 											value: option.slug,
 										};
 									})}
+									disabled={isSelected}
 									onChange={(options) => onDimensionSelect(options, i)}
 								/>
 							</div>
