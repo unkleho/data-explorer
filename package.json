@@ -1,7 +1,7 @@
 {
 	"name": "data-explorer",
 	"author": "Kaho Cheung",
-	"version": "1.1.1",
+	"version": "1.1.2",
 	"title": "Data Explorer",
 	"main": "pages/index.js",
 	"scripts": {
