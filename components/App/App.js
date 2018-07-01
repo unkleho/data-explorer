@@ -9,6 +9,7 @@ import Header from '../Header';
 import Footer from '../Footer';
 import LoadingBar from '../LoadingBar';
 import WithDimensions from '../WithDimensions';
+import HeadMetaFields from '../HeadMetaFields';
 import { initGA, logPageView, logEvent } from '../../lib/analytics';
 
 class App extends Component {
@@ -56,6 +57,12 @@ class App extends Component {
 					<link
 						href="https://fonts.googleapis.com/icon?family=Material+Icons"
 						rel="stylesheet"
+					/>
+					<HeadMetaFields
+						title="Data Explorer"
+						description="Visualise public data from the ABS, OECD, UNESCO and UKDS."
+						imageUrl="/static/data-explorer-logo.png"
+						imageAlt="Data Explorer Logo"
 					/>
 				</Head>
 
