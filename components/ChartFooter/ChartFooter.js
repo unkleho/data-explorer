@@ -8,6 +8,7 @@ class ChartFooter extends Component {
 		orgTitle: PropTypes.string,
 		orgSlug: PropTypes.string,
 		dataSetSlug: PropTypes.string,
+		dataSetLink: PropTypes.string,
 		selectedDimensions: PropTypes.array,
 	};
 
@@ -16,6 +17,7 @@ class ChartFooter extends Component {
 			orgTitle,
 			orgSlug,
 			dataSetSlug,
+			dataSetLink,
 			selectedDimensions,
 			mainDimensionIndex,
 		} = this.props;
@@ -27,7 +29,9 @@ class ChartFooter extends Component {
 		return orgTitle ? (
 			<div className="chart-footer">
 				<p>
-					Source: {orgTitle}
+					Source: {orgTitle} (<a href={dataSetLink} target="_blank">
+						URL
+					</a>)
 					<br /> Disclaimer: This website is still in beta, charts may not be
 					accurate.
 				</p>

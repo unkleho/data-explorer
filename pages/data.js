@@ -17,6 +17,7 @@ class Data extends Component {
 		organisation: PropTypes.shape({
 			title: PropTypes.string,
 		}),
+		link: PropTypes.array,
 		// query: PropTypes.shape({
 		// 	id: PropTypes.string,
 		// 	sourceId: PropTypes.string,
@@ -39,7 +40,9 @@ class Data extends Component {
 	}
 
 	static getInitialProps(props) {
-		const { query: { selectedDimensions, mainDimensionIndex } } = props;
+		const {
+			query: { selectedDimensions, mainDimensionIndex },
+		} = props;
 
 		return {
 			// Convert these url params from strings
@@ -71,7 +74,7 @@ class Data extends Component {
 
 		// Assign consts.
 		const { dataSets, title: orgTitle, identifier: orgSlug } = organisation;
-		const { dimensions, data } = dataSet;
+		const { dimensions, data, link } = dataSet;
 
 		return (
 			<App url={url} isLoading={isLoading}>
@@ -83,6 +86,7 @@ class Data extends Component {
 								orgSlug={orgSlug}
 								orgTitle={orgTitle}
 								dataSetSlug={dataSet.slug}
+								dataSetLink={link}
 								dataSets={dataSets}
 								selectedDimensions={
 									selectedDimensions || getDefaultDimensions(dimensions)
@@ -128,6 +132,7 @@ const query = gql`
 		) {
 			slug
 			title
+			link
 			dimensions {
 				name
 				slug

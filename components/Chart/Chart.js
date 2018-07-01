@@ -15,6 +15,7 @@ class Chart extends Component {
 		orgSlug: PropTypes.string,
 		orgTitle: PropTypes.string,
 		dataSetSlug: PropTypes.string,
+		dataSetLink: PropTypes.string,
 		data: PropTypes.array,
 		dataSets: PropTypes.array,
 		dimensions: PropTypes.array,
@@ -133,6 +134,7 @@ class Chart extends Component {
 		const {
 			isLoading,
 			dataSetSlug,
+			dataSetLink,
 			dataSets,
 			dimensions,
 			mainDimensionIndex,
@@ -179,6 +181,7 @@ class Chart extends Component {
 						orgTitle={orgTitle}
 						orgSlug={orgSlug}
 						dataSetSlug={dataSetSlug}
+						dataSetLink={dataSetLink}
 						selectedDimensions={selectedDimensions}
 						mainDimensionIndex={mainDimensionIndex}
 					/>

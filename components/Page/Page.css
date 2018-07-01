@@ -1,13 +1,17 @@
 @import '../../styles/variables.css';
 
+.page {
+	padding-left: 1em;
+	padding-right: 1em;
+
+	& blockquote {
+		color: var(--colour-primary-400);
+	}
+}
+
 .page__header {
 	display: flex;
 	margin-top: 1em;
 	height: 5em;
 	/* background-color: var(--colour-primary); */
-}
-
-article {
-	/*max-width: 30em;*/
-	/*margin: 0 auto;*/
 }

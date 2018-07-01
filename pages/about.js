@@ -20,10 +20,13 @@ class AboutPage extends Component {
 						</blockquote>
 						<p>
 							Using <strong>Data Explorer</strong>, journalists and researchers
-							can explore vast datasets from the Australian Bureau of
-							Statistics, UNESCO, UK Data Service and the European Union,
-							finding hidden trends that aren’t apparent when looking at the raw
-							numbers.
+							can explore vast datasets from the{' '}
+							<a href="http://www.abs.gov.au/">
+								Australian Bureau of Statistics
+							</a>, <a href="http://uis.unesco.org/">UNESCO</a>,{' '}
+							<a href="https://www.ukdataservice.ac.uk/">UK Data Service</a> and
+							the <a href="http://stats.oecd.org/">OECD</a>, finding hidden
+							trends that aren’t apparent when looking at the raw numbers.
 						</p>
 						<p>
 							Data Explorer was one of five projects chosen to receive funding
@@ -38,19 +41,21 @@ class AboutPage extends Component {
 						</p>
 						<p>
 							This project is lead by{' '}
-							<a href="https://twitter.com/unkleho">Kaho Cheung</a>, a full
-							stack developer with a deep interest in data and interaction
-							design. He works part-time on Data Explorer while working his day
-							job as a developer for the State Library of NSW’s{' '}
+							<a href="https://twitter.com/unkleho">Kaho Cheung</a>, a developer
+							with a deep interest in data and interaction design. He works
+							part-time on Data Explorer while working his day job as a
+							developer for the State Library of NSW’s{' '}
 							<a href="https://dxlab.sl.nsw.gov.au">DX Lab</a> innovation team.
 						</p>
+						<blockquote>
+							Our aim is to make public data as accessible as possible.{' '}
+						</blockquote>
 						<p>
-							Data Explorer’s aim is to make public data as accessible as
-							possible. For journalists and researchers, this means less data
-							wrangling and instant chart building. For the public, the datasets
-							are presented in an approachable way - you don't have to be an
-							expert to understand the data. Our broad goal is to demystify the
-							data and improve data literacy over time.
+							For journalists and researchers, this means less data wrangling
+							and instant chart building. For the public, the datasets are
+							presented in an approachable way - you don't have to be an expert
+							to understand the data. Our broad goal is to demystify the data
+							and improve data literacy over time.
 						</p>
 						<p>
 							Data Explorer is currently under active development. We will be
@@ -63,8 +68,8 @@ class AboutPage extends Component {
 							At the heart of Data Explorer is the{' '}
 							<a href="https://sdmx.org/">SDMX REST API</a> standard used by
 							several international statistical organisations. Due to this
-							common format, Data Explorer is able to easily tap into data (and
-							metadata) from the following organisations:
+							common format, Data Explorer is able to tap into data from the
+							following organisations:
 						</p>
 						<ul>
 							<li>
