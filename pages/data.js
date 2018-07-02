@@ -74,7 +74,8 @@ class Data extends Component {
 
 		// Assign consts.
 		const { dataSets, title: orgTitle, identifier: orgSlug } = organisation;
-		const { dimensions, data, link } = dataSet;
+		const { dimensions, sdmxData = {} } = dataSet;
+		const { data = null, link = null } = sdmxData;
 
 		return (
 			<App url={url} isLoading={isLoading}>
@@ -146,7 +147,14 @@ const query = gql`
 				value
 				dimensions
 			}
-			# observations
+			sdmxData {
+				link
+				data {
+					date
+					value
+					dimensions
+				}
+			}
 		}
 	}
 `;
@@ -173,7 +181,6 @@ export default withApollo(
 			};
 		},
 		props: ({ data }) => {
-			// console.log(data);
 			return {
 				...data,
 			};
