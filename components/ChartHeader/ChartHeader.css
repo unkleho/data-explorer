@@ -121,4 +121,14 @@
 			border-radius: var(--border-radius);
 		}
 	}
+
+	/* React-select */
+	& .Select-multi-value-wrapper::after {
+		display: inline-block;
+		content: '+ add more';
+		margin-left: 5px;
+		line-height: 2;
+		font-size: var(--font-size-sm);
+		color: var(--colour-primary-300);
+	}
 }
