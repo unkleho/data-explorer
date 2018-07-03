@@ -1,7 +1,7 @@
 import { Component } from 'react';
 import PropTypes from 'prop-types';
 import Head from 'next/head';
-import Urlbox from 'urlbox';
+// import Urlbox from 'urlbox';
 
 import './App.css';
 import '../../styles/base.css';
@@ -14,10 +14,10 @@ import HeadMetaFields from '../HeadMetaFields';
 import { initGA, logPageView, logEvent } from '../../lib/analytics';
 
 // WARNING: Make this server-side only!
-const urlbox = Urlbox(
-	process.env.URLBOX_API_KEY,
-	process.env.URLBOX_API_SECRET,
-);
+// const urlbox = Urlbox(
+// 	process.env.URLBOX_API_KEY,
+// 	process.env.URLBOX_API_SECRET,
+// );
 
 class App extends Component {
 	static propTypes = {
@@ -68,11 +68,11 @@ class App extends Component {
 					<HeadMetaFields
 						title="Data Explorer"
 						description="Visualise public data from the ABS, OECD, UNESCO and UKDS."
-						// imageUrl="/static/data-explorer-logo.png"
-						imageUrl={urlbox.buildUrl({
-							url: 'https://dataexplorer.io',
-							wait_for: '.VictoryChart',
-						})}
+						imageUrl="/static/data-explorer-logo.png"
+						// imageUrl={urlbox.buildUrl({
+						// 	url: 'https://dataexplorer.io',
+						// 	wait_for: '.VictoryChart',
+						// })}
 						imageAlt="Data Explorer Logo"
 					/>
 				</Head>

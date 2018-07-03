@@ -97,6 +97,7 @@ class Content extends Component {
 										style={{
 											data: {
 												stroke: colors[i],
+												strokeWidth: 3,
 												// stroke: colourMap[i] && colors[colourMap[i].colour],
 												// fill: colors[i],
 											},
