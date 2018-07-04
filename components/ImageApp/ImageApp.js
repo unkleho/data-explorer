@@ -1,23 +1,26 @@
 import { Component } from 'react';
 import PropTypes from 'prop-types';
 import Head from 'next/head';
-import Urlbox from 'urlbox'; // TODO: Try to conditionally load this
+// import Urlbox from 'urlbox';
 
-import './App.css';
+import './ImageApp.css';
 import '../../styles/base.css';
 import '../../styles/helpers.css';
-import Header from '../Header';
-import Footer from '../Footer';
 import LoadingBar from '../LoadingBar';
 import WithDimensions from '../WithDimensions';
 import HeadMetaFields from '../HeadMetaFields';
 import { initGA, logPageView, logEvent } from '../../lib/analytics';
 
-class App extends Component {
+// WARNING: Make this server-side only!
+// const urlbox = Urlbox(
+// 	process.env.URLBOX_API_KEY,
+// 	process.env.URLBOX_API_SECRET,
+// );
+
+class ImageApp extends Component {
 	static propTypes = {
 		isLoading: PropTypes.bool,
 		url: PropTypes.object,
-		metaImageUrl: PropTypes.string,
 	};
 
 	componentDidMount() {
@@ -42,26 +45,10 @@ class App extends Component {
 	}
 
 	render() {
-		const { isLoading, metaImageUrl } = this.props;
-
-		let imageUrl;
-
-		if (typeof window !== 'undefined') {
-			// const UrlBox = require('urlbox');
-			const urlbox = Urlbox(
-				process.env.URLBOX_API_KEY,
-				process.env.URLBOX_API_SECRET,
-			);
-			imageUrl = urlbox.buildUrl({
-				url: metaImageUrl,
-				wait_for: '.VictoryChart',
-			});
-		} else {
-			imageUrl = '/static/data-explorer-logo.png';
-		}
+		const { isLoading } = this.props;
 
 		return (
-			<div className="app">
+			<div className="image-app">
 				<Head>
 					<title>Data Explorer</title>
 					<meta
@@ -79,25 +66,25 @@ class App extends Component {
 					<HeadMetaFields
 						title="Data Explorer"
 						description="Visualise public data from the ABS, OECD, UNESCO and UKDS."
-						// imageUrl={metaImageUrl}
-						imageUrl={imageUrl}
+						imageUrl="/static/data-explorer-logo.png"
+						// imageUrl={urlbox.buildUrl({
+						// 	url: 'https://dataexplorer.io',
+						// 	wait_for: '.VictoryChart',
+						// })}
 						imageAlt="Data Explorer Logo"
 					/>
 				</Head>
 
 				<LoadingBar isLoading={isLoading} />
-				<Header pathname={this.props.url.pathname} />
 
 				<WithDimensions>
 					{({ width, height }) => {
 						return this.props.children({ width, height });
 					}}
 				</WithDimensions>
-
-				<Footer />
 			</div>
 		);
 	}
 }
 
-export default App;
+export default ImageApp;

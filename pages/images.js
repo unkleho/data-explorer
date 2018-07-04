@@ -1,17 +1,19 @@
-import { Component, Fragment } from 'react';
+import { Component } from 'react';
 import PropTypes from 'prop-types';
-import withRedux from 'next-redux-wrapper';
+// import withRedux from 'next-redux-wrapper';
 import gql from 'graphql-tag';
 import { graphql } from 'react-apollo';
 
-import './data.css';
+import './images.css';
 import withApollo from '../lib/withApollo';
-import App from '../components/App';
-import Chart from '../components/Chart';
-import { initStore } from '../store';
-import { getDefaultDimensions } from '../utils';
+import ImageApp from '../components/ImageApp';
+import ChartContent from '../components/ChartContent';
+import ChartSelectedDimensions from '../components/ChartSelectedDimensions';
+import { buildChartData, getChartType } from '../lib/chartUtils';
+// import { getDefaultDimensions } from '../utils';
+import theme from '../styles/victoryTheme';
 
-class Data extends Component {
+class ImagesPage extends Component {
 	static propTypes = {
 		selectedDimensions: PropTypes.array,
 		organisation: PropTypes.shape({
@@ -54,71 +56,81 @@ class Data extends Component {
 		};
 	}
 
-	handleMenuClick = (event) => {
-		this.props.dispatch({
-			type: 'TOGGLE_MENU',
-		});
-	};
-
 	render() {
 		const {
 			// Prisma
 			loading: isLoading,
 			dataSet,
 			organisation,
+			mainDimensionIndex,
+			selectedDimensions,
 			// URL
 			url,
-			selectedDimensions,
-			mainDimensionIndex,
 		} = this.props;
 
 		// Assign consts.
-		const { dataSets, title: orgTitle, identifier: orgSlug } = organisation;
+		const { title: orgTitle, identifier: orgSlug } = organisation;
 		const { dimensions, sdmxData = {} } = dataSet;
 		const { data = null, link = null } = sdmxData;
 
-		// Build meta image url
-		const metaImageUrl = !isLoading
-			? `/images/${orgSlug.toLowerCase()}/${
-					dataSet.slug
-			  }?selectedDimensions=${JSON.stringify(
-					selectedDimensions,
-			  )}&mainDimension=${mainDimensionIndex}`
-			: '/static/data-explorer-logo.png';
+		const mainDimension = dimensions && dimensions[mainDimensionIndex];
+		const selectedMainDimensions = selectedDimensions[mainDimensionIndex];
+
+		// Work out chart type
+		const chartType = getChartType(data);
+
+		const victoryData = buildChartData(
+			data,
+			mainDimension,
+			selectedMainDimensions,
+			dimensions,
+		);
 
 		return (
-			<App url={url} isLoading={isLoading} metaImageUrl={metaImageUrl}>
+			<ImageApp url={url} isLoading={isLoading}>
 				{({ width, height }) => {
 					return (
-						<Fragment>
-							<Chart
-								isLoading={isLoading}
-								orgSlug={orgSlug}
-								orgTitle={orgTitle}
-								dataSetSlug={dataSet.slug}
-								dataSetLink={link}
-								dataSets={dataSets}
-								selectedDimensions={
-									selectedDimensions || getDefaultDimensions(dimensions)
-								}
+						<div className="images-page">
+							<h1 className="images-page__title">{dataSet.title}</h1>
+
+							{/* Main Dimension Values */}
+							<div className="images-page__main-dimension-value">
+								{mainDimension &&
+									mainDimension.values
+										.filter((dimension) =>
+											selectedMainDimensions.includes(dimension.slug),
+										)
+										.map((dimension) => {
+											return (
+												<div className="images-page__main-dimension-value">
+													{dimension.name}
+												</div>
+											);
+										})}
+							</div>
+
+							<ChartSelectedDimensions
+								className="images-page__chart-selected-dimensions"
 								dimensions={dimensions}
 								mainDimensionIndex={mainDimensionIndex}
-								data={data}
+								selectedDimensions={selectedDimensions}
+							/>
+
+							<ChartContent
+								victoryData={victoryData}
+								chartType={chartType}
 								width={width}
 								height={height}
+								theme={theme}
 							/>
-						</Fragment>
+
+							<p>{orgTitle}</p>
+						</div>
 					);
 				}}
-			</App>
+			</ImageApp>
 		);
 	}
-}
-
-function mapStateToProps(state) {
-	return {
-		...state,
-	};
 }
 
 const query = gql`
@@ -130,10 +142,6 @@ const query = gql`
 		organisation(identifier: $orgSlug) {
 			identifier
 			title
-			dataSets {
-				slug
-				title
-			}
 		}
 		dataSet(
 			slug: $dataSetSlug
@@ -166,16 +174,17 @@ export default withApollo(
 	graphql(query, {
 		options: ({
 			url: {
-				pathname,
-				query: { dataSetSlug, selectedDimensions },
+				query: { orgSlug, dataSetSlug, selectedDimensions },
 			},
 		}) => {
+			// console.log(dataSetSlug, orgSlug);
+
 			// Work out orgSlug from URL
-			const orgSlug = pathname.substr(1).toUpperCase();
+			// const orgSlug = pathname.substr(1).toUpperCase();
 
 			return {
 				variables: {
-					orgSlug,
+					orgSlug: orgSlug.toUpperCase(),
 					selectedDimensions: selectedDimensions
 						? JSON.parse(selectedDimensions)
 						: [],
@@ -188,5 +197,5 @@ export default withApollo(
 				...data,
 			};
 		},
-	})(withRedux(initStore, mapStateToProps)(Data)),
+	})(ImagesPage),
 );

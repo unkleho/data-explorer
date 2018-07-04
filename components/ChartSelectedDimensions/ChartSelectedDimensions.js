@@ -18,6 +18,7 @@ class ChartSelectedDimensions extends Component {
 			selectedDimensions,
 			dimensions,
 			mainDimensionIndex,
+			className,
 			onEditClick,
 		} = this.props;
 
@@ -47,12 +48,16 @@ class ChartSelectedDimensions extends Component {
 			.join(', ');
 
 		return (
-			<div className="chart-selected-dimensions">
+			<div
+				className={`chart-selected-dimensions ${className ? className : ''}`}
+			>
 				<div className="chart-selected-dimensions__title" />
 				{dimensionsString}.
-				<button className="material-icons" onClick={onEditClick}>
-					edit
-				</button>
+				{onEditClick && (
+					<button className="material-icons" onClick={onEditClick}>
+						edit
+					</button>
+				)}
 			</div>
 		);
 	}
