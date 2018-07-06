@@ -69,9 +69,15 @@ class ImagesPage extends Component {
 		} = this.props;
 
 		// Assign consts.
-		const { title: orgTitle, identifier: orgSlug } = organisation;
+		const {
+			title: orgTitle,
+			// identifier: orgSlug
+		} = organisation;
 		const { dimensions, sdmxData = {} } = dataSet;
-		const { data = null, link = null } = sdmxData;
+		const {
+			data = null,
+			// link = null
+		} = sdmxData;
 
 		const mainDimension = dimensions && dimensions[mainDimensionIndex];
 		const selectedMainDimensions = selectedDimensions[mainDimensionIndex];
@@ -193,6 +199,8 @@ export default withApollo(
 			};
 		},
 		props: ({ data }) => {
+			console.log(data);
+
 			return {
 				...data,
 			};

@@ -184,6 +184,8 @@ export default withApollo(
 			};
 		},
 		props: ({ data }) => {
+			console.log(data);
+
 			return {
 				...data,
 			};
