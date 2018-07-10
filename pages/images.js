@@ -46,7 +46,11 @@ class ImagesPage extends Component {
 			query: { selectedDimensions, mainDimensionIndex },
 		} = props;
 
+		// console.log(props);
+
 		return {
+			orgSlug: props.query.orgSlug.toUpperCase(),
+			dataSetSlug: props.query.dataSetSlug,
 			// Convert these url params from strings
 			selectedDimensions: selectedDimensions && JSON.parse(selectedDimensions),
 			mainDimensionIndex:
@@ -62,7 +66,7 @@ class ImagesPage extends Component {
 			loading: isLoading,
 			dataSet,
 			organisation,
-			mainDimensionIndex,
+			mainDimensionIndex = 0,
 			selectedDimensions,
 			// URL
 			url,
@@ -93,7 +97,7 @@ class ImagesPage extends Component {
 		);
 
 		return (
-			<ImageApp url={url} isLoading={isLoading}>
+			<ImageApp url={url} isLoading={isLoading} title={dataSet.title}>
 				{({ width, height }) => {
 					return (
 						<div className="images-page">
@@ -178,26 +182,32 @@ const query = gql`
 
 export default withApollo(
 	graphql(query, {
-		options: ({
-			url: {
-				query: { orgSlug, dataSetSlug, selectedDimensions },
+		options: (props) =>
+			// 	{
+			// 	url: {
+			// 		query: { orgSlug, dataSetSlug, selectedDimensions },
+			// 	},
+			// }
+			{
+				// console.log(dataSetSlug, orgSlug);
+				console.log(props);
+
+				// Work out orgSlug from URL
+				// const orgSlug = pathname.substr(1).toUpperCase();
+				const orgSlug = props.orgSlug;
+				const dataSetSlug = props.dataSetSlug;
+				const selectedDimensions = undefined;
+
+				return {
+					variables: {
+						orgSlug: orgSlug.toUpperCase(),
+						selectedDimensions: selectedDimensions
+							? JSON.parse(selectedDimensions)
+							: [],
+						dataSetSlug,
+					},
+				};
 			},
-		}) => {
-			// console.log(dataSetSlug, orgSlug);
-
-			// Work out orgSlug from URL
-			// const orgSlug = pathname.substr(1).toUpperCase();
-
-			return {
-				variables: {
-					orgSlug: orgSlug.toUpperCase(),
-					selectedDimensions: selectedDimensions
-						? JSON.parse(selectedDimensions)
-						: [],
-					dataSetSlug,
-				},
-			};
-		},
 		props: ({ data }) => {
 			console.log(data);
 

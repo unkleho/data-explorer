@@ -21,6 +21,7 @@ class ImageApp extends Component {
 	static propTypes = {
 		isLoading: PropTypes.bool,
 		url: PropTypes.object,
+		title: PropTypes.string,
 	};
 
 	componentDidMount() {
@@ -45,7 +46,7 @@ class ImageApp extends Component {
 	}
 
 	render() {
-		const { isLoading } = this.props;
+		const { isLoading, title } = this.props;
 
 		return (
 			<div className="image-app">
@@ -64,7 +65,7 @@ class ImageApp extends Component {
 						rel="stylesheet"
 					/>
 					<HeadMetaFields
-						title="Data Explorer"
+						title={title}
 						description="Visualise public data from the ABS, OECD, UNESCO and UKDS."
 						imageUrl="/static/data-explorer-logo.png"
 						// imageUrl={urlbox.buildUrl({
