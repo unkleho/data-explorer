@@ -103,6 +103,33 @@ class Chart extends Component {
 		);
 	};
 
+	// TODO: Refactor this! Same as componentDidUpdate
+	componentDidMount() {
+		const {
+			data,
+			mainDimensionIndex,
+			dimensions,
+			selectedDimensions,
+		} = this.props;
+
+		const mainDimension = dimensions && dimensions[mainDimensionIndex];
+
+		// Work out chart type
+		const chartType = getChartType(data);
+
+		const victoryData = buildChartData(
+			data,
+			mainDimension,
+			selectedDimensions[mainDimensionIndex],
+			dimensions,
+		);
+
+		this.setState({
+			victoryData,
+			chartType,
+		});
+	}
+
 	componentDidUpdate(prevProps, prevState) {
 		const {
 			data,
@@ -110,6 +137,9 @@ class Chart extends Component {
 			dimensions,
 			selectedDimensions,
 		} = this.props;
+
+		// console.log('Chart (componentDidUpdate) ---------------');
+		// console.log(data);
 
 		if (prevProps.data !== data) {
 			const mainDimension = dimensions && dimensions[mainDimensionIndex];
@@ -147,6 +177,9 @@ class Chart extends Component {
 		} = this.props;
 
 		const { victoryData, chartType } = this.state;
+
+		console.log('Chart ---------------------------------');
+		console.log(victoryData);
 
 		// const colourMap = getDimensionColourMap(
 		// 	selectedMainDimensionValues,

@@ -40,18 +40,47 @@ class Data extends Component {
 	}
 
 	static getInitialProps(props) {
-		const {
-			query: { selectedDimensions, mainDimensionIndex },
-		} = props;
+		// console.log(props.query, props.pathname);
 
-		return {
-			// Convert these url params from strings
-			selectedDimensions: selectedDimensions && JSON.parse(selectedDimensions),
-			mainDimensionIndex:
-				typeof mainDimensionIndex === 'string'
-					? parseInt(mainDimensionIndex, 10)
-					: mainDimensionIndex,
-		};
+		if (!process.browser) {
+			console.log('Server');
+
+			const {
+				pathname,
+				query: { dataSetSlug, selectedDimensions, mainDimensionIndex },
+			} = props;
+
+			// Work out orgSlug from URL
+			const orgSlug = pathname.substr(1).toUpperCase();
+
+			return {
+				orgSlug,
+				selectedDimensions:
+					selectedDimensions && JSON.parse(selectedDimensions),
+				dataSetSlug,
+				mainDimensionIndex:
+					typeof mainDimensionIndex === 'string'
+						? parseInt(mainDimensionIndex, 10)
+						: mainDimensionIndex,
+			};
+		} else {
+			console.log('Browser');
+
+			// OLD ---------------
+			const {
+				query: { selectedDimensions, mainDimensionIndex },
+			} = props;
+
+			return {
+				// Convert these url params from strings
+				selectedDimensions:
+					selectedDimensions && JSON.parse(selectedDimensions),
+				mainDimensionIndex:
+					typeof mainDimensionIndex === 'string'
+						? parseInt(mainDimensionIndex, 10)
+						: mainDimensionIndex,
+			};
+		}
 	}
 
 	handleMenuClick = (event) => {
@@ -76,6 +105,9 @@ class Data extends Component {
 		const { dataSets, title: orgTitle, identifier: orgSlug } = organisation;
 		const { dimensions, sdmxData = {}, title: dataSetTitle } = dataSet;
 		const { data = null, link = null } = sdmxData;
+
+		console.log('Data -------------------------');
+		console.log(data);
 
 		// Build meta image url
 		// const metaImageUrl = !isLoading
@@ -169,26 +201,51 @@ const query = gql`
 
 export default withApollo(
 	graphql(query, {
-		options: ({
-			url: {
-				pathname,
-				query: { dataSetSlug, selectedDimensions },
-			},
-		}) => {
-			// Work out orgSlug from URL
-			const orgSlug = pathname.substr(1).toUpperCase();
+		options: (props) => {
+			// Split props access by server/browser because accessing props.url on server
+			// doesn't resolve on server (could be a bug with Apollo 2).
+			// To get around this, initialProps are returned via getInitialProps, but
+			// used on the server. Browser still uses props.url.
 
-			return {
-				variables: {
-					orgSlug,
-					selectedDimensions: selectedDimensions
-						? JSON.parse(selectedDimensions)
-						: [],
-					dataSetSlug,
-				},
-			};
+			if (!process.browser) {
+				console.log('Server');
+
+				const { orgSlug, dataSetSlug, selectedDimensions } = props.initialProps;
+
+				return {
+					variables: {
+						orgSlug,
+						dataSetSlug,
+						selectedDimensions,
+					},
+				};
+			} else {
+				console.log('Browser');
+				// OLD --------------------------------------
+				const {
+					url: {
+						pathname,
+						query: { dataSetSlug, selectedDimensions },
+					},
+				} = props;
+
+				// Work out orgSlug from URL
+				const orgSlug = pathname.substr(1).toUpperCase();
+
+				return {
+					variables: {
+						orgSlug,
+						selectedDimensions: selectedDimensions
+							? JSON.parse(selectedDimensions)
+							: [],
+						dataSetSlug,
+					},
+				};
+			}
 		},
 		props: ({ data }) => {
+			console.log(data.dataSet);
+
 			return {
 				...data,
 			};

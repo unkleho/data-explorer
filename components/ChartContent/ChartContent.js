@@ -58,22 +58,16 @@ class Content extends Component {
 	);
 
 	render() {
-		const {
-			isLoading,
-			victoryData,
-			chartType,
-			theme,
-			width,
-			// height,
-			// chartStyle,
-			// colourMap,
-		} = this.props;
+		const { isLoading, victoryData, chartType, theme, width } = this.props;
 
 		const chartHeight = width < 768 ? 260 : 405;
 		const maxY = this.getMaxY(victoryData);
 
 		// Work out left padding based on number of digits in maxY
 		const paddingLeft = maxY ? Math.ceil(maxY).toString().length * 12 : 70;
+
+		console.log('ChartContent ----------------------');
+		console.log(victoryData);
 
 		return (
 			<div>
