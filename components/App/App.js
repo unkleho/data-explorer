@@ -1,7 +1,7 @@
 import { Component } from 'react';
 import PropTypes from 'prop-types';
 import Head from 'next/head';
-import Urlbox from 'urlbox'; // TODO: Try to conditionally load this
+// import Urlbox from 'urlbox'; // TODO: Try to conditionally load this
 
 import './App.css';
 import '../../styles/base.css';
@@ -17,7 +17,12 @@ class App extends Component {
 	static propTypes = {
 		isLoading: PropTypes.bool,
 		url: PropTypes.object,
-		metaImageUrl: PropTypes.string,
+		title: PropTypes.string,
+		imageUrl: PropTypes.string,
+	};
+
+	static defaultProps = {
+		imageUrl: '/static/data-explorer-logo.png',
 	};
 
 	componentDidMount() {
@@ -42,28 +47,28 @@ class App extends Component {
 	}
 
 	render() {
-		const { isLoading, metaImageUrl } = this.props;
+		const { isLoading, title, imageUrl } = this.props;
 
-		let imageUrl;
+		// let imageUrl;
 
-		if (typeof window !== 'undefined') {
-			// const UrlBox = require('urlbox');
-			const urlbox = Urlbox(
-				process.env.URLBOX_API_KEY,
-				process.env.URLBOX_API_SECRET,
-			);
-			imageUrl = urlbox.buildUrl({
-				url: metaImageUrl,
-				wait_for: '.VictoryChart',
-			});
-		} else {
-			imageUrl = '/static/data-explorer-logo.png';
-		}
+		// if (!process.browser) {
+		// 	// const UrlBox = require('urlbox');
+		// 	const urlbox = Urlbox(
+		// 		process.env.URLBOX_API_KEY,
+		// 		process.env.URLBOX_API_SECRET,
+		// 	);
+		// 	imageUrl = urlbox.buildUrl({
+		// 		url: metaImageUrl,
+		// 		wait_for: '.VictoryChart',
+		// 	});
+		// } else {
+		// 	imageUrl = '/static/data-explorer-logo.png';
+		// }
 
 		return (
 			<div className="app">
 				<Head>
-					<title>Data Explorer</title>
+					<title>{title} | Data Explorer</title>
 					<meta
 						name="viewport"
 						content="initial-scale=1.0, width=device-width"
@@ -77,7 +82,7 @@ class App extends Component {
 						rel="stylesheet"
 					/>
 					<HeadMetaFields
-						title="Data Explorer"
+						title={title}
 						description="Visualise public data from the ABS, OECD, UNESCO and UKDS."
 						// imageUrl={metaImageUrl}
 						imageUrl={imageUrl}

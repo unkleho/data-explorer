@@ -168,15 +168,17 @@ class Chart extends Component {
 				/>
 
 				<div className="content container container--lg">
-					<ChartContent
-						isLoading={isLoading}
-						victoryData={victoryData}
-						theme={theme}
-						width={width}
-						height={height}
-						chartType={chartType}
-						// colourMap={colourMap}
-					/>
+					{process.browser && (
+						<ChartContent
+							isLoading={isLoading}
+							victoryData={victoryData}
+							theme={theme}
+							width={width}
+							height={height}
+							chartType={chartType}
+							// colourMap={colourMap}
+						/>
+					)}
 
 					<ChartFooter
 						orgTitle={orgTitle}

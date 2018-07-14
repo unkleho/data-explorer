@@ -11,7 +11,7 @@ import { initStore } from '../store';
 class AboutPage extends Component {
 	render() {
 		return (
-			<App url={this.props.url}>
+			<App url={this.props.url} title="About | Data Explorer">
 				{() => (
 					<Page title="About">
 						<blockquote>

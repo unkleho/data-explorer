@@ -74,20 +74,25 @@ class Data extends Component {
 
 		// Assign consts.
 		const { dataSets, title: orgTitle, identifier: orgSlug } = organisation;
-		const { dimensions, sdmxData = {} } = dataSet;
+		const { dimensions, sdmxData = {}, title: dataSetTitle } = dataSet;
 		const { data = null, link = null } = sdmxData;
 
 		// Build meta image url
-		const metaImageUrl = !isLoading
-			? `/images/${orgSlug.toLowerCase()}/${
-					dataSet.slug
-			  }?selectedDimensions=${JSON.stringify(
-					selectedDimensions,
-			  )}&mainDimension=${mainDimensionIndex}`
-			: '/static/data-explorer-logo.png';
+		// const metaImageUrl = !isLoading
+		// 	? `/images/${orgSlug.toLowerCase()}/${
+		// 			dataSet.slug
+		// 	  }?selectedDimensions=${JSON.stringify(
+		// 			selectedDimensions,
+		// 	  )}&mainDimension=${mainDimensionIndex}`
+		// 	: '/static/data-explorer-logo.png';
 
 		return (
-			<App url={url} isLoading={isLoading} metaImageUrl={metaImageUrl}>
+			<App
+				url={url}
+				isLoading={isLoading}
+				title={dataSetTitle}
+				// imageUrl={metaImageUrl}
+			>
 				{({ width, height }) => {
 					return (
 						<Fragment>
@@ -184,8 +189,6 @@ export default withApollo(
 			};
 		},
 		props: ({ data }) => {
-			console.log(data);
-
 			return {
 				...data,
 			};
