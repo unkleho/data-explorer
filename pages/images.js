@@ -12,6 +12,7 @@ import ChartSelectedDimensions from '../components/ChartSelectedDimensions';
 import { buildChartData, getChartType } from '../lib/chartUtils';
 // import { getDefaultDimensions } from '../utils';
 import theme from '../styles/victoryTheme';
+import { getDefaultDimensions } from '../utils';
 
 class ImagesPage extends Component {
 	static propTypes = {
@@ -45,8 +46,6 @@ class ImagesPage extends Component {
 		const {
 			query: { selectedDimensions, mainDimensionIndex },
 		} = props;
-
-		// console.log(props);
 
 		return {
 			orgSlug: props.query.orgSlug.toUpperCase(),
@@ -84,7 +83,9 @@ class ImagesPage extends Component {
 		} = sdmxData;
 
 		const mainDimension = dimensions && dimensions[mainDimensionIndex];
-		const selectedMainDimensions = selectedDimensions[mainDimensionIndex];
+		const selectedDimensionsNew =
+			selectedDimensions || getDefaultDimensions(dimensions);
+		const selectedMainDimensions = selectedDimensionsNew[mainDimensionIndex];
 
 		// Work out chart type
 		const chartType = getChartType(data);
@@ -123,7 +124,7 @@ class ImagesPage extends Component {
 								className="images-page__chart-selected-dimensions"
 								dimensions={dimensions}
 								mainDimensionIndex={mainDimensionIndex}
-								selectedDimensions={selectedDimensions}
+								selectedDimensions={selectedDimensionsNew}
 							/>
 
 							<ChartContent
@@ -190,7 +191,6 @@ export default withApollo(
 			// }
 			{
 				// console.log(dataSetSlug, orgSlug);
-				console.log(props);
 
 				// Work out orgSlug from URL
 				// const orgSlug = pathname.substr(1).toUpperCase();
@@ -209,8 +209,6 @@ export default withApollo(
 				};
 			},
 		props: ({ data }) => {
-			console.log(data);
-
 			return {
 				...data,
 			};
