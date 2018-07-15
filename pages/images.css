@@ -3,3 +3,43 @@
 .images-page {
 	padding: 1em;
 }
+
+.logo.images-page__logo {
+	position: absolute;
+	top: 0;
+	right: 0;
+	padding: var(--spacing-xxs) var(--spacing-xxs) var(--spacing-xxxxs);
+	border-right: none;
+	font-size: 0.65em;
+}
+
+.images-page__title {
+	margin: 0;
+	font-size: var(--font-size-lg);
+	line-height: var(--line-height-lg);
+}
+
+.images-page__chart-selected-dimensions {
+	font-weight: 400;
+	color: var(--colour-primary-400);
+}
+
+.images-page__main-dimensions {
+	margin-top: 0.5em;
+}
+
+.images-page__main-dimension {
+	display: inline-block;
+	margin-right: var(--spacing-xxxxs);
+	padding: var(--spacing-sm);
+	font-size: var(--font-size-sm);
+	line-height: 0;
+	border-radius: var(--border-radius);
+}
+
+.images-page__org-title {
+	margin: 0;
+	color: var(--colour-grey);
+	font-size: var(--font-size-xs);
+	line-height: var(--line-height-xs);
+}

@@ -9,10 +9,12 @@ import withApollo from '../lib/withApollo';
 import ImageApp from '../components/ImageApp';
 import ChartContent from '../components/ChartContent';
 import ChartSelectedDimensions from '../components/ChartSelectedDimensions';
+import Logo from '../components/Logo';
 import { buildChartData, getChartType } from '../lib/chartUtils';
 // import { getDefaultDimensions } from '../utils';
 import theme from '../styles/victoryTheme';
 import { getDefaultDimensions } from '../utils';
+import { colors } from '../styles/variables';
 
 class ImagesPage extends Component {
 	static propTypes = {
@@ -100,25 +102,15 @@ class ImagesPage extends Component {
 		return (
 			<ImageApp url={url} isLoading={isLoading} title={dataSet.title}>
 				{({ width, height }) => {
+					if (!process.browser) {
+						return 'loading...';
+					}
+
 					return (
 						<div className="images-page">
 							<h1 className="images-page__title">{dataSet.title}</h1>
 
-							{/* Main Dimension Values */}
-							<div className="images-page__main-dimension-value">
-								{mainDimension &&
-									mainDimension.values
-										.filter((dimension) =>
-											selectedMainDimensions.includes(dimension.slug),
-										)
-										.map((dimension) => {
-											return (
-												<div className="images-page__main-dimension-value">
-													{dimension.name}
-												</div>
-											);
-										})}
-							</div>
+							<Logo className="images-page__logo" />
 
 							<ChartSelectedDimensions
 								className="images-page__chart-selected-dimensions"
@@ -127,15 +119,38 @@ class ImagesPage extends Component {
 								selectedDimensions={selectedDimensionsNew}
 							/>
 
+							{/* Main Dimension Values */}
+							<div className="images-page__main-dimensions">
+								{mainDimension &&
+									mainDimension.values
+										.filter((dimension) =>
+											selectedMainDimensions.includes(dimension.slug),
+										)
+										.map((dimension, i) => {
+											return (
+												<div
+													className="images-page__main-dimension"
+													style={{
+														backgroundColor: colors[i],
+														color: 'white',
+													}}
+													key={dimension.slug}
+												>
+													{dimension.name}
+												</div>
+											);
+										})}
+							</div>
+
 							<ChartContent
 								victoryData={victoryData}
 								chartType={chartType}
 								width={width}
-								height={height}
+								height={height - 137}
 								theme={theme}
 							/>
 
-							<p>{orgTitle}</p>
+							<p className="images-page__org-title">Source: {orgTitle}</p>
 						</div>
 					);
 				}}
@@ -183,31 +198,30 @@ const query = gql`
 
 export default withApollo(
 	graphql(query, {
-		options: (props) =>
-			// 	{
-			// 	url: {
-			// 		query: { orgSlug, dataSetSlug, selectedDimensions },
-			// 	},
-			// }
-			{
-				// console.log(dataSetSlug, orgSlug);
+		options: (props) => {
+			const {
+				url: {
+					query: { orgSlug, dataSetSlug, selectedDimensions },
+				},
+			} = props;
+			// console.log(dataSetSlug, orgSlug);
 
-				// Work out orgSlug from URL
-				// const orgSlug = pathname.substr(1).toUpperCase();
-				const orgSlug = props.orgSlug;
-				const dataSetSlug = props.dataSetSlug;
-				const selectedDimensions = undefined;
+			// Work out orgSlug from URL
+			// const orgSlug = pathname.substr(1).toUpperCase();
+			// const orgSlug = props.orgSlug;
+			// const dataSetSlug = props.dataSetSlug;
+			// const selectedDimensions = undefined;
 
-				return {
-					variables: {
-						orgSlug: orgSlug.toUpperCase(),
-						selectedDimensions: selectedDimensions
-							? JSON.parse(selectedDimensions)
-							: [],
-						dataSetSlug,
-					},
-				};
-			},
+			return {
+				variables: {
+					orgSlug: orgSlug.toUpperCase(),
+					selectedDimensions: selectedDimensions
+						? JSON.parse(selectedDimensions)
+						: [],
+					dataSetSlug,
+				},
+			};
+		},
 		props: ({ data }) => {
 			return {
 				...data,

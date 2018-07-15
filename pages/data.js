@@ -39,12 +39,6 @@ class Data extends Component {
 		mainDimensionIndex: 0,
 	};
 
-	constructor() {
-		super();
-
-		this.state = {};
-	}
-
 	static getInitialProps(props) {
 		const {
 			pathname,
@@ -63,6 +57,26 @@ class Data extends Component {
 					: mainDimensionIndex,
 		};
 	}
+
+	constructor() {
+		super();
+
+		this.state = {};
+	}
+
+	// componentDidMount() {
+	// 	const { orgSlug, dataSetSlug, selectedDimensions, dimensions } = this.props;
+
+	// 	console.log(selectedDimensions, this.props);
+
+	// 	if (selectedDimensions === undefined) {
+	// 		const redirectUrl = `/${orgSlug.toLowerCase()}/${dataSetSlug}?selectedDimensions=${getDefaultDimensions(
+	// 			dimensions,
+	// 		)}&mainDimensionIndex=0`;
+
+	// 		window.location.replace(redirectUrl);
+	// 	}
+	// }
 
 	handleMenuClick = (event) => {
 		this.props.dispatch({
@@ -125,6 +139,10 @@ class Data extends Component {
 				imageUrl={imageUrl}
 			>
 				{({ width, height }) => {
+					if (!process.browser) {
+						return 'loading...';
+					}
+
 					return (
 						<Chart
 							isLoading={isLoading}

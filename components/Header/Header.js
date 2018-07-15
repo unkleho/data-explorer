@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import './Header.css';
 import { initStore } from '../../store';
 import Link from '../../components/Link';
+import Logo from '../../components/Logo';
 
 class Header extends Component {
 	static propTypes = {
@@ -49,16 +50,13 @@ class Header extends Component {
 
 		return (
 			<header className="header">
-				<div className="logo">
+				<Logo />
+				{/* <div className="logo">
 					<span className="logo__svg" />
 					<span className="logo__text">Data Explorer</span>
 					&nbsp;<span style={{ fontSize: '0.5em', opacity: '0.7' }}>BETA</span>
 					&nbsp;
-					{/* <i
-                className="material-icons arrow"
-                onClick={this.handleMenuToggle}
-              >{isMenuActive ? 'keyboard_arrow_up' : 'keyboard_arrow_down'}</i> */}
-				</div>
+				</div> */}
 
 				<div className="header__title">{pathname.substr(1)}</div>
 

@@ -58,9 +58,17 @@ class Content extends Component {
 	);
 
 	render() {
-		const { isLoading, victoryData, chartType, theme, width } = this.props;
+		const {
+			isLoading,
+			victoryData,
+			chartType,
+			theme,
+			width,
+			height,
+		} = this.props;
 
-		const chartHeight = width < 768 ? 260 : 405;
+		// Use height if prop exists, otherwise, build it from width.
+		const chartHeight = height ? height : width < 768 ? 260 : 405;
 		const maxY = this.getMaxY(victoryData);
 
 		// Work out left padding based on number of digits in maxY

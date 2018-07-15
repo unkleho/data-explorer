@@ -1,0 +1,32 @@
+@import '../../styles/variables.css';
+
+.logo {
+	display: flex;
+	align-items: baseline;
+	/* height: 2em; */
+	padding-right: 1em;
+	padding-left: var(--spacing-lg);
+	margin-left: 0;
+	font-size: var(--font-size-sm);
+	color: white;
+	background-color: var(--colour-primary-700);
+	border-right: 1px solid var(--colour-primary-200);
+
+	@media (--screen-sm) {
+		border-right: none;
+	}
+}
+
+.logo__svg {
+	background-image: url('/static/data-explorer-logo.svg');
+	background-size: cover;
+	width: 1em;
+	height: 1em;
+	margin-right: 0.3em;
+}
+
+.logo__text {
+	font-family: var(--font-primary);
+	font-weight: 600;
+	font-size: 1em;
+}
