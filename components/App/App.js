@@ -24,6 +24,7 @@ class App extends Component {
 		isLoading: PropTypes.bool,
 		url: PropTypes.object,
 		title: PropTypes.string,
+		description: PropTypes.string,
 		imageUrl: PropTypes.string,
 	};
 
@@ -53,18 +54,7 @@ class App extends Component {
 	}
 
 	render() {
-		const { isLoading, title, imageUrl } = this.props;
-		// let metaImageUrl;
-
-		// if (!process.browser) {
-		// 	metaImageUrl = urlbox.buildUrl({
-		// 		url: imageUrl,
-		// 		wait_for: '.VictoryChart',
-		// 	});
-		// 	console.log(metaImageUrl);
-		// } else {
-		// 	metaImageUrl = '/static/data-explorer-logo.png';
-		// }
+		const { isLoading, title, imageUrl, description } = this.props;
 
 		return (
 			<div className="app">
@@ -84,7 +74,7 @@ class App extends Component {
 					/>
 					<HeadMetaFields
 						title={title}
-						description="Visualise public data from the ABS, OECD, UNESCO and UKDS."
+						description={description}
 						// imageUrl={metaImageUrl}
 						imageUrl={imageUrl}
 						imageAlt="Data Explorer Logo"

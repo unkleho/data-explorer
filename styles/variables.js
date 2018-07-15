@@ -1,5 +1,5 @@
 import {
-	amber,
+	// amber,
 	cyan,
 	deepOrange,
 	deepPurple,
@@ -25,12 +25,11 @@ export const colors = [
 	yellow['600'],
 	green['500'],
 	cyan['300'],
-	amber['500'],
 	deepOrange['400'],
 	deepPurple['500'],
-	indigo['500'],
-	teal['500'],
 	lime['500'],
+	indigo['500'],
+	teal['600'],
 ];
 export const primary = indigo;
 export { grey };

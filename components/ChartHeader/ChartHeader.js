@@ -217,7 +217,6 @@ class ChartHeader extends Component {
 
 					.Select--multi .Select-value:nth-child(7) {
 						background-color: ${colors[6]};
-						color: ${grey['800']};
 					}
 
 					.Select--multi .Select-value:nth-child(8) {

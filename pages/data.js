@@ -25,6 +25,7 @@ class Data extends Component {
 		}),
 		dataSet: PropTypes.shape({
 			title: PropTypes.string,
+			abstract: PropTypes.string,
 		}),
 		selectedDimensions: PropTypes.array,
 		mainDimensionIndex: PropTypes.number,
@@ -64,20 +65,6 @@ class Data extends Component {
 		this.state = {};
 	}
 
-	// componentDidMount() {
-	// 	const { orgSlug, dataSetSlug, selectedDimensions, dimensions } = this.props;
-
-	// 	console.log(selectedDimensions, this.props);
-
-	// 	if (selectedDimensions === undefined) {
-	// 		const redirectUrl = `/${orgSlug.toLowerCase()}/${dataSetSlug}?selectedDimensions=${getDefaultDimensions(
-	// 			dimensions,
-	// 		)}&mainDimensionIndex=0`;
-
-	// 		window.location.replace(redirectUrl);
-	// 	}
-	// }
-
 	handleMenuClick = (event) => {
 		this.props.dispatch({
 			type: 'TOGGLE_MENU',
@@ -98,7 +85,12 @@ class Data extends Component {
 
 		// Assign consts.
 		const { dataSets, title: orgTitle, identifier: orgSlug } = organisation;
-		const { dimensions, sdmxData = {}, title: dataSetTitle } = dataSet;
+		const {
+			dimensions,
+			sdmxData = {},
+			title: dataSetTitle,
+			abstract,
+		} = dataSet;
 		const { data = null, link = null } = sdmxData;
 
 		// Build default selected dimensions if empty
@@ -124,6 +116,8 @@ class Data extends Component {
 			imageUrl = urlbox.buildUrl({
 				url: imageUrlForUrlbox,
 				wait_for: '.VictoryChart',
+				width: 600,
+				height: 314,
 			});
 		} else {
 			imageUrl = '/static/data-explorer-logo.png';
@@ -135,12 +129,13 @@ class Data extends Component {
 			<App
 				url={url}
 				isLoading={isLoading}
-				title={dataSetTitle}
+				title={`${dataSetTitle} - ${orgTitle}`}
+				description={abstract}
 				imageUrl={imageUrl}
 			>
 				{({ width, height }) => {
 					if (!process.browser) {
-						return 'loading...';
+						return null;
 					}
 
 					return (
@@ -192,6 +187,7 @@ const query = gql`
 		) {
 			slug
 			title
+			abstract
 			dimensions {
 				name
 				slug

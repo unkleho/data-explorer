@@ -14,7 +14,7 @@ import { buildChartData, getChartType } from '../lib/chartUtils';
 // import { getDefaultDimensions } from '../utils';
 import theme from '../styles/victoryTheme';
 import { getDefaultDimensions } from '../utils';
-import { colors } from '../styles/variables';
+import { colors, grey } from '../styles/variables';
 
 class ImagesPage extends Component {
 	static propTypes = {
@@ -127,12 +127,13 @@ class ImagesPage extends Component {
 											selectedMainDimensions.includes(dimension.slug),
 										)
 										.map((dimension, i) => {
+											// TODO: Colour array with background/foreground colours
 											return (
 												<div
 													className="images-page__main-dimension"
 													style={{
 														backgroundColor: colors[i],
-														color: 'white',
+														color: i === 3 ? grey[800] : 'white',
 													}}
 													key={dimension.slug}
 												>

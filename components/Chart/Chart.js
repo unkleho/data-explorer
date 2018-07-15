@@ -171,7 +171,7 @@ class Chart extends Component {
 			mainDimensionIndex,
 			selectedDimensions,
 			width,
-			height,
+			// height,
 			orgSlug,
 			orgTitle,
 		} = this.props;
@@ -205,7 +205,7 @@ class Chart extends Component {
 							victoryData={victoryData}
 							theme={theme}
 							width={width}
-							height={height}
+							// height={height}
 							chartType={chartType}
 							// colourMap={colourMap}
 						/>
