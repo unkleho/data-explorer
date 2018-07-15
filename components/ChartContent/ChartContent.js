@@ -66,9 +66,6 @@ class Content extends Component {
 		// Work out left padding based on number of digits in maxY
 		const paddingLeft = maxY ? Math.ceil(maxY).toString().length * 12 : 70;
 
-		console.log('ChartContent ----------------------');
-		console.log(victoryData);
-
 		return (
 			<div>
 				{victoryData && victoryData.length > 0 ? (

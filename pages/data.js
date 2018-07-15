@@ -1,4 +1,4 @@
-import { Component, Fragment } from 'react';
+import { Component } from 'react';
 import PropTypes from 'prop-types';
 import withRedux from 'next-redux-wrapper';
 import gql from 'graphql-tag';
@@ -13,23 +13,22 @@ import { getDefaultDimensions } from '../utils';
 
 class Data extends Component {
 	static propTypes = {
-		selectedDimensions: PropTypes.array,
 		organisation: PropTypes.shape({
 			title: PropTypes.string,
 		}),
-		link: PropTypes.array,
-		// query: PropTypes.shape({
-		// 	id: PropTypes.string,
-		// 	sourceId: PropTypes.string,
-		// }),
+		dataSet: PropTypes.shape({
+			title: PropTypes.string,
+		}),
+		selectedDimensions: PropTypes.array,
+		mainDimensionIndex: PropTypes.number,
 	};
 
 	static defaultProps = {
-		selectedDimensions: undefined,
 		organisation: {},
 		dataSet: {
 			dimensions: [],
 		},
+		selectedDimensions: undefined,
 		mainDimensionIndex: 0,
 	};
 
@@ -40,47 +39,22 @@ class Data extends Component {
 	}
 
 	static getInitialProps(props) {
-		// console.log(props.query, props.pathname);
+		const {
+			pathname,
+			query: { dataSetSlug, selectedDimensions, mainDimensionIndex },
+		} = props;
 
-		if (!process.browser) {
-			console.log('Server');
+		const orgSlug = pathname.substr(1).toUpperCase();
 
-			const {
-				pathname,
-				query: { dataSetSlug, selectedDimensions, mainDimensionIndex },
-			} = props;
-
-			// Work out orgSlug from URL
-			const orgSlug = pathname.substr(1).toUpperCase();
-
-			return {
-				orgSlug,
-				selectedDimensions:
-					selectedDimensions && JSON.parse(selectedDimensions),
-				dataSetSlug,
-				mainDimensionIndex:
-					typeof mainDimensionIndex === 'string'
-						? parseInt(mainDimensionIndex, 10)
-						: mainDimensionIndex,
-			};
-		} else {
-			console.log('Browser');
-
-			// OLD ---------------
-			const {
-				query: { selectedDimensions, mainDimensionIndex },
-			} = props;
-
-			return {
-				// Convert these url params from strings
-				selectedDimensions:
-					selectedDimensions && JSON.parse(selectedDimensions),
-				mainDimensionIndex:
-					typeof mainDimensionIndex === 'string'
-						? parseInt(mainDimensionIndex, 10)
-						: mainDimensionIndex,
-			};
-		}
+		return {
+			orgSlug,
+			dataSetSlug,
+			selectedDimensions: selectedDimensions && JSON.parse(selectedDimensions),
+			mainDimensionIndex:
+				typeof mainDimensionIndex === 'string'
+					? parseInt(mainDimensionIndex, 10)
+					: mainDimensionIndex,
+		};
 	}
 
 	handleMenuClick = (event) => {
@@ -106,9 +80,6 @@ class Data extends Component {
 		const { dimensions, sdmxData = {}, title: dataSetTitle } = dataSet;
 		const { data = null, link = null } = sdmxData;
 
-		console.log('Data -------------------------');
-		console.log(data);
-
 		// Build meta image url
 		// const metaImageUrl = !isLoading
 		// 	? `/images/${orgSlug.toLowerCase()}/${
@@ -127,24 +98,22 @@ class Data extends Component {
 			>
 				{({ width, height }) => {
 					return (
-						<Fragment>
-							<Chart
-								isLoading={isLoading}
-								orgSlug={orgSlug}
-								orgTitle={orgTitle}
-								dataSetSlug={dataSet.slug}
-								dataSetLink={link}
-								dataSets={dataSets}
-								selectedDimensions={
-									selectedDimensions || getDefaultDimensions(dimensions)
-								}
-								dimensions={dimensions}
-								mainDimensionIndex={mainDimensionIndex}
-								data={data}
-								width={width}
-								height={height}
-							/>
-						</Fragment>
+						<Chart
+							isLoading={isLoading}
+							orgSlug={orgSlug}
+							orgTitle={orgTitle}
+							dataSetSlug={dataSet.slug}
+							dataSetLink={link}
+							dataSets={dataSets}
+							selectedDimensions={
+								selectedDimensions || getDefaultDimensions(dimensions)
+							}
+							dimensions={dimensions}
+							mainDimensionIndex={mainDimensionIndex}
+							data={data}
+							width={width}
+							height={height}
+						/>
 					);
 				}}
 			</App>
@@ -206,9 +175,11 @@ export default withApollo(
 			// doesn't resolve on server (could be a bug with Apollo 2).
 			// To get around this, initialProps are returned via getInitialProps, but
 			// used on the server. Browser still uses props.url.
+			// Would prefer to access props.url for server and browser, leave it like this
+			// until issue is resolved.
 
 			if (!process.browser) {
-				console.log('Server');
+				// Server
 
 				const { orgSlug, dataSetSlug, selectedDimensions } = props.initialProps;
 
@@ -220,8 +191,8 @@ export default withApollo(
 					},
 				};
 			} else {
-				console.log('Browser');
-				// OLD --------------------------------------
+				// Browser
+
 				const {
 					url: {
 						pathname,
@@ -244,8 +215,6 @@ export default withApollo(
 			}
 		},
 		props: ({ data }) => {
-			console.log(data.dataSet);
-
 			return {
 				...data,
 			};

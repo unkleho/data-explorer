@@ -178,13 +178,11 @@ class Chart extends Component {
 
 		const { victoryData, chartType } = this.state;
 
-		console.log('Chart ---------------------------------');
-		console.log(victoryData);
-
 		// const colourMap = getDimensionColourMap(
 		// 	selectedMainDimensionValues,
 		// 	mainDimension && mainDimension.values,
 		// );
+
 		return (
 			<div className="chart">
 				<ChartHeader
