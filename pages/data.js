@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import withRedux from 'next-redux-wrapper';
 import gql from 'graphql-tag';
 import { graphql } from 'react-apollo';
+import Urlbox from 'urlbox'; // TODO: Try to conditionally load this
 
 import './data.css';
 import withApollo from '../lib/withApollo';
@@ -10,6 +11,12 @@ import App from '../components/App';
 import Chart from '../components/Chart';
 import { initStore } from '../store';
 import { getDefaultDimensions } from '../utils';
+
+let urlbox;
+
+if (!process.browser) {
+	urlbox = Urlbox(process.env.URLBOX_API_KEY, process.env.URLBOX_API_SECRET);
+}
 
 class Data extends Component {
 	static propTypes = {
@@ -80,21 +87,42 @@ class Data extends Component {
 		const { dimensions, sdmxData = {}, title: dataSetTitle } = dataSet;
 		const { data = null, link = null } = sdmxData;
 
-		// Build meta image url
-		// const metaImageUrl = !isLoading
-		// 	? `/images/${orgSlug.toLowerCase()}/${
-		// 			dataSet.slug
-		// 	  }?selectedDimensions=${JSON.stringify(
-		// 			selectedDimensions,
-		// 	  )}&mainDimension=${mainDimensionIndex}`
-		// 	: '/static/data-explorer-logo.png';
+		// Build default selected dimensions if empty
+		const selectedDimensionsNew =
+			selectedDimensions || getDefaultDimensions(dimensions);
+
+		// --------------------------------------------------------------
+		// Build imageUrl from urlbox
+		// --------------------------------------------------------------
+
+		let imageUrl;
+
+		if (!process.browser) {
+			// Build meta image url
+			const imageUrlForUrlbox = `${
+				process.env.BASE_URL
+			}/images/${orgSlug.toLowerCase()}/${
+				dataSet.slug
+			}?selectedDimensions=${JSON.stringify(
+				selectedDimensionsNew,
+			)}&mainDimension=${mainDimensionIndex}`;
+
+			imageUrl = urlbox.buildUrl({
+				url: imageUrlForUrlbox,
+				wait_for: '.VictoryChart',
+			});
+		} else {
+			imageUrl = '/static/data-explorer-logo.png';
+		}
+
+		// --------------------------------------------------------------
 
 		return (
 			<App
 				url={url}
 				isLoading={isLoading}
 				title={dataSetTitle}
-				// imageUrl={metaImageUrl}
+				imageUrl={imageUrl}
 			>
 				{({ width, height }) => {
 					return (
@@ -105,9 +133,7 @@ class Data extends Component {
 							dataSetSlug={dataSet.slug}
 							dataSetLink={link}
 							dataSets={dataSets}
-							selectedDimensions={
-								selectedDimensions || getDefaultDimensions(dimensions)
-							}
+							selectedDimensions={selectedDimensionsNew}
 							dimensions={dimensions}
 							mainDimensionIndex={mainDimensionIndex}
 							data={data}

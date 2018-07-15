@@ -13,6 +13,12 @@ import WithDimensions from '../WithDimensions';
 import HeadMetaFields from '../HeadMetaFields';
 import { initGA, logPageView, logEvent } from '../../lib/analytics';
 
+// let urlbox;
+
+// if (!process.browser) {
+// 	urlbox = Urlbox(process.env.URLBOX_API_KEY, process.env.URLBOX_API_SECRET);
+// }
+
 class App extends Component {
 	static propTypes = {
 		isLoading: PropTypes.bool,
@@ -48,21 +54,16 @@ class App extends Component {
 
 	render() {
 		const { isLoading, title, imageUrl } = this.props;
-
-		// let imageUrl;
+		// let metaImageUrl;
 
 		// if (!process.browser) {
-		// 	// const UrlBox = require('urlbox');
-		// 	const urlbox = Urlbox(
-		// 		process.env.URLBOX_API_KEY,
-		// 		process.env.URLBOX_API_SECRET,
-		// 	);
-		// 	imageUrl = urlbox.buildUrl({
-		// 		url: metaImageUrl,
+		// 	metaImageUrl = urlbox.buildUrl({
+		// 		url: imageUrl,
 		// 		wait_for: '.VictoryChart',
 		// 	});
+		// 	console.log(metaImageUrl);
 		// } else {
-		// 	imageUrl = '/static/data-explorer-logo.png';
+		// 	metaImageUrl = '/static/data-explorer-logo.png';
 		// }
 
 		return (
