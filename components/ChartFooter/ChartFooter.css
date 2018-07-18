@@ -1,6 +1,8 @@
 @import '../../styles/variables.css';
 
 .chart-footer {
+	display: flex;
+	flex-direction: column;
 	text-align: left;
 	font-size: var(--font-size-xs);
 	line-height: var(--line-height-xs);
@@ -10,6 +12,16 @@
 	}
 
 	@media (--screen-sm) {
+		flex-direction: row;
 		margin-top: var(--spacing-xxlg);
 	}
+}
+
+.chart-footer__content {
+	margin-right: auto;
+}
+
+.chart-footer__share-box {
+	margin-top: 1em;
+	font-size: var(--font-size-xlg);
 }

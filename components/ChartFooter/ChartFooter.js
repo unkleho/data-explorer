@@ -2,11 +2,13 @@ import { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import './ChartFooter.css';
+import ShareBox from '../ShareBox';
 
 class ChartFooter extends Component {
 	static propTypes = {
 		orgTitle: PropTypes.string,
 		orgSlug: PropTypes.string,
+		dataSetTitle: PropTypes.string,
 		dataSetSlug: PropTypes.string,
 		dataSetLink: PropTypes.string,
 		selectedDimensions: PropTypes.array,
@@ -16,6 +18,7 @@ class ChartFooter extends Component {
 		const {
 			orgTitle,
 			orgSlug,
+			dataSetTitle,
 			dataSetSlug,
 			dataSetLink,
 			selectedDimensions,
@@ -28,18 +31,22 @@ class ChartFooter extends Component {
 
 		return orgTitle ? (
 			<div className="chart-footer">
-				<p>
-					Source: {orgTitle} (<a href={dataSetLink} target="_blank">
-						URL
-					</a>)
-					<br /> Disclaimer: This website is still in beta, charts may not be
-					accurate.
-				</p>
-				<p>
-					<a href={csvUrl} className="button">
-						Download CSV
-					</a>
-				</p>
+				<div className="chart-footer__content">
+					<p>
+						Source: {orgTitle} (<a href={dataSetLink} target="_blank">
+							URL
+						</a>)
+						<br /> Disclaimer: This website is still in beta, charts may not be
+						accurate.
+					</p>
+					<p>
+						<a href={csvUrl} className="button">
+							Download CSV
+						</a>
+					</p>
+				</div>
+
+				<ShareBox className="chart-footer__share-box" title={dataSetTitle} />
 			</div>
 		) : null;
 	}

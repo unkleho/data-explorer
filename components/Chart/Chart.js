@@ -178,6 +178,9 @@ class Chart extends Component {
 
 		const { victoryData, chartType } = this.state;
 
+		const dataSet =
+			dataSets && dataSets.filter((dataSet) => dataSet.slug === dataSetSlug)[0];
+
 		// const colourMap = getDimensionColourMap(
 		// 	selectedMainDimensionValues,
 		// 	mainDimension && mainDimension.values,
@@ -214,6 +217,7 @@ class Chart extends Component {
 					<ChartFooter
 						orgTitle={orgTitle}
 						orgSlug={orgSlug}
+						dataSetTitle={dataSet && dataSet.title}
 						dataSetSlug={dataSetSlug}
 						dataSetLink={dataSetLink}
 						selectedDimensions={selectedDimensions}
