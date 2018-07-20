@@ -112,13 +112,13 @@ class ChartHeader extends Component {
 						>
 							{dataSet.title}{' '}
 							{this.state.showDataSetSelector ? (
-								<span className="button">
+								<button className="chart-header__change-button button">
 									Close <i className="material-icons">&#xE5D8;</i>
-								</span>
+								</button>
 							) : (
-								<span className="button">
+								<button className="chart-header__change-button button">
 									Change <i className="material-icons">&#xE5DB;</i>
-								</span>
+								</button>
 							)}
 						</h1>
 

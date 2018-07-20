@@ -24,7 +24,7 @@ class ChartFooter extends Component {
 			dataSetLink,
 			selectedDimensions,
 			mainDimensionIndex,
-			imageUrl,
+			// imageUrl,
 		} = this.props;
 
 		const csvUrl = `/download/?format=csv&orgSlug=${orgSlug}&dataSetSlug=${dataSetSlug}&selectedDimensions=${JSON.stringify(
