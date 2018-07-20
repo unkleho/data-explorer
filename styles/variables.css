@@ -82,7 +82,8 @@
 	--line-height-xs: 1.7;
 	--line-height-sm: 1.35;
 	--line-height-md: 1;
-	--line-height-lg: 1.55;
+	/* --line-height-lg: 1.55; */
+	--line-height-lg: 1.19;
 	--line-height-xxlg: 1.37;
 
 	/*

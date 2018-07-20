@@ -1,9 +1,16 @@
 @import '../../styles/variables.css';
 
+.share-box {
+	display: flex;
+	align-items: center;
+}
+
 .share-box__title {
 	display: block;
-	font-size: var(--font-size-xs);
 	margin-bottom: 1em;
+	padding-right: 1em;
+	border-right: 1px solid var(--colour-primary-50);
+	font-size: var(--font-size-xs);
 	color: var(--colour-primary-500);
 	text-transform: uppercase;
 
@@ -16,13 +23,8 @@
 	display: inline-block;
 	height: var(--spacing-xlg);
 	width: var(--spacing-xlg);
-	margin-right: 1em;
+	margin-left: var(--spacing-lg);
 	background-color: var(--colour-primary-500);
-
-	@media (--screen-sm) {
-		margin-right: 0;
-		margin-left: 1em;
-	}
 }
 
 .share-box__icon--twitter {

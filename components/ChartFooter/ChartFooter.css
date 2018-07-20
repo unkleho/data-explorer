@@ -22,6 +22,7 @@
 }
 
 .chart-footer__share-box {
+	height: 1em;
 	margin-top: 1em;
 	font-size: var(--font-size-xlg);
 }

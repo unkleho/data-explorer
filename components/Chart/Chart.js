@@ -22,6 +22,7 @@ class Chart extends Component {
 		dimensions: PropTypes.array,
 		selectedDimensions: PropTypes.array,
 		mainDimensionIndex: PropTypes.number,
+		imageUrl: PropTypes.string,
 		width: PropTypes.number,
 		height: PropTypes.number,
 	};
@@ -170,6 +171,7 @@ class Chart extends Component {
 			dimensions,
 			mainDimensionIndex,
 			selectedDimensions,
+			imageUrl,
 			width,
 			// height,
 			orgSlug,
@@ -222,6 +224,7 @@ class Chart extends Component {
 						dataSetLink={dataSetLink}
 						selectedDimensions={selectedDimensions}
 						mainDimensionIndex={mainDimensionIndex}
+						imageUrl={imageUrl}
 					/>
 				</div>
 			</div>

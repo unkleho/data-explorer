@@ -12,6 +12,7 @@ class ChartFooter extends Component {
 		dataSetSlug: PropTypes.string,
 		dataSetLink: PropTypes.string,
 		selectedDimensions: PropTypes.array,
+		imageUrl: PropTypes.string,
 	};
 
 	render() {
@@ -23,6 +24,7 @@ class ChartFooter extends Component {
 			dataSetLink,
 			selectedDimensions,
 			mainDimensionIndex,
+			imageUrl,
 		} = this.props;
 
 		const csvUrl = `/download/?format=csv&orgSlug=${orgSlug}&dataSetSlug=${dataSetSlug}&selectedDimensions=${JSON.stringify(
@@ -43,6 +45,13 @@ class ChartFooter extends Component {
 						<a href={csvUrl} className="button">
 							Download CSV
 						</a>
+
+						{/* Enable this when UrlBox is in GraphQL */}
+						{/* {imageUrl && (
+							<a href={imageUrl} className="button">
+								View chart image
+							</a>
+						)} */}
 					</p>
 				</div>
 

@@ -17,7 +17,7 @@
 }
 
 .chart-header__title {
-	margin-top: 0;
+	margin-top: 0.2em;
 	margin-bottom: 0;
 	cursor: pointer;
 	font-size: var(--font-size-lg);
@@ -31,13 +31,14 @@
 	}
 
 	@media (--screen-sm) {
+		margin-top: 0;
 		font-size: var(--font-size-xxlg);
 		line-height: var(--line-height-xxlg);
 	}
 
 	/* Change Button */
 	& span {
-		font-size: var(--font-size-xxxs);
+		font-size: var(--font-size-xxs);
 
 		@media (--screen-sm) {
 			font-size: var(--font-size-xxxxs);

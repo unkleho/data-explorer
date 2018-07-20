@@ -150,6 +150,7 @@ class Data extends Component {
 							dimensions={dimensions}
 							mainDimensionIndex={mainDimensionIndex}
 							data={data}
+							imageUrl={imageUrl}
 							width={width}
 							height={height}
 						/>

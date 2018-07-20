@@ -18,9 +18,14 @@ class ShareBox extends Component {
 	};
 
 	render() {
-		const { title, text, imageUrl, className } = this.props;
+		const {
+			title,
+			text,
+			// imageUrl,
+			className,
+		} = this.props;
 		const tweetText = encodeURIComponent(`${text} @dataexplorerio`);
-		const fbAppId = process.env.FB_APP_ID;
+		// const fbAppId = process.env.FB_APP_ID;
 		const url = encodeURIComponent(window.location.href);
 
 		if (title === undefined) {
@@ -29,11 +34,13 @@ class ShareBox extends Component {
 
 		// TODO: Use baseUrl variable
 		// const url = encodeURIComponent(`http://dxlab.sl.nsw.gov.au${pathname}`);
-		const fbLink = `https://www.facebook.com/dialog/share?app_id=${fbAppId}&href=${url}&redirect_uri=${url}&name=%${encodeURIComponent(
-			title,
-		)}&description=${encodeURIComponent(text)}${
-			imageUrl ? `&picture=${imageUrl}` : ''
-		}`;
+		// const fbLink = `https://www.facebook.com/dialog/share?href=${url}&redirect_uri=${url}&name=%${encodeURIComponent(
+		// 	title,
+		// )}&description=${encodeURIComponent(text)}${
+		// 	imageUrl ? `&picture=${imageUrl}` : ''
+		// }${fbAppId ? `&app_id=${fbAppId}` : ''}`;
+
+		const fbLink = `https://www.facebook.com/sharer/sharer.php?u=${url}`;
 
 		const twitterLink = `https://twitter.com/intent/tweet?text=${tweetText}&url=${url}`;
 
@@ -46,6 +53,7 @@ class ShareBox extends Component {
 						href={twitterLink}
 						aria-label="Share this post on Twitter"
 						target="_blank"
+						title="Share this post on Twitter"
 					>
 						<span
 							className="share-box__icon share-box__icon--twitter"
@@ -53,18 +61,17 @@ class ShareBox extends Component {
 						/>
 					</a>
 
-					{fbAppId && (
-						<a
-							href={fbLink}
-							aria-label="Share this post on Facebook"
-							target="_blank"
-						>
-							<span
-								className="share-box__icon share-box__icon--facebook"
-								aria-hidden="true"
-							/>
-						</a>
-					)}
+					<a
+						href={fbLink}
+						aria-label="Share this post on Facebook"
+						target="_blank"
+						title="Share this post on Facebook"
+					>
+						<span
+							className="share-box__icon share-box__icon--facebook"
+							aria-hidden="true"
+						/>
+					</a>
 				</div>
 			</div>
 		);
