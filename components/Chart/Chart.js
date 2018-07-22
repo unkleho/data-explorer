@@ -6,6 +6,7 @@ import { Router } from '../../routes';
 import ChartHeader from '../ChartHeader';
 import ChartContent from '../ChartContent';
 import ChartFooter from '../ChartFooter';
+import ChartEditorContainer from '../ChartEditorContainer';
 import { buildChartData, getChartType } from '../../lib/chartUtils';
 import { getDefaultDimensions } from '../../utils';
 import theme from '../../styles/victoryTheme';
@@ -226,6 +227,11 @@ class Chart extends Component {
 						mainDimensionIndex={mainDimensionIndex}
 						imageUrl={imageUrl}
 					/>
+
+					{/* Only show editor on staging or dev */}
+					{process.env.BASE_URL !== 'https://dataexplorer.io' && (
+						<ChartEditorContainer orgSlug={orgSlug} dataSetSlug={dataSetSlug} />
+					)}
 				</div>
 			</div>
 		);
