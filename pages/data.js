@@ -179,6 +179,14 @@ const query = gql`
 			dataSets {
 				slug
 				title
+				tags {
+					name
+					slug
+				}
+				category {
+					name
+					slug
+				}
 			}
 		}
 		dataSet(

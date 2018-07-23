@@ -54,7 +54,10 @@ class ChartSelectedDimensions extends Component {
 				<div className="chart-selected-dimensions__title" />
 				{dimensionsString}.
 				{onEditClick && (
-					<button className="material-icons" onClick={onEditClick}>
+					<button
+						className="chart-selected-dimensions__edit-button material-icons"
+						onClick={onEditClick}
+					>
 						edit
 					</button>
 				)}

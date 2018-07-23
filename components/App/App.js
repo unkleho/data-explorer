@@ -66,7 +66,8 @@ class App extends Component {
 					/>
 					<link
 						rel="stylesheet"
-						href="https://unpkg.com/react-select/dist/react-select.css"
+						// href="https://unpkg.com/react-select/dist/react-select.css"
+						href="https://unpkg.com/react-select@1.0.0/dist/react-select.css"
 					/>
 					<link
 						href="https://fonts.googleapis.com/icon?family=Material+Icons"

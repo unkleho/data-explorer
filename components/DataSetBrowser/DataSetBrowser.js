@@ -46,8 +46,22 @@ class DataSetBrowser extends Component {
 	};
 
 	render() {
-		const { dataSets: items, selectedSlug } = this.props;
-		// console.log(this.state);
+		const { dataSets, selectedSlug } = this.props;
+
+		const featuredDataSets = dataSets.filter(
+			(d) => d.tags.length > 0 && d.tags[0].slug === 'featured',
+		);
+
+		const otherDataSets = dataSets.filter(
+			(d) => d.tags.length === 0 || d.tags[0].slug !== 'featured',
+		);
+
+		const items = [
+			{ title: 'Featured', slug: 'featured', isLabel: true },
+			...featuredDataSets,
+			{ title: 'Other', slug: 'other', isLabel: true },
+			...otherDataSets,
+		];
 
 		return (
 			<div className="data-set-browser">
@@ -62,19 +76,19 @@ class DataSetBrowser extends Component {
 						(item) => item.slug === selectedSlug,
 					)}
 					itemToString={(item) => item && item.title}
-					onOuterClick={(state) => {
-						// console.log(state.getInputProps());
-					}}
+					// onOuterClick={(state) => {
+					// 	// console.log(state.getInputProps());
+					// }}
 				>
 					{({
 						getInputProps,
 						getItemProps,
-						getLabelProps,
+						// getLabelProps,
 						getMenuProps,
-						isOpen,
-						inputValue,
+						// isOpen,
+						// inputValue,
 						highlightedIndex,
-						selectedItem,
+						// selectedItem,
 					}) => {
 						// console.log(inputValue, isOpen);
 
@@ -101,37 +115,42 @@ class DataSetBrowser extends Component {
 													.toLowerCase()
 													.includes(this.state.inputValue.toLowerCase()),
 										)
-										.map((item, index) => (
-											<li
-												className={`data-set-browser__item ${
-													selectedSlug === item.slug
-														? `data-set-browser__item--selected`
-														: ''
-												} ${
-													highlightedIndex === index
-														? `data-set-browser__item--highlighted`
-														: ''
-												}`}
-												tabIndex={0}
-												ref={
-													selectedSlug === item.slug &&
-													((selectedItem) => (this.selectedItem = selectedItem))
-												}
-												{...getItemProps({
-													key: item.slug,
-													index,
-													item,
-													// style: {
-													// 	backgroundColor:
-													// 		highlightedIndex === index ? 'lightgray' : 'white',
-													// 	fontWeight:
-													// 		selectedSlug === item.slug ? 'bold' : 'normal',
-													// },
-												})}
-											>
-												{item.title}
-											</li>
-										))}
+										.map((item, index) => {
+											if (item.isLabel) {
+												return (
+													<li className="data-set-browser__item data-set-browser__item--label">
+														{item.title}
+													</li>
+												);
+											}
+
+											return (
+												<li
+													className={`data-set-browser__item ${
+														selectedSlug === item.slug
+															? `data-set-browser__item--selected`
+															: ''
+													} ${
+														highlightedIndex === index
+															? `data-set-browser__item--highlighted`
+															: ''
+													}`}
+													tabIndex={0}
+													ref={
+														selectedSlug === item.slug &&
+														((selectedItem) =>
+															(this.selectedItem = selectedItem))
+													}
+													{...getItemProps({
+														key: item.slug,
+														index,
+														item,
+													})}
+												>
+													{item.title}
+												</li>
+											);
+										})}
 								</ul>
 							</div>
 						);

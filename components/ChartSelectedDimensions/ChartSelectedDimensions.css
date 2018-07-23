@@ -6,9 +6,11 @@
 	font-weight: 500;
 	font-size: var(--font-size-sm);
 	line-height: 1.35;
+	color: var(--colour-primary);
 
 	& button {
 		margin-left: var(--spacing-sm);
+		padding: var(--spacing-xxxxs);
 		color: var(--colour-primary);
 		background-color: var(--colour-primary-50);
 		border-radius: var(--border-radius);

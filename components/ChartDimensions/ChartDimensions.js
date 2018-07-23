@@ -33,7 +33,10 @@ class ChartDimensions extends Component {
 			<div className="chart-dimensions">
 				<header className="chart-dimensions__header">
 					<h1>Dimensions</h1>{' '}
-					<button className="button material-icons" onClick={onCloseClick}>
+					<button
+						className="chart-dimensions__close-button button material-icons"
+						onClick={onCloseClick}
+					>
 						close
 					</button>
 				</header>

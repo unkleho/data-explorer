@@ -84,7 +84,8 @@
 	--line-height-md: 1;
 	/* --line-height-lg: 1.55; */
 	--line-height-lg: 1.19;
-	--line-height-xxlg: 1.37;
+	/* --line-height-xxlg: 1.37; */
+	--line-height-xxlg: 1.14;
 
 	/*
    * Spacing
