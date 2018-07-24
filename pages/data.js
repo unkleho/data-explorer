@@ -111,7 +111,7 @@ class Data extends Component {
 				dataSet.slug
 			}?selectedDimensions=${JSON.stringify(
 				selectedDimensionsNew,
-			)}&mainDimension=${mainDimensionIndex}`;
+			)}&mainDimensionIndex=${mainDimensionIndex}`;
 
 			imageUrl = urlbox.buildUrl({
 				url: imageUrlForUrlbox,
