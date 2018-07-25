@@ -127,7 +127,7 @@ class ChartEditorContainer extends Component {
 												`}
 											>
 												{(removeDataSet, { data }) => {
-													console.log(data);
+													// console.log(data);
 
 													return (
 														<form

@@ -66,7 +66,6 @@ class App extends Component {
 					/>
 					<link
 						rel="stylesheet"
-						// href="https://unpkg.com/react-select/dist/react-select.css"
 						href="https://unpkg.com/react-select@1.0.0/dist/react-select.css"
 					/>
 					<link
@@ -78,7 +77,7 @@ class App extends Component {
 						description={description}
 						// imageUrl={metaImageUrl}
 						imageUrl={imageUrl}
-						imageAlt="Data Explorer Logo"
+						imageAlt="Data Explorer"
 					/>
 				</Head>
 

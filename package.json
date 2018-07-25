@@ -56,7 +56,6 @@
 		"redux-thunk": "^2.2.0",
 		"styled-jsx-postcss": "^0.2.0",
 		"url": "^0.11.0",
-		"urlbox": "^1.3.3",
 		"victory": "^0.25.6"
 	},
 	"cacheDirectories": [

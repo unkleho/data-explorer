@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import withRedux from 'next-redux-wrapper';
 import gql from 'graphql-tag';
 import { graphql } from 'react-apollo';
-import Urlbox from 'urlbox'; // TODO: Try to conditionally load this
+// import Urlbox from 'urlbox'; // TODO: Try to conditionally load this
 
 import './data.css';
 import withApollo from '../lib/withApollo';
@@ -12,11 +12,11 @@ import Chart from '../components/Chart';
 import { initStore } from '../store';
 import { getDefaultDimensions } from '../utils';
 
-let urlbox;
+// let urlbox;
 
-if (!process.browser) {
-	urlbox = Urlbox(process.env.URLBOX_API_KEY, process.env.URLBOX_API_SECRET);
-}
+// if (!process.browser) {`
+// 	urlbox = Urlbox(process.env.URLBOX_API_KEY, process.env.URLBOX_API_SECRET);
+// }
 
 class Data extends Component {
 	static propTypes = {
@@ -84,12 +84,17 @@ class Data extends Component {
 		} = this.props;
 
 		// Assign consts.
-		const { dataSets, title: orgTitle, identifier: orgSlug } = organisation;
+		const {
+			dataSets,
+			title: orgTitle = '',
+			identifier: orgSlug,
+		} = organisation;
 		const {
 			dimensions,
 			sdmxData = {},
-			title: dataSetTitle,
+			title: dataSetTitle = '',
 			abstract,
+			imageUrl,
 		} = dataSet;
 		const { data = null, link = null } = sdmxData;
 
@@ -97,31 +102,31 @@ class Data extends Component {
 		const selectedDimensionsNew =
 			selectedDimensions || getDefaultDimensions(dimensions);
 
-		// --------------------------------------------------------------
-		// Build imageUrl from urlbox
-		// --------------------------------------------------------------
+		// // --------------------------------------------------------------
+		// // Build imageUrl from urlbox
+		// // --------------------------------------------------------------
 
-		let imageUrl;
+		// let imageUrl;
 
-		if (!process.browser) {
-			// Build meta image url
-			const imageUrlForUrlbox = `${
-				process.env.BASE_URL
-			}/images/${orgSlug.toLowerCase()}/${
-				dataSet.slug
-			}?selectedDimensions=${JSON.stringify(
-				selectedDimensionsNew,
-			)}&mainDimensionIndex=${mainDimensionIndex}`;
+		// if (!process.browser) {
+		// 	// Build meta image url
+		// 	const imageUrlForUrlbox = `${
+		// 		process.env.BASE_URL
+		// 	}/images/${orgSlug.toLowerCase()}/${
+		// 		dataSet.slug
+		// 	}?selectedDimensions=${JSON.stringify(
+		// 		selectedDimensionsNew,
+		// 	)}&mainDimensionIndex=${mainDimensionIndex}`;
 
-			imageUrl = urlbox.buildUrl({
-				url: imageUrlForUrlbox,
-				wait_for: '.VictoryChart',
-				width: 600,
-				height: 314,
-			});
-		} else {
-			imageUrl = '/static/data-explorer-logo.png';
-		}
+		// 	imageUrl = urlbox.buildUrl({
+		// 		url: imageUrlForUrlbox,
+		// 		wait_for: '.VictoryChart',
+		// 		width: 600,
+		// 		height: 314,
+		// 	});
+		// } else {
+		// 	imageUrl = '/static/data-explorer-logo.png';
+		// }
 
 		// --------------------------------------------------------------
 
@@ -129,11 +134,13 @@ class Data extends Component {
 			<App
 				url={url}
 				isLoading={isLoading}
-				title={`${dataSetTitle} - ${orgTitle}`}
+				title={!isLoading ? `${dataSetTitle} - ${orgTitle}` : 'Loading...'}
 				description={abstract}
 				imageUrl={imageUrl}
 			>
 				{({ width, height }) => {
+					// Don't server-side render Chart, D3 wigs out on SSR.
+					// TODO: Move this to Chart?
 					if (!process.browser) {
 						return null;
 					}
@@ -197,6 +204,8 @@ const query = gql`
 			slug
 			title
 			abstract
+			selectedDimensions
+			imageUrl
 			dimensions {
 				name
 				slug
