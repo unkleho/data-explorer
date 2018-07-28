@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import withRedux from 'next-redux-wrapper';
 import gql from 'graphql-tag';
 import { graphql } from 'react-apollo';
-// import Urlbox from 'urlbox'; // TODO: Try to conditionally load this
 
 import './data.css';
 import withApollo from '../lib/withApollo';
@@ -11,12 +10,6 @@ import App from '../components/App';
 import Chart from '../components/Chart';
 import { initStore } from '../store';
 import { getDefaultDimensions } from '../utils';
-
-// let urlbox;
-
-// if (!process.browser) {`
-// 	urlbox = Urlbox(process.env.URLBOX_API_KEY, process.env.URLBOX_API_SECRET);
-// }
 
 class Data extends Component {
 	static propTypes = {
@@ -101,34 +94,6 @@ class Data extends Component {
 		// Build default selected dimensions if empty
 		const selectedDimensionsNew =
 			selectedDimensions || getDefaultDimensions(dimensions);
-
-		// // --------------------------------------------------------------
-		// // Build imageUrl from urlbox
-		// // --------------------------------------------------------------
-
-		// let imageUrl;
-
-		// if (!process.browser) {
-		// 	// Build meta image url
-		// 	const imageUrlForUrlbox = `${
-		// 		process.env.BASE_URL
-		// 	}/images/${orgSlug.toLowerCase()}/${
-		// 		dataSet.slug
-		// 	}?selectedDimensions=${JSON.stringify(
-		// 		selectedDimensionsNew,
-		// 	)}&mainDimensionIndex=${mainDimensionIndex}`;
-
-		// 	imageUrl = urlbox.buildUrl({
-		// 		url: imageUrlForUrlbox,
-		// 		wait_for: '.VictoryChart',
-		// 		width: 600,
-		// 		height: 314,
-		// 	});
-		// } else {
-		// 	imageUrl = '/static/data-explorer-logo.png';
-		// }
-
-		// --------------------------------------------------------------
 
 		return (
 			<App
