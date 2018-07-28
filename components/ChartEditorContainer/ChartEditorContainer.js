@@ -42,11 +42,11 @@ class ChartEditorContainer extends Component {
 					}}
 				>
 					{({ data, loading, error }) => {
-						if (loading || error) {
+						const { dataSet } = data;
+
+						if (loading || error || !dataSet) {
 							return null;
 						}
-
-						const { dataSet } = data;
 
 						return (
 							<Fragment>

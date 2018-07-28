@@ -203,7 +203,6 @@ class Chart extends Component {
 					onMainDimensionSelect={this.handleMainDimensionSelect}
 					width={width}
 				/>
-
 				<div className="content container container--lg">
 					{process.browser && (
 						<ChartContent

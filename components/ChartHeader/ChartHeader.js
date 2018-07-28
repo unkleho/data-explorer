@@ -188,7 +188,6 @@ class ChartHeader extends Component {
 						/>
 					</div>
 				</div>
-
 				<style jsx global>{`
 					.Select--multi .Select-value:nth-child(1) {
 						background-color: ${colors[0]};
