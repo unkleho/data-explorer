@@ -6,6 +6,7 @@ import App from '../components/App';
 import Page from '../components/Page';
 
 import { initStore } from '../store';
+import npmPackage from '../package.json';
 // import withApollo from '../lib/withApollo';
 
 class AboutPage extends Component {
@@ -107,6 +108,7 @@ class AboutPage extends Component {
 							Our whole stack is almost all open source. We plan on releasing
 							parts of the Data Explorer platform as open source too.
 						</p>
+						<p>{npmPackage.version}</p>
 					</Page>
 				)}
 			</App>
