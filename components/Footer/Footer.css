@@ -3,7 +3,7 @@
 .footer {
 	display: flex;
 	flex-direction: column;
-	margin-top: 2em;
+	margin-top: auto;
 	padding: var(--spacing-xs) var(--spacing-lg) var(--spacing-xxxxs);
 	background-color: var(--colour-primary-50);
 	text-align: left;

@@ -193,7 +193,7 @@ class ChartEditorContainer extends Component {
 												`}
 											>
 												{(addDataSetCategory, { data }) => {
-													console.log(data);
+													// console.log(data);
 
 													return (
 														<form

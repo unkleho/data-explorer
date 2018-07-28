@@ -3,6 +3,7 @@
 .chart-footer {
 	display: flex;
 	flex-direction: column;
+	margin-bottom: 2em;
 	text-align: left;
 	font-size: var(--font-size-xs);
 	line-height: var(--line-height-xs);

@@ -8,6 +8,7 @@ import './data.css';
 import withApollo from '../lib/withApollo';
 import App from '../components/App';
 import Chart from '../components/Chart';
+import ChartLoader from '../components/ChartLoader';
 import { initStore } from '../store';
 import { getDefaultDimensions } from '../utils';
 
@@ -108,6 +109,10 @@ class Data extends Component {
 					// TODO: Move this to Chart?
 					if (!process.browser) {
 						return null;
+					}
+
+					if (isLoading && !dataSet.title) {
+						return <ChartLoader />;
 					}
 
 					return (
