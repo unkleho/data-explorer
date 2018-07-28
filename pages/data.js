@@ -179,6 +179,7 @@ const query = gql`
 		$orgSlug: String!
 		$selectedDimensions: [[String!]!]
 		$dataSetSlug: String!
+		$mainDimensionIndex: Int!
 	) {
 		organisation(identifier: $orgSlug) {
 			identifier
@@ -200,6 +201,7 @@ const query = gql`
 			slug: $dataSetSlug
 			orgSlug: $orgSlug
 			selectedDimensions: $selectedDimensions
+			mainDimensionIndex: $mainDimensionIndex
 		) {
 			slug
 			title
@@ -239,13 +241,19 @@ export default withApollo(
 			if (!process.browser) {
 				// Server
 
-				const { orgSlug, dataSetSlug, selectedDimensions } = props.initialProps;
+				const {
+					orgSlug,
+					dataSetSlug,
+					selectedDimensions,
+					mainDimensionIndex,
+				} = props.initialProps;
 
 				return {
 					variables: {
 						orgSlug,
 						dataSetSlug,
 						selectedDimensions,
+						mainDimensionIndex: mainDimensionIndex || 0,
 					},
 				};
 			} else {
@@ -254,7 +262,7 @@ export default withApollo(
 				const {
 					url: {
 						pathname,
-						query: { dataSetSlug, selectedDimensions },
+						query: { dataSetSlug, selectedDimensions, mainDimensionIndex },
 					},
 				} = props;
 
@@ -268,6 +276,7 @@ export default withApollo(
 							? JSON.parse(selectedDimensions)
 							: [],
 						dataSetSlug,
+						mainDimensionIndex: mainDimensionIndex || 0,
 					},
 				};
 			}

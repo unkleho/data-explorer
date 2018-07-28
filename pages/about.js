@@ -19,8 +19,8 @@ class AboutPage extends Component {
 							public data.
 						</blockquote>
 						<p>
-							Using <strong>Data Explorer</strong>, journalists and researchers
-							can explore vast datasets from the{' '}
+							By using <strong>Data Explorer</strong>, journalists and
+							researchers can explore vast datasets from the{' '}
 							<a href="http://www.abs.gov.au/">
 								Australian Bureau of Statistics
 							</a>, <a href="http://uis.unesco.org/">UNESCO</a>,{' '}
@@ -43,8 +43,8 @@ class AboutPage extends Component {
 							This project is lead by{' '}
 							<a href="https://twitter.com/unkleho">Kaho Cheung</a>, a developer
 							with a deep interest in data and interaction design. He works
-							part-time on Data Explorer while working his day job as a
-							developer for the State Library of NSW’s{' '}
+							part-time on Data Explorer while working his day job as the Tech
+							Lead for the State Library of NSW’s{' '}
 							<a href="https://dxlab.sl.nsw.gov.au">DX Lab</a> innovation team.
 						</p>
 						<blockquote>
