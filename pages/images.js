@@ -41,7 +41,9 @@ class ImagesPage extends Component {
 	constructor() {
 		super();
 
-		this.state = {};
+		this.state = {
+			titleHeight: 0,
+		};
 	}
 
 	static getInitialProps(props) {
@@ -61,7 +63,18 @@ class ImagesPage extends Component {
 		};
 	}
 
+	componentDidUpdate(prevProps) {
+		if (this.props.dataSet.title !== prevProps.dataSet.title) {
+			console.log(this.title.clientHeight);
+			this.setState({
+				titleHeight: this.title.clientHeight,
+			});
+		}
+	}
+
 	render() {
+		const { titleHeight } = this.state;
+
 		const {
 			// Prisma
 			loading: isLoading,
@@ -108,7 +121,14 @@ class ImagesPage extends Component {
 
 					return (
 						<div className="images-page">
-							<h1 className="images-page__title">{dataSet.title}</h1>
+							<h1
+								className="images-page__title"
+								ref={(element) => {
+									this.title = element;
+								}}
+							>
+								{dataSet.title}
+							</h1>
 
 							<Logo className="images-page__logo" />
 
@@ -147,7 +167,7 @@ class ImagesPage extends Component {
 								victoryData={victoryData}
 								chartType={chartType}
 								width={width}
-								height={height - 137}
+								height={height - titleHeight - 110}
 								theme={theme}
 							/>
 

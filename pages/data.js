@@ -237,12 +237,8 @@ export default withApollo(
 					},
 				} = props;
 
-				console.log(pathname);
-
 				// Work out orgSlug from URL
 				const orgSlug = pathname.substr(1).toUpperCase();
-
-				console.log(orgSlug);
 
 				return {
 					variables: {
@@ -257,8 +253,6 @@ export default withApollo(
 			}
 		},
 		props: ({ data }) => {
-			console.log(data);
-
 			return {
 				...data,
 			};
