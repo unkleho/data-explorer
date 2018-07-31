@@ -224,7 +224,10 @@ class Chart extends Component {
 						dataSetLink={dataSetLink}
 						selectedDimensions={selectedDimensions}
 						mainDimensionIndex={mainDimensionIndex}
-						imageUrl={imageUrl}
+						imageUrl={imageUrl.replace(
+							'https://api.urlbox.io/v1/pbKNPR3RN4IvC88i',
+							`${process.env.BASE_URL}/chart-images`,
+						)}
 					/>
 
 					{/* Only show editor on staging or dev */}

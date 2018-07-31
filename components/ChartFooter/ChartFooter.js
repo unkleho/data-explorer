@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 import './ChartFooter.css';
 import ShareBox from '../ShareBox';
+import Chart from '../Chart/Chart';
 
 class ChartFooter extends Component {
 	static propTypes = {
@@ -24,7 +25,7 @@ class ChartFooter extends Component {
 			dataSetLink,
 			selectedDimensions,
 			mainDimensionIndex,
-			// imageUrl,
+			imageUrl,
 		} = this.props;
 
 		const csvUrl = `/download/?format=csv&orgSlug=${orgSlug}&dataSetSlug=${dataSetSlug}&selectedDimensions=${JSON.stringify(
@@ -46,12 +47,18 @@ class ChartFooter extends Component {
 							Download CSV
 						</a>
 
-						{/* Enable this when UrlBox is in GraphQL */}
-						{/* {imageUrl && (
-							<a href={imageUrl} className="button">
-								View chart image
+						{imageUrl && (
+							<a
+								href={imageUrl}
+								className="button"
+								download="dataexplorer-chart.png"
+								style={{
+									marginLeft: '1em',
+								}}
+							>
+								Download Chart Image
 							</a>
-						)} */}
+						)}
 					</p>
 				</div>
 
