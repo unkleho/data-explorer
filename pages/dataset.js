@@ -1,5 +1,6 @@
 import { Component } from 'react';
-import { gql, graphql } from 'react-apollo';
+import { graphql } from 'react-apollo';
+import gql from 'graphql-tag';
 
 import withApollo from '../lib/withApollo';
 
@@ -13,7 +14,11 @@ class DatasetPage extends Component {
 					dataSets[0].dimensions.map((dimension) => (
 						<li>
 							{dimension.name}
-							<ul>{dimension.values.map((value) => <li>{value.name}</li>)}</ul>
+							<ul>
+								{dimension.values.map((value) => (
+									<li>{value.name}</li>
+								))}
+							</ul>
 						</li>
 					))}
 			</div>

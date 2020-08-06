@@ -32,12 +32,12 @@ module.exports = withCSS({
 			// Commented for now
 			// config.plugins.push(new FlowBabelWebpackPlugin());
 
-			customConfig.module.rules.push({
-				enforce: 'pre',
-				test: /\.js$/,
-				exclude: /node_modules/,
-				loader: 'eslint-loader',
-			});
+			// customConfig.module.rules.push({
+			// 	enforce: 'pre',
+			// 	test: /\.js$/,
+			// 	exclude: /node_modules/,
+			// 	loader: 'eslint-loader',
+			// });
 		}
 
 		return customConfig;

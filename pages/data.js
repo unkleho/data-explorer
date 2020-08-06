@@ -40,7 +40,13 @@ class Data extends Component {
 			query: { dataSetSlug, selectedDimensions, mainDimensionIndex },
 		} = props;
 
-		const orgSlug = pathname.substr(1).toUpperCase();
+		// console.log(pathname);
+
+		// const orgSlug = pathname.substr(1).toUpperCase();
+		const orgSlug = pathname
+			.substr(1)
+			.replace('/[dataSetSlug]', '')
+			.toUpperCase();
 
 		return {
 			orgSlug,
@@ -238,7 +244,11 @@ export default withApollo(
 				} = props;
 
 				// Work out orgSlug from URL
-				const orgSlug = pathname.substr(1).toUpperCase();
+				// const orgSlug = pathname.substr(1).toUpperCase();
+				const orgSlug = pathname
+					.substr(1)
+					.replace('/[dataSetSlug]', '')
+					.toUpperCase();
 
 				return {
 					variables: {

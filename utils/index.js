@@ -20,64 +20,64 @@
 //   }[]
 // }
 
-type SdmxData = {
-	headers: {
-		id: string,
-		link: {
-			href: string,
-			rel: string,
-		}[],
-		prepared: string, // Date
-		sender: {
-			id: string,
-			name: string,
-		},
-		test: boolean,
-	},
-	dataSets: {
-		action: string,
-		observations: any, // Hash Map { 0:0:0:0: [1, 0, null] }
-	}[],
-	structure: {
-		annotations: {
-			text: string,
-			title: string,
-			uri: string,
-		}[],
-		attributes: {
-			dataSet: Array<any>, // Empty
-			observation: {
-				id: string,
-				name: string,
-				values: {
-					id: string,
-					name: string,
-				}[],
-			}[],
-			series: Array<any>, // Empty
-			description: string,
-		},
-		dimensions: {
-			observation: {
-				id: string,
-				keyPosition: 0,
-				name: string,
-				values: {
-					// Use this for fixing line chart colour bug!
-					id: string,
-					name: string,
-				}[],
-			}[],
-		},
-		links: {
-			href: string,
-			rel: string,
-		},
-		name: string,
-	},
-};
+// type SdmxData = {
+// 	headers: {
+// 		id: string,
+// 		link: {
+// 			href: string,
+// 			rel: string,
+// 		}[],
+// 		prepared: string, // Date
+// 		sender: {
+// 			id: string,
+// 			name: string,
+// 		},
+// 		test: boolean,
+// 	},
+// 	dataSets: {
+// 		action: string,
+// 		observations: any, // Hash Map { 0:0:0:0: [1, 0, null] }
+// 	}[],
+// 	structure: {
+// 		annotations: {
+// 			text: string,
+// 			title: string,
+// 			uri: string,
+// 		}[],
+// 		attributes: {
+// 			dataSet: Array<any>, // Empty
+// 			observation: {
+// 				id: string,
+// 				name: string,
+// 				values: {
+// 					id: string,
+// 					name: string,
+// 				}[],
+// 			}[],
+// 			series: Array<any>, // Empty
+// 			description: string,
+// 		},
+// 		dimensions: {
+// 			observation: {
+// 				id: string,
+// 				keyPosition: 0,
+// 				name: string,
+// 				values: {
+// 					// Use this for fixing line chart colour bug!
+// 					id: string,
+// 					name: string,
+// 				}[],
+// 			}[],
+// 		},
+// 		links: {
+// 			href: string,
+// 			rel: string,
+// 		},
+// 		name: string,
+// 	},
+// };
 
-export function buildTableData(data: SdmxData) {
+export function buildTableData(data) {
 	// console.log(data.dataSets);
 }
 
@@ -141,7 +141,7 @@ export function buildPieChartData(observations, dimensionsConfig) {
 	});
 }
 
-export function getDimensionColourMap(selectedDimension, values: Array<any>) {
+export function getDimensionColourMap(selectedDimension, values) {
 	const result = [];
 
 	values &&
@@ -159,7 +159,7 @@ export function getDimensionColourMap(selectedDimension, values: Array<any>) {
 	return result;
 }
 
-export function toggleArrayItem(a: Array<any>, v: any) {
+export function toggleArrayItem(a, v) {
 	var i = a.indexOf(v);
 	if (i === -1) {
 		a.push(v);
